@@ -15,24 +15,30 @@ namespace PostMainland
         private Dictionary<ProtocalId, IMessageHandler> _messageHandlers = new Dictionary<ProtocalId, IMessageHandler>();
         private Dictionary<ProtocalId, IRequestHandler> _requestHandlers = new Dictionary<ProtocalId, IRequestHandler>();
 
-        public ProtocalHandlerCollector LoadAssemblies(Type pivotClass)
+        public ProtocalHandlerCollector LoadHandlers(Type pivotClass)
         {
             _assembly = pivotClass.Assembly;
             foreach (var type in _assembly.GetTypes())
             {
-                if (type.IsAssignableFrom(typeof(IRequestHandler)))
+
+                if(type.IsAbstract || type.IsInterface)
                 {
-                    IRequestHandler handler = Activator.CreateInstance(type) as IRequestHandler;
-                    ProtocalId id = handler.GetRequestId();
-                    _requestHandlers.Add(id, handler);
-                    _protocalHandlerTypes.Add(id, type);
+                    continue;
                 }
-                else if (type.IsAssignableFrom(typeof(IMessageHandler)))
+                ProtocalHandlerAttribute protocalHandlerAttribute = type.GetCustomAttribute<ProtocalHandlerAttribute>();
+                if (protocalHandlerAttribute != null)
                 {
-                    IMessageHandler handler = Activator.CreateInstance(type) as IMessageHandler;
-                    ProtocalId id = handler.GetMessageId();
-                    _messageHandlers.Add(id, handler);
+                    IProtocalHandler handler = Activator.CreateInstance(type) as IProtocalHandler;
+                    ProtocalId id = handler.GetProtocalId();
                     _protocalHandlerTypes.Add(id, type);
+                    if (handler is IRequestHandler)
+                    {
+                        _requestHandlers.Add(id, handler as IRequestHandler);
+                    }
+                    if (handler is IMessageHandler)
+                    {
+                        _messageHandlers.Add(id, handler as IMessageHandler);
+                    }
                 }
             }
             return this;

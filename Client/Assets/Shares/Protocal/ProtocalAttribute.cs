@@ -4,6 +4,7 @@ namespace PostMainland
 {
     public enum ProtocalType : byte
     {
+        InValid = 0,
         Message = 1,
         Request = 2,
         Response = 3

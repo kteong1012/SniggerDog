@@ -11,7 +11,7 @@ namespace PostMainland
         void Awake()
         {
             AssemblyCollection.Ins.RegisterCollector(ProtocalCollector.Ins);
-            AssemblyCollection.Ins.RegisterCollector(ProtocalHandlerCollector.Ins.LoadAssemblies(this.GetType()));
+            AssemblyCollection.Ins.RegisterCollector(ProtocalHandlerCollector.Ins.LoadHandlers(this.GetType()));
         }
 
         public async void TestConnect()
@@ -19,9 +19,10 @@ namespace PostMainland
             await Network.Ins.Connect(ServerConfig.Host, ServerConfig.Port);
         }
 
-        public void TestSendMessage()
+        public async void TestSendMessage()
         {
-
+            SC_LoginAck ack = await Network.Ins.RequestAsync<SC_LoginAck>(new CS_Login() { Account = "ук╨е", Password = "password" });
+            Debug.Log(ack.Name);
         }
     }
 

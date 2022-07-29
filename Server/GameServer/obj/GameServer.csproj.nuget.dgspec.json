@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj": {}
+    "E:\\Projects\\LTS\\AntiMage\\Server\\GameServer\\GameServer.csproj": {}
   },
   "projects": {
-    "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj": {
+    "E:\\Projects\\LTS\\AntiMage\\Server\\GameServer\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj",
+        "projectUniqueName": "E:\\Projects\\LTS\\AntiMage\\Server\\GameServer\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj",
-        "packagesPath": "C:\\Users\\lintianbao.carson\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\AntiMage\\Server\\GameServer\\obj\\",
+        "projectPath": "E:\\Projects\\LTS\\AntiMage\\Server\\GameServer\\GameServer.csproj",
+        "packagesPath": "C:\\Users\\kteon\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\LTS\\AntiMage\\Server\\GameServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lintianbao.carson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kteon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,10 +60,6 @@
               "target": "Package",
               "version": "[0.7.2, )"
             },
-            "Nino.Serialization": {
-              "target": "Package",
-              "version": "[1.0.12, )"
-            },
             "UniTask": {
               "target": "Package",
               "version": "[2.3.1, )"
@@ -84,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

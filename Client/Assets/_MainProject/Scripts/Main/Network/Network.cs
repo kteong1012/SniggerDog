@@ -21,10 +21,10 @@ namespace PostMainland
         private TcpClient _tcpClient;
         private NetworkStream _stream;
         private byte[] _buffer = new byte[8192];
-        List<(ProtocalId id, UniTask<IResponse>)> _waittingTasks = new List<(ProtocalId id, UniTask<IResponse>)>();
+        Dictionary<long, UniTaskCompletionSource<IResponse>> _waittingRequests = new Dictionary<long, UniTaskCompletionSource<IResponse>>();
 
         #region Initialize
-        protected override async void Initialize()
+        protected override void Initialize()
         {
             base.Initialize();
             ReceiveLoop().Forget();
@@ -33,19 +33,32 @@ namespace PostMainland
         {
             while (true)
             {
-                if (_tcpClient == null || !_tcpClient.Connected)
+                if (_stream == null || _tcpClient == null || !_tcpClient.Connected)
                 {
                     await UniTask.NextFrame();
+                    continue;
                 }
                 int len = await _stream.ReadAsync(_buffer);
                 if (len == 0)
                 {
-                    await UniTask.NextFrame();
+                    //Do something if need
                 }
                 else
                 {
-                    await UniTask.NextFrame();
+                    void Reply(byte[] resp)
+                    {
+                        SendAsync(resp).Forget();
+                    }
+                    void ResponseCallback(long msgId, IResponse response)
+                    {
+                        if (_waittingRequests.TryGetValue(msgId, out var source))
+                        {
+                            source.TrySetResult(response);
+                        }
+                    }
+                    ProtocalHelper.Handle(_buffer.AsSpan().Slice(0, len).ToArray(), Reply, ResponseCallback);
                 }
+                await UniTask.NextFrame();
             }
         }
         #endregion
@@ -61,40 +74,29 @@ namespace PostMainland
             await _tcpClient.ConnectAsync(host, port);
             _stream = _tcpClient.GetStream();
         }
-        public async UniTask Send(IMessage message)
+        public async UniTask SendMessage(IMessage message)
         {
-            await SendMessageAsync(ProtocalType.Message, message);
+            byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
+            await SendAsync(buffer);
         }
-        public async UniTask<TRes> Request<TReq, TRes>(TReq message) where TReq : IRequest
+        public async UniTask<TRes> RequestAsync<TRes>(IRequest request) where TRes : class, IResponse
         {
-            await SendMessageAsync(ProtocalType.Request, message);
+            long msgId = DateTime.UtcNow.Ticks;//ÁÙÊ±
+            byte[] buffer = ProtocalHelper.SerializeProtocal(request, msgId);
+            await SendAsync(buffer);
+            UniTaskCompletionSource<IResponse> source = new UniTaskCompletionSource<IResponse>();
+            _waittingRequests.Add(msgId, source);
+            await source.Task;
+            _waittingRequests.Remove(msgId);
+            return source.GetResult(0) as TRes;
         }
         #endregion
 
         #region Logics
 
-        private async UniTask SendMessageAsync(ProtocalType pType, IProtocal protocal)
+        private async UniTask SendAsync(byte[] bytes)
         {
-            ProtocalId id = GetProtocalId(protocal);
-            if (id == ProtocalId.InvalidId)
-            {
-                throw new Exception($"{protocal.GetType()}µÄ ´íÎó");
-            }
-
-            var proto = Serializer.Serialize(protocal);
-            var head = BitConverter.GetBytes((uint)id);
-            var buffer = head.Concat(proto).ToArray();
-            await _stream.WriteAsync(buffer);
-        }
-
-        private ProtocalId GetProtocalId(IProtocal protocal)
-        {
-            ProtocalAttribute protocalAttr = protocal.GetType().GetCustomAttribute<ProtocalAttribute>();
-            if (protocalAttr != null)
-            {
-                return protocalAttr.Id;
-            }
-            return ProtocalId.InvalidId;
+            await _stream.WriteAsync(bytes);
         }
         #endregion
     }

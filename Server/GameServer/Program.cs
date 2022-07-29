@@ -31,7 +31,14 @@ namespace PostMainland
                 }));
             IChannel boundChannel = await bootstrap.BindAsync(40001);
 
-            Console.ReadLine();
+            while (true)
+            {
+                string str = Console.ReadLine();
+                if (str == "close")
+                {
+                    break;
+                }
+            }
 
             await boundChannel.CloseAsync();
 
@@ -41,7 +48,14 @@ namespace PostMainland
                 );
         }
 
-        static void Main() => RunServerAsync().Wait();
+        static void Main()
+        {
+            AssemblyCollection.Ins.RegisterCollector(ProtocalCollector.Ins);
+            AssemblyCollection.Ins.RegisterCollector(ProtocalHandlerCollector.Ins.LoadHandlers(typeof(Program)));
+
+
+            RunServerAsync().Wait();
+        }
 
     }
 }

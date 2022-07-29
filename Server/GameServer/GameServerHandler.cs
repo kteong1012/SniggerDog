@@ -1,11 +1,54 @@
 ﻿
+using Cysharp.Threading.Tasks;
 using DotNetty.Buffers;
 using DotNetty.Transport.Channels;
 using System.Text;
 
 namespace PostMainland
 {
-    public class GameServerHandler : ChannelHandlerAdapter
+    public partial class GameServerHandler
+    {
+        private IChannelHandlerContext _context;
+
+        Dictionary<long, IResponse> _waittingRequests = new Dictionary<long, IResponse>();
+        private void Reply(byte[] resp)
+        {
+            _context.WriteAsync(Unpooled.CopiedBuffer(resp));
+        }
+        private void ResponseCallback(long msgId, IResponse response)
+        {
+            _waittingRequests[msgId] = response;
+        }
+        public void SendMessage(IMessage message)
+        {
+            byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
+            _context.WriteAsync(Unpooled.CopiedBuffer(buffer)).AsUniTask().Forget();
+        }
+        public async UniTask<TRes> RequestAsync<TRes>(IRequest request) where TRes : class, IResponse
+        {
+            IResponse response = null;
+            long msgId = DateTime.UtcNow.Ticks;//临时
+            async UniTask Task()
+            {
+                while (!_waittingRequests.ContainsKey(msgId))
+                {
+                    await UniTask.Yield();
+                }
+            }
+            bool finished = await UniTask.WhenAll(Task()).SuppressCancellationThrow();
+            if (finished)
+            {
+                return response as TRes;
+            }
+            else
+            {
+                Console.WriteLine($"{request.GetType().Name}的请求超时惹");
+                return null;
+            }
+        }
+
+    }
+    public partial class GameServerHandler : ChannelHandlerAdapter
     {
         /*
         * Channel的生命周期
@@ -25,6 +68,7 @@ namespace PostMainland
         public override void ChannelRegistered(IChannelHandlerContext context)
         {
             base.ChannelRegistered(context);
+            _context = context;
         }
 
         /// <summary>
@@ -47,6 +91,7 @@ namespace PostMainland
             var buffer = message as IByteBuffer;
             if (buffer != null)
             {
+                ProtocalHelper.Handle(buffer.GetIoBuffer().ToArray(), Reply, ResponseCallback);
             }
         }
 

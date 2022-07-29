@@ -12,12 +12,19 @@ namespace Nino.Serialization
 	/// A read that Reads serialization Data
 	/// </summary>
 	// ReSharper disable CognitiveComplexity
-	public class Reader
+	public unsafe class Reader
 	{
 		/// <summary>
 		/// Buffer that stores data
 		/// </summary>
-		private IntPtr _buffer;
+		private byte* _buffer;
+
+		/// <summary>
+		/// cache of managed bytes
+		/// </summary>
+		// ReSharper disable NotAccessedField.Local
+		private byte[] _managedCache;
+		// ReSharper restore NotAccessedField.Local
 
 		/// <summary>
 		/// encoding for string
@@ -30,9 +37,14 @@ namespace Nino.Serialization
 		private int _position;
 
 		/// <summary>
-		/// Position of the current buffer
+		/// Length of the current reader
 		/// </summary>
 		private int _length;
+
+		/// <summary>
+		/// compress option
+		/// </summary>
+		private CompressOption _option;
 
 		/// <summary>
 		/// End of Reader
@@ -44,7 +56,7 @@ namespace Nino.Serialization
 		/// </summary>
 		public Reader()
 		{
-			
+
 		}
 
 		/// <summary>
@@ -53,9 +65,18 @@ namespace Nino.Serialization
 		/// <param name="data"></param>
 		/// <param name="outputLength"></param>
 		/// <param name="encoding"></param>
-		public Reader(IntPtr data, int outputLength, Encoding encoding)
+		/// <param name="option"></param>
+		public Reader(byte[] data, int outputLength, Encoding encoding, CompressOption option = CompressOption.Zlib)
 		{
-			Init(data, outputLength, encoding);
+			Init(data, outputLength, encoding, option);
+		}
+
+		/// <summary>
+		/// Deconstructor
+		/// </summary>
+		~Reader()
+		{
+			ReturnBuffer();
 		}
 
 		/// <summary>
@@ -64,12 +85,17 @@ namespace Nino.Serialization
 		/// <param name="data"></param>
 		/// <param name="outputLength"></param>
 		/// <param name="encoding"></param>
-		public void Init(IntPtr data, int outputLength, Encoding encoding)
+		/// <param name="option"></param>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		private void Init(IntPtr data, ref int outputLength, Encoding encoding, CompressOption option)
 		{
-			_buffer = data;
+			_buffer = (byte*)data;
 			_encoding = encoding;
 			_position = 0;
 			_length = outputLength;
+			_option = option;
+			if (_option == CompressOption.Zlib)
+				GC.AddMemoryPressure(outputLength);
 		}
 
 		/// <summary>
@@ -78,21 +104,42 @@ namespace Nino.Serialization
 		/// <param name="data"></param>
 		/// <param name="outputLength"></param>
 		/// <param name="encoding"></param>
-		public void Init(byte[] data, int outputLength, Encoding encoding)
+		/// <param name="compressOption"></param>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void Init(byte[] data, int outputLength, Encoding encoding, CompressOption compressOption)
 		{
-			_buffer = Marshal.AllocHGlobal(outputLength);
-			Marshal.Copy(data, 0, _buffer, outputLength);
-			_encoding = encoding;
-			_position = 0;
-			_length = outputLength;
+			switch (compressOption)
+			{
+				case CompressOption.NoCompression:
+					_managedCache = data;
+					fixed (byte* ptr = data)
+					{
+						Init((IntPtr)ptr, ref outputLength, encoding, compressOption);
+					}
+
+					break;
+				case CompressOption.Lz4:
+					throw new NotSupportedException("not support lz4 yet");
+				case CompressOption.Zlib:
+					Init(CompressMgr.Decompress(data, out var length), ref length, encoding, compressOption);
+					break;
+			}
 		}
 
 		/// <summary>
 		/// Return buffer
 		/// </summary>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public void ReturnBuffer()
 		{
-			Marshal.FreeHGlobal(_buffer);
+			if (_option == CompressOption.Zlib)
+			{
+				Marshal.FreeHGlobal((IntPtr)_buffer);
+				GC.RemoveMemoryPressure(_length);
+			}
+
+			_managedCache = null;
+			_buffer = null;
 		}
 
 		/// <summary>
@@ -110,10 +157,10 @@ namespace Nino.Serialization
 		/// </summary>
 		/// <returns></returns>
 		/// <exception cref="InvalidOperationException"></exception>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ulong DecompressAndReadNumber()
 		{
-			var i = GetCompressType();
-			switch (i)
+			switch (GetCompressType())
 			{
 				case CompressType.Byte:
 					return ReadByte();
@@ -136,13 +183,13 @@ namespace Nino.Serialization
 			}
 		}
 
-
 		/// <summary>
 		/// Read basic type from reader
 		/// </summary>
 		/// <param name="type"></param>
 		/// <param name="result"></param>
 		// ReSharper disable CognitiveComplexity
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private object AttemptReadBasicType(Type type, out bool result)
 			// ReSharper restore CognitiveComplexity
 		{
@@ -151,12 +198,12 @@ namespace Nino.Serialization
 			{
 				return wrapper.Deserialize(this);
 			}
-			
+
 			if (type.IsEnum)
 			{
 				return DecompressAndReadEnum(type);
 			}
-			
+
 			//比如泛型，只能list和dict
 			if (type.IsGenericType)
 			{
@@ -188,7 +235,7 @@ namespace Nino.Serialization
 #endif
 				return ReadArray(type);
 			}
-					
+
 			result = false;
 			return null;
 		}
@@ -215,7 +262,8 @@ namespace Nino.Serialization
 				return ret;
 			}
 
-			return Deserializer.Deserialize(type, ConstMgr.Null, ConstMgr.Null, _encoding, this, false, true, false,
+			return Deserializer.Deserialize(type, ConstMgr.Null, ConstMgr.Null, _encoding, this, _option, false, true,
+				false,
 				true, true);
 		}
 
@@ -240,11 +288,8 @@ namespace Nino.Serialization
 					return ReadUInt16();
 				//need to consider compress
 				case TypeCode.Int32:
-					return (ulong)(int)DecompressAndReadNumber();
 				case TypeCode.UInt32:
-					return (uint)DecompressAndReadNumber();
 				case TypeCode.Int64:
-					return (ulong)(long)DecompressAndReadNumber();
 				case TypeCode.UInt64:
 					return DecompressAndReadNumber();
 			}
@@ -259,16 +304,16 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private CompressType GetCompressType()
 		{
-			return (CompressType)ReadByte();
+			return *(CompressType*)(&_buffer[_position++]);
 		}
 
 		/// <summary>
 		/// Read a byte
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public unsafe byte ReadByte()
+		public byte ReadByte()
 		{
-			return *(byte*)(_buffer + _position++);
+			return _buffer[_position++];
 		}
 
 		/// <summary>
@@ -278,9 +323,15 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public byte[] ReadBytes(int len)
 		{
-			byte[] ret = new byte[len];
-			Marshal.Copy(_buffer + _position, ret, 0, len);
-			_position += len;
+			ref var p = ref _position;
+			ref var l = ref len;
+			byte[] ret = new byte[l];
+			fixed (byte* ptr = ret)
+			{
+				Unsafe.CopyBlockUnaligned(ptr, &_buffer[p], (uint)l);
+				p += l;
+			}
+
 			return ret;
 		}
 
@@ -289,10 +340,12 @@ namespace Nino.Serialization
 		/// </summary>
 		/// <param name="ptr"></param>
 		/// <param name="len"></param>
-		public unsafe void ReadToBuffer(byte* ptr, int len)
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		public void ReadToBuffer(byte* ptr, int len)
 		{
-			Unsafe.CopyBlockUnaligned(ptr, (byte*)_buffer + _position, (uint)len);
-			_position += len;
+			ref var l = ref len;
+			Unsafe.CopyBlockUnaligned(ptr, &_buffer[_position], (uint)l);
+			_position += l;
 		}
 
 		/// <summary>
@@ -300,12 +353,18 @@ namespace Nino.Serialization
 		/// </summary>
 		/// <param name="len"></param>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private unsafe T Read<T>(int len) where T : unmanaged
+		private T Read<T>(int len) where T : unmanaged
 		{
-			T result;
-			byte* ptr = (byte*)&result;
-			ReadToBuffer(ptr, len);
-			return result;
+			ref var l = ref len;
+			ref var p = ref _position;
+			//on 32 bits has to make a copy, otherwise if cast pointer to T straight ahead, will cause crash
+			T ret = default;
+			byte i = 0;
+			while (l-- > 0)
+			{
+				((byte*)&ret)[i++] = _buffer[p++];
+			}
+			return ret;
 		}
 
 		/// <summary>
@@ -313,9 +372,9 @@ namespace Nino.Serialization
 		/// </summary>
 		/// <returns></returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public unsafe sbyte ReadSByte()
+		public sbyte ReadSByte()
 		{
-			return *(sbyte*)(_buffer + _position++);
+			return *(sbyte*)(&_buffer[_position++]);
 		}
 
 		/// <summary>
@@ -433,10 +492,10 @@ namespace Nino.Serialization
 		/// Read string
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public unsafe string ReadString()
+		public string ReadString()
 		{
 			int len = (int)DecompressAndReadNumber();
-			
+
 			//empty string -> no gc
 			if (len == 0)
 			{
@@ -471,11 +530,11 @@ namespace Nino.Serialization
 		/// Read bool
 		/// </summary>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public unsafe bool ReadBool()
+		public bool ReadBool()
 		{
-			return *(bool*)(_buffer + _position++);
+			return _buffer[_position++] == 1;
 		}
-		
+
 		/// <summary>
 		/// Read Array
 		/// </summary>
@@ -504,7 +563,7 @@ namespace Nino.Serialization
 			Array arr = Array.CreateInstance(elemType, len);
 			//read item
 			int i = 0;
-			while(i < len)
+			while (i < len)
 			{
 				var obj = ReadCommonVal(elemType);
 #if ILRuntime
@@ -541,14 +600,14 @@ namespace Nino.Serialization
 				elemType = wt?.CLRType.GenericArguments[0].Value.ReflectionType;
 			}
 #endif
-			
+
 			//read len
 			int len = ReadLength();
-			
+
 			IList arr = Activator.CreateInstance(type, ConstMgr.EmptyParam) as IList;
 			//read item
 			int i = 0;
-			while(i++ < len)
+			while (i++ < len)
 			{
 				var obj = ReadCommonVal(elemType);
 #if ILRuntime
@@ -594,7 +653,7 @@ namespace Nino.Serialization
 
 			//read item
 			int i = 0;
-			while(i++ < len)
+			while (i++ < len)
 			{
 				//read key
 				var key = ReadCommonVal(keyType);

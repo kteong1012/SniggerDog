@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace PostMainland
 {
-    public class TestMessageHandler : IMessageHandler<SC_Notify>
+    public class TestMessageHandler : MessageHandler<SC_Notify>
     {
-        public async UniTaskVoid Handle(SC_Notify protocal)
+        public async override UniTask Execute(SC_Notify message)
         {
-            Debug.Log(protocal.Message);
+            Debug.Log(message.Message);
             await UniTask.CompletedTask;
         }
     }

@@ -16,14 +16,16 @@ namespace PostMainland
             _assembly = typeof(ProtocalAssemblyPivotClass).Assembly;
             foreach (var type in _assembly.GetTypes())
             {
-                if (type.IsAssignableFrom(typeof(IProtocal)))
+                if (type.IsAbstract || type.IsInterface)
                 {
-                    ProtocalAttribute protocalAttr = type.GetCustomAttribute<ProtocalAttribute>(false);
-                    if (protocalAttr != null)
-                    {
-                        _protocals[protocalAttr.Id] = type;
-                    }
+                    continue;
                 }
+                ProtocalAttribute protocalAttr = type.GetCustomAttribute<ProtocalAttribute>(false);
+                if (protocalAttr != null)
+                {
+                    _protocals[protocalAttr.Id] = type;
+                }
+
             }
         }
 
