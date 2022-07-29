@@ -47,9 +47,7 @@ namespace PostMainland
             var buffer = message as IByteBuffer;
             if (buffer != null)
             {
-                Console.WriteLine("Received from client: " + buffer.ToString(Encoding.UTF8));
             }
-            context.WriteAsync(message);//这里官方的例子是直接将客户端发送的内容原样返回给客户端，WriteAsync（）是讲要发送的内容写入到数据流的缓存中。如果不想进入数据流可以直接调用WirteAndFlusAsync（）写好了直接发送
         }
 
         /// <summary>

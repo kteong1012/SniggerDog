@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\AnyTest\\Server\\GameServer\\GameServer.csproj": {}
+    "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\AnyTest\\Server\\GameServer\\GameServer.csproj": {
+    "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\AnyTest\\Server\\GameServer\\GameServer.csproj",
+        "projectUniqueName": "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj",
         "projectName": "GameServer",
-        "projectPath": "E:\\Projects\\AnyTest\\Server\\GameServer\\GameServer.csproj",
-        "packagesPath": "C:\\Users\\kteon\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\AnyTest\\Server\\GameServer\\obj\\",
+        "projectPath": "D:\\Github\\AntiMage\\Server\\GameServer\\GameServer.csproj",
+        "packagesPath": "C:\\Users\\lintianbao.carson\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\AntiMage\\Server\\GameServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kteon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lintianbao.carson\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[0.7.2, )"
             },
+            "Nino.Serialization": {
+              "target": "Package",
+              "version": "[1.0.12, )"
+            },
             "UniTask": {
               "target": "Package",
               "version": "[2.3.1, )"
@@ -80,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

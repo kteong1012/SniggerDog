@@ -1,0 +1,21 @@
+<root>
+
+	<topmodule name="PostMainland"/>
+
+	<patch name="cn"/>
+	<patch name="tw"/>
+	<patch name="en"/>
+	<patch name="jp"/>
+
+	<group name="c" default="1"/> client
+	<group name="s" default="1"/> server
+	<group name="e" default="1"/> editor
+	
+	<import name="."/>
+	
+	<importexcel name="protocals.xlsx" type="enum"/>相对data目录
+	
+	<service name="server" manager="Tables" group="s"/>
+	<service name="client" manager="Tables" group="c"/>
+	<service name="all" manager="Tables" group="c,s,e"/>
+</root>
