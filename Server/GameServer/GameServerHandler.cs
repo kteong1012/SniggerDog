@@ -10,41 +10,32 @@ namespace PostMainland
     {
         private IChannelHandlerContext _context;
 
-        Dictionary<long, IResponse> _waittingRequests = new Dictionary<long, IResponse>();
+        Dictionary<long, UniTaskCompletionSource<IResponse>> _waittingRequests = new Dictionary<long, UniTaskCompletionSource<IResponse>>();
         private void Reply(byte[] resp)
         {
-            _context.WriteAsync(Unpooled.CopiedBuffer(resp));
+            SendAsync(resp).Forget();
         }
         private void ResponseCallback(long msgId, IResponse response)
         {
-            _waittingRequests[msgId] = response;
+            if (_waittingRequests.TryGetValue(msgId, out var source))
+            {
+                source.TrySetResult(response);
+            }
         }
         public void SendMessage(IMessage message)
         {
             byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
-            _context.WriteAsync(Unpooled.CopiedBuffer(buffer)).AsUniTask().Forget();
+            SendAsync(buffer).Forget();
+        }
+        private async UniTask SendAsync(byte[] bytes)
+        {
+            await _context.WriteAsync(Unpooled.CopiedBuffer(bytes));
         }
         public async UniTask<TRes> RequestAsync<TRes>(IRequest request) where TRes : class, IResponse
         {
-            IResponse response = null;
-            long msgId = DateTime.UtcNow.Ticks;//临时
-            async UniTask Task()
-            {
-                while (!_waittingRequests.ContainsKey(msgId))
-                {
-                    await UniTask.Yield();
-                }
-            }
-            bool finished = await UniTask.WhenAll(Task()).SuppressCancellationThrow();
-            if (finished)
-            {
-                return response as TRes;
-            }
-            else
-            {
-                Console.WriteLine($"{request.GetType().Name}的请求超时惹");
-                return null;
-            }
+            //TODO 考虑多进程通讯
+            await UniTask.CompletedTask;
+            return null;
         }
 
     }
