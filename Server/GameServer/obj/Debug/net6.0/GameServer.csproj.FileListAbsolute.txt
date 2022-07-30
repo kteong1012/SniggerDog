@@ -54,3 +54,10 @@ E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\UniTask.dll
 E:\Projects\LTS\AntiMage\Server\GameServer\obj\Debug\net6.0\GameServer.csproj.CopyComplete
 E:\Projects\LTS\AntiMage\Server\GameServer\obj\Debug\net6.0\GameServer.genruntimeconfig.cache
 E:\Projects\LTS\AntiMage\Server\GameServer\obj\Debug\net6.0\ref\GameServer.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Configuration.CommandLine.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Logging.Configuration.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Logging.Console.dll
+E:\Projects\LTS\AntiMage\Server\GameServer\bin\Debug\net6.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll

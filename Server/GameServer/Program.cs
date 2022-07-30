@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using DotNetty.Codecs;
+using DotNetty.Common.Internal.Logging;
 using DotNetty.Handlers.Logging;
 using DotNetty.Transport.Bootstrapping;
 using DotNetty.Transport.Channels;
@@ -9,24 +10,23 @@ namespace PostMainland
 {
     public class Program
     {
+        public static ServerBootstrap bootstrap;
         static async Task RunServerAsync()
         {
+            ConsoleLog.SetConsoleLogger();
             IEventLoopGroup bossGroup = new MultithreadEventLoopGroup(1);
             IEventLoopGroup workerGroup = new MultithreadEventLoopGroup();
 
-            var bootstrap = new ServerBootstrap();
+            bootstrap = new ServerBootstrap();
             bootstrap.Group(bossGroup, workerGroup);
             bootstrap.Channel<TcpServerSocketChannel>();
             bootstrap
-                .Option(ChannelOption.SoBacklog, 100)
-                .Option(ChannelOption.SoReuseport, true)
-                .Handler(new LoggingHandler("SRV_LSTN"))
+                .Option(ChannelOption.SoBacklog, 128)
+                .Handler(new LoggingHandler("SRV-LSTN", LogLevel.DEBUG))
                 .ChildHandler(new ActionChannelInitializer<IChannel>(channel =>
                 {
                     IChannelPipeline pipeline = channel.Pipeline;
-                    pipeline.AddLast(new LoggingHandler("SRV_CONN"));
-                    //pipeline.AddLast("framing-enc", new LengthFieldPrepender(2));
-                    //pipeline.AddLast("framing-dec", new LengthFieldBasedFrameDecoder(short.MaxValue, 0, 2, 0, 2));
+                    pipeline.AddLast("log", new LoggingHandler("SRV-CONN", LogLevel.DEBUG));
                     pipeline.AddLast("game", new GameServerHandler());
                 }));
             IChannel boundChannel = await bootstrap.BindAsync(40001);

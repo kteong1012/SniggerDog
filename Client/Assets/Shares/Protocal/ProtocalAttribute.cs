@@ -20,5 +20,10 @@ namespace PostMainland
     public interface IProtocal { }
     public interface IMessage : IProtocal { }
     public interface IRequest : IProtocal { }
-    public interface IResponse : IProtocal { }
+    public interface IResponse : IProtocal
+    {
+        int Status { get; set; }
+        int Error { get; set; }
+        string Message { get; set; }
+    }
 }

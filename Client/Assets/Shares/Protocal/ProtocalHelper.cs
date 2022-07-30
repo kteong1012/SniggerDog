@@ -7,6 +7,11 @@ using System.Text;
 
 namespace PostMainland
 {
+    public interface INetContext
+    {
+        UniTask SendAsync(byte[] data);
+        UniTask DisconnectAsync();
+    }
     public class ProtocalHelper
     {
         private static MethodInfo _serializerMI;
@@ -19,7 +24,7 @@ namespace PostMainland
             _serializerMI = typeof(Serializer).GetMethod("Serialize");
             _deserializerMI = typeof(Deserializer).GetMethod("Deserialize");
         }
-        public static void Handle(byte[] buffer, Action<byte[]> reply, Action<long, IResponse> respCallback)
+        public static void Handle(INetContext context, byte[] buffer, Action<long, IResponse> respCallback)
         {
             var (type, id, msgId, protocal) = DeserializeProtocal(buffer);
             switch (type)
@@ -37,10 +42,10 @@ namespace PostMainland
                         Type respType = ProtocalCollector.Ins.GetProtocalTypeById(respId);
                         IResponse response = Activator.CreateInstance(respType) as IResponse;
                         ProtocalAttribute protocalAttr = respType.GetCustomAttribute<ProtocalAttribute>(false);
-                        handler.Handle(protocal as IRequest, response, Reply).Forget();
-                        void Reply()
+                        handler.Handle(context, protocal as IRequest, response, Reply).Forget();
+                        async UniTask Reply()
                         {
-                            reply?.Invoke(SerializeProtocal(response, msgId, ProtocalType.Response, respId));
+                            await context.SendAsync(SerializeProtocal(response, msgId, ProtocalType.Response, respId));
                         }
                     }
                     break;

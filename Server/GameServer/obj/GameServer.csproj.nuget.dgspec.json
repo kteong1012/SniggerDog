@@ -60,6 +60,18 @@
               "target": "Package",
               "version": "[0.7.2, )"
             },
+            "Microsoft.Extensions.Configuration.CommandLine": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "UniTask": {
               "target": "Package",
               "version": "[2.3.1, )"

@@ -21,6 +21,9 @@
     <PackageReference Include="DotNetty.Common" Version="0.7.2" />
     <PackageReference Include="DotNetty.Handlers" Version="0.7.2" />
     <PackageReference Include="DotNetty.Transport" Version="0.7.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
     <PackageReference Include="UniTask" Version="2.3.1" />
     <!--<PackageReference Include="Nino.Serialization" Version="1.0.13" />-->
 

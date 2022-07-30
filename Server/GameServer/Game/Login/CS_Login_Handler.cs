@@ -9,11 +9,11 @@ namespace PostMainland
 {
     public class CS_Login_Handler : RequestHandler<CS_Login, SC_LoginAck>
     {
-        public override async UniTask Execute(CS_Login request, SC_LoginAck response, Action reply)
+        public override async UniTask Execute(INetContext context, CS_Login request, SC_LoginAck response, Func<UniTask> reply)
         {
             Console.WriteLine($"收到了{request.Account}  {request.Password}");
             response.Name = "宝鱼";
-            reply();
+            await reply();
             await UniTask.CompletedTask;
         }
     }

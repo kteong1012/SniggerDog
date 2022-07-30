@@ -6,6 +6,25 @@ using System.Text;
 
 namespace PostMainland
 {
+    public class ServerNetContext : INetContext
+    {
+        private readonly IChannelHandlerContext context;
+
+        public ServerNetContext(IChannelHandlerContext context)
+        {
+            this.context = context;
+        }
+
+        async UniTask INetContext.DisconnectAsync()
+        {
+            await context.DisconnectAsync();
+        }
+
+        async UniTask INetContext.SendAsync(byte[] data)
+        {
+            await context.WriteAsync(Unpooled.CopiedBuffer(data));
+        }
+    }
     public partial class GameServerHandler
     {
         private IChannelHandlerContext _context;
@@ -37,6 +56,10 @@ namespace PostMainland
             await UniTask.CompletedTask;
             return null;
         }
+        private void OnConnected()
+        {
+
+        }
 
     }
     public partial class GameServerHandler : ChannelHandlerAdapter
@@ -60,6 +83,7 @@ namespace PostMainland
         {
             base.ChannelRegistered(context);
             _context = context;
+            Console.WriteLine($"{context.Name}注册");
         }
 
         /// <summary>
@@ -70,6 +94,7 @@ namespace PostMainland
         {
             //一般可用来记录连接对象信息
             base.ChannelActive(context);
+            Console.WriteLine($"{context.Name}激活");
         }
 
         /// <summary>
@@ -79,10 +104,11 @@ namespace PostMainland
         /// <param name="message">接收到的客户端发送的内容</param>
         public override void ChannelRead(IChannelHandlerContext context, object message)
         {
+            Console.WriteLine($"{context.Name}接收");
             var buffer = message as IByteBuffer;
             if (buffer != null)
             {
-                ProtocalHelper.Handle(buffer.GetIoBuffer().ToArray(), Reply, ResponseCallback);
+                ProtocalHelper.Handle(new ServerNetContext(context), buffer.GetIoBuffer().ToArray(), ResponseCallback);
             }
         }
 
@@ -90,7 +116,11 @@ namespace PostMainland
         /// 该次会话读取完成后回调函数
         /// </summary>
         /// <param name="context"></param>
-        public override void ChannelReadComplete(IChannelHandlerContext context) => context.Flush();//将WriteAsync写入的数据流缓存发送出去
+        public override void ChannelReadComplete(IChannelHandlerContext context)
+        {
+            context.Flush();//将WriteAsync写入的数据流缓存发送出去
+            Console.WriteLine($"{context.Name}接受完成");
+        }
 
         /// <summary>
         /// 异常捕获
@@ -101,6 +131,7 @@ namespace PostMainland
         {
             Console.WriteLine("Exception: " + exception);
             context.CloseAsync();
+            Console.WriteLine($"{context.Name}异常");
         }
 
         /// <summary>
@@ -110,6 +141,7 @@ namespace PostMainland
         public override void ChannelInactive(IChannelHandlerContext context)
         {
             base.ChannelInactive(context);
+            Console.WriteLine($"{context.Name}未激活");
         }
 
         /// <summary>
@@ -119,6 +151,7 @@ namespace PostMainland
         public override void ChannelUnregistered(IChannelHandlerContext context)
         {
             base.ChannelUnregistered(context);
+            Console.WriteLine($"{context.Name}注销");
         }
     }
 }

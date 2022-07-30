@@ -41,14 +41,14 @@ namespace PostMainland
 
     public interface IRequestHandler : IProtocalHandler
     {
-        UniTask Handle(IRequest req, IResponse res, Action reply);
+        UniTask Handle(INetContext context, IRequest req, IResponse res, Func<UniTask> reply);
         ProtocalId GetRequestId();
         ProtocalId GetResponseId();
     }
     [ProtocalHandler]
     public abstract class RequestHandler<TReq, TRes> : IRequestHandler where TRes : class, IResponse where TReq : class, IRequest
     {
-        public abstract UniTask Execute(TReq request, TRes response, Action reply);
+        public abstract UniTask Execute(INetContext context, TReq request, TRes response, Func<UniTask> reply);
 
         public ProtocalId GetProtocalId()
         {
@@ -57,7 +57,7 @@ namespace PostMainland
 
         public ProtocalId GetRequestId()
         {
-            
+
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[0].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
@@ -67,9 +67,9 @@ namespace PostMainland
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[1].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
-        public async UniTask Handle(IRequest req, IResponse res, Action reply)
+        public async UniTask Handle(INetContext context, IRequest req, IResponse res, Func<UniTask> reply)
         {
-            await Execute(req as TReq, res as TRes, reply);
+            await Execute(context, req as TReq, res as TRes, reply);
         }
     }
 }

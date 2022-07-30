@@ -24,6 +24,19 @@ namespace PostMainland
             SC_LoginAck ack = await Network.Ins.RequestAsync<SC_LoginAck>(new CS_Login() { Account = "ук╨е", Password = "password" });
             Debug.Log(ack.Name);
         }
+        public async void TestDisconnect()
+        {
+            S2C_DisconnectAck ack = await Network.Ins.RequestAsync<S2C_DisconnectAck>(new C2S_Disconnect());
+            if(ack.Error == 0)
+            {
+                Debug.Log(ack.Message);
+                Network.Ins.Disconnect();
+            }
+            else
+            {
+                Debug.Log(ack.Message);
+            }
+        }
     }
 
 }
