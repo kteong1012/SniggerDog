@@ -50,8 +50,9 @@ namespace PostMainland
 
         static void Main()
         {
-            AssemblyCollection.Ins.RegisterCollector(ProtocalCollector.Ins);
-            AssemblyCollection.Ins.RegisterCollector(ProtocalHandlerCollector.Ins.LoadHandlers(typeof(Program)));
+            var asc = Services.AddWithouInit(new AssemblyCollection());
+            asc.Add(new ProtocalCollector(), typeof(ProtocalAssemblyPivotClass).Assembly);
+            asc.Add(new ProtocalHandlerCollector(), typeof(Program).Assembly);
 
 
             RunServerAsync().Wait();

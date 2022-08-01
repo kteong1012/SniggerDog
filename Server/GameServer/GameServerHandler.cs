@@ -2,6 +2,9 @@
 using Cysharp.Threading.Tasks;
 using DotNetty.Buffers;
 using DotNetty.Transport.Channels;
+using DotNetty.Transport.Channels.Sockets;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Text;
 
 namespace PostMainland
@@ -15,14 +18,53 @@ namespace PostMainland
             this.context = context;
         }
 
+        async UniTask INetContext.SendMessage(IMessage message)
+        {
+            var channel = GatewayService.GetGatewayChannel(context.Channel.Id.AsLongText());
+            if (channel != null)
+            {
+                byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
+                Console.WriteLine("发送了！！");
+                await channel.WriteAndFlushAsync(Unpooled.CopiedBuffer(buffer));
+            }
+        }
+
         async UniTask INetContext.DisconnectAsync()
         {
             await context.DisconnectAsync();
         }
 
-        async UniTask INetContext.SendAsync(byte[] data)
+        public async UniTask SendAsync(byte[] data)
         {
-            await context.WriteAsync(Unpooled.CopiedBuffer(data));
+            var channel = GatewayService.GetGatewayChannel(context.Channel.Id.AsLongText());
+            if (channel != null)
+            {
+                await context.WriteAndFlushAsync(Unpooled.CopiedBuffer(data));
+            }
+        }
+    }
+    public class GatewayService
+    {
+        private static ConcurrentDictionary<string, ISocketChannel> _dict = new ConcurrentDictionary<string, ISocketChannel>();
+        public static ConcurrentDictionary<string, ISocketChannel> Dict => _dict;
+
+        public static void AddGatewayChannel(string id, ISocketChannel gateway_channel)
+        {
+            _dict.TryAdd(id, gateway_channel);
+        }
+
+        public static ISocketChannel GetGatewayChannel(string id)
+        {
+            if (_dict.TryGetValue(id, out var channel))
+            {
+                return channel;
+            }
+            return default(ISocketChannel);
+        }
+
+        public static void RemoveGatewayChannel(string id)
+        {
+            _dict.Remove(id, out var _);
         }
     }
     public partial class GameServerHandler
@@ -30,10 +72,6 @@ namespace PostMainland
         private IChannelHandlerContext _context;
 
         Dictionary<long, UniTaskCompletionSource<IResponse>> _waittingRequests = new Dictionary<long, UniTaskCompletionSource<IResponse>>();
-        private void Reply(byte[] resp)
-        {
-            SendAsync(resp).Forget();
-        }
         private void ResponseCallback(long msgId, IResponse response)
         {
             if (_waittingRequests.TryGetValue(msgId, out var source))
@@ -41,24 +79,18 @@ namespace PostMainland
                 source.TrySetResult(response);
             }
         }
-        public void SendMessage(IMessage message)
+        public async UniTask SendMessage(IMessage message)
         {
             byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
-            SendAsync(buffer).Forget();
+            await ReplyAsync(buffer);
         }
-        private async UniTask SendAsync(byte[] bytes)
+        private async UniTask ReplyAsync(byte[] bytes)
         {
-            await _context.WriteAsync(Unpooled.CopiedBuffer(bytes));
-        }
-        public async UniTask<TRes> RequestAsync<TRes>(IRequest request) where TRes : class, IResponse
-        {
-            //TODO 考虑多进程通讯
-            await UniTask.CompletedTask;
-            return null;
-        }
-        private void OnConnected()
-        {
-
+            var channel = GatewayService.GetGatewayChannel(_context.Channel.Id.AsLongText());
+            if (channel != null)
+            {
+                await channel.WriteAndFlushAsync(Unpooled.CopiedBuffer(bytes));
+            }
         }
 
     }
@@ -95,6 +127,8 @@ namespace PostMainland
             //一般可用来记录连接对象信息
             base.ChannelActive(context);
             Console.WriteLine($"{context.Name}激活");
+            string uuid = context.Channel.Id.AsLongText();
+            GatewayService.AddGatewayChannel(uuid, context.Channel as ISocketChannel);
         }
 
         /// <summary>
@@ -118,8 +152,8 @@ namespace PostMainland
         /// <param name="context"></param>
         public override void ChannelReadComplete(IChannelHandlerContext context)
         {
-            context.Flush();//将WriteAsync写入的数据流缓存发送出去
             Console.WriteLine($"{context.Name}接受完成");
+            context.Flush();//将WriteAsync写入的数据流缓存发送出去
         }
 
         /// <summary>
@@ -142,6 +176,7 @@ namespace PostMainland
         {
             base.ChannelInactive(context);
             Console.WriteLine($"{context.Name}未激活");
+            GatewayService.RemoveGatewayChannel(context.Channel.Id.AsLongText());
         }
 
         /// <summary>

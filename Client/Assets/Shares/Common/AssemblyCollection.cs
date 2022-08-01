@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace PostMainland
 {
-    public interface IAssemblyCollector
+    public interface IAssemblyCollector : IService
     {
         List<Type> Collect();
     }
-    public class AssemblyCollection : Singleton<AssemblyCollection>
+    public class AssemblyCollection : ServicesContainer
     {
         private Dictionary<string, Type> _allTypes = new Dictionary<string, Type>();
         public Dictionary<string, Type> AllTypes => _allTypes;

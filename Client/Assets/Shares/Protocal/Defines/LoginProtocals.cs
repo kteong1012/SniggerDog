@@ -22,11 +22,11 @@ namespace PostMainland
         public string Account { get; set; }
         [NinoMember(2)]
         public string Name { get; set; }
-        [NinoMember(90)]
-        public int Status { get; set; }
         [NinoMember(91)]
-        public int Error { get; set; }
+        public int Status { get; set; }
         [NinoMember(92)]
+        public int Error { get; set; }
+        [NinoMember(93)]
         public string Message { get; set; }
 
     }

@@ -14,13 +14,13 @@ namespace PostMainland
     }
     public interface IMessageHandler : IProtocalHandler
     {
-        UniTask Handle(IMessage message);
+        UniTask Handle(INetContext context, IMessage message);
         ProtocalId GetMessageId();
     }
     [ProtocalHandler]
     public abstract class MessageHandler<TM> : IMessageHandler where TM : class, IMessage
     {
-        public abstract UniTask Execute(TM message);
+        public abstract UniTask Execute(INetContext context, TM message);
 
         public ProtocalId GetMessageId()
         {
@@ -33,9 +33,9 @@ namespace PostMainland
             return GetMessageId();
         }
 
-        public async UniTask Handle(IMessage message)
+        public async UniTask Handle(INetContext context, IMessage message)
         {
-            await Execute(message as TM);
+            await Execute(context, message as TM);
         }
     }
 

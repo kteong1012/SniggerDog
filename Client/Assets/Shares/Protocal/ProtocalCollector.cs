@@ -5,15 +5,14 @@ using System.Reflection;
 
 namespace PostMainland
 {
-    public class ProtocalCollector : Singleton<ProtocalCollector>, IAssemblyCollector
+    public class ProtocalCollector : Service, IServiceOnInit<Assembly>, IAssemblyCollector
     {
         private Assembly _assembly;
         private Dictionary<ProtocalId, Type> _protocals = new Dictionary<ProtocalId, Type>();
 
-        protected override void Initialize()
+        public void OnInit(Assembly assembly)
         {
-            base.Initialize();
-            _assembly = typeof(ProtocalAssemblyPivotClass).Assembly;
+            _assembly = assembly;
             foreach (var type in _assembly.GetTypes())
             {
                 if (type.IsAbstract || type.IsInterface)
@@ -25,8 +24,9 @@ namespace PostMainland
                 {
                     _protocals[protocalAttr.Id] = type;
                 }
-
             }
+            AssemblyCollection collection =  Container as AssemblyCollection;
+            collection.RegisterCollector(this);
         }
 
         public List<Type> Collect()

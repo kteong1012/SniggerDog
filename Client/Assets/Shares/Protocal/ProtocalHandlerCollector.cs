@@ -7,21 +7,20 @@ using System.Reflection;
 
 namespace PostMainland
 {
-    public class ProtocalHandlerCollector : Singleton<ProtocalHandlerCollector>, IAssemblyCollector
+    public class ProtocalHandlerCollector : Service, IServiceOnInit<Assembly>, IAssemblyCollector
     {
-        private readonly Type _pivotClass;
         private Assembly _assembly;
         private Dictionary<ProtocalId, Type> _protocalHandlerTypes = new Dictionary<ProtocalId, Type>();
         private Dictionary<ProtocalId, IMessageHandler> _messageHandlers = new Dictionary<ProtocalId, IMessageHandler>();
         private Dictionary<ProtocalId, IRequestHandler> _requestHandlers = new Dictionary<ProtocalId, IRequestHandler>();
 
-        public ProtocalHandlerCollector LoadHandlers(Type pivotClass)
+        void IServiceOnInit<Assembly>.OnInit(Assembly assembly)
         {
-            _assembly = pivotClass.Assembly;
+            _assembly = assembly;
             foreach (var type in _assembly.GetTypes())
             {
 
-                if(type.IsAbstract || type.IsInterface)
+                if (type.IsAbstract || type.IsInterface)
                 {
                     continue;
                 }
@@ -41,9 +40,10 @@ namespace PostMainland
                     }
                 }
             }
-            return this;
+            AssemblyCollection collection = Container as AssemblyCollection;
+            collection.RegisterCollector(this);
         }
-        public List<Type> Collect()
+        List<Type> IAssemblyCollector.Collect()
         {
             return _protocalHandlerTypes.Values.ToList();
         }

@@ -9,13 +9,13 @@ namespace PostMainland
             #region NINO_CODEGEN
             public override void Serialize(C2S_Disconnect value, Nino.Serialization.Writer writer)
             {
-                writer.CompressAndWrite(value.Id);
+                writer.Write(value.Empty);
             }
 
             public override C2S_Disconnect Deserialize(Nino.Serialization.Reader reader)
             {
                 C2S_Disconnect value = new C2S_Disconnect();
-                value.Id =  (System.Int32)reader.DecompressAndReadNumber();
+                value.Empty = reader.ReadByte();
                 return value;
             }
             #endregion

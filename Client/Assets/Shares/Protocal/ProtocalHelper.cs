@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using Nino.Serialization;
 using System;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -9,6 +10,7 @@ namespace PostMainland
 {
     public interface INetContext
     {
+        UniTask SendMessage(IMessage message);
         UniTask SendAsync(byte[] data);
         UniTask DisconnectAsync();
     }
@@ -16,7 +18,7 @@ namespace PostMainland
     {
         private static MethodInfo _serializerMI;
         private static MethodInfo _deserializerMI;
-        private static CompressOption _compressOption = CompressOption.Zlib;
+        private static CompressOption _compressOption = CompressOption.NoCompression;
         private static Encoding _encoding = Encoding.UTF8;
 
         static ProtocalHelper()
@@ -24,22 +26,24 @@ namespace PostMainland
             _serializerMI = typeof(Serializer).GetMethod("Serialize");
             _deserializerMI = typeof(Deserializer).GetMethod("Deserialize");
         }
-        public static void Handle(INetContext context, byte[] buffer, Action<long, IResponse> respCallback)
+        public static void Handle(INetContext context, Span<byte> buffer, Action<long, IResponse> respCallback)
         {
+            PrintBytes("【收到的】", buffer);
             var (type, id, msgId, protocal) = DeserializeProtocal(buffer);
+            Print($"{type} {id}  {msgId}");
             switch (type)
             {
                 case ProtocalType.Message:
                     {
-                        var handler = ProtocalHandlerCollector.Ins.GetMessageHandler(id);
-                        handler.Handle(protocal as IMessage).Forget();
+                        var handler = Services.Get<AssemblyCollection>().Get<ProtocalHandlerCollector>().GetMessageHandler(id);
+                        handler.Handle(context, protocal as IMessage).Forget();
                     }
                     break;
                 case ProtocalType.Request:
                     {
-                        var handler = ProtocalHandlerCollector.Ins.GetRequestHandler(id);
+                        var handler = Services.Get<AssemblyCollection>().Get<ProtocalHandlerCollector>().GetRequestHandler(id);
                         ProtocalId respId = handler.GetResponseId();
-                        Type respType = ProtocalCollector.Ins.GetProtocalTypeById(respId);
+                        Type respType = Services.Get<AssemblyCollection>().Get<ProtocalCollector>().GetProtocalTypeById(respId);
                         IResponse response = Activator.CreateInstance(respType) as IResponse;
                         ProtocalAttribute protocalAttr = respType.GetCustomAttribute<ProtocalAttribute>(false);
                         handler.Handle(context, protocal as IRequest, response, Reply).Forget();
@@ -77,26 +81,23 @@ namespace PostMainland
 
         public static byte[] SerializeProtocal(IProtocal protocal, long msgId, ProtocalType type, ProtocalId id)
         {
-            Writer writer = new Writer();
-            writer.Init(_encoding, _compressOption);
             BaseProtocal pack = new BaseProtocal();
             pack.Type = type;
             pack.Id = id;
             pack.MessageId = msgId;
-            Type t = ProtocalCollector.Ins.GetProtocalTypeById(id);
+            Type t = Services.Get<AssemblyCollection>().Get<ProtocalCollector>().GetProtocalTypeById(id);
             var mi = _serializerMI.MakeGenericMethod(t);
             byte[] bytes = (byte[])mi.Invoke(null, new object[] { protocal, _encoding, _compressOption });
             pack.Body = bytes;
-            BaseProtocal.NinoSerializationHelper.Serialize(pack, writer);
-            return writer.ToBytes();
+            byte[] buffer = Serializer.Serialize(pack, _encoding, _compressOption);
 
+            PrintBytes($"【{id}序列化结果】", buffer);
+            return buffer;
         }
-        private static (ProtocalType type, ProtocalId id, long msgId, IProtocal protocal) DeserializeProtocal(Span<byte> bytes)
+        private static (ProtocalType type, ProtocalId id, long msgId, IProtocal protocal) DeserializeProtocal(Span<byte> buffer)
         {
-            Reader reader = new Reader();
-            reader.Init(bytes.ToArray(), bytes.Length, _encoding, _compressOption);
-            BaseProtocal pack = BaseProtocal.NinoSerializationHelper.Deserialize(reader);
-            Type t = ProtocalCollector.Ins.GetProtocalTypeById(pack.Id);
+            BaseProtocal pack = Deserializer.Deserialize<BaseProtocal>(buffer.ToArray(), _encoding, _compressOption);
+            Type t = Services.Get<AssemblyCollection>().Get<ProtocalCollector>().GetProtocalTypeById(pack.Id);
             var mi = _deserializerMI.MakeGenericMethod(t);
             IProtocal protocal = (IProtocal)mi.Invoke(null, new object[] { pack.Body, _encoding, _compressOption });
             return (pack.Type, pack.Id, pack.MessageId, protocal);
@@ -109,6 +110,21 @@ namespace PostMainland
                 return protocalAttr.Id;
             }
             return ProtocalId.InvalidId;
+        }
+
+        private static void PrintBytes(string title, Span<byte> bytes)
+        {
+            //string str = string.Join(',', bytes.ToArray());
+            //Print(title + str);
+        }
+
+        private static void Print(string str)
+        {
+//#if NOT_UNITY
+//            Console.WriteLine(str);
+//#else
+//            UnityEngine.Debug.Log(str);
+//#endif
         }
     }
 }
