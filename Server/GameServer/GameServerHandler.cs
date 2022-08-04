@@ -9,40 +9,6 @@ using System.Text;
 
 namespace PostMainland
 {
-    public class ServerNetContext : INetContext
-    {
-        private readonly IChannelHandlerContext context;
-
-        public ServerNetContext(IChannelHandlerContext context)
-        {
-            this.context = context;
-        }
-
-        async UniTask INetContext.SendMessage(IMessage message)
-        {
-            var channel = GatewayService.GetGatewayChannel(context.Channel.Id.AsLongText());
-            if (channel != null)
-            {
-                byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
-                Console.WriteLine("发送了！！");
-                await channel.WriteAndFlushAsync(Unpooled.CopiedBuffer(buffer));
-            }
-        }
-
-        async UniTask INetContext.DisconnectAsync()
-        {
-            await context.DisconnectAsync();
-        }
-
-        public async UniTask SendAsync(byte[] data)
-        {
-            var channel = GatewayService.GetGatewayChannel(context.Channel.Id.AsLongText());
-            if (channel != null)
-            {
-                await context.WriteAndFlushAsync(Unpooled.CopiedBuffer(data));
-            }
-        }
-    }
     public class GatewayService
     {
         private static ConcurrentDictionary<string, ISocketChannel> _dict = new ConcurrentDictionary<string, ISocketChannel>();
@@ -82,9 +48,9 @@ namespace PostMainland
         public async UniTask SendMessage(IMessage message)
         {
             byte[] buffer = ProtocalHelper.SerializeProtocal(message, 0);
-            await ReplyAsync(buffer);
+            await SendAsync(buffer);
         }
-        private async UniTask ReplyAsync(byte[] bytes)
+        public async UniTask SendAsync(byte[] bytes)
         {
             var channel = GatewayService.GetGatewayChannel(_context.Channel.Id.AsLongText());
             if (channel != null)
@@ -92,15 +58,20 @@ namespace PostMainland
                 await channel.WriteAndFlushAsync(Unpooled.CopiedBuffer(bytes));
             }
         }
+        public async UniTask DisconnectAsync()
+        {
+            ChannelUnregistered(_context);
+            await UniTask.CompletedTask;
+        }
 
     }
-    public partial class GameServerHandler : ChannelHandlerAdapter
+    public partial class GameServerHandler : ChannelHandlerAdapter, INetContext
     {
         /*
         * Channel的生命周期
         * 1.ChannelRegistered 先注册
         * 2.ChannelActive 再被激活
-        * 3.ChannelRead 客户端与服务端建立连接之后的会话（数据交互）
+        * 3.ChannelRead 客户端与服务端建立连接之后的会话（数据 交互）
         * 4.ChannelReadComplete 读取客户端发送的消息完成之后
         * error. ExceptionCaught 如果在会话过程当中出现dotnetty框架内部异常都会通过Caught方法返回给开发者
         * 5.ChannelInactive 使当前频道处于未激活状态
@@ -142,7 +113,7 @@ namespace PostMainland
             var buffer = message as IByteBuffer;
             if (buffer != null)
             {
-                ProtocalHelper.Handle(new ServerNetContext(context), buffer.GetIoBuffer().ToArray(), ResponseCallback);
+                ProtocalHelper.Handle(this, buffer.GetIoBuffer().ToArray(), ResponseCallback);
             }
         }
 

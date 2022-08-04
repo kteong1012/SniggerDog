@@ -114,17 +114,17 @@ namespace PostMainland
 
         private static void PrintBytes(string title, Span<byte> bytes)
         {
-            //string str = string.Join(',', bytes.ToArray());
-            //Print(title + str);
+            string str = string.Join(',', bytes.ToArray());
+            Print(title + str);
         }
 
         private static void Print(string str)
         {
-//#if NOT_UNITY
-//            Console.WriteLine(str);
-//#else
-//            UnityEngine.Debug.Log(str);
-//#endif
+#if NOT_UNITY
+            Console.WriteLine(str);
+#else
+            UnityEngine.Debug.Log(str);
+#endif
         }
     }
 }

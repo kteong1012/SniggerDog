@@ -27,6 +27,8 @@ namespace PostMainland
                 {
                     IChannelPipeline pipeline = channel.Pipeline;
                     pipeline.AddLast("log", new LoggingHandler("SRV-CONN", LogLevel.DEBUG));
+                    //pipeline.AddLast("framing-dec", new LengthFieldBasedFrameDecoder(ushort.MaxValue, 0, 2, 0, 2));//Dotnetty自带的解码器，将接受到的内容进行解码然后根据内容对应到业务逻辑当中
+                    //pipeline.AddLast("framing-enc", new LengthFieldPrepender(2));//Dotnetty自带的编码器，将要发送的内容进行编码然后发送
                     pipeline.AddLast("game", new GameServerHandler());
                 }));
             IChannel boundChannel = await bootstrap.BindAsync(40001);

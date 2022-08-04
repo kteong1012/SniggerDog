@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 
 namespace PostMainland
@@ -11,6 +12,7 @@ namespace PostMainland
     {
         public void Start()
         {
+            SynchronizationContext.SetSynchronizationContext(SynchronizationContext.Current);
             Services.Add(new Network());
             Services.AddWithouInit(new AssemblyCollection());
 
