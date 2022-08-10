@@ -14,6 +14,8 @@ namespace PostMainland
         {
             Console.WriteLine($"收到了{request.Account}  {request.Password}");
             response.Name = "宝鱼";
+            await context.SendMessage(new SC_Notify() { Message = "测试111" });
+            await context.SendMessage(new SC_Notify() { Message = "测试222" });
             await reply();
             await UniTask.CompletedTask;
         }

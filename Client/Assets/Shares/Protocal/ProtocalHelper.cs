@@ -120,11 +120,11 @@ namespace PostMainland
 
         private static void Print(string str)
         {
-#if NOT_UNITY
-            Console.WriteLine(str);
-#else
-            UnityEngine.Debug.Log(str);
-#endif
+//#if NOT_UNITY
+//            Console.WriteLine(str);
+//#else
+//            UnityEngine.Debug.Log(str);
+//#endif
         }
     }
 }
