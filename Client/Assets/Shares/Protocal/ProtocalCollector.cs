@@ -5,12 +5,18 @@ using System.Reflection;
 
 namespace PostMainland
 {
-    public class ProtocalCollector : Service, IServiceOnInit<Assembly>, IAssemblyCollector
+    public interface IProtocalCollector
+    {
+        public List<Type> Collect();
+        public Type GetProtocalTypeById(ProtocalId id);
+        public Type GetProtocalTypeById(uint id);
+    }
+    public class ProtocalCollector : IProtocalCollector
     {
         private Assembly _assembly;
         private Dictionary<ProtocalId, Type> _protocals = new Dictionary<ProtocalId, Type>();
 
-        public void OnInit(Assembly assembly)
+        public ProtocalCollector(Assembly assembly)
         {
             _assembly = assembly;
             foreach (var type in _assembly.GetTypes())
@@ -25,8 +31,6 @@ namespace PostMainland
                     _protocals[protocalAttr.Id] = type;
                 }
             }
-            AssemblyCollection collection =  Container as AssemblyCollection;
-            collection.RegisterCollector(this);
         }
 
         public List<Type> Collect()

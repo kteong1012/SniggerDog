@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Reflection;
+using TouchSocket.Sockets;
 
 namespace PostMainland
 {
@@ -14,13 +15,13 @@ namespace PostMainland
     }
     public interface IMessageHandler : IProtocalHandler
     {
-        UniTask Handle(INetContext context, IMessage message);
+        UniTask Handle(INetworkSession session, IProtocal message);
         ProtocalId GetMessageId();
     }
     [ProtocalHandler]
-    public abstract class MessageHandler<TM> : IMessageHandler where TM : class, IMessage
+    public abstract class MessageHandler<TM> : IMessageHandler where TM : class, IProtocal
     {
-        public abstract UniTask Execute(INetContext context, TM message);
+        public abstract UniTask Execute(INetworkSession sender, TM message);
 
         public ProtocalId GetMessageId()
         {
@@ -33,22 +34,22 @@ namespace PostMainland
             return GetMessageId();
         }
 
-        public async UniTask Handle(INetContext context, IMessage message)
+        public async UniTask Handle(INetworkSession session, IProtocal message)
         {
-            await Execute(context, message as TM);
+            await Execute(session, message as TM);
         }
     }
 
     public interface IRequestHandler : IProtocalHandler
     {
-        UniTask Handle(INetContext context, IRequest req, IResponse res, Func<UniTask> reply);
+        UniTask Handle(INetworkSession session, IRequest req, IResponse res, Action reply);
         ProtocalId GetRequestId();
         ProtocalId GetResponseId();
     }
     [ProtocalHandler]
     public abstract class RequestHandler<TReq, TRes> : IRequestHandler where TRes : class, IResponse where TReq : class, IRequest
     {
-        public abstract UniTask Execute(INetContext context, TReq request, TRes response, Func<UniTask> reply);
+        public abstract UniTask Execute(INetworkSession session, TReq request, TRes response, Action reply);
 
         public ProtocalId GetProtocalId()
         {
@@ -67,9 +68,9 @@ namespace PostMainland
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[1].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
-        public async UniTask Handle(INetContext context, IRequest req, IResponse res, Func<UniTask> reply)
+        public async UniTask Handle(INetworkSession session, IRequest req, IResponse res, Action reply)
         {
-            await Execute(context, req as TReq, res as TRes, reply);
+            await Execute(session, req as TReq, res as TRes, reply);
         }
     }
 }

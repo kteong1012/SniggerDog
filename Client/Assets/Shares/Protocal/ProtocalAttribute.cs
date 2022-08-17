@@ -5,7 +5,7 @@ namespace PostMainland
     public enum ProtocalType : byte
     {
         InValid = 0,
-        Message = 1,
+        Protocal = 1,
         Request = 2,
         Response = 3
     }
@@ -18,7 +18,6 @@ namespace PostMainland
         }
     }
     public interface IProtocal { }
-    public interface IMessage : IProtocal { }
     public interface IRequest : IProtocal { }
     public interface IResponse : IProtocal
     {
