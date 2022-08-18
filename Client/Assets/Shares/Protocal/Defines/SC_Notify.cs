@@ -5,7 +5,7 @@ namespace PostMainland
     [NinoSerialize]
     [Protocal(ProtocalId.SC_Notify)]
 
-    public partial class SC_Notify : IMessage
+    public partial class SC_Notify : IProtocal
     {
         [NinoMember(1)]
         public int MessageType;

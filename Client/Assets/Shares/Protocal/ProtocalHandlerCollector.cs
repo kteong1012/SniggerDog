@@ -7,14 +7,21 @@ using System.Reflection;
 
 namespace PostMainland
 {
-    public class ProtocalHandlerCollector : Service, IServiceOnInit<Assembly>, IAssemblyCollector
+    public interface IProtocalHandlerCollector
+    {
+        public List<Type> Collect();
+        IRequestHandler GetRequestHandler(ProtocalId protocalId);
+        IMessageHandler GetMessageHandler(ProtocalId protocalId);
+
+    }
+    public class ProtocalHandlerCollector : IProtocalHandlerCollector
     {
         private Assembly _assembly;
         private Dictionary<ProtocalId, Type> _protocalHandlerTypes = new Dictionary<ProtocalId, Type>();
         private Dictionary<ProtocalId, IMessageHandler> _messageHandlers = new Dictionary<ProtocalId, IMessageHandler>();
         private Dictionary<ProtocalId, IRequestHandler> _requestHandlers = new Dictionary<ProtocalId, IRequestHandler>();
 
-        void IServiceOnInit<Assembly>.OnInit(Assembly assembly)
+        public ProtocalHandlerCollector(Assembly assembly)
         {
             _assembly = assembly;
             foreach (var type in _assembly.GetTypes())
@@ -40,10 +47,8 @@ namespace PostMainland
                     }
                 }
             }
-            AssemblyCollection collection = Container as AssemblyCollection;
-            collection.RegisterCollector(this);
         }
-        List<Type> IAssemblyCollector.Collect()
+        public List<Type> Collect()
         {
             return _protocalHandlerTypes.Values.ToList();
         }

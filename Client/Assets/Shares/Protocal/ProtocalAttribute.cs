@@ -5,7 +5,7 @@ namespace PostMainland
     public enum ProtocalType : byte
     {
         InValid = 0,
-        Message = 1,
+        Protocal = 1,
         Request = 2,
         Response = 3
     }
@@ -17,9 +17,9 @@ namespace PostMainland
             Id = id;
         }
     }
-    public interface IProtocal { }
-    public interface IMessage : IProtocal { }
+    public interface IProtocal { } //Message
     public interface IRequest : IProtocal { }
+    public interface IRequest<TRes> : IRequest where TRes : IResponse { }
     public interface IResponse : IProtocal
     {
         int Status { get; set; }

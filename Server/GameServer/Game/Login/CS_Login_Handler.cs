@@ -10,12 +10,14 @@ namespace PostMainland
 
     public class CS_Login_Handler : RequestHandler<CS_Login, SC_LoginAck>
     {
-        public override async UniTask Execute(INetContext context, CS_Login request, SC_LoginAck response, Func<UniTask> reply)
+        public async override UniTask Execute(INetworkSession service, CS_Login request, SC_LoginAck response, Action reply)
         {
-            Console.WriteLine($"收到了{request.Account}  {request.Password}");
             response.Name = "宝鱼";
-            await reply();
+            Console.WriteLine($"收到了{request.Account}  {request.Password} 11");
+            reply();
+            service.Send(new SC_Notify() { Message = "测试111" });
             await UniTask.CompletedTask;
+            service.Send(new SC_Notify() { Message = "测试222" });
         }
     }
 }
