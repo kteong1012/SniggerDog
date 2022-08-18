@@ -5,7 +5,7 @@ namespace PostMainland
 
     [NinoSerialize]
     [Protocal(ProtocalId.C2S_Connect)]
-    public partial class C2S_Connect : IRequest
+    public partial class C2S_Connect : IRequest<S2C_ConnectAck>
     {
         [NinoMember(1)]
         public byte Empty { get; set; }
@@ -23,7 +23,7 @@ namespace PostMainland
     }
     [NinoSerialize]
     [Protocal(ProtocalId.C2S_Disconnect)]
-    public partial class C2S_Disconnect : IRequest
+    public partial class C2S_Disconnect : IRequest<S2C_DisconnectAck>
     {
 
         [NinoMember(1)]

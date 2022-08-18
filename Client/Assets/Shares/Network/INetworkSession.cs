@@ -1,14 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
-using TouchSocket.Core.ByteManager;
-using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public delegate void ReceiveRequestInfoDelegate(INetworkSender sender, ByteBlock byteBlock, RequestInfo requestInfo);
     public interface INetworkSession
     {
-        void Send<T>(T protocal) where T : IProtocal;
-        void Send<T>(T protocal,long msgId) where T : IProtocal;
-        UniTask<T> Request<T>(IRequest request,int milliTimeout = 2000) where T : IResponse;
+        void Send<T>(T message, bool check = false) where T : IProtocal;
+        void Send<T>(T message, long msgId, bool check = false) where T : IProtocal;
+        UniTask<TRes> Request<TRes, TReq>(TReq request, bool check = false) where TRes : IResponse where TReq : IRequest<TRes>;
     }
 }

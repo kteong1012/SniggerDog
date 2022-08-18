@@ -15,11 +15,11 @@ namespace PostMainland
     }
     public interface IMessageHandler : IProtocalHandler
     {
-        UniTask Handle(INetworkSession session, IProtocal message);
+        UniTask Handle(INetworkSession session, byte[] body);
         ProtocalId GetMessageId();
     }
     [ProtocalHandler]
-    public abstract class MessageHandler<TM> : IMessageHandler where TM : class, IProtocal
+    public abstract class MessageHandler<TM> : IMessageHandler where TM : IProtocal
     {
         public abstract UniTask Execute(INetworkSession sender, TM message);
 
@@ -34,20 +34,21 @@ namespace PostMainland
             return GetMessageId();
         }
 
-        public async UniTask Handle(INetworkSession session, IProtocal message)
+        public async UniTask Handle(INetworkSession session, byte[] body)
         {
-            await Execute(session, message as TM);
+            TM protocal = ProtocalHelper.DeserializeProtocal<TM>(body);
+            await Execute(session, protocal);
         }
     }
 
     public interface IRequestHandler : IProtocalHandler
     {
-        UniTask Handle(INetworkSession session, IRequest req, IResponse res, Action reply);
+        UniTask Handle(INetworkSession session, byte[] body, IResponse res, long msgId);
         ProtocalId GetRequestId();
         ProtocalId GetResponseId();
     }
     [ProtocalHandler]
-    public abstract class RequestHandler<TReq, TRes> : IRequestHandler where TRes : class, IResponse where TReq : class, IRequest
+    public abstract class RequestHandler<TReq, TRes> : IRequestHandler where TRes : IResponse where TReq : IRequest<TRes>
     {
         public abstract UniTask Execute(INetworkSession session, TReq request, TRes response, Action reply);
 
@@ -68,9 +69,14 @@ namespace PostMainland
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[1].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
-        public async UniTask Handle(INetworkSession session, IRequest req, IResponse res, Action reply)
+        public async UniTask Handle(INetworkSession session, byte[] body, IResponse res, long msgId)
         {
-            await Execute(session, req as TReq, res as TRes, reply);
+            TReq request = ProtocalHelper.DeserializeProtocal<TReq>(body);
+            await Execute(session, request, (TRes)res, Reply);
+            void Reply()
+            {
+                session.Send((TRes)res, msgId);
+            }
         }
     }
 }

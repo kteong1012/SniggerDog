@@ -17,8 +17,9 @@ namespace PostMainland
             Id = id;
         }
     }
-    public interface IProtocal { }
+    public interface IProtocal { } //Message
     public interface IRequest : IProtocal { }
+    public interface IRequest<TRes> : IRequest where TRes : IResponse { }
     public interface IResponse : IProtocal
     {
         int Status { get; set; }

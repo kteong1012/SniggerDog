@@ -4,9 +4,8 @@
     {
         static void Main()
         {
-            ServerTcpService service = new ServerTcpService();
-            service.Start();
-
+            Game game = new Game();
+            game.Start();
             while (true)
             {
                 var lineStr = Console.ReadLine();

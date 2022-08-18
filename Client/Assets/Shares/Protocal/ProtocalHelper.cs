@@ -1,37 +1,21 @@
-﻿using Cysharp.Threading.Tasks;
-using Nino.Serialization;
-using System;
-using System.Data;
-using System.Linq;
+﻿using Nino.Serialization;
 using System.Reflection;
 using System.Text;
-using TouchSocket.Core.Dependency;
 
 namespace PostMainland
 {
     public class ProtocalHelper
     {
-        private static MethodInfo _serializerMI;
-        private static MethodInfo _deserializerMI;
         public static CompressOption CompressOption = CompressOption.NoCompression;
         public static Encoding Encoding = Encoding.UTF8;
-        private static IContainer _container;
-
-        public ProtocalHelper(IContainer container)
-        {
-            _serializerMI = typeof(Serializer).GetMethod("Serialize");
-            _deserializerMI = typeof(Deserializer).GetMethod("Deserialize");
-            _container = container;
-        }
         public static byte[] SerializeProtocal<T>(T protocal) where T : IProtocal
         {
-            byte[] buffer = Serializer.Serialize(protocal);
+            byte[] buffer = Serializer.Serialize(protocal, Encoding, CompressOption);
             return buffer;
         }
-        public static IProtocal DeserializeProtocal(Type type, byte[] body)
+        public static T DeserializeProtocal<T>(byte[] body) where T : IProtocal
         {
-            var mi = _deserializerMI.MakeGenericMethod(type);
-            IProtocal protocal = (IProtocal)mi.Invoke(null, new object[] { body, Encoding, CompressOption });
+            T protocal = Deserializer.Deserialize<T>(body, Encoding, CompressOption);
             return protocal;
         }
         public static ProtocalId GetProtocalId(IProtocal protocal)
@@ -47,7 +31,7 @@ namespace PostMainland
         {
             return protocal switch
             {
-                IRequest _ => ProtocalType.Response,
+                IRequest _ => ProtocalType.Request,
                 IResponse _ => ProtocalType.Response,
                 IProtocal _ => ProtocalType.Protocal,
                 _ => ProtocalType.InValid

@@ -6,23 +6,22 @@ using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public class ServerTcpService : INetworkService
+    public class ServerTcpService
     {
-        private IContainer _container;
-        private TouchSocket.Sockets.TcpService _service;
+        private TcpService _service;
+        private IProtocalManagerService _protocalManager;
 
-        private INetworkService _receiver;
-        public ServerTcpService(IContainer container)
+        public ServerTcpService()
         {
             _service = new TouchSocket.Sockets.TcpService();
             _service.Received += OnReceived;
             _service.Connecting += OnConnecting;//有客户端正在连接
             _service.Connected += OnConnected;//有客户端连接
             _service.Disconnected += OnDisconnected;//有客户端断开连接
-
+            _protocalManager = Global.Container.Resolve<IProtocalManagerService>();
             TouchSocketConfig config = new TouchSocketConfig();
             config.SetListenIPHosts(new IPHost[] { new IPHost("127.0.0.1:10005") })
-                .SetDataHandlingAdapter(() => new RequestInfoHeaderHandlingAdapter())
+                .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())
                 .SetMaxCount(10000)
                 .SetThreadCount(10)
                 .ConfigurePlugins(a =>
@@ -34,55 +33,38 @@ namespace PostMainland
 
                 });
             _service.Setup(config).Start();
-
-            new ServerSocketSession(,)
-            TcpServerReceiver tcpServerReceiver = new TcpServerReceiver(_container, _service,)
         }
 
 
         private void OnReceived(SocketClient client, ByteBlock byteBlock, IRequestInfo requestInfo)
         {
-            if (requestInfo is RequestInfo info)
+            if (requestInfo is ProtocalRequest pr)
             {
-                switch (info.Type)
+                switch (pr.Type)
                 {
                     case ProtocalType.Request:
                         {
-                            var handler = _container.Resolve<IProtocalHandlerCollector>().GetRequestHandler(info.Id);
-                            ProtocalId respId = handler.GetResponseId();
-                            Type reqType = _container.Resolve<IProtocalCollector>().GetProtocalTypeById(info.Id);
-                            IRequest request = ProtocalHelper.DeserializeProtocal(reqType, info.Body) as IRequest;
-
-                            Type respType = _container.Resolve<IProtocalCollector>().GetProtocalTypeById(respId);
-                            IResponse response = Activator.CreateInstance(respType) as IResponse;
-                            handler.Handle(_service, request, response, Reply).Forget();
-                            void Reply()
+                            var handler = _protocalManager.GetRequestHandler(pr.Id);
+                            if (handler != null)
                             {
-                                _service.Send(response, info.MessageId);
+                                var session = new SocketClientSession(client);
+                                IResponse response = _protocalManager.CreateProtocal(handler.GetResponseId()) as IResponse;
+                                handler.Handle(session, pr.Body, response, pr.MessageId);
                             }
                         }
                         break;
                     case ProtocalType.Response:
                         {
-                            if (_requestTasks.TryGetValue(info.MessageId, out var tcs))
-                            {
-                                Type respType = _container.Resolve<IProtocalCollector>().GetProtocalTypeById(info.Id);
-                                IResponse response = Activator.CreateInstance(respType) as IResponse;
-                                tcs.TrySetResult(response);
-                                _requestTasks.Remove(info.MessageId);
-                            }
-                            else
-                            {
-                                //DO NOTHING
-                            }
+                            //DO NOTHING 服务器不会收到Response
                             break;
                         }
                     case ProtocalType.Protocal:
                         {
-                            var handler = _container.Resolve<IProtocalHandlerCollector>().GetMessageHandler(info.Id);
-                            Type protoType = _container.Resolve<IProtocalCollector>().GetProtocalTypeById(info.Id);
-                            IProtocal protocal = Activator.CreateInstance(protoType) as IProtocal;
-                            handler.Handle(_service, protocal).Forget();
+                            var handler = _protocalManager.GetMessageHandler(pr.Id);
+                            if (handler != null)
+                            {
+                                handler.Handle(new SocketClientSession(client), pr.Body);
+                            }
                         }
                         break;
                     default:
@@ -90,12 +72,6 @@ namespace PostMainland
                 }
             }
         }
-
-        public void Start()
-        {
-            _service.Start();
-        }
-
         private void OnDisconnected(SocketClient client, ClientDisconnectedEventArgs e)
         {
         }
