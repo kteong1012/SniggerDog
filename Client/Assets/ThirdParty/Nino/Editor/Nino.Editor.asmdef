@@ -1,8 +1,7 @@
 {
     "name": "Nino.Editor",
-    "rootNamespace": "",
     "references": [
-        "GUID:e9a7c7fc3de78ad43b98774a0110fa48"
+        "Nino.Serialization"
     ],
     "includePlatforms": [
         "Editor"

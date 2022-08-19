@@ -65,7 +65,6 @@ namespace Nino.Serialization
 			if (WrapperManifest.TryGetWrapper(type, out var wrapper))
 			{
 				var ret = ((NinoWrapperBase<T>)wrapper).Deserialize(reader);
-				reader.ReturnBuffer();
 				ObjectPool<Reader>.Return(reader);
 				return ret;
 			}
@@ -77,12 +76,48 @@ namespace Nino.Serialization
 				WrapperManifest.AddWrapper(type, wrapper);
 				//start Deserialize
 				var ret = ((NinoWrapperBase<T>)wrapper).Deserialize(reader);
-				reader.ReturnBuffer();
 				ObjectPool<Reader>.Return(reader);
 				return ret;
 			}
 
 			return (T)Deserialize(type, null, data, encoding ?? DefaultEncoding, reader, option, true, true, true);
+		}
+
+		/// <summary>
+		/// Deserialize a NinoSerialize object
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="data"></param>
+		/// <param name="encoding"></param>
+		/// <param name="option"></param>
+		/// <returns></returns>
+		public static object Deserialize(Type type, byte[] data, Encoding encoding = null,
+			CompressOption option = CompressOption.Zlib)
+		{
+			Reader reader = ObjectPool<Reader>.Request();
+			reader.Init(data, data.Length, encoding ?? DefaultEncoding,
+				TypeModel.IsNonCompressibleType(type) ? CompressOption.NoCompression : option);
+
+			//basic type
+			if (WrapperManifest.TryGetWrapper(type, out var wrapper))
+			{
+				var ret = wrapper.Deserialize(reader);
+				ObjectPool<Reader>.Return(reader);
+				return ret;
+			}
+
+			//code generated type
+			if (TypeModel.TryGetWrapper(type, out wrapper))
+			{
+				//add wrapper
+				WrapperManifest.AddWrapper(type, wrapper);
+				//start Deserialize
+				var ret = wrapper.Deserialize(reader);
+				ObjectPool<Reader>.Return(reader);
+				return ret;
+			}
+
+			return Deserialize(type, null, data, encoding ?? DefaultEncoding, reader, option, true, true, true);
 		}
 
 		/// <summary>
@@ -124,7 +159,6 @@ namespace Nino.Serialization
 				var ret = wrapper.Deserialize(reader);
 				if (returnDispose)
 				{
-					reader.ReturnBuffer();
 					ObjectPool<Reader>.Return(reader);
 				}
 
@@ -132,13 +166,17 @@ namespace Nino.Serialization
 			}
 
 			//enum
-			if (!skipEnumCheck && type.IsEnum)
+			if (!skipEnumCheck && TypeModel.IsEnum(type))
 			{
 
 				var ret = Deserialize(Enum.GetUnderlyingType(type), null, data, encoding, null, option, returnDispose);
-#if !ILRuntime
-				ret = Enum.ToObject(type, ret);
+#if ILRuntime
+				if (type is ILRuntime.Reflection.ILRuntimeType)
+				{
+					return ret;
+				}
 #endif
+				ret = Enum.ToObject(type, ret);
 				return ret;
 			}
 
@@ -151,7 +189,6 @@ namespace Nino.Serialization
 				var ret = wrapper.Deserialize(reader);
 				if (returnDispose)
 				{
-					reader.ReturnBuffer();
 					ObjectPool<Reader>.Return(reader);
 				}
 
@@ -164,7 +201,6 @@ namespace Nino.Serialization
 				var ret = reader.ReadArray(type);
 				if (returnDispose)
 				{
-					reader.ReturnBuffer();
 					ObjectPool<Reader>.Return(reader);
 				}
 
@@ -181,7 +217,6 @@ namespace Nino.Serialization
 					var ret = reader.ReadList(type);
 					if (returnDispose)
 					{
-						reader.ReturnBuffer();
 						ObjectPool<Reader>.Return(reader);
 					}
 
@@ -193,7 +228,6 @@ namespace Nino.Serialization
 					var ret = reader.ReadDictionary(type);
 					if (returnDispose)
 					{
-						reader.ReturnBuffer();
 						ObjectPool<Reader>.Return(reader);
 					}
 
@@ -267,7 +301,7 @@ namespace Nino.Serialization
 #if !ILRuntime
 							if (ret.GetType() != type)
 							{
-								if (type.IsEnum)
+								if (TypeModel.IsEnum(type))
 								{
 									ret = Enum.ToObject(type, ret);
 								}
@@ -310,9 +344,13 @@ namespace Nino.Serialization
 						var ret = reader.ReadCommonVal(type);
 						//type check
 #if !ILRuntime
-						if (ret.GetType() != type)
+						if (TypeModel.IsEnum(type))
 						{
-							ret = type.IsEnum ? Enum.ToObject(type, ret) : Convert.ChangeType(ret, type);
+							ret = Enum.ToObject(type, ret);
+						}
+						else
+						{
+							ret = Convert.ChangeType(ret, type);
 						}
 #endif
 
@@ -326,7 +364,6 @@ namespace Nino.Serialization
 			Read();
 			if (returnDispose)
 			{
-				reader.ReturnBuffer();
 				ObjectPool<Reader>.Return(reader);
 			}
 

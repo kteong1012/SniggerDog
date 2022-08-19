@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text;
+using Nino.Shared.IO;
 using Nino.Shared.Mgr;
 using System.Collections;
 using System.Runtime.CompilerServices;
@@ -15,16 +16,19 @@ namespace Nino.Serialization
 	public unsafe class Reader
 	{
 		/// <summary>
-		/// Buffer that stores data
+		/// block size when creating buffer
 		/// </summary>
-		private byte* _buffer;
+		private const ushort BufferBlockSize = ushort.MaxValue;
 
 		/// <summary>
-		/// cache of managed bytes
+		/// Buffer that stores data
 		/// </summary>
-		// ReSharper disable NotAccessedField.Local
-		private byte[] _managedCache;
-		// ReSharper restore NotAccessedField.Local
+		private ExtensibleBuffer<byte> _buffer;
+
+		/// <summary>
+		/// Buffer that stores data
+		/// </summary>
+		private ref ExtensibleBuffer<byte> Buffer => ref _buffer;
 
 		/// <summary>
 		/// encoding for string
@@ -32,9 +36,19 @@ namespace Nino.Serialization
 		private Encoding _encoding;
 
 		/// <summary>
+		/// encoding for string
+		/// </summary>
+		private ref Encoding Encoding => ref _encoding;
+
+		/// <summary>
 		/// Position of the current buffer
 		/// </summary>
 		private int _position;
+
+		/// <summary>
+		/// Position of the current buffer
+		/// </summary>
+		private ref int Position => ref _position;
 
 		/// <summary>
 		/// Length of the current reader
@@ -49,7 +63,7 @@ namespace Nino.Serialization
 		/// <summary>
 		/// End of Reader
 		/// </summary>
-		public bool EndOfReader => _position >= _length;
+		public bool EndOfReader => Position >= _length;
 
 		/// <summary>
 		/// Create an empty reader, need to set up values
@@ -72,14 +86,6 @@ namespace Nino.Serialization
 		}
 
 		/// <summary>
-		/// Deconstructor
-		/// </summary>
-		~Reader()
-		{
-			ReturnBuffer();
-		}
-
-		/// <summary>
 		/// Create a nino read
 		/// </summary>
 		/// <param name="data"></param>
@@ -89,13 +95,27 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private void Init(IntPtr data, ref int outputLength, Encoding encoding, CompressOption option)
 		{
-			_buffer = (byte*)data;
-			_encoding = encoding;
-			_position = 0;
+			if (Buffer == null)
+			{
+				var peak = ObjectPool<ExtensibleBuffer<byte>>.Peak();
+				if (peak != null && peak.ExpandSize == BufferBlockSize)
+				{
+					Buffer = ObjectPool<ExtensibleBuffer<byte>>.Request();
+				}
+				else
+				{
+					Buffer = new ExtensibleBuffer<byte>(BufferBlockSize);
+				}
+			}
+			Buffer.CopyFrom((byte*)data, 0, 0, outputLength);
+			Encoding = encoding;
+			Position = 0;
 			_length = outputLength;
 			_option = option;
 			if (_option == CompressOption.Zlib)
-				GC.AddMemoryPressure(outputLength);
+			{
+				Marshal.FreeHGlobal(data);
+			}
 		}
 
 		/// <summary>
@@ -111,7 +131,6 @@ namespace Nino.Serialization
 			switch (compressOption)
 			{
 				case CompressOption.NoCompression:
-					_managedCache = data;
 					fixed (byte* ptr = data)
 					{
 						Init((IntPtr)ptr, ref outputLength, encoding, compressOption);
@@ -127,28 +146,14 @@ namespace Nino.Serialization
 		}
 
 		/// <summary>
-		/// Return buffer
-		/// </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public void ReturnBuffer()
-		{
-			if (_option == CompressOption.Zlib)
-			{
-				Marshal.FreeHGlobal((IntPtr)_buffer);
-				GC.RemoveMemoryPressure(_length);
-			}
-
-			_managedCache = null;
-			_buffer = null;
-		}
-
-		/// <summary>
 		/// Get Length
 		/// </summary>
 		/// <returns></returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public int ReadLength()
 		{
+			if (EndOfReader) return default;
+			
 			return (int)DecompressAndReadNumber();
 		}
 
@@ -160,7 +165,10 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public ulong DecompressAndReadNumber()
 		{
-			switch (GetCompressType())
+			if (EndOfReader) return default;
+			
+			ref var type = ref GetCompressType();
+			switch (type)
 			{
 				case CompressType.Byte:
 					return ReadByte();
@@ -199,7 +207,7 @@ namespace Nino.Serialization
 				return wrapper.Deserialize(this);
 			}
 
-			if (type.IsEnum)
+			if (TypeModel.IsEnum(type))
 			{
 				return DecompressAndReadEnum(type);
 			}
@@ -253,30 +261,39 @@ namespace Nino.Serialization
 			var ret = AttemptReadBasicType(type, out bool result);
 			if (result)
 			{
-#if !ILRuntime
-				if (type.IsEnum)
+				if (TypeModel.IsEnum(type))
 				{
+#if ILRuntime
+					if (type is ILRuntime.Reflection.ILRuntimeType)
+					{
+						var baseType = Enum.GetUnderlyingType(type);
+						if (baseType == typeof(long)
+						    || baseType == typeof(uint)
+						    || baseType == typeof(ulong))
+							return Convert.ChangeType(ret, typeof(Int64));
+						return Convert.ChangeType(ret, typeof(Int32));
+					}
+#endif
 					return Enum.ToObject(type, ret);
 				}
-#endif
+				
 				return ret;
 			}
 
-			return Deserializer.Deserialize(type, ConstMgr.Null, ConstMgr.Null, _encoding, this, _option, false, true,
-				false,
-				true, true);
+			return Deserializer.Deserialize(type, ConstMgr.Null, ConstMgr.Null, Encoding, this, _option, false, true,
+				false, true, true);
 		}
 
 		/// <summary>
 		/// Compress and write enum
 		/// </summary>
-		/// <param name="underlyingType"></param>
+		/// <param name="enumType"></param>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public ulong DecompressAndReadEnum(Type underlyingType)
+		public ulong DecompressAndReadEnum(Type enumType)
 		{
-			//typeof(byte), typeof(sbyte), typeof(short), typeof(ushort),
-			//typeof(int), typeof(uint), typeof(long), typeof(ulong)
-			switch (Type.GetTypeCode(underlyingType))
+			if (EndOfReader) return default;
+
+			switch (TypeModel.GetTypeCode(enumType))
 			{
 				case TypeCode.Byte:
 					return ReadByte();
@@ -302,9 +319,9 @@ namespace Nino.Serialization
 		/// </summary>
 		/// <returns></returns>
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		private CompressType GetCompressType()
+		private ref CompressType GetCompressType()
 		{
-			return *(CompressType*)(&_buffer[_position++]);
+			return ref *(CompressType*)(&Buffer.Data[Position++]);
 		}
 
 		/// <summary>
@@ -313,7 +330,9 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public byte ReadByte()
 		{
-			return _buffer[_position++];
+			if (EndOfReader) return default;
+
+			return Buffer[Position++];
 		}
 
 		/// <summary>
@@ -323,13 +342,14 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public byte[] ReadBytes(int len)
 		{
-			ref var p = ref _position;
+			if (EndOfReader) return default;
+
 			ref var l = ref len;
 			byte[] ret = new byte[l];
 			fixed (byte* ptr = ret)
 			{
-				Unsafe.CopyBlockUnaligned(ptr, &_buffer[p], (uint)l);
-				p += l;
+				Buffer.CopyTo(ptr, _position, l);
+				Position += l;
 			}
 
 			return ret;
@@ -344,8 +364,8 @@ namespace Nino.Serialization
 		public void ReadToBuffer(byte* ptr, int len)
 		{
 			ref var l = ref len;
-			Unsafe.CopyBlockUnaligned(ptr, &_buffer[_position], (uint)l);
-			_position += l;
+			Buffer.CopyTo(ptr, _position, l);
+			Position += l;
 		}
 
 		/// <summary>
@@ -355,16 +375,53 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		private T Read<T>(int len) where T : unmanaged
 		{
-			ref var l = ref len;
-			ref var p = ref _position;
+			if (EndOfReader) return default;
+
+			if (Environment.Is64BitProcess && sizeof(T) == len)
+			{
+				Position += len;
+				return *(T*)&Buffer.Data[Position - len];
+			}
+
 			//on 32 bits has to make a copy, otherwise if cast pointer to T straight ahead, will cause crash
 			T ret = default;
-			byte i = 0;
-			while (l-- > 0)
+			byte* ptr = (byte*)&ret;
+			while (len-- > 0)
 			{
-				((byte*)&ret)[i++] = _buffer[p++];
+				*ptr++ = Buffer[Position++];
 			}
+
 			return ret;
+		}
+
+		/// <summary>
+		/// Read unmanaged type
+		/// </summary>
+		/// <param name="val"></param>
+		/// <param name="len"></param>
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		// ReSharper disable UnusedMember.Local
+		public void Read<T>(ref T val, int len) where T : unmanaged
+		// ReSharper restore UnusedMember.Local
+		{
+			if (EndOfReader)
+			{
+				return;
+			}
+
+			if (Environment.Is64BitProcess && sizeof(T) == len)
+			{
+				Position += len;
+				val = *(T*)&Buffer.Data[Position - len];
+				return;
+			}
+
+			//on 32 bits has to make a copy, otherwise if cast pointer to T straight ahead, will cause crash
+			byte* ptr = (byte*)Unsafe.AsPointer(ref val);
+			while (len-- > 0)
+			{
+				*ptr++ = Buffer[Position++];
+			}
 		}
 
 		/// <summary>
@@ -374,7 +431,7 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public sbyte ReadSByte()
 		{
-			return *(sbyte*)(&_buffer[_position++]);
+			return *(sbyte*)(&Buffer.Data[Position++]);
 		}
 
 		/// <summary>
@@ -392,6 +449,8 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public DateTime ReadDateTime()
 		{
+			if (EndOfReader) return default;
+			
 			return DateTime.FromOADate(ReadDouble());
 		}
 
@@ -494,25 +553,27 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public string ReadString()
 		{
-			int len = (int)DecompressAndReadNumber();
+			if (EndOfReader) return default;
 
+			int len = (int)DecompressAndReadNumber();
+			ref var l = ref len;
 			//empty string -> no gc
-			if (len == 0)
+			if (l == 0)
 			{
 				return String.Empty;
 			}
 
 			//Read directly
-			if (len < 1024)
+			if (l < 1024)
 			{
-				byte* buf = stackalloc byte[len];
-				ReadToBuffer(buf, len);
-				return _encoding.GetString(buf, len);
+				byte* buf = stackalloc byte[l];
+				ReadToBuffer(buf, l);
+				return Encoding.GetString(buf, l);
 			}
 
-			byte* buff = (byte*)Marshal.AllocHGlobal(len);
-			ReadToBuffer(buff, len);
-			var ret = _encoding.GetString(buff, len);
+			byte* buff = (byte*)Marshal.AllocHGlobal(l);
+			ReadToBuffer(buff, l);
+			var ret = Encoding.GetString(buff, l);
 			Marshal.FreeHGlobal((IntPtr)buff);
 			return ret;
 		}
@@ -532,7 +593,9 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public bool ReadBool()
 		{
-			return _buffer[_position++] == 1;
+			if (EndOfReader) return default;
+
+			return Buffer[Position++] == 1;
 		}
 
 		/// <summary>
@@ -543,6 +606,8 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public Array ReadArray(Type type)
 		{
+			if (EndOfReader) return default;
+
 			//basic type
 			if (WrapperManifest.TryGetWrapper(type, out var wrapper))
 			{
@@ -585,6 +650,8 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public IList ReadList(Type type)
 		{
+			if (EndOfReader) return default;
+
 			//basic type
 			if (WrapperManifest.TryGetWrapper(type, out var wrapper))
 			{
@@ -629,6 +696,8 @@ namespace Nino.Serialization
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
 		public IDictionary ReadDictionary(Type type)
 		{
+			if (EndOfReader) return default;
+
 			//parse dict type
 			var args = type.GetGenericArguments();
 			Type keyType = args[0];

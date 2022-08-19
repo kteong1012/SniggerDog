@@ -26,7 +26,7 @@ namespace Nino.Editor
         /// 导出目录，你可以修改这个路径，代码会生成到Assets目录下你指定的这个路径内
         /// 如果需要导出到Assets外部，可以在路径内写入../
         /// </summary>
-        private const string ExportPath = "Shares/Protocal/AutoGenerate";
+        private const string ExportPath = "Nino/Generated";
         
         [MenuItem("Nino/Generator/Serialization Code")]
         public static void GenerateSerializationCode()
