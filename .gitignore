@@ -9,6 +9,7 @@ Client/[Bb]uild/
 Client/[Bb]uilds/
 Client/[Ll]ogs/
 Client/[Uu]ser[Ss]ettings/
+Client/*.sln
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -33,7 +34,6 @@ ExportedObj/
 .consulo/
 Client/*.csproj
 *.unityproj
-*.sln
 *.suo
 *.tmp
 *.user

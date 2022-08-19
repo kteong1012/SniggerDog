@@ -11,14 +11,14 @@ namespace PostMainland
         private TcpService _service;
         private IProtocalManagerService _protocalManager;
 
-        public ServerTcpService()
+        public ServerTcpService(IProtocalManagerService protocalMgr)
         {
             _service = new TouchSocket.Sockets.TcpService();
             _service.Received += OnReceived;
             _service.Connecting += OnConnecting;//有客户端正在连接
             _service.Connected += OnConnected;//有客户端连接
             _service.Disconnected += OnDisconnected;//有客户端断开连接
-            _protocalManager = Global.Container.Resolve<IProtocalManagerService>();
+            _protocalManager = protocalMgr;
             TouchSocketConfig config = new TouchSocketConfig();
             config.SetListenIPHosts(new IPHost[] { new IPHost("127.0.0.1:10005") })
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())

@@ -10,15 +10,13 @@ namespace PostMainland
 {
     public class ProtocalManager : IProtocalManagerService
     {
-        public IAssemblyManager AssemblyManager { get; set; }
         public ConcurrentDictionary<ProtocalId, IMessageHandler> MessageHandlers { get; private set; }
         public ConcurrentDictionary<ProtocalId, IRequestHandler> RequestHandlers { get; private set; }
         public ConcurrentDictionary<ProtocalId, Type> ProtocalTypes { get; private set; }
 
-        public ProtocalManager()
+        public ProtocalManager(IAssemblyManager _assMgr)
         {
-            AssemblyManager = Global.Container.Resolve<IAssemblyManager>();
-            var handlerImplTypes = AssemblyManager.Types.Where(x => !x.IsInterface && !x.IsAbstract && x.IsDefined(typeof(ProtocalHandlerAttribute), true));
+            var handlerImplTypes = _assMgr.Types.Where(x => !x.IsInterface && !x.IsAbstract && x.IsDefined(typeof(ProtocalHandlerAttribute), true));
             MessageHandlers = new ConcurrentDictionary<ProtocalId, IMessageHandler>();
             RequestHandlers = new ConcurrentDictionary<ProtocalId, IRequestHandler>();
             foreach (var type in handlerImplTypes)
@@ -34,7 +32,7 @@ namespace PostMainland
                     MessageHandlers.TryAdd(id, handler as IMessageHandler);
                 }
             }
-            var protocalImplTypes = AssemblyManager.Types.Where(x => !x.IsInterface && !x.IsAbstract && x.IsDefined(typeof(ProtocalAttribute), true));
+            var protocalImplTypes = _assMgr.Types.Where(x => !x.IsInterface && !x.IsAbstract && x.IsDefined(typeof(ProtocalAttribute), true));
             ProtocalTypes = new ConcurrentDictionary<ProtocalId, Type>();
             foreach (var type in protocalImplTypes)
             {

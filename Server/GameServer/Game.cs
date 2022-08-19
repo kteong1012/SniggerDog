@@ -4,12 +4,16 @@ namespace PostMainland
 {
     public class Game
     {
+        IContainer _container;
         public void Start()
         {
             Global.Container = new Container()
-                .RegisterSingleton<IAssemblyManager,AssemblyManager>()
-                .RegisterSingleton<IProtocalManagerService,ProtocalManager>();
-            ServerTcpService service = new ServerTcpService();
+                .RegisterSingleton<IAssemblyManager, AssemblyManager>()
+                .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
+                .RegisterTransient<ServerTcpService, ServerTcpService>();
+
+            _container = Global.Container;
+            _container.Resolve<ServerTcpService>();
         }
     }
 }
