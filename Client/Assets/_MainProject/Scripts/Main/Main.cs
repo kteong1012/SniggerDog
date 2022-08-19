@@ -5,19 +5,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using YooAsset;
 
-public class Main : MonoBehaviour
+namespace PostMainland
 {
-    void Start()
+    public class Main : MonoBehaviour
     {
-        //TEMP
-        string dllPath = @"D:\Github\AntiMage\Client\Temp\Bin\Debug\Hotfix.dll";
-        string pdbPath = @"D:\Github\AntiMage\Client\Temp\Bin\Debug\Hotfix.pdb";
-        byte[] dll = File.ReadAllBytes(dllPath);
-        byte[] pdb = File.ReadAllBytes(pdbPath);
-        Assembly ass = Assembly.Load(dll, pdb);
-        Type game = ass.GetType("PostMainland.Game");
-        MethodInfo mi = game.GetMethod("Start");
-        mi.Invoke(null, null);
+        async void Start()
+        {
+            await YooAssetsManager.Instace.Initialize();
+            var dll = await YooAssetsManager.Instace.LoadAsync<TextAsset>("HotfixDll_Code.dll");
+            var pdb = await YooAssetsManager.Instace.LoadAsync<TextAsset>("HotfixDll_Code.pdb");
+
+            Assembly ass = Assembly.Load(dll.bytes, pdb.bytes);
+            Type game = ass.GetType("PostMainland.Game");
+            MethodInfo mi = game.GetMethod("Start");
+            mi.Invoke(null, null);
+        }
     }
 }
