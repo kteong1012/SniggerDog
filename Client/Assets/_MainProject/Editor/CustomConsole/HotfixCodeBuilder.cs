@@ -15,7 +15,7 @@ namespace PostMainland
         [MenuItem("PostMainland/Commands/BuildDebugAndPlay _F5")]
         public static void BuildDebugAndPlay()
         {
-            BuildAssembly("Code", new string[] { "Assets/_MainProject/Scripts/Hotfix" }, Array.Empty<string>(), CodeOptimization.Debug);
+            BuildAssembly("Code", new string[] { AppConst.HotfixCodesDir }, Array.Empty<string>(), CodeOptimization.Debug);
             AfterCompiling();
             AssetDatabase.Refresh();
             if (!EditorApplication.isPlaying)
@@ -26,13 +26,12 @@ namespace PostMainland
         [MenuItem("PostMainland/Commands/BuildReleaseAndPlay _F6")]
         public static void BuildReleaseAndPlay()
         {
-            BuildAssembly("Code", new string[] { "Assets/_MainProject/Scripts/Hotfix" }, Array.Empty<string>(), CodeOptimization.Release);
+            BuildAssembly("Code", new string[] { AppConst.HotfixCodesDir }, Array.Empty<string>(), CodeOptimization.Release);
             AfterCompiling();
             AssetDatabase.Refresh();
             if (!EditorApplication.isPlaying)
             {
                 EditorApplication.isPlaying = true;
-
             }
         }
 
@@ -49,11 +48,11 @@ namespace PostMainland
                 }
             }
 
-            if (!Directory.Exists(AppConst.BuildOutputDir))
-                Directory.CreateDirectory(AppConst.BuildOutputDir);
+            if (!Directory.Exists(AppConst.HotfixDllBuildOutputDir))
+                Directory.CreateDirectory(AppConst.HotfixDllBuildOutputDir);
 
-            string dllPath = Path.Combine(AppConst.BuildOutputDir, $"{assemblyName}.dll");
-            string pdbPath = Path.Combine(AppConst.BuildOutputDir, $"{assemblyName}.pdb");
+            string dllPath = Path.Combine(AppConst.HotfixDllBuildOutputDir, $"{assemblyName}.dll");
+            string pdbPath = Path.Combine(AppConst.HotfixDllBuildOutputDir, $"{assemblyName}.pdb");
             File.Delete(dllPath);
             File.Delete(pdbPath);
 
@@ -125,9 +124,9 @@ namespace PostMainland
 
             Debug.Log("Compiling finish");
 
-            Directory.CreateDirectory(AppConst.HotfixDir);
-            File.Copy(Path.Combine(AppConst.BuildOutputDir, "Code.dll"), Path.Combine(AppConst.HotfixDir, "Code.dll.bytes"), true);
-            File.Copy(Path.Combine(AppConst.BuildOutputDir, "Code.pdb"), Path.Combine(AppConst.HotfixDir, "Code.pdb.bytes"), true);
+            Directory.CreateDirectory(AppConst.HotfixDllBundleOutputDir);
+            File.Copy(Path.Combine(AppConst.HotfixDllBuildOutputDir, "Code.dll"), Path.Combine(AppConst.HotfixDllBundleOutputDir, "Code.dll.bytes"), true);
+            File.Copy(Path.Combine(AppConst.HotfixDllBuildOutputDir, "Code.pdb"), Path.Combine(AppConst.HotfixDllBundleOutputDir, "Code.pdb.bytes"), true);
             AssetDatabase.Refresh();
             Debug.Log("copy Code.dll to Bundles/Code success!");
 
