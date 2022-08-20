@@ -12,11 +12,11 @@ namespace PostMainland
     {
         public async override UniTask Execute(INetworkSession service, CS_Login request, SC_LoginAck response, Action reply)
         {
-            response.Name = "宝鱼";
+            response.Name = "服务器改了一下名字";
             Console.WriteLine($"收到了{request.Account}  {request.Password} 11");
             service.Send(new SC_Notify() { Message = "测试111" });
-            reply();
             service.Send(new SC_Notify() { Message = "测试222" });
+            reply();
             await UniTask.CompletedTask;
         }
     }

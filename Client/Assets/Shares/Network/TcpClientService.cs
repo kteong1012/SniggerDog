@@ -64,7 +64,7 @@ namespace PostMainland
         }
         public async UniTask<TRes> Request<TRes, TReq>(TcpClient client, TReq request, bool check = false, float timeout = 2f)
               where TRes : IResponse
-              where TReq : IRequest
+              where TReq : IRequest<TRes>
         {
             request.RpcId = ++_rpciId;
             Send(client, request, check);

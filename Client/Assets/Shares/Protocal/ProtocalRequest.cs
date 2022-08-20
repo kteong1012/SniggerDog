@@ -51,7 +51,7 @@ namespace PostMainland
             Type t = typeof(T);
             ProtocalType type = ProtocalHelper.GetProtocalType(protocal);
             ProtocalId id = ProtocalHelper.GetProtocalId(protocal);
-            byte[] body = ProtocalHelper.SerializeProtocal<T>(protocal);
+            byte[] body = ProtocalHelper.SerializeProtocal(protocal);
             ProtocalRequest requestInfo = new ProtocalRequest();
             requestInfo._type = type;
             requestInfo._useCrc16 = useCrc16;
