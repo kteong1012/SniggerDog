@@ -7,6 +7,7 @@ namespace PostMainland
     {
         IContainer _container;
         ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        TimeInfo TimeInfo = TimeInfo.Instance;
         public void Start()
         {
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
@@ -38,12 +39,12 @@ namespace PostMainland
 
         private void LateUpdate()
         {
-            ThreadSynchronizationContext.Update();
         }
 
         private void Update()
         {
-
+            TimeInfo.Update();
+            ThreadSynchronizationContext.Update();
         }
     }
 }

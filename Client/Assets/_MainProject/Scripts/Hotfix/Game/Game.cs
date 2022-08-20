@@ -6,8 +6,10 @@ using UnityEngine;
 
 namespace PostMainland
 {
-    public class Game
+    public static class Game
     {
+        static ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        static TimeInfo TimeInfo = TimeInfo.Instance;
         public static async void Start()
         {
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
@@ -15,7 +17,7 @@ namespace PostMainland
             Global.Container = new Container()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>();
-            
+
 
 
             var assMgr = Global.Container.Resolve<IAssemblyManager>();
@@ -23,12 +25,13 @@ namespace PostMainland
 
             TcpC2SSession session = new TcpC2SSession(new IPHost("127.0.0.1:10005"));
             var ack = await session.Request<SC_LoginAck, CS_Login>(new CS_Login() { Account = "baoyu" });
-            Log.Message(ack.Name);   
+            Log.Message(ack.Name);
         }
 
         public static void Update()
         {
-            ThreadSynchronizationContext.Instance.Update();
+            ThreadSynchronizationContext.Update();
+            TimeInfo.Update();
         }
 
         public static void LateUpdate()
