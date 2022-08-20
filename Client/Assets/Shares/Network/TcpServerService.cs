@@ -53,7 +53,7 @@ namespace PostMainland
                                 Type type = _protocalManager.GetProtocalType(pr.Id);
                                 IRequest request = ProtocalHelper.DeserializeProtocal(type, pr.Body) as IRequest;
                                 IResponse response = _protocalManager.CreateProtocal(handler.GetResponseId()) as IResponse;
-                                handler.Handle(session, request, response, pr.UseCrc16);
+                                ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(session, request, response, pr.UseCrc16));
                             }
                         }
                         break;
@@ -67,7 +67,7 @@ namespace PostMainland
                             var handler = _protocalManager.GetMessageHandler(pr.Id);
                             if (handler != null)
                             {
-                                handler.Handle(new TcpS2CSession(client), pr.Body);
+                                ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(new TcpS2CSession(client), pr.Body));
                             }
                         }
                         break;

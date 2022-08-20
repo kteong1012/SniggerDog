@@ -15,8 +15,8 @@ namespace PostMainland
             response.Name = "宝鱼";
             Console.WriteLine($"收到了{request.Account}  {request.Password} 11");
             service.Send(new SC_Notify() { Message = "测试111" });
-            service.Send(new SC_Notify() { Message = "测试222" });
             reply();
+            service.Send(new SC_Notify() { Message = "测试222" });
             await UniTask.CompletedTask;
         }
     }

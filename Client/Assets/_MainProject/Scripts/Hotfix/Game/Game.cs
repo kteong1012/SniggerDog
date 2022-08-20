@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using System.Threading;
 using TouchSocket.Core.Dependency;
 using TouchSocket.Sockets;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace PostMainland
     {
         public static async void Start()
         {
+            SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
             Log.SetLogs(new UnityLogger());
             Global.Container = new Container()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
@@ -24,12 +26,23 @@ namespace PostMainland
             Log.Message(ack.Name);   
         }
 
-        public static async void Update()
+        public static void Update()
         {
-            while (true)
-            {
-                await UniTask.NextFrame();
-            }
+            ThreadSynchronizationContext.Instance.Update();
+        }
+
+        public static void LateUpdate()
+        {
+
+        }
+
+        public static void FixedUpdate()
+        {
+
+        }
+        public static void OnApplicationQuit()
+        {
+
         }
     }
 }

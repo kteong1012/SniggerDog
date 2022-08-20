@@ -42,14 +42,15 @@ namespace PostMainland
                         var request = _awatingRequests.FirstOrDefault(x => x.RpcId == response.RpcId);
                         if (request != null)
                         {
-                            request.SetCompleted(response);
+
+                            ThreadSynchronizationContext.Instance.PostNext(() => request.SetCompleted(response));
                         }
                         break;
                     case ProtocalType.Protocal:
                         var handler = _protocalManager.GetMessageHandler(pr.Id);
                         if (handler != null)
                         {
-                            handler.Handle(new TcpC2SSession(client), pr.Body);
+                            ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(new TcpC2SSession(client), pr.Body));
                         }
                         break;
                     default:
