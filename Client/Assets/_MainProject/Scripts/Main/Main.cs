@@ -29,11 +29,11 @@ namespace PostMainland
             MethodInfo miLateUpdate = game.GetMethod("LateUpdate");
             MethodInfo miOnApplicationQuit = game.GetMethod("OnApplicationQuit");
 
-            Action start = (Action)miStart.CreateDelegate(typeof(Action));
-            game_Update = (Action)miUpdate.CreateDelegate(typeof(Action));
-            game_FixedUpdate = (Action)miFixedUpdate.CreateDelegate(typeof(Action));
-            game_LateUpdate = (Action)miLateUpdate.CreateDelegate(typeof(Action));
-            game_OnApplicationQuit = (Action)miOnApplicationQuit.CreateDelegate(typeof(Action));
+            Action start = (Action)miStart?.CreateDelegate(typeof(Action));
+            game_Update = (Action)miUpdate?.CreateDelegate(typeof(Action));
+            game_FixedUpdate = (Action)miFixedUpdate?.CreateDelegate(typeof(Action));
+            game_LateUpdate = (Action)miLateUpdate?.CreateDelegate(typeof(Action));
+            game_OnApplicationQuit = (Action)miOnApplicationQuit?.CreateDelegate(typeof(Action));
 
             start();
         }

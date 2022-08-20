@@ -73,10 +73,7 @@ namespace PostMainland
             var (hasResult, result) = await UniTask.WhenAny(awaiter.TCS.Task, timeoutTask);
             if (!hasResult)
             {
-#if !NOT_UNITY
-                UnityEngine.Debug.LogError("超时");
-#endif
-                //TODO log timeout
+                Log.Error("超时");
             }
             _awaiterPool.DestroyObject(awaiter);
             return (TRes)result;

@@ -4,7 +4,7 @@
     {
         static void Main()
         {
-            Game game = new Game();
+            StartUp game = new StartUp();
             game.Start();
             while (true)
             {
