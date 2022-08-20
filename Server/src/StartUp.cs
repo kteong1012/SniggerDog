@@ -11,7 +11,7 @@ namespace PostMainland
         {
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
             Console.WriteLine(Directory.GetCurrentDirectory());
-            //Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
+            Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
             Global.Container = new Container()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
@@ -19,6 +19,7 @@ namespace PostMainland
 
             _container = Global.Container;
             _container.Resolve<TcpServerService>();
+            
 
             while (true)
             {
