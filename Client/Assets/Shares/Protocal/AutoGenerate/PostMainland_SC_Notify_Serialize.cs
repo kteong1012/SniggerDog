@@ -9,14 +9,14 @@ namespace PostMainland
             #region NINO_CODEGEN
             public override void Serialize(SC_Notify value, Nino.Serialization.Writer writer)
             {
-                writer.CompressAndWrite(value.MessageType);
+                writer.CompressAndWriteEnum(typeof(System.Int32), (ulong) value.MessageType);
                 writer.Write(value.Message);
             }
 
             public override SC_Notify Deserialize(Nino.Serialization.Reader reader)
             {
                 SC_Notify value = new SC_Notify();
-                value.MessageType =  (System.Int32)reader.DecompressAndReadNumber();
+                value.MessageType = (TouchSocket.Core.Log.LogType)reader.DecompressAndReadEnum(typeof(System.Int32));
                 value.Message = reader.ReadString();
                 return value;
             }

@@ -1,4 +1,5 @@
 ﻿using Nino.Serialization;
+using TouchSocket.Core.Log;
 
 namespace PostMainland
 {
@@ -8,7 +9,7 @@ namespace PostMainland
     public partial class SC_Notify : IProtocal
     {
         [NinoMember(1)]
-        public int MessageType;
+        public LogType MessageType;
         [NinoMember(2)]
         public string Message;
     }

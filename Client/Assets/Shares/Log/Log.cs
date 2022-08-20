@@ -11,6 +11,14 @@ namespace PostMainland
             _loggerGroup = new LoggerGroup(logs);
         }
 
+        public static void LogByType(LogType logType, object obj, Exception e = null)
+        {
+            _loggerGroup.Debug(logType, null, ObjectToString(obj), e);
+        }
+        public static void LogByType<T>(LogType logType, object obj, Exception e = null) where T : ILog
+        {
+            _loggerGroup.Debug<T>(logType, null, ObjectToString(obj), e);
+        }
         public static void Message(object obj, Exception e = null)
         {
             _loggerGroup.Debug(LogType.Message, null, ObjectToString(obj), e);

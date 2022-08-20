@@ -7,7 +7,7 @@ namespace PostMainland
     {
         public override async UniTask Execute(INetworkSession service, SC_Notify message)
         {
-            Debug.Log($"【服务器消息】:   {message.Message}");
+            Log.LogByType(message.MessageType, $"【服务器消息】:   {message.Message}");
             await UniTask.CompletedTask;
         }
     }
