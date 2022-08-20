@@ -49,7 +49,7 @@ namespace PostMainland
                         var handler = _protocalManager.GetMessageHandler(pr.Id);
                         if (handler != null)
                         {
-                            handler.Handle(new TcpClientSession(client), pr.Body);
+                            handler.Handle(new TcpC2SSession(client), pr.Body);
                         }
                         break;
                     default:

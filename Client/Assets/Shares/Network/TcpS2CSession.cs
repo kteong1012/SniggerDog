@@ -1,13 +1,14 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public class SocketClientSession : INetworkSession
+    public class TcpS2CSession : INetworkSession
     {
         private SocketClient _client;
 
-        public SocketClientSession(SocketClient client)
+        public TcpS2CSession(SocketClient client)
         {
             _client = client;
         }

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using TouchSocket.Core;
 using TouchSocket.Core.ByteManager;
 using TouchSocket.Core.Config;
@@ -48,7 +49,7 @@ namespace PostMainland
                             var handler = _protocalManager.GetRequestHandler(pr.Id);
                             if (handler != null)
                             {
-                                var session = new SocketClientSession(client);
+                                var session = new TcpS2CSession(client);
                                 Type type = _protocalManager.GetProtocalType(pr.Id);
                                 IRequest request = ProtocalHelper.DeserializeProtocal(type, pr.Body) as IRequest;
                                 IResponse response = _protocalManager.CreateProtocal(handler.GetResponseId()) as IResponse;
@@ -66,7 +67,7 @@ namespace PostMainland
                             var handler = _protocalManager.GetMessageHandler(pr.Id);
                             if (handler != null)
                             {
-                                handler.Handle(new SocketClientSession(client), pr.Body);
+                                handler.Handle(new TcpS2CSession(client), pr.Body);
                             }
                         }
                         break;

@@ -4,16 +4,16 @@ using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public class TcpClientSession : INetworkSession
+    public class TcpC2SSession : INetworkSession
     {
         private readonly TcpClientService _service;
         private readonly TcpClient _tcp;
 
-        public TcpClientSession(TcpClient tcp)
+        public TcpC2SSession(TcpClient tcp)
         {
             _tcp = tcp;
         }
-        public TcpClientSession(IPHost host)
+        public TcpC2SSession(IPHost host)
         {
             if (!TcpClientServiceManager.Instance.TryGetValue(host.Host, out _service))
             {
