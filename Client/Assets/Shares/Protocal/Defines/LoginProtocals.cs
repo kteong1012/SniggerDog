@@ -10,8 +10,8 @@ namespace PostMainland
         public string Account { get; set; }
         [NinoMember(2)]
         public string Password { get; set; }
-        [NinoMember(3)]
-        public byte[] b { get; set; }
+        [NinoMember(90)]
+        public int RpcId { get; set; }
     }
 
     [NinoSerialize]
@@ -23,7 +23,7 @@ namespace PostMainland
         [NinoMember(2)]
         public string Name { get; set; }
         [NinoMember(91)]
-        public int Status { get; set; }
+        public int RpcId { get; set; }
         [NinoMember(92)]
         public int Error { get; set; }
         [NinoMember(93)]

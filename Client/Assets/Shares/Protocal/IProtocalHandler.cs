@@ -43,7 +43,7 @@ namespace PostMainland
 
     public interface IRequestHandler : IProtocalHandler
     {
-        UniTask Handle(INetworkSession session, byte[] body, IResponse res, long msgId);
+        UniTask Handle(INetworkSession session, IRequest request, IResponse response, bool check);
         ProtocalId GetRequestId();
         ProtocalId GetResponseId();
     }
@@ -69,13 +69,13 @@ namespace PostMainland
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[1].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
-        public async UniTask Handle(INetworkSession session, byte[] body, IResponse res, long msgId)
+        public async UniTask Handle(INetworkSession session, IRequest request, IResponse response, bool check)
         {
-            TReq request = ProtocalHelper.DeserializeProtocal<TReq>(body);
-            await Execute(session, request, (TRes)res, Reply);
+            await Execute(session, (TReq)request, (TRes)response, Reply);
             void Reply()
             {
-                session.Send((TRes)res, msgId);
+                response.RpcId = request.RpcId;
+                session.Send((TRes)response, check);
             }
         }
     }

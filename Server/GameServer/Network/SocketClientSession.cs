@@ -22,12 +22,7 @@ namespace PostMainland
 
         public void Send<T>(T protocal, bool check = false) where T : IProtocal
         {
-            long msgId = MessageIdGenerator.NextID();
-            _client.Send(ProtocalRequest.FromProtocal(protocal, msgId, check).ToBytes());
-        }
-        public void Send<T>(T protocal, long msgId, bool check = false) where T : IProtocal
-        {
-            _client.Send(ProtocalRequest.FromProtocal(protocal, msgId, check).ToBytes());
+            _client.Send(ProtocalRequest.FromProtocal(protocal, check).ToBytes());
         }
     }
 }

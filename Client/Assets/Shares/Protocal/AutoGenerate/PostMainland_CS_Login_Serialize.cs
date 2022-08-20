@@ -11,18 +11,7 @@ namespace PostMainland
             {
                 writer.Write(value.Account);
                 writer.Write(value.Password);
-                if(value.b != null)
-                {
-                    writer.CompressAndWrite(value.b.Length);
-                    foreach (var entry in value.b)
-                    {
-                        writer.Write(entry);
-                    }
-                }
-                else
-                {
-                    writer.CompressAndWrite(0);
-                }
+                writer.CompressAndWrite(value.RpcId);
             }
 
             public override CS_Login Deserialize(Nino.Serialization.Reader reader)
@@ -30,7 +19,7 @@ namespace PostMainland
                 CS_Login value = new CS_Login();
                 value.Account = reader.ReadString();
                 value.Password = reader.ReadString();
-                value.b = reader.ReadBytes(reader.ReadLength());
+                value.RpcId =  (System.Int32)reader.DecompressAndReadNumber();
                 return value;
             }
             #endregion

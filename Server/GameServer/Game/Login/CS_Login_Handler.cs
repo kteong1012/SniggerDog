@@ -14,10 +14,10 @@ namespace PostMainland
         {
             response.Name = "宝鱼";
             Console.WriteLine($"收到了{request.Account}  {request.Password} 11");
-            reply();
             service.Send(new SC_Notify() { Message = "测试111" });
-            await UniTask.CompletedTask;
             service.Send(new SC_Notify() { Message = "测试222" });
+            reply();
+            await UniTask.CompletedTask;
         }
     }
 }

@@ -66,5 +66,14 @@ namespace PostMainland
             }
             return null;
         }
+
+        public Type GetProtocalType(ProtocalId protcalId)
+        {
+            if (ProtocalTypes.TryGetValue(protcalId, out var result))
+            {
+                return result;
+            }
+            return null;
+        }
     }
 }

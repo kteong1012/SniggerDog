@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TouchSocket.Core.ByteManager;
@@ -9,13 +10,14 @@ using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public class ClientTcpService
+    public class TcpClientService
     {
         public TcpClient TcpClient { get; private set; }
         private ObjectPool<RequestAwaiter> _awaiterPool = new ObjectPool<RequestAwaiter>();
         private List<RequestAwaiter> _awatingRequests = new List<RequestAwaiter>();
         private IProtocalManagerService _protocalManager;
-        public ClientTcpService(IPHost remote)
+        private int _rpciId = 0;
+        public TcpClientService(IPHost remote)
         {
             TcpClient = new TcpClient();
             _protocalManager = Global.Container.Resolve<IProtocalManagerService>();
@@ -35,10 +37,12 @@ namespace PostMainland
                         //客户端不处理请求
                         break;
                     case ProtocalType.Response:
-                        var request = _awatingRequests.FirstOrDefault(x => x.MessageId == pr.MessageId);
+                        Type type = _protocalManager.GetProtocalType(pr.Id);
+                        IResponse response = ProtocalHelper.DeserializeProtocal(type, pr.Body) as IResponse;
+                        var request = _awatingRequests.FirstOrDefault(x => x.RpcId == response.RpcId);
                         if (request != null)
                         {
-                            request.SetCompleted(pr.Body);
+                            request.SetCompleted(response);
                         }
                         break;
                     case ProtocalType.Protocal:
@@ -53,27 +57,29 @@ namespace PostMainland
                 }
             }
         }
-
-        public void Send<T>(TcpClient client, T protocal, long msgId, bool check = false) where T : IProtocal
-        {
-            client.Send(ProtocalRequest.FromProtocal(protocal, msgId, check).ToBytes());
-        }
         public void Send<T>(TcpClient client, T protocal, bool check = false) where T : IProtocal
         {
-            long msgId = MessageIdGenerator.NextID();
-            Send(client, protocal, msgId, check);
+            client.Send(ProtocalRequest.FromProtocal(protocal, check).ToBytes());
         }
-        public async UniTask<TRes> Request<TRes, TReq>(TcpClient client, TReq request, bool check = false)
+        public async UniTask<TRes> Request<TRes, TReq>(TcpClient client, TReq request, bool check = false, float timeout = 2f)
               where TRes : IResponse
               where TReq : IRequest
         {
-            long msgId = MessageIdGenerator.NextID();
-            Send(client, request, msgId, check);
+            request.RpcId = ++_rpciId;
+            Send(client, request, check);
             var awaiter = _awaiterPool.GetObject();
-            awaiter.Init(msgId, new UniTaskCompletionSource<byte[]>(), _awatingRequests);
-            await awaiter.TCS.Task;
-            TRes response = ProtocalHelper.DeserializeProtocal<TRes>(awaiter.TCS.GetResult(0));
-            return response;
+            awaiter.Init(request.RpcId, new UniTaskCompletionSource<IResponse>(), _awatingRequests);
+            UniTask timeoutTask = UniTaskHelper.Wait((int)Math.Round(timeout * 1000));
+            var (hasResult, result) = await UniTask.WhenAny(awaiter.TCS.Task, timeoutTask);
+            if (!hasResult)
+            {
+#if !NOT_UNITY
+                UnityEngine.Debug.LogError("超时");
+#endif
+                //TODO log timeout
+            }
+            _awaiterPool.DestroyObject(awaiter);
+            return (TRes)result;
         }
     }
 }

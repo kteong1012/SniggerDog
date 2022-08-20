@@ -6,7 +6,7 @@ namespace PostMainland
 {
     public class TcpClientSession : INetworkSession
     {
-        private readonly ClientTcpService _service;
+        private readonly TcpClientService _service;
         private readonly TcpClient _tcp;
 
         public TcpClientSession(TcpClient tcp)
@@ -15,10 +15,10 @@ namespace PostMainland
         }
         public TcpClientSession(IPHost host)
         {
-            if (!ClientServiceManager.Instance.TryGetValue(host.Host, out _service))
+            if (!TcpClientServiceManager.Instance.TryGetValue(host.Host, out _service))
             {
-                _service = new ClientTcpService(host);
-                ClientServiceManager.Instance.TryAdd(host.Host, _service);
+                _service = new TcpClientService(host);
+                TcpClientServiceManager.Instance.TryAdd(host.Host, _service);
             }
             _tcp = _service.TcpClient;
         }
@@ -31,11 +31,6 @@ namespace PostMainland
         public void Send<T>(T message, bool check = false) where T : IProtocal
         {
             _service.Send(_tcp, message, check);
-        }
-
-        void INetworkSession.Send<T>(T message, long msgId, bool check)
-        {
-            _service.Send(_tcp, message, msgId, check);
         }
     }
 }

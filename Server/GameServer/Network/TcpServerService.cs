@@ -1,4 +1,5 @@
-﻿using TouchSocket.Core;
+﻿using System.Net;
+using TouchSocket.Core;
 using TouchSocket.Core.ByteManager;
 using TouchSocket.Core.Config;
 using TouchSocket.Core.Dependency;
@@ -6,12 +7,12 @@ using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public class ServerTcpService
+    public class TcpServerService
     {
         private TcpService _service;
         private IProtocalManagerService _protocalManager;
 
-        public ServerTcpService(IProtocalManagerService protocalMgr)
+        public TcpServerService(IProtocalManagerService protocalMgr)
         {
             _service = new TouchSocket.Sockets.TcpService();
             _service.Received += OnReceived;
@@ -48,8 +49,10 @@ namespace PostMainland
                             if (handler != null)
                             {
                                 var session = new SocketClientSession(client);
+                                Type type = _protocalManager.GetProtocalType(pr.Id);
+                                IRequest request = ProtocalHelper.DeserializeProtocal(type, pr.Body) as IRequest;
                                 IResponse response = _protocalManager.CreateProtocal(handler.GetResponseId()) as IResponse;
-                                handler.Handle(session, pr.Body, response, pr.MessageId);
+                                handler.Handle(session, request, response, pr.UseCrc16);
                             }
                         }
                         break;

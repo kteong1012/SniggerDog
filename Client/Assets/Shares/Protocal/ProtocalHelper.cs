@@ -1,4 +1,5 @@
 ﻿using Nino.Serialization;
+using System;
 using System.Reflection;
 using System.Text;
 
@@ -16,6 +17,11 @@ namespace PostMainland
         public static T DeserializeProtocal<T>(byte[] body) where T : IProtocal
         {
             T protocal = Deserializer.Deserialize<T>(body, Encoding, CompressOption);
+            return protocal;
+        }
+        public static IProtocal DeserializeProtocal(Type type, byte[] body)
+        {
+            IProtocal protocal = Deserializer.Deserialize(type, body, Encoding, CompressOption) as IProtocal;
             return protocal;
         }
         public static ProtocalId GetProtocalId(IProtocal protocal)

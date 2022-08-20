@@ -12,6 +12,7 @@ namespace PostMainland
 {
     public class HotfixCodeBuilder
     {
+        [MenuItem("PostMainland/Commands/BuildDebugAndPlay _F5")]
         public static void BuildDebugAndPlay()
         {
             BuildAssembly("Code", new string[] { "Assets/_MainProject/Scripts/Hotfix" }, Array.Empty<string>(), CodeOptimization.Debug);
@@ -22,6 +23,7 @@ namespace PostMainland
                 EditorApplication.isPlaying = true;
             }
         }
+        [MenuItem("PostMainland/Commands/BuildReleaseAndPlay _F6")]
         public static void BuildReleaseAndPlay()
         {
             BuildAssembly("Code", new string[] { "Assets/_MainProject/Scripts/Hotfix" }, Array.Empty<string>(), CodeOptimization.Release);

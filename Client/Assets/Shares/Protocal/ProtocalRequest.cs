@@ -11,7 +11,6 @@ namespace PostMainland
 {
     /// <summary>
     /// byte            =>      UseCrc16<<7 | Type      (1)
-    /// long            =>      MessageId               (8)
     /// uint            =>      Id                      (4)
     /// int             =>      Length                  (4)
     /// uint * length   =>      Body                    (n*4)
@@ -36,20 +35,18 @@ namespace PostMainland
     }
     public class ProtocalRequest : IFixedHeaderRequestInfo
     {
-        public static readonly int HeaderLength = sizeof(byte) + sizeof(long) + sizeof(uint) + sizeof(int);//1+8+4+4 = 17
+        public static readonly int HeaderLength = sizeof(byte) + sizeof(uint) + sizeof(int);//1+8+4+4 = 17
         private ProtocalType _type;
         private bool _useCrc16;
-        private long _msgId;
         private ProtocalId _id;
         private int _bodyLength;
         private byte[] _body;
         public ProtocalType Type => _type;
         public bool UseCrc16 => _useCrc16;
-        public long MessageId => _msgId;
         public ProtocalId Id => _id;
         public int BodyLength => _bodyLength;
         public byte[] Body => _body;
-        public static ProtocalRequest FromProtocal<T>(T protocal, long msgId, bool useCrc16) where T : IProtocal
+        public static ProtocalRequest FromProtocal<T>(T protocal, bool useCrc16) where T : IProtocal
         {
             Type t = typeof(T);
             ProtocalType type = ProtocalHelper.GetProtocalType(protocal);
@@ -58,7 +55,6 @@ namespace PostMainland
             ProtocalRequest requestInfo = new ProtocalRequest();
             requestInfo._type = type;
             requestInfo._useCrc16 = useCrc16;
-            requestInfo._msgId = msgId;
             requestInfo._id = id;
             requestInfo._bodyLength = body.Length;
             if (useCrc16)
@@ -73,7 +69,6 @@ namespace PostMainland
             using (BufferWriter writer = new BufferWriter())
             {
                 writer.Write(ToFirstByte(Type, UseCrc16));
-                writer.Write(MessageId);
                 writer.Write((uint)Id);
                 writer.Write(BodyLength);
                 writer.WriteBuffer(Body);
@@ -119,7 +114,6 @@ namespace PostMainland
             using (BufferReader reader = new BufferReader(header))
             {
                 (_type, _useCrc16) = FromFirstByte(reader.ReadByte());
-                _msgId = reader.ReadInt64();
                 _id = (ProtocalId)reader.ReadUInt32();
                 int bodyLength = reader.ReadInt32();
                 if (UseCrc16)

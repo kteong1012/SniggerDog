@@ -8,9 +8,9 @@ namespace PostMainland
     {
         public bool IsCompleted { get; private set; }
         public bool NewCreate { get; set; }
-        public long MessageId { get; private set; }
+        public long RpcId { get; private set; }
         public List<RequestAwaiter> Collection { get; private set; }
-        public UniTaskCompletionSource<byte[]> TCS { get; private set; }
+        public UniTaskCompletionSource<IResponse> TCS { get; private set; }
         public void Create()
         {
             IsCompleted = false;
@@ -28,14 +28,14 @@ namespace PostMainland
         {
             IsCompleted = false;
         }
-        public void SetCompleted(byte[] responseBytes)
+        public void SetCompleted(IResponse response)
         {
             IsCompleted = true;
-            TCS.TrySetResult(responseBytes);
+            TCS.TrySetResult(response);
         }
-        public void Init(long msgId, UniTaskCompletionSource<byte[]> tcs, List<RequestAwaiter> collection)
+        public void Init(int rpcId, UniTaskCompletionSource<IResponse> tcs, List<RequestAwaiter> collection)
         {
-            MessageId = msgId;
+            RpcId = rpcId;
             Collection = collection;
             TCS = tcs;
             Collection.Add(this);

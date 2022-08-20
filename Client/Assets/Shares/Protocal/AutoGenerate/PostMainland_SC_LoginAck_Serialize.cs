@@ -11,7 +11,7 @@ namespace PostMainland
             {
                 writer.Write(value.Account);
                 writer.Write(value.Name);
-                writer.CompressAndWrite(value.Status);
+                writer.CompressAndWrite(value.RpcId);
                 writer.CompressAndWrite(value.Error);
                 writer.Write(value.Message);
             }
@@ -21,7 +21,7 @@ namespace PostMainland
                 SC_LoginAck value = new SC_LoginAck();
                 value.Account = reader.ReadString();
                 value.Name = reader.ReadString();
-                value.Status =  (System.Int32)reader.DecompressAndReadNumber();
+                value.RpcId =  (System.Int32)reader.DecompressAndReadNumber();
                 value.Error =  (System.Int32)reader.DecompressAndReadNumber();
                 value.Message = reader.ReadString();
                 return value;

@@ -18,11 +18,14 @@ namespace PostMainland
         }
     }
     public interface IProtocal { } //Message
-    public interface IRequest : IProtocal { }
+    public interface IRequest : IProtocal 
+    {
+        int RpcId { get; set; }
+    }
     public interface IRequest<TRes> : IRequest where TRes : IResponse { }
     public interface IResponse : IProtocal
     {
-        int Status { get; set; }
+        int RpcId { get; set; }
         int Error { get; set; }
         string Message { get; set; }
     }

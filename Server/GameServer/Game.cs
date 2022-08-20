@@ -10,10 +10,10 @@ namespace PostMainland
             Global.Container = new Container()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
-                .RegisterTransient<ServerTcpService, ServerTcpService>();
+                .RegisterTransient<TcpServerService, TcpServerService>();
 
             _container = Global.Container;
-            _container.Resolve<ServerTcpService>();
+            _container.Resolve<TcpServerService>();
         }
     }
 }

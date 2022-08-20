@@ -9,7 +9,7 @@ namespace PostMainland
             #region NINO_CODEGEN
             public override void Serialize(S2C_ConnectAck value, Nino.Serialization.Writer writer)
             {
-                writer.CompressAndWrite(value.Status);
+                writer.CompressAndWrite(value.RpcId);
                 writer.CompressAndWrite(value.Error);
                 writer.Write(value.Message);
             }
@@ -17,7 +17,7 @@ namespace PostMainland
             public override S2C_ConnectAck Deserialize(Nino.Serialization.Reader reader)
             {
                 S2C_ConnectAck value = new S2C_ConnectAck();
-                value.Status =  (System.Int32)reader.DecompressAndReadNumber();
+                value.RpcId =  (System.Int32)reader.DecompressAndReadNumber();
                 value.Error =  (System.Int32)reader.DecompressAndReadNumber();
                 value.Message = reader.ReadString();
                 return value;
