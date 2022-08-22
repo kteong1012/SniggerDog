@@ -1,0 +1,23 @@
+﻿using Nino.Serialization;
+
+namespace PostMainland
+{
+    public partial class ProtocalId
+    {
+{{~for t in types~}}
+        public const uint {{index = index + 1}}{{t.name}} = {{index}};
+{{~end~}}
+    }
+
+{{~for t in types~}}
+    [NinoSerialize]
+    [Protocal(ProtocalId.{{t.name}})]
+    public partial class {{t.name}} : {{t.base_type_name}}
+    {
+    {{~for f in t.fields~}}
+        [NinoMember({{f.nino_id}})]
+        public {{f.type_name}} {{f.name}} { get; set; }
+    {{~end~}}
+    }
+{{~end~}}
+}

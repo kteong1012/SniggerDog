@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TouchSocket">
+      <HintPath>..\..\Client\Assets\Plugins\TouchSocket\TouchSocket.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="set WORKPLACE=$(ProjectDir)\..&#xD;&#xA;set START=dotnet $(TargetPath)&#xD;&#xA;set TEMPLATE_PATH=%25WORKPLACE%25\Common\Template\protocal_template.txt&#xD;&#xA;&#xD;&#xA;%25START%25 --temp %25TEMPLATE_PATH%25 --out %25WORKPLACE%25\..\Client\Assets\Shares\Protocal\Defines\CSProtocals.cs --type cs --start 1000000" />
+  </Target>
+
+</Project>

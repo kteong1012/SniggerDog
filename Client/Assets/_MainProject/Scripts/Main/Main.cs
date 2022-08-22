@@ -17,6 +17,7 @@ namespace PostMainland
         private Action game_OnApplicationQuit;
         async void Start()
         {
+            Application.runInBackground = true;
             await YooAssetsManager.Instace.Initialize();
             var dll = await YooAssetsManager.Instace.LoadAsync<TextAsset>("HotfixDll_Code.dll");
             var pdb = await YooAssetsManager.Instace.LoadAsync<TextAsset>("HotfixDll_Code.pdb");

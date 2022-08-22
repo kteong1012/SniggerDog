@@ -10,19 +10,19 @@ namespace PostMainland
 {
     public class ProtocalManager : IProtocalManagerService
     {
-        public ConcurrentDictionary<ProtocalId, IMessageHandler> MessageHandlers { get; private set; }
-        public ConcurrentDictionary<ProtocalId, IRequestHandler> RequestHandlers { get; private set; }
-        public ConcurrentDictionary<ProtocalId, Type> ProtocalTypes { get; private set; }
+        public ConcurrentDictionary<uint, IMessageHandler> MessageHandlers { get; private set; }
+        public ConcurrentDictionary<uint, IRequestHandler> RequestHandlers { get; private set; }
+        public ConcurrentDictionary<uint, Type> ProtocalTypes { get; private set; }
 
         public ProtocalManager(IAssemblyManager _assMgr)
         {
             var handlerImplTypes = _assMgr.Types.Where(x => !x.IsInterface && !x.IsAbstract && x.IsDefined(typeof(ProtocalHandlerAttribute), true));
-            MessageHandlers = new ConcurrentDictionary<ProtocalId, IMessageHandler>();
-            RequestHandlers = new ConcurrentDictionary<ProtocalId, IRequestHandler>();
+            MessageHandlers = new ConcurrentDictionary<uint, IMessageHandler>();
+            RequestHandlers = new ConcurrentDictionary<uint, IRequestHandler>();
             foreach (var type in handlerImplTypes)
             {
                 IProtocalHandler handler = Activator.CreateInstance(type) as IProtocalHandler;
-                ProtocalId id = handler.GetProtocalId();
+                uint id = handler.GetProtocalId();
                 if (handler is IRequestHandler)
                 {
                     RequestHandlers.TryAdd(id, handler as IRequestHandler);
@@ -33,15 +33,15 @@ namespace PostMainland
                 }
             }
             var protocalImplTypes = _assMgr.Types.Where(x => !x.IsInterface && !x.IsAbstract && x.IsDefined(typeof(ProtocalAttribute), true));
-            ProtocalTypes = new ConcurrentDictionary<ProtocalId, Type>();
+            ProtocalTypes = new ConcurrentDictionary<uint, Type>();
             foreach (var type in protocalImplTypes)
             {
-                ProtocalId id = type.GetCustomAttribute<ProtocalAttribute>().Id;
+                uint id = type.GetCustomAttribute<ProtocalAttribute>().Id;
                 ProtocalTypes.TryAdd(id, type);
             }
         }
 
-        public IMessageHandler GetMessageHandler(ProtocalId protcalId)
+        public IMessageHandler GetMessageHandler(uint protcalId)
         {
             if (MessageHandlers.TryGetValue(protcalId, out var result))
             {
@@ -49,7 +49,7 @@ namespace PostMainland
             }
             return null;
         }
-        public IRequestHandler GetRequestHandler(ProtocalId protcalId)
+        public IRequestHandler GetRequestHandler(uint protcalId)
         {
             if (RequestHandlers.TryGetValue(protcalId, out var result))
             {
@@ -58,7 +58,7 @@ namespace PostMainland
             return null;
         }
 
-        public IProtocal CreateProtocal(ProtocalId protcalId)
+        public IProtocal CreateProtocal(uint protcalId)
         {
             if (ProtocalTypes.TryGetValue(protcalId, out var result))
             {
@@ -67,7 +67,7 @@ namespace PostMainland
             return null;
         }
 
-        public Type GetProtocalType(ProtocalId protcalId)
+        public Type GetProtocalType(uint protcalId)
         {
             if (ProtocalTypes.TryGetValue(protcalId, out var result))
             {

@@ -11,25 +11,25 @@ namespace PostMainland
     }
     public interface IProtocalHandler
     {
-        ProtocalId GetProtocalId();
+        uint GetProtocalId();
     }
     public interface IMessageHandler : IProtocalHandler
     {
         UniTask Handle(INetworkSession session, byte[] body);
-        ProtocalId GetMessageId();
+        uint GetMessageId();
     }
     [ProtocalHandler]
     public abstract class MessageHandler<TM> : IMessageHandler where TM : IProtocal
     {
         public abstract UniTask Execute(INetworkSession sender, TM message);
 
-        public ProtocalId GetMessageId()
+        public uint GetMessageId()
         {
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[0].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
 
-        public ProtocalId GetProtocalId()
+        public uint GetProtocalId()
         {
             return GetMessageId();
         }
@@ -44,27 +44,27 @@ namespace PostMainland
     public interface IRequestHandler : IProtocalHandler
     {
         UniTask Handle(INetworkSession session, IRequest request, IResponse response, bool check);
-        ProtocalId GetRequestId();
-        ProtocalId GetResponseId();
+        uint GetRequestId();
+        uint GetResponseId();
     }
     [ProtocalHandler]
     public abstract class RequestHandler<TReq, TRes> : IRequestHandler where TRes : IResponse where TReq : IRequest<TRes>
     {
         public abstract UniTask Execute(INetworkSession session, TReq request, TRes response, Action reply);
 
-        public ProtocalId GetProtocalId()
+        public uint GetProtocalId()
         {
             return GetRequestId();
         }
 
-        public ProtocalId GetRequestId()
+        public uint GetRequestId()
         {
 
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[0].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
 
-        public ProtocalId GetResponseId()
+        public uint GetResponseId()
         {
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[1].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;

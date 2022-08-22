@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "BHqrIdOo0318OygRjrW8k5A9qZVcvZDfLLuTpAyqvfFYZiKJZtFX4PFZBHVKUm+3L+z4m2deEBWd6zC02+OrUg==",
+  "success": true,
+  "projectFilePath": "D:\\Github\\AntiMage\\Protocal\\CSProtocals\\CSProtocals.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lintianbao.carson\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512",
+    "C:\\Users\\lintianbao.carson\\.nuget\\packages\\scriban\\5.5.0\\scriban.5.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

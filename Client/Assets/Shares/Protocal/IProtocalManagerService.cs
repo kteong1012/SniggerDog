@@ -5,9 +5,9 @@ namespace PostMainland
 {
     public interface IProtocalManagerService
     {
-        IMessageHandler GetMessageHandler(ProtocalId protcalId);
-        IRequestHandler GetRequestHandler(ProtocalId protcalId);
-        IProtocal CreateProtocal(ProtocalId protcalId);
-        Type GetProtocalType(ProtocalId protcalId);
+        IMessageHandler GetMessageHandler(uint protcalId);
+        IRequestHandler GetRequestHandler(uint protcalId);
+        IProtocal CreateProtocal(uint protcalId);
+        Type GetProtocalType(uint protcalId);
     }
 }

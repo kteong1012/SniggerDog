@@ -38,19 +38,18 @@ namespace PostMainland
         public static readonly int HeaderLength = sizeof(byte) + sizeof(uint) + sizeof(int);//1+8+4+4 = 17
         private ProtocalType _type;
         private bool _useCrc16;
-        private ProtocalId _id;
+        private uint _id;
         private int _bodyLength;
         private byte[] _body;
         public ProtocalType Type => _type;
         public bool UseCrc16 => _useCrc16;
-        public ProtocalId Id => _id;
+        public uint Id => _id;
         public int BodyLength => _bodyLength;
         public byte[] Body => _body;
         public static ProtocalRequest FromProtocal<T>(T protocal, bool useCrc16) where T : IProtocal
         {
-            Type t = typeof(T);
             ProtocalType type = ProtocalHelper.GetProtocalType(protocal);
-            ProtocalId id = ProtocalHelper.GetProtocalId(protocal);
+            uint id = ProtocalHelper.GetProtocalId(protocal);
             byte[] body = ProtocalHelper.SerializeProtocal(protocal);
             ProtocalRequest requestInfo = new ProtocalRequest();
             requestInfo._type = type;
@@ -69,7 +68,7 @@ namespace PostMainland
             using (BufferWriter writer = new BufferWriter())
             {
                 writer.Write(ToFirstByte(Type, UseCrc16));
-                writer.Write((uint)Id);
+                writer.Write(Id);
                 writer.Write(BodyLength);
                 writer.WriteBuffer(Body);
                 if (UseCrc16)
@@ -114,7 +113,7 @@ namespace PostMainland
             using (BufferReader reader = new BufferReader(header))
             {
                 (_type, _useCrc16) = FromFirstByte(reader.ReadByte());
-                _id = (ProtocalId)reader.ReadUInt32();
+                _id = reader.ReadUInt32();
                 int bodyLength = reader.ReadInt32();
                 if (UseCrc16)
                 {

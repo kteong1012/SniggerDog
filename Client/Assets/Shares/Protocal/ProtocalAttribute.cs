@@ -11,14 +11,14 @@ namespace PostMainland
     }
     public class ProtocalAttribute : Attribute
     {
-        public ProtocalId Id { get; }
-        public ProtocalAttribute(ProtocalId id)
+        public uint Id { get; }
+        public ProtocalAttribute(uint id)
         {
             Id = id;
         }
     }
     public interface IProtocal { } //Message
-    public interface IRequest : IProtocal 
+    public interface IRequest : IProtocal
     {
         int RpcId { get; set; }
     }

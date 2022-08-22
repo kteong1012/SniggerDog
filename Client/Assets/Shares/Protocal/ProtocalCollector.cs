@@ -8,13 +8,12 @@ namespace PostMainland
     public interface IProtocalCollector
     {
         public List<Type> Collect();
-        public Type GetProtocalTypeById(ProtocalId id);
         public Type GetProtocalTypeById(uint id);
     }
     public class ProtocalCollector : IProtocalCollector
     {
         private Assembly _assembly;
-        private Dictionary<ProtocalId, Type> _protocals = new Dictionary<ProtocalId, Type>();
+        private Dictionary<uint, Type> _protocals = new Dictionary<uint, Type>();
 
         public ProtocalCollector(Assembly assembly)
         {
@@ -37,13 +36,9 @@ namespace PostMainland
         {
             return _protocals.Values.ToList();
         }
-        public Type GetProtocalTypeById(ProtocalId id)
-        {
-            return _protocals[id];
-        }
         public Type GetProtocalTypeById(uint id)
         {
-            return _protocals[(ProtocalId)id];
+            return _protocals[id];
         }
     }
 }

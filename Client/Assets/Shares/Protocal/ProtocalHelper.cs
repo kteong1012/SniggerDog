@@ -24,14 +24,14 @@ namespace PostMainland
             IProtocal protocal = Deserializer.Deserialize(type, body, Encoding, CompressOption) as IProtocal;
             return protocal;
         }
-        public static ProtocalId GetProtocalId(IProtocal protocal)
+        public static uint GetProtocalId(IProtocal protocal)
         {
             ProtocalAttribute protocalAttr = protocal.GetType().GetCustomAttribute<ProtocalAttribute>();
             if (protocalAttr != null)
             {
                 return protocalAttr.Id;
             }
-            return ProtocalId.InvalidId;
+            return 0;
         }
         public static ProtocalType GetProtocalType(IProtocal protocal)
         {

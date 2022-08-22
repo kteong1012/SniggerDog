@@ -18,13 +18,11 @@ namespace PostMainland
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>();
 
-
-
             var assMgr = Global.Container.Resolve<IAssemblyManager>();
-            assMgr.AddTypes(typeof(SC_Notify_Handler).Assembly.GetTypes());
+            assMgr.AddTypes(typeof(Game).Assembly.GetTypes());
 
             TcpC2SSession session = new TcpC2SSession(new IPHost("127.0.0.1:10005"));
-            var ack = await session.Request<SC_LoginAck, CS_Login>(new CS_Login() { Account = "baoyu" });
+            var ack = await session.Request<S2C_Login, C2S_Login>(new C2S_Login() { Account = "baoyu" });
             Log.Message(ack.Name);
         }
 
