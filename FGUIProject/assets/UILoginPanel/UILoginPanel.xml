@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,640">
+  <displayList>
+    <text id="n0_km5b" name="txtAccount" xy="398,136" size="478,110" fontSize="38" align="center" vAlign="middle" autoSize="none" text="sdfsdf"/>
+    <component id="n1_km5b" name="btnLogin" src="km5b1" fileName="UINormalButton.xml" pkg="wtx7q5i9" xy="541,445" size="203,103"/>
+  </displayList>
+</component>

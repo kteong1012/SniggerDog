@@ -27,3 +27,14 @@ MonoBehaviour:
       PackRuleName: PackRawFile
       FilterRuleName: CollectAll
       AssetTags: 
+  - GroupName: Fgui
+    GroupDesc: 
+    AssetTags: 
+    ActiveRuleName: EnableGroup
+    Collectors:
+    - CollectPath: Assets/Bundles/FGUI
+      CollectorType: 0
+      AddressRuleName: AddressByGroupAndFileName
+      PackRuleName: PackDirectory
+      FilterRuleName: CollectAll
+      AssetTags: 
