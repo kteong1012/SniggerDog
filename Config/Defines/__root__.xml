@@ -1,6 +1,6 @@
 <root>
 
-	<topmodule name="PostMainland"/>
+	<topmodule name="Cfg"/>
 
 	<patch name="cn"/>
 	<patch name="tw"/>

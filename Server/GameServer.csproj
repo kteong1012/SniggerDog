@@ -25,7 +25,7 @@
     <Compile Include="../Client/Assets/Shares/**/*.cs">
       <Link>Shares\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
-    <Compile Include="../Client/Assets/ThirdParty/Nino/**/*.cs">
+    <Compile Include="../Client/Assets/Scripts/ThirdParty/Nino/**/*.cs">
       <Link>ThirrdParty\Nino\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
   </ItemGroup>

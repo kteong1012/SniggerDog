@@ -1,0 +1,3 @@
+<module>
+<table name="TbGlobal" mode="one" value="Global" input="global.xlsx" define_from_file="true"/> 单例表，只有一个记录
+</module>

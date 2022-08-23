@@ -72,6 +72,36 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     public const int __ID__ = {{x.id}};
     public override int GetTypeId() => __ID__;
 {{~end~}}
+
+    public {{x.cs_method_modifier}} void Resolve(Dictionary<string, object> _tables)
+    {
+        {{~if parent_def_type~}}
+        base.Resolve(_tables);
+        {{~end~}}
+        {{~ for field in export_fields ~}}
+        {{~if field.gen_ref~}}
+        {{cs_ref_validator_resolve field}}
+        {{~else if field.has_recursive_ref~}}
+        {{cs_recursive_resolve field '_tables'}}
+        {{~end~}}
+        {{~end~}}
+        PostResolve();
+    }
+
+    public {{x.cs_method_modifier}} void TranslateText(System.Func<string, string, string> translator)
+    {
+        {{~if parent_def_type~}}
+        base.TranslateText(translator);
+        {{~end~}}
+        {{~ for field in export_fields ~}}
+        {{~if field.gen_text_key~}}
+        {{cs_translate_text field 'translator'}}
+        {{~else if field.has_recursive_text~}}
+        {{cs_recursive_translate_text field 'translator'}}
+        {{~end~}}
+        {{~end~}}
+    }
+
     public override string ToString()
     {
         return "{{full_name}}{ "
@@ -82,6 +112,7 @@ public {{x.cs_class_modifier}} partial class {{name}} : {{if parent_def_type}} {
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

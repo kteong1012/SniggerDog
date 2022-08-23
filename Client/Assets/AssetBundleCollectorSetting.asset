@@ -38,3 +38,20 @@ MonoBehaviour:
       PackRuleName: PackDirectory
       FilterRuleName: CollectAll
       AssetTags: 
+  - GroupName: Config
+    GroupDesc: 
+    AssetTags: 
+    ActiveRuleName: EnableGroup
+    Collectors:
+    - CollectPath: Assets/Bundles/Configbin/Datas
+      CollectorType: 0
+      AddressRuleName: AddressByCollectorAndFileName
+      PackRuleName: PackRawFile
+      FilterRuleName: CollectAll
+      AssetTags: 
+    - CollectPath: Assets/Bundles/Configbin/Indexes
+      CollectorType: 0
+      AddressRuleName: AddressByCollectorAndFileName
+      PackRuleName: PackRawFile
+      FilterRuleName: CollectAll
+      AssetTags: 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cfg;
+using System;
 using System.IO;
 using System.Threading;
 using TouchSocket.Core.Dependency;
@@ -17,14 +18,16 @@ namespace PostMainland
             Console.WriteLine(Directory.GetCurrentDirectory());
             Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
             Global.Container = new Container()
+                .RegisterSingleton<IConfigLoader,ConfigLoader>()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
                 .RegisterTransient<TcpServerService, TcpServerService>();
 
             _container = Global.Container;
+            _container.Resolve<IConfigLoader>();
             _container.Resolve<TcpServerService>();
-            
 
+            Console.WriteLine(TbGlobal.Instance.LoginServerAddress);
             while (true)
             {
                 try
