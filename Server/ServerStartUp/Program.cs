@@ -1,24 +1,25 @@
-﻿using Cfg;
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using TouchSocket.Core.Dependency;
 using TouchSocket.Core.Log;
 
-namespace PostMainland
+namespace PostMainland // Note: actual namespace depends on the project name.
 {
-    public class StartUp
+    public class Program
     {
-        IContainer _container;
-        ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
-        TimeInfo TimeInfo = TimeInfo.Instance;
-        public void Start()
+
+        static IContainer _container;
+        static ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        static TimeInfo TimeInfo = TimeInfo.Instance;
+        static void Main(string[] args)
         {
+
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
             Console.WriteLine(Directory.GetCurrentDirectory());
             Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
             Global.Container = new Container()
-                .RegisterSingleton<IConfigLoader,ConfigLoader>()
+                .RegisterSingleton<IConfigLoader, ConfigLoader>()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
                 .RegisterTransient<TcpServerService, TcpServerService>();
@@ -27,7 +28,6 @@ namespace PostMainland
             _container.Resolve<IConfigLoader>();
             _container.Resolve<TcpServerService>();
 
-            Console.WriteLine(TbGlobal.Instance.LoginServerAddress);
             while (true)
             {
                 try
@@ -41,16 +41,6 @@ namespace PostMainland
                     Log.Error(e);
                 }
             }
-        }
-
-        private void LateUpdate()
-        {
-        }
-
-        private void Update()
-        {
-            TimeInfo.Update();
-            ThreadSynchronizationContext.Update();
         }
     }
 }

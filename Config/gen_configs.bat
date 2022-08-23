@@ -29,7 +29,7 @@
 @ %GEN_CLIENT% --template_search_path CustomTemplate -j cfg --^
  -d %CONF_ROOT%\Defines\__root__.xml ^
  --input_data_dir %CONF_ROOT%\Datas ^
- --output_code_dir %WORKSPACE%\Server\Generate\Config ^
+ --output_code_dir %WORKSPACE%\Server\GameServer\Generate\Config ^
  --output_data_dir %WORKSPACE%\Server\res\Configbin\Indexes ^
  --gen_types code_cs_unity_bin,data_bidx ^
  -s server

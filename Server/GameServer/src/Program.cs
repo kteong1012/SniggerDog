@@ -6,7 +6,7 @@ namespace PostMainland
     {
         static void Main()
         {
-            StartUp game = new StartUp();
+            Game game = new Game();
             game.Start();
             while (true)
             {
