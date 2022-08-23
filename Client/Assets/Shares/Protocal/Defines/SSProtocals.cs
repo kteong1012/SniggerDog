@@ -4,7 +4,7 @@ namespace PostMainland
 {
     public partial class ProtocalId
     {
-        public const uint S2G_Test = 1000001;
+        public const uint S2G_Test = 2000001;
     }
 
     [NinoSerialize]
