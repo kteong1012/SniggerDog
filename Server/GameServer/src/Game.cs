@@ -9,21 +9,17 @@ namespace PostMainland
 {
     public class Game
     {
-        private IContainer _container;
-        private ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
-        private TimeInfo TimeInfo = TimeInfo.Instance;
+        private readonly IContainer _container = Global.Container;
+        private readonly ThreadSynchronizationContext _threadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        private readonly TimeInfo _timeInfo = TimeInfo.Instance;
         public void Start()
         {
-            SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
-            Console.WriteLine(Directory.GetCurrentDirectory());
-            Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
-            Global.Container = new Container()
+            _container
                 .RegisterSingleton<IConfigLoader, ConfigLoader>()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
                 .RegisterTransient<TcpServerService, TcpServerService>();
 
-            _container = Global.Container;
             _container.Resolve<IConfigLoader>();
             _container.Resolve<TcpServerService>();
 
@@ -48,8 +44,8 @@ namespace PostMainland
 
         private void Update()
         {
-            TimeInfo.Update();
-            ThreadSynchronizationContext.Update();
+            _timeInfo.Update();
+            _threadSynchronizationContext.Update();
         }
     }
 }
