@@ -17,6 +17,10 @@ namespace PostMainland
         public System.String Message { get; set; }
         [NinoMember(1)]
         public TouchSocket.Core.Log.LogType MessageType { get; set; }
+        public override string ToString()
+        {
+            return $"[S2C_Notify:[Message:\"{ Message }\";MessageType:\"{ MessageType }\"]]";
+        }
     }
     [NinoSerialize]
     [Protocal(ProtocalId.C2S_Login)]
@@ -28,6 +32,10 @@ namespace PostMainland
         public System.String Password { get; set; }
         [NinoMember(90)]
         public System.Int32 RpcId { get; set; }
+        public override string ToString()
+        {
+            return $"[C2S_Login:[Account:\"{ Account }\";Password:\"{ Password }\";RpcId:\"{ RpcId }\"]]";
+        }
     }
     [NinoSerialize]
     [Protocal(ProtocalId.S2C_Login)]
@@ -41,5 +49,9 @@ namespace PostMainland
         public System.Int32 Error { get; set; }
         [NinoMember(92)]
         public System.String Message { get; set; }
+        public override string ToString()
+        {
+            return $"[S2C_Login:[Name:\"{ Name }\";RpcId:\"{ RpcId }\";Error:\"{ Error }\";Message:\"{ Message }\"]]";
+        }
     }
 }

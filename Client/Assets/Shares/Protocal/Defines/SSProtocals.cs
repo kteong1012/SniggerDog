@@ -4,7 +4,7 @@ namespace PostMainland
 {
     public partial class ProtocalId
     {
-        public const uint S2G_Test = 2000001;
+        public const uint S2G_Test = 1000001;
     }
 
     [NinoSerialize]
@@ -13,5 +13,9 @@ namespace PostMainland
     {
         [NinoMember(92)]
         public string Message { get; set; }
+        public override string ToString()
+        {
+            return $"[S2G_Test:[Message:\"{ Message }\"]]";
+        }
     }
 }

@@ -9,8 +9,37 @@ namespace PostMainland
 {
     public class Game
     {
+        private IContainer _container;
+        private ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        private TimeInfo TimeInfo = TimeInfo.Instance;
         public void Start()
         {
+            SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
+            Console.WriteLine(Directory.GetCurrentDirectory());
+            Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
+            Global.Container = new Container()
+                .RegisterSingleton<IConfigLoader, ConfigLoader>()
+                .RegisterSingleton<IAssemblyManager, AssemblyManager>()
+                .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
+                .RegisterTransient<TcpServerService, TcpServerService>();
+
+            _container = Global.Container;
+            _container.Resolve<IConfigLoader>();
+            _container.Resolve<TcpServerService>();
+
+            while (true)
+            {
+                try
+                {
+                    Thread.Sleep(1);
+                    Update();
+                    LateUpdate();
+                }
+                catch (Exception e)
+                {
+                    Log.Error(e);
+                }
+            }
         }
 
         private void LateUpdate()
