@@ -1,8 +1,17 @@
 {
   "profiles": {
-    "GameServer": {
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
+    },
+    "GameServerMain": {
       "commandName": "Project",
       "commandLineArgs": "--w ..\\..\\..\\..\\ --t Main"
+    },
+    "GameServerLogin": {
+      "commandName": "Project",
+      "commandLineArgs": "--w ..\\..\\..\\..\\ --t Login --p GameServer/bin/Debug/net6.0/GameServer.dll --h 127.0.0.1 --port 20001"
     }
   }
 }
