@@ -22,7 +22,8 @@ namespace PostMainland
             _service.Disconnected += OnDisconnected;//有客户端断开连接
             _protocalManager = protocalMgr;
             TouchSocketConfig config = new TouchSocketConfig();
-            config.SetListenIPHosts(new IPHost[] { new IPHost("127.0.0.1:10005") })
+            string host = string.Join(":", Global.Options.Host, Global.Options.Port);
+            config.SetListenIPHosts(new IPHost[] { new IPHost(host) })
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())
                 .SetMaxCount(10000)
                 .SetThreadCount(10)

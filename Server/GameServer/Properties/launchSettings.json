@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GameServer": {
+      "commandName": "Project",
+      "commandLineArgs": "--w ..\\..\\..\\..\\ --t Main"
+    }
+  }
+}

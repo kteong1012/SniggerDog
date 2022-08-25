@@ -5,21 +5,21 @@ using System.IO;
 
 namespace PostMainland
 {
-    public class ConfigLoader : IConfigLoader
+    public class Luban : IConfigLoader
     {
-        public ConfigLoader()
+        public Luban()
         {
             LoadAll();
         }
         public ByteBuf DataLoader(string path)
         {
-            var bytes = File.ReadAllBytes($"../Server/ConfigBin/Data/{path}.bytes");
+            var bytes = File.ReadAllBytes(Path.Combine(Global.WorkPlace.FullName, $"ConfigBin/Datas/{path}.bytes"));
             return new ByteBuf(bytes);
         }
 
         public ByteBuf IndexLoader(string path)
         {
-            var bytes = File.ReadAllBytes($"../Server/ConfigBin/Index/{path}.bytes");
+            var bytes = File.ReadAllBytes(Path.Combine(Global.WorkPlace.FullName, $"ConfigBin/Indexes/{path}.bytes"));
             return new ByteBuf(bytes);
         }
 

@@ -1,6 +1,7 @@
 ﻿using Cfg;
 using CommandLine;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using TouchSocket.Core.Dependency;
 using TouchSocket.Core.Log;
@@ -16,7 +17,7 @@ namespace PostMainland
 
         private static void StartUp(ProcessLauncherOptions options)
         {
-            if (Enum.TryParse(options.ServerType, out ServerType serverType))
+            if (!Enum.TryParse(options.ServerType, out ServerType serverType))
             {
                 Log.Error($"参数{options.ServerType}错误，没有这个服务器类型");
                 return;
@@ -27,32 +28,33 @@ namespace PostMainland
 
             Global.Options = options;
             Global.WorkPlace = new System.IO.DirectoryInfo(options.WorkPlace);
-            new ConfigLoader();
+            new Luban();
             Global.Container = new Container();
-
-            switch (serverType)
+            try
             {
-                case ServerType.Main:
-                    StartAllServers();
-                    break;
-                case ServerType.Login:
-                    break;
-                case ServerType.Gate:
-                    break;
-                case ServerType.World:
-                    break;
-                case ServerType.Solcial:
-                    break;
-                case ServerType.Battle:
-                    break;
-                case ServerType.GM:
-                    break;
-                default:
-                    break;
+                switch (serverType)
+                {
+                    case ServerType.Main:
+                        StartAllServers();
+                        break;
+                    case ServerType.Login:
+                    case ServerType.Gate:
+                    case ServerType.World:
+                    case ServerType.Solcial:
+                    case ServerType.Battle:
+                        Game game = new Game(serverType);
+                        game.Start();
+                        break;
+                    case ServerType.GM:
+                        break;
+                    default:
+                        break;
+                }
             }
-
-            Game game = new Game();
-            game.Start();
+            catch (Exception e)
+            {
+                Log.Error(e.Message);
+            }
 
 
 
@@ -68,18 +70,25 @@ namespace PostMainland
 
         private static void StartAllServers()
         {
+            List<ProcessLauncher> launchers = new List<ProcessLauncher>();
             foreach (var serverInfo in TbStartProcess.Instance.DataList)
             {
                 ProcessLauncherOptions options = new ProcessLauncherOptions();
                 options.Host = serverInfo.Host;
                 options.Port = serverInfo.Port;
                 options.ServerType = serverInfo.ServerType;
-                options.WorkPlace = Global.Options.WorkPlace;
+                options.WorkPlace = Global.WorkPlace.FullName;
                 options.ProcessPath = serverInfo.ProcessPath;
 
                 ProcessLauncher launcher = new ProcessLauncher(options);
                 launcher.Launch();
-                //TODO 启动保活监听
+                launchers.Add(launcher);
+            }
+
+            while (true)
+            {
+                Thread.Sleep(5000);
+                launchers.ForEach(launcher => launcher.CheckAlive());
             }
         }
     }

@@ -36,6 +36,10 @@ namespace PostMainland
             _process.Start();
             Log.Message($"{_process.ProcessName}启动成功");
         }
+        public void CheckAlive()
+        {
+            //TODO 重启
+        }
 
         public void Close()
         {
