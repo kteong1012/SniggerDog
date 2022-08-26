@@ -59,11 +59,8 @@ namespace PostMainland
                         }
                         break;
                     case ProtocalType.Response:
-                        {
-                            //DO NOTHING 服务器不会收到Response
-                            break;
-                        }
                     case ProtocalType.Protocal:
+                    default:
                         {
                             var handler = _protocalManager.GetMessageHandler(pr.Id);
                             if (handler != null)
@@ -71,8 +68,6 @@ namespace PostMainland
                                 ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(new TcpS2CSession(client), pr.Body));
                             }
                         }
-                        break;
-                    default:
                         break;
                 }
             }
