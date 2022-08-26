@@ -20,34 +20,40 @@ namespace PostMainland
         }
         public void Start()
         {
-            _container
-                .RegisterSingleton<ServerType>(_serverType)
-                .RegisterSingleton<IAssemblyManager, AssemblyManager>()
-                .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
-                .RegisterTransient<TcpServerService, TcpServerService>();
+            switch (_serverType)
+            {
+                case ServerType.Login:
+                case ServerType.Gate:
+                case ServerType.World:
+                case ServerType.Solcial:
+                case ServerType.Battle:
+                    _container
+                        .RegisterSingleton<ServerType>(_serverType)
+                        .RegisterSingleton<IAssemblyManager, AssemblyManager>()
+                        .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
+                        .RegisterTransient<TcpServerService, TcpServerService>();
 
-            _container.Resolve<TcpServerService>();
+                    _container.Resolve<TcpServerService>();
+                    break;
+                case ServerType.GM:
+                    break;
+                default:
+                    break;
+            }
 
             while (true)
             {
-                try
-                {
-                    Thread.Sleep(1);
-                    Update();
-                    LateUpdate();
-                }
-                catch (Exception e)
-                {
-                    Log.Error(e);
-                }
+                Thread.Sleep(1);
+                Update();
+                LateUpdate();
             }
         }
 
-        private void LateUpdate()
+        public void LateUpdate()
         {
         }
 
-        private void Update()
+        public void Update()
         {
             _timeInfo.Update();
             _threadSynchronizationContext.Update();
