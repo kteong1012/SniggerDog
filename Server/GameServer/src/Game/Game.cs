@@ -1,9 +1,5 @@
-﻿using Cfg;
-using System;
-using System.IO;
-using System.Threading;
+﻿using System.Threading;
 using TouchSocket.Core.Dependency;
-using TouchSocket.Core.Log;
 
 namespace PostMainland
 {
@@ -20,27 +16,27 @@ namespace PostMainland
         }
         public void Start()
         {
+            _container.RegisterSingleton<ServerType>(_serverType);
             switch (_serverType)
             {
+                case ServerType.Main:
+                    break;
                 case ServerType.Login:
+                    new LoginServerInitializer(_serverType).Initialize(_container);
+                    break;
                 case ServerType.Gate:
+                    break;
                 case ServerType.World:
+                    break;
                 case ServerType.Solcial:
+                    break;
                 case ServerType.Battle:
-                    _container
-                        .RegisterSingleton<ServerType>(_serverType)
-                        .RegisterSingleton<IAssemblyManager, AssemblyManager>()
-                        .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
-                        .RegisterTransient<TcpServerService, TcpServerService>();
-
-                    _container.Resolve<TcpServerService>();
                     break;
                 case ServerType.GM:
                     break;
                 default:
                     break;
             }
-
             while (true)
             {
                 Thread.Sleep(1);

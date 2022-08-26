@@ -4,38 +4,39 @@ namespace PostMainland
 {
     public class TimeInfo : IDisposable
     {
-        public static TimeInfo Instance = new TimeInfo();
+        private static TimeInfo _instance = new TimeInfo();
+        public static TimeInfo Instance => _instance;
 
-        private int timeZone;
+        private int _timeZone;
 
         public int TimeZone
         {
             get
             {
-                return this.timeZone;
+                return this._timeZone;
             }
             set
             {
-                this.timeZone = value;
-                dt = dt1970.AddHours(TimeZone);
+                this._timeZone = value;
+                _dt = _dt1970.AddHours(TimeZone);
             }
         }
 
-        private readonly DateTime dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        private DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private readonly DateTime _dt1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private DateTime _dt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         public long ServerMinusClientTime { private get; set; }
 
-        public long FrameTime;
+        public long frameTime;
 
         private TimeInfo()
         {
-            this.FrameTime = this.ClientNow();
+            this.frameTime = this.ClientNow();
         }
 
         public void Update()
         {
-            this.FrameTime = this.ClientNow();
+            this.frameTime = this.ClientNow();
         }
 
         /// <summary> 
@@ -43,13 +44,13 @@ namespace PostMainland
         /// </summary>  
         public DateTime ToDateTime(long timeStamp)
         {
-            return dt.AddTicks(timeStamp * 10000);
+            return _dt.AddTicks(timeStamp * 10000);
         }
 
         // 线程安全
         public long ClientNow()
         {
-            return (DateTime.UtcNow.Ticks - this.dt1970.Ticks) / 10000;
+            return (DateTime.UtcNow.Ticks - this._dt1970.Ticks) / 10000;
         }
 
         public long ServerNow()
@@ -59,22 +60,22 @@ namespace PostMainland
 
         public long ClientFrameTime()
         {
-            return this.FrameTime;
+            return this.frameTime;
         }
 
         public long ServerFrameTime()
         {
-            return this.FrameTime + Instance.ServerMinusClientTime;
+            return this.frameTime + Instance.ServerMinusClientTime;
         }
 
         public long Transition(DateTime d)
         {
-            return (d.Ticks - dt.Ticks) / 10000;
+            return (d.Ticks - _dt.Ticks) / 10000;
         }
 
         public void Dispose()
         {
-            Instance = null;
+            _instance = null;
         }
     }
 }

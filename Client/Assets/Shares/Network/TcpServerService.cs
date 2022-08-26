@@ -10,19 +10,26 @@ namespace PostMainland
 {
     public class TcpServerService
     {
+        public bool HasStarted { get; private set; }
         private TcpService _service;
         private IProtocalManagerService _protocalManager;
+        private readonly ServerType _serverType;
 
-        public TcpServerService(IProtocalManagerService protocalMgr)
+        public TcpServerService(IProtocalManagerService protocalMgr, ServerType serverType)
         {
-            _service = new TouchSocket.Sockets.TcpService();
+            _service = new TcpService();
             _service.Received += OnReceived;
             _service.Connecting += OnConnecting;//有客户端正在连接
             _service.Connected += OnConnected;//有客户端连接
             _service.Disconnected += OnDisconnected;//有客户端断开连接
             _protocalManager = protocalMgr;
+            _serverType = serverType;
+            HasStarted = false;
+        }
+        public void Start(string host, int port)
+        {
             TouchSocketConfig config = new TouchSocketConfig();
-            string host = string.Join(":", Global.Options.Host, Global.Options.Port);
+            string hostString = string.Join(":", host, port);
             config.SetListenIPHosts(new IPHost[] { new IPHost(host) })
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())
                 .SetMaxCount(10000)
@@ -36,8 +43,9 @@ namespace PostMainland
 
                 });
             _service.Setup(config).Start();
+            HasStarted = true;
+            Log.Message($"{_serverType}服务器开始监听{hostString}");
         }
-
 
         private void OnReceived(SocketClient client, ByteBlock byteBlock, IRequestInfo requestInfo)
         {

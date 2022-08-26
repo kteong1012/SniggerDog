@@ -8,30 +8,30 @@ namespace PostMainland
     {
         public static ThreadSynchronizationContext Instance { get; } = new ThreadSynchronizationContext(Thread.CurrentThread.ManagedThreadId);
 
-        private readonly int threadId;
+        private readonly int _threadId;
 
         // 线程同步队列,发送接收socket回调都放到该队列,由poll线程统一执行
-        private readonly ConcurrentQueue<Action> queue = new ConcurrentQueue<Action>();
+        private readonly ConcurrentQueue<Action> _queue = new ConcurrentQueue<Action>();
 
-        private Action a;
+        private Action _a;
 
         public ThreadSynchronizationContext(int threadId)
         {
-            this.threadId = threadId;
+            this._threadId = threadId;
         }
 
         public void Update()
         {
             while (true)
             {
-                if (!this.queue.TryDequeue(out a))
+                if (!this._queue.TryDequeue(out _a))
                 {
                     return;
                 }
 
                 try
                 {
-                    a();
+                    _a();
                 }
                 catch (Exception e)
                 {
@@ -47,7 +47,7 @@ namespace PostMainland
 
         public void Post(Action action)
         {
-            if (Thread.CurrentThread.ManagedThreadId == this.threadId)
+            if (Thread.CurrentThread.ManagedThreadId == this._threadId)
             {
                 try
                 {
@@ -61,12 +61,12 @@ namespace PostMainland
                 return;
             }
 
-            this.queue.Enqueue(action);
+            this._queue.Enqueue(action);
         }
 
         public void PostNext(Action action)
         {
-            this.queue.Enqueue(action);
+            this._queue.Enqueue(action);
         }
     }
 }

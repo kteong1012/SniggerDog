@@ -4,9 +4,9 @@ namespace PostMainland
 {
     public static class TimeHelper
     {
-        public const long OneDay = 86400000;
-        public const long Hour = 3600000;
-        public const long Minute = 60000;
+        public const long ONE_DAY = 86400000;
+        public const long HOUR = 3600000;
+        public const long MINUTE = 60000;
 
         /// <summary>
         /// 客户端时间

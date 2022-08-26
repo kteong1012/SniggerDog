@@ -11,7 +11,7 @@ namespace PostMainland
         [Option('h', "host", Required = false, HelpText = "监听地址")]
         public string Host { get; set; }
         [Option("port", Required = false, HelpText = "监听端口")]
-        public string Port { get; set; }
+        public int Port { get; set; }
 
         public override string ToString()
         {

@@ -14,15 +14,19 @@ namespace Cfg
 public partial class Tables
 {
     public TbGlobal TbGlobal {get; }
+    public TbStartProcess TbStartProcess {get; }
 
     public Tables(System.Func<string, ByteBuf> idxLoader,System.Func<string, ByteBuf> dataLoader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
         TbGlobal = new TbGlobal(idxLoader("tbglobal"),"tbglobal",dataLoader); 
         tables.Add("TbGlobal", TbGlobal);
+        TbStartProcess = new TbStartProcess(idxLoader("tbstartprocess"),"tbstartprocess",dataLoader); 
+        tables.Add("TbStartProcess", TbStartProcess);
 
         PostInit();
         TbGlobal.CacheTables(tables); 
+        TbStartProcess.CacheTables(tables); 
     }
     
     partial void PostInit();

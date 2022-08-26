@@ -5,7 +5,7 @@ namespace PostMainland
 {
     public class ListCollection<T> : IDisposable
     {
-        public List<T> List = new List<T>();
+        public List<T> List { get; } = new List<T>();
         public int Count => List.Count;
         public void Add(T e)
         {

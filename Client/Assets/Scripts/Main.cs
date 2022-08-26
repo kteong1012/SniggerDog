@@ -11,10 +11,10 @@ namespace PostMainland
 {
     public class Main : MonoBehaviour
     {
-        private Action game_Update;
-        private Action game_FixedUpdate;
-        private Action game_LateUpdate;
-        private Action game_OnApplicationQuit;
+        private Action _game_Update;
+        private Action _game_FixedUpdate;
+        private Action _game_LateUpdate;
+        private Action _game_OnApplicationQuit;
         async void Start()
         {
             Application.runInBackground = true;
@@ -31,29 +31,29 @@ namespace PostMainland
             MethodInfo miOnApplicationQuit = game.GetMethod("OnApplicationQuit");
 
             Action start = (Action)miStart?.CreateDelegate(typeof(Action));
-            game_Update = (Action)miUpdate?.CreateDelegate(typeof(Action));
-            game_FixedUpdate = (Action)miFixedUpdate?.CreateDelegate(typeof(Action));
-            game_LateUpdate = (Action)miLateUpdate?.CreateDelegate(typeof(Action));
-            game_OnApplicationQuit = (Action)miOnApplicationQuit?.CreateDelegate(typeof(Action));
+            _game_Update = (Action)miUpdate?.CreateDelegate(typeof(Action));
+            _game_FixedUpdate = (Action)miFixedUpdate?.CreateDelegate(typeof(Action));
+            _game_LateUpdate = (Action)miLateUpdate?.CreateDelegate(typeof(Action));
+            _game_OnApplicationQuit = (Action)miOnApplicationQuit?.CreateDelegate(typeof(Action));
 
             start();
         }
 
         private void Update()
         {
-            game_Update?.Invoke();
+            _game_Update?.Invoke();
         }
         private void FixedUpdate()
         {
-            game_FixedUpdate?.Invoke();
+            _game_FixedUpdate?.Invoke();
         }
         private void LateUpdate()
         {
-            game_LateUpdate?.Invoke();
+            _game_LateUpdate?.Invoke();
         }
         private void OnApplicationQuit()
         {
-            game_OnApplicationQuit?.Invoke();
+            _game_OnApplicationQuit?.Invoke();
         }
     }
 }

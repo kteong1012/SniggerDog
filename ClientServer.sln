@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSProtocals", "Protocal\SSP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameServer", "Server\GameServer\GameServer.csproj", "{E5C5D89F-62CD-4BE4-B894-3CA15F3B7CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerLauncher", "Server\ServerLauncher\ServerLauncher.csproj", "{1037F120-8924-41B8-825F-AB4594651FEC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,10 +69,6 @@ Global
 		{E5C5D89F-62CD-4BE4-B894-3CA15F3B7CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5C5D89F-62CD-4BE4-B894-3CA15F3B7CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5C5D89F-62CD-4BE4-B894-3CA15F3B7CD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1037F120-8924-41B8-825F-AB4594651FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1037F120-8924-41B8-825F-AB4594651FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1037F120-8924-41B8-825F-AB4594651FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1037F120-8924-41B8-825F-AB4594651FEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,7 +83,6 @@ Global
 		{A90D81B2-157E-4B92-9EB3-30E4FF0008FB} = {C003DD5A-1AC2-4044-81B3-2A8ADA8515EC}
 		{B50A3FFA-636D-4162-8BCB-37B33541E478} = {C003DD5A-1AC2-4044-81B3-2A8ADA8515EC}
 		{E5C5D89F-62CD-4BE4-B894-3CA15F3B7CD5} = {841B24D2-4005-4E50-B2E5-2FD7832689C3}
-		{1037F120-8924-41B8-825F-AB4594651FEC} = {841B24D2-4005-4E50-B2E5-2FD7832689C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE5B3438-7947-4C16-9D0F-39B2CE8F0E8E}

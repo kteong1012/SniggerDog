@@ -31,7 +31,6 @@ namespace PostMainland
             Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
 
-            Global.Options = options;
             new Luban();
             Global.Container = new Container();
 
