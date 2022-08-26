@@ -72,3 +72,6 @@ Client/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 Client/[Aa]ssets/[Ss]treamingAssets/aa.meta
 Client/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Luban chage
+.cache.meta

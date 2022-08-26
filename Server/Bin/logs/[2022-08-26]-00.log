@@ -1,0 +1,36 @@
+2022-08-26 14:57:08 7198 | Message | Login启动,pid:19772
+2022-08-26 14:57:22 7700 | Error | System.InvalidOperationException: No process is associated with this object.
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.get_ProcessName()
+   at PostMainland.Program.KillAllServers() in D:\Github\AntiMage\Server\GameServer\Program.cs:line 103
+2022-08-26 14:57:22 8869 | Message | Login启动,pid:27860
+2022-08-26 14:59:19 5246 | Message | Main启动,pid:13784
+2022-08-26 14:59:33 9375 | Error | System.InvalidOperationException: No process is associated with this object.
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.get_ProcessName()
+   at PostMainland.Program.KillAllServers() in D:\Github\AntiMage\Server\GameServer\Program.cs:line 106
+2022-08-26 14:59:34 0678 | Message | Login启动,pid:23284
+2022-08-26 15:00:10 3846 | Message | Main启动,pid:14472
+2022-08-26 15:00:10 4110 | Error | System.InvalidOperationException: Process has exited, so the requested information is not available.
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.get_ProcessName()
+   at PostMainland.Program.KillAllServers() in D:\Github\AntiMage\Server\GameServer\Program.cs:line 104
+2022-08-26 15:00:10 4155 | Error | System.InvalidOperationException: Process has exited, so the requested information is not available.
+   at System.Diagnostics.Process.EnsureState(State state)
+   at System.Diagnostics.Process.get_ProcessName()
+   at PostMainland.Program.KillAllServers() in D:\Github\AntiMage\Server\GameServer\Program.cs:line 104
+2022-08-26 15:00:10 5468 | Message | Login启动,pid:20988
+2022-08-26 15:00:19 0571 | Message | Main启动,pid:14560
+2022-08-26 15:01:34 5623 | Message | Main启动,pid:1264
+2022-08-26 15:01:34 7041 | Message | Login启动,pid:29248
+2022-08-26 15:02:54 4558 | Message | Main启动,pid:21756
+2022-08-26 15:03:37 8141 | Message | Main启动,pid:25116
+2022-08-26 15:03:37 9429 | Message | Login启动,pid:30040
+2022-08-26 15:03:45 3371 | Message | Main启动,pid:15792
+2022-08-26 15:03:45 4616 | Message | Login启动,pid:16352
+2022-08-26 15:03:55 0465 | Message | Main启动,pid:22660
+2022-08-26 15:04:27 2106 | Message | Login启动,pid:27096

@@ -13,13 +13,13 @@ namespace PostMainland
         }
         public ByteBuf DataLoader(string path)
         {
-            var bytes = File.ReadAllBytes(Path.Combine(Global.WorkPlace.FullName, $"ConfigBin/Datas/{path}.bytes"));
+            var bytes = File.ReadAllBytes($"../ConfigBin/Datas/{path}.bytes");
             return new ByteBuf(bytes);
         }
 
         public ByteBuf IndexLoader(string path)
         {
-            var bytes = File.ReadAllBytes(Path.Combine(Global.WorkPlace.FullName, $"ConfigBin/Indexes/{path}.bytes"));
+            var bytes = File.ReadAllBytes($"../ConfigBin/Indexes/{path}.bytes");
             return new ByteBuf(bytes);
         }
 

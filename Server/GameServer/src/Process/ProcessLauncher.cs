@@ -31,20 +31,23 @@ namespace PostMainland
             }
             _process = new Process();
             _process.StartInfo.FileName = "dotnet";
-            _process.StartInfo.WorkingDirectory = _options.WorkPlace;
+            _process.StartInfo.WorkingDirectory = ".";
             _process.StartInfo.Arguments = _options.ToString();
             _process.Start();
-            Log.Message($"{_process.ProcessName}启动成功");
         }
         public void CheckAlive()
         {
-            //TODO 重启
+            if(_process == null || _process.HasExited)
+            {
+                Launch();
+            }
         }
 
         public void Close()
         {
             if (_process != null)
             {
+                _process.Kill();
                 _process.Close();
             }
         }

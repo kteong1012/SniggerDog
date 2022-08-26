@@ -7,7 +7,7 @@
     },
     "GameServerMain": {
       "commandName": "Project",
-      "commandLineArgs": "--w ..\\..\\..\\..\\ --t Main"
+      "commandLineArgs": "--t Main"
     },
     "GameServerLogin": {
       "commandName": "Project",
