@@ -47,7 +47,7 @@ Client/*.csproj
 *.mdb
 *.opendb
 *.VC.db
-
+/packages/
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta

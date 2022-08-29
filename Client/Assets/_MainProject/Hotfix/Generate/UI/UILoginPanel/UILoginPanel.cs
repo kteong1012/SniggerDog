@@ -22,6 +22,8 @@ namespace PostMainland
     			btnLoginAsync = new AsyncGButton(btnLogin);
     		}
     		Initialize();
+
+            TreeNode node;
     	}
     }
 }
