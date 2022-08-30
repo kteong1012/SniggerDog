@@ -9,33 +9,33 @@ namespace PostMainland
 {
     public static class Game
     {
-        static ThreadSynchronizationContext ThreadSynchronizationContext = ThreadSynchronizationContext.Instance;
-        static TimeInfo TimeInfo = TimeInfo.Instance;
+        static ThreadSynchronizationContext _threadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        static TimeInfo _timeInfo = TimeInfo.Instance;
         public static async void Start()
         {
-            SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
-            Log.SetLogs(new UnityLogger());
-            Global.Container = new Container()
-                .RegisterSingleton<IAssemblyManager, AssemblyManager>()
-                .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
-                .RegisterSingleton<IConfigLoader, Luban>();
+            //SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
+            //Log.SetLogs(new UnityLogger());
+            //Global.Container = new Container()
+            //    .RegisterSingleton<IAssemblyManager, AssemblyManager>()
+            //    .RegisterSingleton<IProtocalManagerService, ProtocalManager>();
+            //    //.RegisterSingleton<IConfigLoader, Luban>();
 
-            Global.Container.Resolve<IConfigLoader>();
-            var assMgr = Global.Container.Resolve<IAssemblyManager>();
-            assMgr.AddTypes(typeof(Game).Assembly.GetTypes());
-
+            //Global.Container.Resolve<IConfigLoader>();
+            //var assMgr = Global.Container.Resolve<IAssemblyManager>();
+            //assMgr.AddTypes(typeof(Game).Assembly.GetTypes());
+            Debug.LogError("가가가가");
             //TcpC2SSession session = new TcpC2SSession(new IPHost("127.0.0.1:10005"));
             //var ack = await session.Request<S2C_Login, C2S_Login>(new C2S_Login() { Account = "baoyu" });
             //Log.Message(ack.Name);
-            var panel = await FGUI.Instance.OpenAsync<UILoginPanel>();
+            //var panel = await FGUI.Instance.OpenAsync<UILoginPanel>();
 
-            panel.txtAccount.text = TbGlobal.Instance.LoginServerAddress;
+            //panel.txtAccount.text = TbGlobal.Instance.LoginServerAddress;
         }
 
         public static void Update()
         {
-            ThreadSynchronizationContext.Update();
-            TimeInfo.Update();
+            _threadSynchronizationContext?.Update();
+            _timeInfo?.Update();
         }
 
         public static void LateUpdate()

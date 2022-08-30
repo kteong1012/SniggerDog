@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using System.Collections;
 using UnityEngine.SceneManagement;
 using YooAsset;
 
@@ -11,8 +12,18 @@ namespace PostMainland
 
         public async UniTask Initialize()
         {
+#if UNITY_EDITOR
             var initParameters = new YooAssets.EditorSimulateModeParameters();
-            initParameters.LocationServices = new DefaultLocationServices("");
+            initParameters.LocationServices = new AddressLocationServices();
+#else
+            var initParameters = new YooAssets.HostPlayModeParameters();
+            initParameters.LocationServices = new AddressLocationServices();
+            initParameters.DecryptionServices = null;
+            initParameters.ClearCacheWhenDirty = false;
+            initParameters.DefaultHostServer = "http://127.0.0.1:8088/Bundles/StandaloneWindows64/1/";
+            initParameters.FallbackHostServer = "http://127.0.0.1:8088/Bundles/StandaloneWindows64/1/";
+            initParameters.VerifyLevel = EVerifyLevel.High;
+#endif
             await YooAssets.InitializeAsync(initParameters);
         }
         public async UniTask<T> LoadAsync<T>(string location) where T : UnityEngine.Object

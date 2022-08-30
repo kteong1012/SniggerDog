@@ -7,9 +7,11 @@ Client/[Tt]emp/
 Client/[Oo]bj/
 Client/[Bb]uild/
 Client/[Bb]uilds/
+Client/[Bb]undles/
 Client/[Ll]ogs/
 Client/[Uu]ser[Ss]ettings/
 Client/*.sln
+Client/Release*/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
