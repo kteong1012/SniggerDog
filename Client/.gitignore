@@ -47,3 +47,4 @@
 Build-Mac
 HybridCLRData/iOSBuild/build
 /Build-iOS
+/Release-Win64
