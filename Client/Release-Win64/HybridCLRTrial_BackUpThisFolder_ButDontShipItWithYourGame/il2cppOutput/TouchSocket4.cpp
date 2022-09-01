@@ -1121,7 +1121,7 @@ struct ConcurrentDictionary_2_t84A593D4319F0311ABD89F7C54596A117034E2D3  : publi
 struct ConcurrentDictionary_2_t84A593D4319F0311ABD89F7C54596A117034E2D3_StaticFields
 {
 	// System.Boolean System.Collections.Concurrent.ConcurrentDictionary`2::s_isValueWriteAtomic
-	bool ___s_isValueWriteAtomic_7;
+	bool ___s_isValueWriteAtomic_9;
 };
 
 // System.Collections.Generic.Dictionary`2<System.String,TouchSocket.Core.Reflection.Method>
@@ -1507,17 +1507,17 @@ struct DisposableObject_t8B37210F5F6F1A7D08870787A7762C441BD03D0C  : public Runt
 struct Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095  : public RuntimeObject
 {
 	// System.Int32 System.Text.Encoding::m_codePage
-	int32_t ___m_codePage_9;
+	int32_t ___m_codePage_55;
 	// System.Globalization.CodePageDataItem System.Text.Encoding::dataItem
-	CodePageDataItem_t52460FA30AE37F4F26ACB81055E58002262F19F2* ___dataItem_10;
+	CodePageDataItem_t52460FA30AE37F4F26ACB81055E58002262F19F2* ___dataItem_56;
 	// System.Boolean System.Text.Encoding::m_deserializedFromEverett
-	bool ___m_deserializedFromEverett_11;
+	bool ___m_deserializedFromEverett_57;
 	// System.Boolean System.Text.Encoding::m_isReadOnly
-	bool ___m_isReadOnly_12;
+	bool ___m_isReadOnly_58;
 	// System.Text.EncoderFallback System.Text.Encoding::encoderFallback
-	EncoderFallback_tD2C40CE114AA9D8E1F7196608B2D088548015293* ___encoderFallback_13;
+	EncoderFallback_tD2C40CE114AA9D8E1F7196608B2D088548015293* ___encoderFallback_59;
 	// System.Text.DecoderFallback System.Text.Encoding::decoderFallback
-	DecoderFallback_t7324102215E4ED41EC065C02EB501CB0BC23CD90* ___decoderFallback_14;
+	DecoderFallback_t7324102215E4ED41EC065C02EB501CB0BC23CD90* ___decoderFallback_60;
 };
 
 struct Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095_StaticFields
@@ -1541,7 +1541,7 @@ struct Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095_StaticFields
 	// System.Collections.Generic.Dictionary`2<System.Int32,System.Text.Encoding> modreq(System.Runtime.CompilerServices.IsVolatile) System.Text.Encoding::encodings
 	Dictionary_2_t87EDE08B2E48F793A22DE50D6B3CC2E7EBB2DB54* ___encodings_8;
 	// System.Object System.Text.Encoding::s_InternalSyncObject
-	RuntimeObject* ___s_InternalSyncObject_15;
+	RuntimeObject* ___s_InternalSyncObject_61;
 };
 
 // System.EventArgs
@@ -1753,47 +1753,47 @@ struct ReaderWriterLockSlim_t3BF29C18C9FC0EE07209EDD54D938EA473FB3906  : public 
 	// System.Int32 System.Threading.ReaderWriterLockSlim::myLock
 	int32_t ___myLock_1;
 	// System.UInt32 System.Threading.ReaderWriterLockSlim::numWriteWaiters
-	uint32_t ___numWriteWaiters_2;
+	uint32_t ___numWriteWaiters_5;
 	// System.UInt32 System.Threading.ReaderWriterLockSlim::numReadWaiters
-	uint32_t ___numReadWaiters_3;
+	uint32_t ___numReadWaiters_6;
 	// System.UInt32 System.Threading.ReaderWriterLockSlim::numWriteUpgradeWaiters
-	uint32_t ___numWriteUpgradeWaiters_4;
+	uint32_t ___numWriteUpgradeWaiters_7;
 	// System.UInt32 System.Threading.ReaderWriterLockSlim::numUpgradeWaiters
-	uint32_t ___numUpgradeWaiters_5;
+	uint32_t ___numUpgradeWaiters_8;
 	// System.Boolean System.Threading.ReaderWriterLockSlim::fNoWaiters
-	bool ___fNoWaiters_6;
+	bool ___fNoWaiters_9;
 	// System.Int32 System.Threading.ReaderWriterLockSlim::upgradeLockOwnerId
-	int32_t ___upgradeLockOwnerId_7;
+	int32_t ___upgradeLockOwnerId_10;
 	// System.Int32 System.Threading.ReaderWriterLockSlim::writeLockOwnerId
-	int32_t ___writeLockOwnerId_8;
+	int32_t ___writeLockOwnerId_11;
 	// System.Threading.EventWaitHandle System.Threading.ReaderWriterLockSlim::writeEvent
-	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___writeEvent_9;
+	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___writeEvent_12;
 	// System.Threading.EventWaitHandle System.Threading.ReaderWriterLockSlim::readEvent
-	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___readEvent_10;
+	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___readEvent_13;
 	// System.Threading.EventWaitHandle System.Threading.ReaderWriterLockSlim::upgradeEvent
-	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___upgradeEvent_11;
+	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___upgradeEvent_14;
 	// System.Threading.EventWaitHandle System.Threading.ReaderWriterLockSlim::waitUpgradeEvent
-	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___waitUpgradeEvent_12;
+	EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* ___waitUpgradeEvent_15;
 	// System.Int64 System.Threading.ReaderWriterLockSlim::lockID
-	int64_t ___lockID_14;
+	int64_t ___lockID_17;
 	// System.Boolean System.Threading.ReaderWriterLockSlim::fUpgradeThreadHoldingRead
-	bool ___fUpgradeThreadHoldingRead_16;
+	bool ___fUpgradeThreadHoldingRead_19;
 	// System.UInt32 System.Threading.ReaderWriterLockSlim::owners
-	uint32_t ___owners_17;
+	uint32_t ___owners_21;
 	// System.Boolean System.Threading.ReaderWriterLockSlim::fDisposed
-	bool ___fDisposed_18;
+	bool ___fDisposed_27;
 };
 
 struct ReaderWriterLockSlim_t3BF29C18C9FC0EE07209EDD54D938EA473FB3906_StaticFields
 {
 	// System.Int64 System.Threading.ReaderWriterLockSlim::s_nextLockID
-	int64_t ___s_nextLockID_13;
+	int64_t ___s_nextLockID_16;
 };
 
 struct ReaderWriterLockSlim_t3BF29C18C9FC0EE07209EDD54D938EA473FB3906_ThreadStaticFields
 {
 	// System.Threading.ReaderWriterCount System.Threading.ReaderWriterLockSlim::t_rwc
-	ReaderWriterCount_tD7361BF31DEB70DC7319519D215F400357543333* ___t_rwc_15;
+	ReaderWriterCount_tD7361BF31DEB70DC7319519D215F400357543333* ___t_rwc_18;
 };
 
 // System.Runtime.Serialization.SerializationBinder
@@ -1971,19 +1971,19 @@ struct TouchSocketCoreUtility_t84425E654784537D969FB9626C94917C4C98C643_StaticFi
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E  : public RuntimeObject
 {
 	// System.String System.Uri::m_String
-	String_t* ___m_String_13;
+	String_t* ___m_String_16;
 	// System.String System.Uri::m_originalUnicodeString
-	String_t* ___m_originalUnicodeString_14;
+	String_t* ___m_originalUnicodeString_17;
 	// System.UriParser System.Uri::m_Syntax
-	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_15;
+	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_18;
 	// System.String System.Uri::m_DnsSafeHost
-	String_t* ___m_DnsSafeHost_16;
+	String_t* ___m_DnsSafeHost_19;
 	// System.Uri/Flags System.Uri::m_Flags
-	uint64_t ___m_Flags_17;
+	uint64_t ___m_Flags_20;
 	// System.Uri/UriInfo System.Uri::m_Info
-	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_18;
+	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_21;
 	// System.Boolean System.Uri::m_iriParsing
-	bool ___m_iriParsing_19;
+	bool ___m_iriParsing_22;
 };
 
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
@@ -2015,23 +2015,23 @@ struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
 	// System.String System.Uri::SchemeDelimiter
 	String_t* ___SchemeDelimiter_12;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitialized
-	bool ___s_ConfigInitialized_20;
+	bool ___s_ConfigInitialized_23;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitializing
-	bool ___s_ConfigInitializing_21;
+	bool ___s_ConfigInitializing_24;
 	// System.UriIdnScope modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IdnScope
-	int32_t ___s_IdnScope_22;
+	int32_t ___s_IdnScope_25;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IriParsing
-	bool ___s_IriParsing_23;
+	bool ___s_IriParsing_26;
 	// System.Boolean System.Uri::useDotNetRelativeOrAbsolute
-	bool ___useDotNetRelativeOrAbsolute_24;
+	bool ___useDotNetRelativeOrAbsolute_27;
 	// System.Boolean System.Uri::IsWindowsFileSystem
-	bool ___IsWindowsFileSystem_25;
+	bool ___IsWindowsFileSystem_29;
 	// System.Object System.Uri::s_initLock
-	RuntimeObject* ___s_initLock_26;
+	RuntimeObject* ___s_initLock_30;
 	// System.Char[] System.Uri::HexLowerChars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_27;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_34;
 	// System.Char[] System.Uri::_WSchars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_28;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_35;
 };
 
 // System.ValueType
@@ -6868,7 +6868,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WSCommandLinePlugin__ctor_mA6839FB3DAA38
 		L_2 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_2);
 		MethodInfoU5BU5D_tDF3670604A0AECF814A0B0BA09B91FBF0D6A3265* L_3;
-		L_3 = VirtualFuncInvoker1< MethodInfoU5BU5D_tDF3670604A0AECF814A0B0BA09B91FBF0D6A3265*, int32_t >::Invoke(101 /* System.Reflection.MethodInfo[] System.Type::GetMethods(System.Reflection.BindingFlags) */, L_2, ((int32_t)20));
+		L_3 = VirtualFuncInvoker1< MethodInfoU5BU5D_tDF3670604A0AECF814A0B0BA09B91FBF0D6A3265*, int32_t >::Invoke(222 /* System.Reflection.MethodInfo[] System.Type::GetMethods(System.Reflection.BindingFlags) */, L_2, ((int32_t)20));
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tD4F0D0D1DA7A7BB373BEEC4F1ABAA0D8AA5A6011_il2cpp_TypeInfo_var);
 		Func_2_t48B62DF57727FFB990D76F189BB41D4DC86FF164* L_4 = ((U3CU3Ec_tD4F0D0D1DA7A7BB373BEEC4F1ABAA0D8AA5A6011_StaticFields*)il2cpp_codegen_static_fields_for(U3CU3Ec_tD4F0D0D1DA7A7BB373BEEC4F1ABAA0D8AA5A6011_il2cpp_TypeInfo_var))->___U3CU3E9__9_0_1;
 		Func_2_t48B62DF57727FFB990D76F189BB41D4DC86FF164* L_5 = L_4;
@@ -6945,7 +6945,7 @@ IL_005c_1:
 				MethodInfo_t* L_16 = V_1;
 				NullCheck(L_16);
 				String_t* L_17;
-				L_17 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_16);
+				L_17 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_16);
 				String_t* L_18 = ((String_t_StaticFields*)il2cpp_codegen_static_fields_for(String_t_il2cpp_TypeInfo_var))->___Empty_6;
 				NullCheck(L_17);
 				String_t* L_19;
@@ -7070,7 +7070,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WSCommandLinePlugin_OnHandleWSDataFrame_
 			L_16 = Method_get_Info_mA950F2F787EF84A77C6B09A2B7BE35C2096DECDF_inline(L_15, NULL);
 			NullCheck(L_16);
 			ParameterInfoU5BU5D_t86995AB4A1693393FE29B058CC3FD727DF0B984C* L_17;
-			L_17 = VirtualFuncInvoker0< ParameterInfoU5BU5D_t86995AB4A1693393FE29B058CC3FD727DF0B984C* >::Invoke(16 /* System.Reflection.ParameterInfo[] System.Reflection.MethodBase::GetParameters() */, L_16);
+			L_17 = VirtualFuncInvoker0< ParameterInfoU5BU5D_t86995AB4A1693393FE29B058CC3FD727DF0B984C* >::Invoke(70 /* System.Reflection.ParameterInfo[] System.Reflection.MethodBase::GetParameters() */, L_16);
 			V_2 = L_17;
 			ParameterInfoU5BU5D_t86995AB4A1693393FE29B058CC3FD727DF0B984C* L_18 = V_2;
 			NullCheck(L_18);
@@ -7108,7 +7108,7 @@ IL_0071_1:
 			ParameterInfo_tBC2D68304851A59EFB2EAE6B168714CD45445F2F* L_32 = (L_29)->GetAt(static_cast<il2cpp_array_size_t>(L_31));
 			NullCheck(L_32);
 			Type_t* L_33;
-			L_33 = VirtualFuncInvoker0< Type_t* >::Invoke(11 /* System.Type System.Reflection.ParameterInfo::get_ParameterType() */, L_32);
+			L_33 = VirtualFuncInvoker0< Type_t* >::Invoke(15 /* System.Type System.Reflection.ParameterInfo::get_ParameterType() */, L_32);
 			NullCheck(L_24);
 			RuntimeObject* L_34;
 			L_34 = TouchSocketConverter_1_ConvertFrom_mEBFD4DDF8A9C8B01D54F73C44285783E0A887D5E(L_24, L_28, L_33, TouchSocketConverter_1_ConvertFrom_mEBFD4DDF8A9C8B01D54F73C44285783E0A887D5E_RuntimeMethod_var);
@@ -7236,7 +7236,7 @@ CATCH_00f9_1:
 				Exception_t* L_61 = V_8;
 				NullCheck(L_61);
 				String_t* L_62;
-				L_62 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_61);
+				L_62 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_61);
 				NullCheck(L_60);
 				String_t* L_63;
 				L_63 = TouchSocketConverter_1_ConvertTo_mD2F08064FAD4BA21645F08E4F9A8C41B032C15A0(L_60, L_62, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&TouchSocketConverter_1_ConvertTo_mD2F08064FAD4BA21645F08E4F9A8C41B032C15A0_RuntimeMethod_var)));
@@ -7261,7 +7261,7 @@ IL_012a_1:
 				Exception_t* L_68 = V_8;
 				NullCheck(L_68);
 				String_t* L_69;
-				L_69 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_68);
+				L_69 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_68);
 				NullCheck(L_67);
 				String_t* L_70;
 				L_70 = TouchSocketConverter_1_ConvertTo_mD2F08064FAD4BA21645F08E4F9A8C41B032C15A0(L_67, L_69, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&TouchSocketConverter_1_ConvertTo_mD2F08064FAD4BA21645F08E4F9A8C41B032C15A0_RuntimeMethod_var)));
@@ -7298,7 +7298,7 @@ CATCH_0153:
 		Exception_t* L_72 = V_11;
 		NullCheck(L_72);
 		String_t* L_73;
-		L_73 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_72);
+		L_73 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_72);
 		Exception_t* L_74 = V_11;
 		NullCheck(L_71);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_71, 2, __this, L_73, L_74);
@@ -7361,7 +7361,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CU3Ec_U3C_ctorU3Eb__9_0_m665B605D8CBEB
 		MethodInfo_t* L_0 = ___a0;
 		NullCheck(L_0);
 		String_t* L_1;
-		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_0);
+		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_0);
 		NullCheck(L_1);
 		bool L_2;
 		L_2 = String_EndsWith_mCD3754F5401E19CE7821CD398986E4EAA6AD87DC(L_1, _stringLiteral95E092E81BBD1D174346BD2D65962936389A0236, NULL);
@@ -7740,7 +7740,7 @@ IL_0015:
 		L_6 = JsonConvert_SerializeObject_mF3C362ECD389FFB1F678E35890F38EF24CB2E181(__this, 1, NULL);
 		NullCheck(L_5);
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_7;
-		L_7 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(18 /* System.Byte[] System.Text.Encoding::GetBytes(System.String) */, L_5, L_6);
+		L_7 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(27 /* System.Byte[] System.Text.Encoding::GetBytes(System.String) */, L_5, L_6);
 		File_WriteAllBytes_m72C1A24339B30F84A655E6BF516AE1638B2C4668(L_4, L_7, NULL);
 		String_t** L_8 = ___msg1;
 		*((RuntimeObject**)L_8) = (RuntimeObject*)NULL;
@@ -7765,7 +7765,7 @@ CATCH_0039:
 		Exception_t* L_10 = V_1;
 		NullCheck(L_10);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_10);
+		L_11 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_10);
 		*((RuntimeObject**)L_9) = (RuntimeObject*)L_11;
 		Il2CppCodeGenWriteBarrier((void**)(RuntimeObject**)L_9, (void*)(RuntimeObject*)L_11);
 		V_0 = (bool)0;
@@ -7881,7 +7881,7 @@ CATCH_0065:
 		Exception_t* L_22 = V_6;
 		NullCheck(L_22);
 		String_t* L_23;
-		L_23 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_22);
+		L_23 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_22);
 		*((RuntimeObject**)L_21) = (RuntimeObject*)L_23;
 		Il2CppCodeGenWriteBarrier((void**)(RuntimeObject**)L_21, (void*)(RuntimeObject*)L_23);
 		V_5 = (bool)0;
@@ -8922,7 +8922,7 @@ IL_0026:
 		DescriptionAttribute_t2E1F8370535185D35B32BB7D143C8615391ECA86* L_13 = V_1;
 		NullCheck(L_13);
 		String_t* L_14;
-		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(6 /* System.String System.ComponentModel.DescriptionAttribute::get_Description() */, L_13);
+		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(11 /* System.String System.ComponentModel.DescriptionAttribute::get_Description() */, L_13);
 		V_2 = L_14;
 		il2cpp_codegen_runtime_class_init_inline(StringResStore_t48FD49ADEC571D498E475F01F75BE4B4F1B025E8_il2cpp_TypeInfo_var);
 		ConcurrentDictionary_2_t84A593D4319F0311ABD89F7C54596A117034E2D3* L_15 = ((StringResStore_t48FD49ADEC571D498E475F01F75BE4B4F1B025E8_StaticFields*)il2cpp_codegen_static_fields_for(StringResStore_t48FD49ADEC571D498E475F01F75BE4B4F1B025E8_il2cpp_TypeInfo_var))->___m_cache_0;
@@ -10663,7 +10663,7 @@ IL_0040:
 		{// begin try (depth: 1)
 			StringWriter_tF48052BE4F980E5C85403221E835768E4156267D* L_6 = V_1;
 			NullCheck(L_6);
-			VirtualActionInvoker1< Il2CppChar >::Invoke(13 /* System.Void System.IO.TextWriter::Write(System.Char) */, L_6, ((int32_t)34));
+			VirtualActionInvoker1< Il2CppChar >::Invoke(17 /* System.Void System.IO.TextWriter::Write(System.Char) */, L_6, ((int32_t)34));
 			StringWriter_tF48052BE4F980E5C85403221E835768E4156267D* L_7 = V_1;
 			DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D L_8 = V_0;
 			int32_t L_9 = ___format1;
@@ -10674,7 +10674,7 @@ IL_0040:
 			DateTimeUtils_WriteDateTimeString_m3F5D0974F240AE7E9E8AD445B7C3C73FB77AF024(L_7, L_8, L_9, (String_t*)NULL, L_10, NULL);
 			StringWriter_tF48052BE4F980E5C85403221E835768E4156267D* L_11 = V_1;
 			NullCheck(L_11);
-			VirtualActionInvoker1< Il2CppChar >::Invoke(13 /* System.Void System.IO.TextWriter::Write(System.Char) */, L_11, ((int32_t)34));
+			VirtualActionInvoker1< Il2CppChar >::Invoke(17 /* System.Void System.IO.TextWriter::Write(System.Char) */, L_11, ((int32_t)34));
 			StringWriter_tF48052BE4F980E5C85403221E835768E4156267D* L_12 = V_1;
 			NullCheck(L_12);
 			String_t* L_13;
@@ -23487,7 +23487,7 @@ IL_000a:
 		int32_t L_8 = V_0;
 		NullCheck(L_5);
 		int32_t L_9;
-		L_9 = VirtualFuncInvoker3< int32_t, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB*, int32_t, int32_t >::Invoke(11 /* System.Int32 System.IO.TextReader::Read(System.Char[],System.Int32,System.Int32) */, L_5, L_6, L_7, L_8);
+		L_9 = VirtualFuncInvoker3< int32_t, CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB*, int32_t, int32_t >::Invoke(12 /* System.Int32 System.IO.TextReader::Read(System.Char[],System.Int32,System.Int32) */, L_5, L_6, L_7, L_8);
 		V_1 = L_9;
 		int32_t L_10 = __this->____charsUsed_20;
 		int32_t L_11 = V_1;

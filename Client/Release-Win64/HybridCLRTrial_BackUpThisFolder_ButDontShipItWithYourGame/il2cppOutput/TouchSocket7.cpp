@@ -904,6 +904,7 @@ IL2CPP_EXTERN_C RuntimeClass* Func_2_t5C417131D24C091AA6E879408065DEB8B94A3947_i
 IL2CPP_EXTERN_C RuntimeClass* Func_2_t9F1201360E57185461CAFC7573FD48BE9A013972_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Func_2_tAFEA8D566B61EB7F0D97A7DC3C51B182DD06425F_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Func_2_tDD800B827A2B9AF15079C80CF716B5C79DA94942_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Guid_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ICollection_1_t48C445A53E9A2930D5484E8F57491AE6A5777CAF_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ICollection_1_t5C03FBFD5ECBDE4EAB8C4ED582DDFCF702EB5DC7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ICollection_1_tAEF5C9E593E4EB53AC27F7316DCBDCB65A82B220_il2cpp_TypeInfo_var;
@@ -2310,19 +2311,19 @@ struct StringComparer_t6268F19CA34879176651429C0D8A3D0002BB8E06_StaticFields
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E  : public RuntimeObject
 {
 	// System.String System.Uri::m_String
-	String_t* ___m_String_13;
+	String_t* ___m_String_16;
 	// System.String System.Uri::m_originalUnicodeString
-	String_t* ___m_originalUnicodeString_14;
+	String_t* ___m_originalUnicodeString_17;
 	// System.UriParser System.Uri::m_Syntax
-	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_15;
+	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_18;
 	// System.String System.Uri::m_DnsSafeHost
-	String_t* ___m_DnsSafeHost_16;
+	String_t* ___m_DnsSafeHost_19;
 	// System.Uri/Flags System.Uri::m_Flags
-	uint64_t ___m_Flags_17;
+	uint64_t ___m_Flags_20;
 	// System.Uri/UriInfo System.Uri::m_Info
-	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_18;
+	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_21;
 	// System.Boolean System.Uri::m_iriParsing
-	bool ___m_iriParsing_19;
+	bool ___m_iriParsing_22;
 };
 
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
@@ -2354,23 +2355,23 @@ struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
 	// System.String System.Uri::SchemeDelimiter
 	String_t* ___SchemeDelimiter_12;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitialized
-	bool ___s_ConfigInitialized_20;
+	bool ___s_ConfigInitialized_23;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitializing
-	bool ___s_ConfigInitializing_21;
+	bool ___s_ConfigInitializing_24;
 	// System.UriIdnScope modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IdnScope
-	int32_t ___s_IdnScope_22;
+	int32_t ___s_IdnScope_25;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IriParsing
-	bool ___s_IriParsing_23;
+	bool ___s_IriParsing_26;
 	// System.Boolean System.Uri::useDotNetRelativeOrAbsolute
-	bool ___useDotNetRelativeOrAbsolute_24;
+	bool ___useDotNetRelativeOrAbsolute_27;
 	// System.Boolean System.Uri::IsWindowsFileSystem
-	bool ___IsWindowsFileSystem_25;
+	bool ___IsWindowsFileSystem_29;
 	// System.Object System.Uri::s_initLock
-	RuntimeObject* ___s_initLock_26;
+	RuntimeObject* ___s_initLock_30;
 	// System.Char[] System.Uri::HexLowerChars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_27;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_34;
 	// System.Char[] System.Uri::_WSchars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_28;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_35;
 };
 
 // System.ValueType
@@ -2678,26 +2679,26 @@ struct KeyValuePair_2_tD6F64E5A5454E7B934F422579275E0A61A8D504D
 struct KeyedCollection_2_t19DAFFCCEB282670D15F27812F59F8055F3F66D0  : public Collection_1_t978EC0C8FD00F94A425E653C1B31BAA0FDD7F460
 {
 	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.ObjectModel.KeyedCollection`2::comparer
-	RuntimeObject* ___comparer_1;
+	RuntimeObject* ___comparer_2;
 	// System.Collections.Generic.Dictionary`2<TKey,TItem> System.Collections.ObjectModel.KeyedCollection`2::dict
-	Dictionary_2_t0B72899EDE9E821CDB03025DEEBAB9FDAC600287* ___dict_2;
+	Dictionary_2_t0B72899EDE9E821CDB03025DEEBAB9FDAC600287* ___dict_3;
 	// System.Int32 System.Collections.ObjectModel.KeyedCollection`2::keyCount
-	int32_t ___keyCount_3;
+	int32_t ___keyCount_4;
 	// System.Int32 System.Collections.ObjectModel.KeyedCollection`2::threshold
-	int32_t ___threshold_4;
+	int32_t ___threshold_5;
 };
 
 // System.Collections.ObjectModel.KeyedCollection`2<System.String,TouchSocket.Core.XREF.Newtonsoft.Json.Schema.JsonSchemaNode>
 struct KeyedCollection_2_t1ED94A2F243999AE43F034918EE585B627330CF0  : public Collection_1_t6EF1C3A23A38012B925B5353FD490FBC5E39088B
 {
 	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.ObjectModel.KeyedCollection`2::comparer
-	RuntimeObject* ___comparer_1;
+	RuntimeObject* ___comparer_2;
 	// System.Collections.Generic.Dictionary`2<TKey,TItem> System.Collections.ObjectModel.KeyedCollection`2::dict
-	Dictionary_2_tAA2895E34E786F26D7E29EC84C6915752802F9B8* ___dict_2;
+	Dictionary_2_tAA2895E34E786F26D7E29EC84C6915752802F9B8* ___dict_3;
 	// System.Int32 System.Collections.ObjectModel.KeyedCollection`2::keyCount
-	int32_t ___keyCount_3;
+	int32_t ___keyCount_4;
 	// System.Int32 System.Collections.ObjectModel.KeyedCollection`2::threshold
-	int32_t ___threshold_4;
+	int32_t ___threshold_5;
 };
 
 // System.Nullable`1<System.Boolean>
@@ -3598,37 +3599,39 @@ struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F  : public MarshalByRe
 	// System.Int32 System.AppDomain::_principalPolicy
 	int32_t ____principalPolicy_8;
 	// System.AssemblyLoadEventHandler System.AppDomain::AssemblyLoad
-	AssemblyLoadEventHandler_t74AF5FF25F520B9786A20D862AE69BE733774A42* ___AssemblyLoad_9;
+	AssemblyLoadEventHandler_t74AF5FF25F520B9786A20D862AE69BE733774A42* ___AssemblyLoad_11;
 	// System.ResolveEventHandler System.AppDomain::AssemblyResolve
-	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___AssemblyResolve_10;
+	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___AssemblyResolve_12;
 	// System.EventHandler System.AppDomain::DomainUnload
-	EventHandler_tC6323FD7E6163F965259C33D72612C0E5B9BAB82* ___DomainUnload_11;
+	EventHandler_tC6323FD7E6163F965259C33D72612C0E5B9BAB82* ___DomainUnload_13;
 	// System.EventHandler System.AppDomain::ProcessExit
-	EventHandler_tC6323FD7E6163F965259C33D72612C0E5B9BAB82* ___ProcessExit_12;
+	EventHandler_tC6323FD7E6163F965259C33D72612C0E5B9BAB82* ___ProcessExit_14;
 	// System.ResolveEventHandler System.AppDomain::ResourceResolve
-	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___ResourceResolve_13;
+	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___ResourceResolve_15;
 	// System.ResolveEventHandler System.AppDomain::TypeResolve
-	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___TypeResolve_14;
+	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___TypeResolve_16;
 	// System.UnhandledExceptionEventHandler System.AppDomain::UnhandledException
-	UnhandledExceptionEventHandler_tB13FF21A6201A59BB462E68CD10C5B5BEE54941C* ___UnhandledException_15;
+	UnhandledExceptionEventHandler_tB13FF21A6201A59BB462E68CD10C5B5BEE54941C* ___UnhandledException_17;
 	// System.EventHandler`1<System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs> System.AppDomain::FirstChanceException
-	EventHandler_1_tF46A0252BA462E35F6B72C69AB6C0F751E7443D7* ___FirstChanceException_16;
+	EventHandler_1_tF46A0252BA462E35F6B72C69AB6C0F751E7443D7* ___FirstChanceException_18;
 	// System.Object System.AppDomain::_domain_manager
-	RuntimeObject* ____domain_manager_17;
+	RuntimeObject* ____domain_manager_19;
 	// System.ResolveEventHandler System.AppDomain::ReflectionOnlyAssemblyResolve
-	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___ReflectionOnlyAssemblyResolve_18;
+	ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692* ___ReflectionOnlyAssemblyResolve_20;
 	// System.Object System.AppDomain::_activation
-	RuntimeObject* ____activation_19;
+	RuntimeObject* ____activation_21;
 	// System.Object System.AppDomain::_applicationIdentity
-	RuntimeObject* ____applicationIdentity_20;
+	RuntimeObject* ____applicationIdentity_22;
 	// System.Collections.Generic.List`1<System.String> System.AppDomain::compatibility_switch
-	List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* ___compatibility_switch_21;
+	List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* ___compatibility_switch_23;
 };
 
 struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_StaticFields
 {
 	// System.String System.AppDomain::_process_guid
 	String_t* ____process_guid_2;
+	// System.AppDomain System.AppDomain::default_domain
+	AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F* ___default_domain_10;
 };
 
 struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_ThreadStaticFields
@@ -3639,6 +3642,8 @@ struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_ThreadStaticFields
 	Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710* ___assembly_resolve_in_progress_4;
 	// System.Collections.Generic.Dictionary`2<System.String,System.Object> System.AppDomain::assembly_resolve_in_progress_refonly
 	Dictionary_2_tA348003A3C1CEFB3096E9D2A0BC7F1AC8EC4F710* ___assembly_resolve_in_progress_refonly_5;
+	// System.Object System.AppDomain::_principal
+	RuntimeObject* ____principal_9;
 };
 // Native definition for P/Invoke marshalling of System.AppDomain
 struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_marshaled_pinvoke : public MarshalByRefObject_t8C2F4C5854177FD60439EB1FCCFC1B3CFAFE8DCE_marshaled_pinvoke
@@ -3647,19 +3652,19 @@ struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_marshaled_pinvoke : p
 	Il2CppIUnknown* ____evidence_6;
 	Il2CppIUnknown* ____granted_7;
 	int32_t ____principalPolicy_8;
-	Il2CppMethodPointer ___AssemblyLoad_9;
-	Il2CppMethodPointer ___AssemblyResolve_10;
-	Il2CppMethodPointer ___DomainUnload_11;
-	Il2CppMethodPointer ___ProcessExit_12;
-	Il2CppMethodPointer ___ResourceResolve_13;
-	Il2CppMethodPointer ___TypeResolve_14;
-	Il2CppMethodPointer ___UnhandledException_15;
-	Il2CppMethodPointer ___FirstChanceException_16;
-	Il2CppIUnknown* ____domain_manager_17;
-	Il2CppMethodPointer ___ReflectionOnlyAssemblyResolve_18;
-	Il2CppIUnknown* ____activation_19;
-	Il2CppIUnknown* ____applicationIdentity_20;
-	List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* ___compatibility_switch_21;
+	Il2CppMethodPointer ___AssemblyLoad_11;
+	Il2CppMethodPointer ___AssemblyResolve_12;
+	Il2CppMethodPointer ___DomainUnload_13;
+	Il2CppMethodPointer ___ProcessExit_14;
+	Il2CppMethodPointer ___ResourceResolve_15;
+	Il2CppMethodPointer ___TypeResolve_16;
+	Il2CppMethodPointer ___UnhandledException_17;
+	Il2CppMethodPointer ___FirstChanceException_18;
+	Il2CppIUnknown* ____domain_manager_19;
+	Il2CppMethodPointer ___ReflectionOnlyAssemblyResolve_20;
+	Il2CppIUnknown* ____activation_21;
+	Il2CppIUnknown* ____applicationIdentity_22;
+	List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* ___compatibility_switch_23;
 };
 // Native definition for COM marshalling of System.AppDomain
 struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_marshaled_com : public MarshalByRefObject_t8C2F4C5854177FD60439EB1FCCFC1B3CFAFE8DCE_marshaled_com
@@ -3668,19 +3673,19 @@ struct AppDomain_tFF7010567CBABAEEA7BB19835234D6485E16AD5F_marshaled_com : publi
 	Il2CppIUnknown* ____evidence_6;
 	Il2CppIUnknown* ____granted_7;
 	int32_t ____principalPolicy_8;
-	Il2CppMethodPointer ___AssemblyLoad_9;
-	Il2CppMethodPointer ___AssemblyResolve_10;
-	Il2CppMethodPointer ___DomainUnload_11;
-	Il2CppMethodPointer ___ProcessExit_12;
-	Il2CppMethodPointer ___ResourceResolve_13;
-	Il2CppMethodPointer ___TypeResolve_14;
-	Il2CppMethodPointer ___UnhandledException_15;
-	Il2CppMethodPointer ___FirstChanceException_16;
-	Il2CppIUnknown* ____domain_manager_17;
-	Il2CppMethodPointer ___ReflectionOnlyAssemblyResolve_18;
-	Il2CppIUnknown* ____activation_19;
-	Il2CppIUnknown* ____applicationIdentity_20;
-	List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* ___compatibility_switch_21;
+	Il2CppMethodPointer ___AssemblyLoad_11;
+	Il2CppMethodPointer ___AssemblyResolve_12;
+	Il2CppMethodPointer ___DomainUnload_13;
+	Il2CppMethodPointer ___ProcessExit_14;
+	Il2CppMethodPointer ___ResourceResolve_15;
+	Il2CppMethodPointer ___TypeResolve_16;
+	Il2CppMethodPointer ___UnhandledException_17;
+	Il2CppMethodPointer ___FirstChanceException_18;
+	Il2CppIUnknown* ____domain_manager_19;
+	Il2CppMethodPointer ___ReflectionOnlyAssemblyResolve_20;
+	Il2CppIUnknown* ____activation_21;
+	Il2CppIUnknown* ____applicationIdentity_22;
+	List_1_tF470A3BE5C1B5B68E1325EF3F109D172E60BD7CD* ___compatibility_switch_23;
 };
 
 // System.Reflection.ConstructorInfo
@@ -4027,9 +4032,9 @@ struct JsonProperty_t4F469D71378448F962233A3C6246304358F7D282  : public RuntimeO
 struct JsonPropertyCollection_tCD379CA6C845A0D422B774BA9DE88E919D996F0B  : public KeyedCollection_2_t19DAFFCCEB282670D15F27812F59F8055F3F66D0
 {
 	// System.Type TouchSocket.Core.XREF.Newtonsoft.Json.Serialization.JsonPropertyCollection::_type
-	Type_t* ____type_5;
+	Type_t* ____type_6;
 	// System.Collections.Generic.List`1<TouchSocket.Core.XREF.Newtonsoft.Json.Serialization.JsonProperty> TouchSocket.Core.XREF.Newtonsoft.Json.Serialization.JsonPropertyCollection::_list
-	List_1_t72E5E0661F5A03DDD3E73BC3CDA503D3BC2630D2* ____list_6;
+	List_1_t72E5E0661F5A03DDD3E73BC3CDA503D3BC2630D2* ____list_7;
 };
 
 // TouchSocket.Core.XREF.Newtonsoft.Json.JsonReader
@@ -9081,7 +9086,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool JsonSerializerInternalWriter_TryConvertT
 		Type_t* L_4 = ___type1;
 		NullCheck(L_4);
 		String_t* L_5;
-		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(25 /* System.String System.Type::get_AssemblyQualifiedName() */, L_4);
+		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(169 /* System.String System.Type::get_AssemblyQualifiedName() */, L_4);
 		*((RuntimeObject**)L_3) = (RuntimeObject*)L_5;
 		Il2CppCodeGenWriteBarrier((void**)(RuntimeObject**)L_3, (void*)(RuntimeObject*)L_5);
 		return (bool)1;
@@ -13896,7 +13901,7 @@ IL_000d:
 		Type_t* L_8 = V_3;
 		NullCheck(L_8);
 		String_t* L_9;
-		L_9 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_8);
+		L_9 = VirtualFuncInvoker0< String_t* >::Invoke(170 /* System.String System.Type::get_FullName() */, L_8);
 		bool L_10;
 		L_10 = String_Equals_m80124ECC809968E69F952E2A49EBC03F81A23E43(L_9, _stringLiteral47ADD84A5895853127FD08122B323A32CA8ED602, 4, NULL);
 		if (!L_10)
@@ -14988,7 +14993,7 @@ CATCH_000f:
 		MemberInfo_t* L_4 = __this->____memberInfo_0;
 		NullCheck(L_4);
 		String_t* L_5;
-		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_4);
+		L_5 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_4);
 		RuntimeObject* L_6 = ___target0;
 		NullCheck(L_6);
 		Type_t* L_7;
@@ -15036,7 +15041,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ReflectionValueProvider_GetVal
 			PropertyInfo_t* L_2 = V_0;
 			NullCheck(L_2);
 			Type_t* L_3;
-			L_3 = VirtualFuncInvoker0< Type_t* >::Invoke(16 /* System.Type System.Reflection.PropertyInfo::get_PropertyType() */, L_2);
+			L_3 = VirtualFuncInvoker0< Type_t* >::Invoke(66 /* System.Type System.Reflection.PropertyInfo::get_PropertyType() */, L_2);
 			NullCheck(L_3);
 			bool L_4;
 			L_4 = Type_get_IsByRef_mA417B3C05E39BCF8F21A2B6437A1B41D3BE638A4(L_3, NULL);
@@ -15088,7 +15093,7 @@ CATCH_0041:
 		MemberInfo_t* L_13 = __this->____memberInfo_0;
 		NullCheck(L_13);
 		String_t* L_14;
-		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_13);
+		L_14 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_13);
 		RuntimeObject* L_15 = ___target0;
 		NullCheck(L_15);
 		Type_t* L_16;
@@ -15242,7 +15247,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TraceJsonReader__ctor_mC45411EC9F2948891
 		String_t* L_5;
 		L_5 = String_Concat_mAF2CE02CC0CB7460753D0A1A91CCF2B1E9804C5D(_stringLiteralB62AA2CC6BFDA437017A321F61AE9B5B2FF52ADE, L_4, NULL);
 		NullCheck(L_3);
-		VirtualActionInvoker1< String_t* >::Invoke(16 /* System.Void System.IO.TextWriter::Write(System.String) */, L_3, L_5);
+		VirtualActionInvoker1< String_t* >::Invoke(29 /* System.Void System.IO.TextWriter::Write(System.String) */, L_3, L_5);
 		StringWriter_tF48052BE4F980E5C85403221E835768E4156267D* L_6 = __this->____sw_17;
 		JsonTextWriter_t0ECE2A0A7AC97127F68B0007BA740C8D956E0F79* L_7 = (JsonTextWriter_t0ECE2A0A7AC97127F68B0007BA740C8D956E0F79*)il2cpp_codegen_object_new(JsonTextWriter_t0ECE2A0A7AC97127F68B0007BA740C8D956E0F79_il2cpp_TypeInfo_var);
 		NullCheck(L_7);
@@ -15597,7 +15602,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TraceJsonWriter__ctor_m4D3566DFF300F8C71
 		String_t* L_5;
 		L_5 = String_Concat_mAF2CE02CC0CB7460753D0A1A91CCF2B1E9804C5D(_stringLiteral95C8A5370D26D671D01AC2995934B40AF9E59DB1, L_4, NULL);
 		NullCheck(L_3);
-		VirtualActionInvoker1< String_t* >::Invoke(16 /* System.Void System.IO.TextWriter::Write(System.String) */, L_3, L_5);
+		VirtualActionInvoker1< String_t* >::Invoke(29 /* System.Void System.IO.TextWriter::Write(System.String) */, L_3, L_5);
 		StringWriter_tF48052BE4F980E5C85403221E835768E4156267D* L_6 = __this->____sw_16;
 		JsonTextWriter_t0ECE2A0A7AC97127F68B0007BA740C8D956E0F79* L_7 = (JsonTextWriter_t0ECE2A0A7AC97127F68B0007BA740C8D956E0F79*)il2cpp_codegen_object_new(JsonTextWriter_t0ECE2A0A7AC97127F68B0007BA740C8D956E0F79_il2cpp_TypeInfo_var);
 		NullCheck(L_7);
@@ -17916,12 +17921,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonSchema__ctor_m1D75C6CCF0A6A9150CEE30
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Guid_t_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE42E8BB820D4F7550A0F04619F4E15FDC56943B9);
 		s_Il2CppMethodInitialized = true;
 	}
 	Guid_t V_0;
 	memset((&V_0), 0, sizeof(V_0));
 	{
+		il2cpp_codegen_runtime_class_init_inline(Guid_t_il2cpp_TypeInfo_var);
 		Guid_t L_0;
 		L_0 = Guid_NewGuid_m1827D92D71326C3F3C263F057F6E90F907617903(NULL);
 		V_0 = L_0;
@@ -22084,7 +22091,7 @@ IL_0037:
 		Type_t* L_12 = ___type0;
 		NullCheck(L_12);
 		String_t* L_13;
-		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_12);
+		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(170 /* System.String System.Type::get_FullName() */, L_12);
 		return L_13;
 	}
 
@@ -22093,7 +22100,7 @@ IL_003e:
 		Type_t* L_14 = ___type0;
 		NullCheck(L_14);
 		String_t* L_15;
-		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(25 /* System.String System.Type::get_AssemblyQualifiedName() */, L_14);
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(169 /* System.String System.Type::get_AssemblyQualifiedName() */, L_14);
 		return L_15;
 	}
 
@@ -22727,7 +22734,7 @@ IL_02c3:
 		L_132 = Type_GetTypeFromHandle_m2570A2A5B32A5E9D9F0F38B37459DA18736C823E(L_131, NULL);
 		NullCheck(L_130);
 		bool L_133;
-		L_133 = VirtualFuncInvoker2< bool, Type_t*, bool >::Invoke(12 /* System.Boolean System.Reflection.MemberInfo::IsDefined(System.Type,System.Boolean) */, L_130, L_132, (bool)1);
+		L_133 = VirtualFuncInvoker2< bool, Type_t*, bool >::Invoke(28 /* System.Boolean System.Reflection.MemberInfo::IsDefined(System.Type,System.Boolean) */, L_130, L_132, (bool)1);
 		if (L_133)
 		{
 			goto IL_0458;
@@ -27746,7 +27753,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* ValidationEventArgs_get_Message_m79
 		JsonSchemaException_tCA15A2B422D2C70C50F48CE779F02BA1B859648C* L_0 = __this->____ex_1;
 		NullCheck(L_0);
 		String_t* L_1;
-		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_0);
+		L_1 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_0);
 		return L_1;
 	}
 }
@@ -31148,7 +31155,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JContainer_ReadTokenFrom_m096CA2F1CE64CD
 		L_6 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_6);
 		String_t* L_7;
-		L_7 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_6);
+		L_7 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_6);
 		String_t* L_8;
 		L_8 = StringUtils_FormatWith_m78ED87BB6D8F24EA491AE6C411E294B851CE4199(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral29F4E9D583244681F494C726E23766BF3882074E)), L_5, L_7, NULL);
 		JsonReaderException_tDFFB6354F967AD48A63CD07B97B7AD5439CDC723* L_9;
@@ -31180,7 +31187,7 @@ IL_0030:
 		L_17 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_17);
 		String_t* L_18;
-		L_18 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_17);
+		L_18 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_17);
 		String_t* L_19;
 		L_19 = StringUtils_FormatWith_m78ED87BB6D8F24EA491AE6C411E294B851CE4199(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral122F5A752BD5EB6B5270F4B704FBEA6C42EF6A83)), L_16, L_18, NULL);
 		JsonReaderException_tDFFB6354F967AD48A63CD07B97B7AD5439CDC723* L_20;

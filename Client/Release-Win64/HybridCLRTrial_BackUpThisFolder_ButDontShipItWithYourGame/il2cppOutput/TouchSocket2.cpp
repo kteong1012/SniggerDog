@@ -415,6 +415,8 @@ struct IntelligentDataQueue_1_tBB134B70EA2483FC588F7FEA776F5302B82C6220;
 struct IntelligentDataQueue_1_t7C09B79FDDE8CBBD688092B660C4404ED9DA5524;
 // System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.String>
 struct KeyCollection_t2EDD317F5771E575ACB63527B5AFB71291040342;
+// System.Collections.Generic.List`1<System.ArraySegment`1<System.Byte>>
+struct List_1_tA624903E1259A700E57AC71565033F4E3C8470F9;
 // System.Collections.Generic.List`1<System.Threading.Tasks.Task`1<TouchSocket.Core.Result>>
 struct List_1_tD77135B820496142CB9AD9BB53E5D9F675110333;
 // System.Collections.Generic.List`1<System.Byte[]>
@@ -597,6 +599,8 @@ struct ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918;
 struct ParameterInfoU5BU5D_t86995AB4A1693393FE29B058CC3FD727DF0B984C;
 // TouchSocket.Rpc.RpcAttribute[]
 struct RpcAttributeU5BU5D_tB127EA61A8E90937B0A329013F906D55C0A381C7;
+// System.Net.Sockets.SendPacketsElement[]
+struct SendPacketsElementU5BU5D_t3561DE4794CA0E485BDC621B4EEE2D54A769695B;
 // System.Diagnostics.StackTrace[]
 struct StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF;
 // System.String[]
@@ -1171,6 +1175,7 @@ IL2CPP_EXTERN_C RuntimeClass* ConfigEventArgs_tE6573A12E5629F0F7883AE0F973C31B47
 IL2CPP_EXTERN_C RuntimeClass* Convert_t7097FF336D592F7C06D88A98349A44646F91EFFC_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* DefaultSerializationSelector_t650E43F1A75C9F422B9CEE26D502CC69B4BCE055_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Dns_tE6305F126E5677E1AFB444735257D41D0D0FE273_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* EasyAction_tBBA852470D6808AAB4CEAB97C251ADC84B25C9D3_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* EventHandler_1_t5D3FC4609BD8133ED1226D6D49A1D8076B16A9ED_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Exception_t_il2cpp_TypeInfo_var;
@@ -1725,7 +1730,7 @@ struct ConcurrentDictionary_2_tD4435DE7BA6C7D649F17E915FB13C6EA0F54E000  : publi
 struct ConcurrentDictionary_2_tD4435DE7BA6C7D649F17E915FB13C6EA0F54E000_StaticFields
 {
 	// System.Boolean System.Collections.Concurrent.ConcurrentDictionary`2::s_isValueWriteAtomic
-	bool ___s_isValueWriteAtomic_7;
+	bool ___s_isValueWriteAtomic_9;
 };
 
 // System.Collections.Concurrent.ConcurrentDictionary`2<System.String,TouchSocket.Sockets.ISocketClient>
@@ -1750,7 +1755,7 @@ struct ConcurrentDictionary_2_t8448732B1B9F985132EE3E906921D89FD44C96A8  : publi
 struct ConcurrentDictionary_2_t8448732B1B9F985132EE3E906921D89FD44C96A8_StaticFields
 {
 	// System.Boolean System.Collections.Concurrent.ConcurrentDictionary`2::s_isValueWriteAtomic
-	bool ___s_isValueWriteAtomic_7;
+	bool ___s_isValueWriteAtomic_9;
 };
 
 // TouchSocket.Core.Collections.Concurrent.ConcurrentList`1<TouchSocket.Sockets.ITcpClient>
@@ -1764,11 +1769,11 @@ struct ConcurrentList_1_tB98F91A6D461B403A0E0018BB7AB11C20758B56D  : public Runt
 struct ConcurrentQueue_1_tF7DC02FAFFDF8495FC7CB7975B3F0CF15010248F  : public RuntimeObject
 {
 	// System.Object System.Collections.Concurrent.ConcurrentQueue`1::_crossSegmentLock
-	RuntimeObject* ____crossSegmentLock_0;
+	RuntimeObject* ____crossSegmentLock_2;
 	// System.Collections.Concurrent.ConcurrentQueue`1/Segment<T> modreq(System.Runtime.CompilerServices.IsVolatile) System.Collections.Concurrent.ConcurrentQueue`1::_tail
-	Segment_tF0733E9698FC51F50733B745F791B25D111CA7A8* ____tail_1;
+	Segment_tF0733E9698FC51F50733B745F791B25D111CA7A8* ____tail_3;
 	// System.Collections.Concurrent.ConcurrentQueue`1/Segment<T> modreq(System.Runtime.CompilerServices.IsVolatile) System.Collections.Concurrent.ConcurrentQueue`1::_head
-	Segment_tF0733E9698FC51F50733B745F791B25D111CA7A8* ____head_2;
+	Segment_tF0733E9698FC51F50733B745F791B25D111CA7A8* ____head_4;
 };
 
 // System.Collections.Generic.Dictionary`2<System.String,System.String>
@@ -2005,17 +2010,17 @@ struct EasyAction_tBBA852470D6808AAB4CEAB97C251ADC84B25C9D3_StaticFields
 struct Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095  : public RuntimeObject
 {
 	// System.Int32 System.Text.Encoding::m_codePage
-	int32_t ___m_codePage_9;
+	int32_t ___m_codePage_55;
 	// System.Globalization.CodePageDataItem System.Text.Encoding::dataItem
-	CodePageDataItem_t52460FA30AE37F4F26ACB81055E58002262F19F2* ___dataItem_10;
+	CodePageDataItem_t52460FA30AE37F4F26ACB81055E58002262F19F2* ___dataItem_56;
 	// System.Boolean System.Text.Encoding::m_deserializedFromEverett
-	bool ___m_deserializedFromEverett_11;
+	bool ___m_deserializedFromEverett_57;
 	// System.Boolean System.Text.Encoding::m_isReadOnly
-	bool ___m_isReadOnly_12;
+	bool ___m_isReadOnly_58;
 	// System.Text.EncoderFallback System.Text.Encoding::encoderFallback
-	EncoderFallback_tD2C40CE114AA9D8E1F7196608B2D088548015293* ___encoderFallback_13;
+	EncoderFallback_tD2C40CE114AA9D8E1F7196608B2D088548015293* ___encoderFallback_59;
 	// System.Text.DecoderFallback System.Text.Encoding::decoderFallback
-	DecoderFallback_t7324102215E4ED41EC065C02EB501CB0BC23CD90* ___decoderFallback_14;
+	DecoderFallback_t7324102215E4ED41EC065C02EB501CB0BC23CD90* ___decoderFallback_60;
 };
 
 struct Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095_StaticFields
@@ -2039,7 +2044,7 @@ struct Encoding_t65CDEF28CF20A7B8C92E85A4E808920C2465F095_StaticFields
 	// System.Collections.Generic.Dictionary`2<System.Int32,System.Text.Encoding> modreq(System.Runtime.CompilerServices.IsVolatile) System.Text.Encoding::encodings
 	Dictionary_2_t87EDE08B2E48F793A22DE50D6B3CC2E7EBB2DB54* ___encodings_8;
 	// System.Object System.Text.Encoding::s_InternalSyncObject
-	RuntimeObject* ___s_InternalSyncObject_15;
+	RuntimeObject* ___s_InternalSyncObject_61;
 };
 
 // System.Net.EndPoint
@@ -2425,37 +2430,39 @@ struct Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E  : public RuntimeObject
 	// System.Net.Sockets.Socket/CachedEventArgs System.Net.Sockets.Socket::_cachedTaskEventArgs
 	CachedEventArgs_tF0692E89962FD1A045B17BC985F838C11FB6822C* ____cachedTaskEventArgs_6;
 	// System.Boolean System.Net.Sockets.Socket::is_closed
-	bool ___is_closed_13;
+	bool ___is_closed_17;
 	// System.Boolean System.Net.Sockets.Socket::is_listening
-	bool ___is_listening_14;
+	bool ___is_listening_18;
 	// System.Boolean System.Net.Sockets.Socket::useOverlappedIO
-	bool ___useOverlappedIO_15;
+	bool ___useOverlappedIO_19;
 	// System.Int32 System.Net.Sockets.Socket::linger_timeout
-	int32_t ___linger_timeout_16;
+	int32_t ___linger_timeout_20;
 	// System.Net.Sockets.AddressFamily System.Net.Sockets.Socket::addressFamily
-	int32_t ___addressFamily_17;
+	int32_t ___addressFamily_21;
 	// System.Net.Sockets.SocketType System.Net.Sockets.Socket::socketType
-	int32_t ___socketType_18;
+	int32_t ___socketType_22;
 	// System.Net.Sockets.ProtocolType System.Net.Sockets.Socket::protocolType
-	int32_t ___protocolType_19;
+	int32_t ___protocolType_23;
 	// System.Net.Sockets.SafeSocketHandle System.Net.Sockets.Socket::m_Handle
-	SafeSocketHandle_t5A597D30D951E736B750ED09D5B3AB72F98407EE* ___m_Handle_20;
+	SafeSocketHandle_t5A597D30D951E736B750ED09D5B3AB72F98407EE* ___m_Handle_24;
 	// System.Net.EndPoint System.Net.Sockets.Socket::seed_endpoint
-	EndPoint_t6233F4E2EB9F0F2D36E187F12BE050E6D8B73564* ___seed_endpoint_21;
+	EndPoint_t6233F4E2EB9F0F2D36E187F12BE050E6D8B73564* ___seed_endpoint_25;
 	// System.Threading.SemaphoreSlim System.Net.Sockets.Socket::ReadSem
-	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ___ReadSem_22;
+	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ___ReadSem_26;
 	// System.Threading.SemaphoreSlim System.Net.Sockets.Socket::WriteSem
-	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ___WriteSem_23;
+	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ___WriteSem_27;
 	// System.Boolean System.Net.Sockets.Socket::is_blocking
-	bool ___is_blocking_24;
+	bool ___is_blocking_28;
 	// System.Boolean System.Net.Sockets.Socket::is_bound
-	bool ___is_bound_25;
+	bool ___is_bound_29;
 	// System.Boolean System.Net.Sockets.Socket::is_connected
-	bool ___is_connected_26;
+	bool ___is_connected_30;
 	// System.Int32 System.Net.Sockets.Socket::m_IntCleanedUp
-	int32_t ___m_IntCleanedUp_27;
+	int32_t ___m_IntCleanedUp_31;
 	// System.Boolean System.Net.Sockets.Socket::connect_in_progress
-	bool ___connect_in_progress_28;
+	bool ___connect_in_progress_32;
+	// System.Int32 System.Net.Sockets.Socket::ID
+	int32_t ___ID_33;
 };
 
 struct Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E_StaticFields
@@ -2484,36 +2491,38 @@ struct Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E_StaticFields
 	bool ___s_Initialized_11;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Net.Sockets.Socket::s_LoggingEnabled
 	bool ___s_LoggingEnabled_12;
+	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Net.Sockets.Socket::s_PerfCountersEnabled
+	bool ___s_PerfCountersEnabled_13;
 	// System.AsyncCallback System.Net.Sockets.Socket::AcceptAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___AcceptAsyncCallback_29;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___AcceptAsyncCallback_34;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginAcceptCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginAcceptCallback_30;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginAcceptCallback_35;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginAcceptReceiveCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginAcceptReceiveCallback_31;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginAcceptReceiveCallback_36;
 	// System.AsyncCallback System.Net.Sockets.Socket::ConnectAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___ConnectAsyncCallback_32;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___ConnectAsyncCallback_37;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginConnectCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginConnectCallback_33;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginConnectCallback_38;
 	// System.AsyncCallback System.Net.Sockets.Socket::DisconnectAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___DisconnectAsyncCallback_34;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___DisconnectAsyncCallback_39;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginDisconnectCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginDisconnectCallback_35;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginDisconnectCallback_40;
 	// System.AsyncCallback System.Net.Sockets.Socket::ReceiveAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___ReceiveAsyncCallback_36;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___ReceiveAsyncCallback_41;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginReceiveCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginReceiveCallback_37;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginReceiveCallback_42;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginReceiveGenericCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginReceiveGenericCallback_38;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginReceiveGenericCallback_43;
 	// System.AsyncCallback System.Net.Sockets.Socket::ReceiveFromAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___ReceiveFromAsyncCallback_39;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___ReceiveFromAsyncCallback_44;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginReceiveFromCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginReceiveFromCallback_40;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginReceiveFromCallback_45;
 	// System.AsyncCallback System.Net.Sockets.Socket::SendAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___SendAsyncCallback_41;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___SendAsyncCallback_46;
 	// System.IOAsyncCallback System.Net.Sockets.Socket::BeginSendGenericCallback
-	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginSendGenericCallback_42;
+	IOAsyncCallback_tDBBA8BBDA6B203613680E77BD4AD6320A1268388* ___BeginSendGenericCallback_47;
 	// System.AsyncCallback System.Net.Sockets.Socket::SendToAsyncCallback
-	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___SendToAsyncCallback_43;
+	AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C* ___SendToAsyncCallback_48;
 };
 
 // TouchSocket.Sockets.SocketClientCollection
@@ -2565,9 +2574,9 @@ struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572  : public RuntimeObject
 	// System.Int32 modreq(System.Runtime.CompilerServices.IsVolatile) System.Threading.Tasks.Task::m_stateFlags
 	int32_t ___m_stateFlags_6;
 	// System.Object modreq(System.Runtime.CompilerServices.IsVolatile) System.Threading.Tasks.Task::m_continuationObject
-	RuntimeObject* ___m_continuationObject_7;
+	RuntimeObject* ___m_continuationObject_23;
 	// System.Threading.Tasks.Task/ContingentProperties modreq(System.Runtime.CompilerServices.IsVolatile) System.Threading.Tasks.Task::m_contingentProperties
-	ContingentProperties_t3FA59480914505CEA917B1002EC675F29D0CB540* ___m_contingentProperties_10;
+	ContingentProperties_t3FA59480914505CEA917B1002EC675F29D0CB540* ___m_contingentProperties_26;
 };
 
 struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572_StaticFields
@@ -2575,35 +2584,35 @@ struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572_StaticFields
 	// System.Int32 System.Threading.Tasks.Task::s_taskIdCounter
 	int32_t ___s_taskIdCounter_0;
 	// System.Object System.Threading.Tasks.Task::s_taskCompletionSentinel
-	RuntimeObject* ___s_taskCompletionSentinel_8;
+	RuntimeObject* ___s_taskCompletionSentinel_24;
 	// System.Boolean System.Threading.Tasks.Task::s_asyncDebuggingEnabled
-	bool ___s_asyncDebuggingEnabled_9;
+	bool ___s_asyncDebuggingEnabled_25;
 	// System.Action`1<System.Object> System.Threading.Tasks.Task::s_taskCancelCallback
-	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___s_taskCancelCallback_11;
+	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___s_taskCancelCallback_27;
 	// System.Func`1<System.Threading.Tasks.Task/ContingentProperties> System.Threading.Tasks.Task::s_createContingentProperties
-	Func_1_tD59A12717D79BFB403BF973694B1BE5B85474BD1* ___s_createContingentProperties_14;
+	Func_1_tD59A12717D79BFB403BF973694B1BE5B85474BD1* ___s_createContingentProperties_30;
 	// System.Threading.Tasks.TaskFactory System.Threading.Tasks.Task::<Factory>k__BackingField
-	TaskFactory_tF781BD37BE23917412AD83424D1497C7C1509DF0* ___U3CFactoryU3Ek__BackingField_15;
+	TaskFactory_tF781BD37BE23917412AD83424D1497C7C1509DF0* ___U3CFactoryU3Ek__BackingField_31;
 	// System.Threading.Tasks.Task System.Threading.Tasks.Task::<CompletedTask>k__BackingField
-	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___U3CCompletedTaskU3Ek__BackingField_16;
+	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___U3CCompletedTaskU3Ek__BackingField_32;
 	// System.Predicate`1<System.Threading.Tasks.Task> System.Threading.Tasks.Task::s_IsExceptionObservedByParentPredicate
-	Predicate_1_t7F48518B008C1472339EEEBABA3DE203FE1F26ED* ___s_IsExceptionObservedByParentPredicate_17;
+	Predicate_1_t7F48518B008C1472339EEEBABA3DE203FE1F26ED* ___s_IsExceptionObservedByParentPredicate_33;
 	// System.Threading.ContextCallback System.Threading.Tasks.Task::s_ecCallback
-	ContextCallback_tE8AFBDBFCC040FDA8DA8C1EEFE9BD66B16BDA007* ___s_ecCallback_18;
+	ContextCallback_tE8AFBDBFCC040FDA8DA8C1EEFE9BD66B16BDA007* ___s_ecCallback_34;
 	// System.Predicate`1<System.Object> System.Threading.Tasks.Task::s_IsTaskContinuationNullPredicate
-	Predicate_1_t8342C85FF4E41CD1F7024AC0CDC3E5312A32CB12* ___s_IsTaskContinuationNullPredicate_19;
+	Predicate_1_t8342C85FF4E41CD1F7024AC0CDC3E5312A32CB12* ___s_IsTaskContinuationNullPredicate_35;
 	// System.Collections.Generic.Dictionary`2<System.Int32,System.Threading.Tasks.Task> System.Threading.Tasks.Task::s_currentActiveTasks
-	Dictionary_2_t403063CE4960B4F46C688912237C6A27E550FF55* ___s_currentActiveTasks_20;
+	Dictionary_2_t403063CE4960B4F46C688912237C6A27E550FF55* ___s_currentActiveTasks_36;
 	// System.Object System.Threading.Tasks.Task::s_activeTasksLock
-	RuntimeObject* ___s_activeTasksLock_21;
+	RuntimeObject* ___s_activeTasksLock_37;
 };
 
 struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572_ThreadStaticFields
 {
 	// System.Threading.Tasks.Task System.Threading.Tasks.Task::t_currentTask
-	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___t_currentTask_12;
+	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___t_currentTask_28;
 	// System.Threading.Tasks.StackGuard System.Threading.Tasks.Task::t_stackGuard
-	StackGuard_tACE063A1B7374BDF4AD472DE4585D05AD8745352* ___t_stackGuard_13;
+	StackGuard_tACE063A1B7374BDF4AD472DE4585D05AD8745352* ___t_stackGuard_29;
 };
 
 // TouchSocket.Rpc.TouchRpc.TouchRpcConfigExtensions
@@ -2726,19 +2735,19 @@ struct UdpDataHandlingAdapter_t6502470E2E010945772F751C391C1C3CAA549AB9  : publi
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E  : public RuntimeObject
 {
 	// System.String System.Uri::m_String
-	String_t* ___m_String_13;
+	String_t* ___m_String_16;
 	// System.String System.Uri::m_originalUnicodeString
-	String_t* ___m_originalUnicodeString_14;
+	String_t* ___m_originalUnicodeString_17;
 	// System.UriParser System.Uri::m_Syntax
-	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_15;
+	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_18;
 	// System.String System.Uri::m_DnsSafeHost
-	String_t* ___m_DnsSafeHost_16;
+	String_t* ___m_DnsSafeHost_19;
 	// System.Uri/Flags System.Uri::m_Flags
-	uint64_t ___m_Flags_17;
+	uint64_t ___m_Flags_20;
 	// System.Uri/UriInfo System.Uri::m_Info
-	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_18;
+	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_21;
 	// System.Boolean System.Uri::m_iriParsing
-	bool ___m_iriParsing_19;
+	bool ___m_iriParsing_22;
 };
 
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
@@ -2770,23 +2779,23 @@ struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
 	// System.String System.Uri::SchemeDelimiter
 	String_t* ___SchemeDelimiter_12;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitialized
-	bool ___s_ConfigInitialized_20;
+	bool ___s_ConfigInitialized_23;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitializing
-	bool ___s_ConfigInitializing_21;
+	bool ___s_ConfigInitializing_24;
 	// System.UriIdnScope modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IdnScope
-	int32_t ___s_IdnScope_22;
+	int32_t ___s_IdnScope_25;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IriParsing
-	bool ___s_IriParsing_23;
+	bool ___s_IriParsing_26;
 	// System.Boolean System.Uri::useDotNetRelativeOrAbsolute
-	bool ___useDotNetRelativeOrAbsolute_24;
+	bool ___useDotNetRelativeOrAbsolute_27;
 	// System.Boolean System.Uri::IsWindowsFileSystem
-	bool ___IsWindowsFileSystem_25;
+	bool ___IsWindowsFileSystem_29;
 	// System.Object System.Uri::s_initLock
-	RuntimeObject* ___s_initLock_26;
+	RuntimeObject* ___s_initLock_30;
 	// System.Char[] System.Uri::HexLowerChars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_27;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_34;
 	// System.Char[] System.Uri::_WSchars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_28;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_35;
 };
 
 // System.ValueType
@@ -3077,15 +3086,15 @@ struct Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A
 struct IntelligentDataQueue_1_t7C09B79FDDE8CBBD688092B660C4404ED9DA5524  : public ConcurrentQueue_1_tF7DC02FAFFDF8495FC7CB7975B3F0CF15010248F
 {
 	// System.Boolean TouchSocket.Core.Collections.Concurrent.IntelligentDataQueue`1::m_overflowWait
-	bool ___m_overflowWait_3;
+	bool ___m_overflowWait_5;
 	// System.Action`1<System.Boolean> TouchSocket.Core.Collections.Concurrent.IntelligentDataQueue`1::m_onQueueChanged
-	Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___m_onQueueChanged_4;
+	Action_1_t10DCB0C07D0D3C565CEACADC80D1152B35A45F6C* ___m_onQueueChanged_6;
 	// System.Boolean TouchSocket.Core.Collections.Concurrent.IntelligentDataQueue`1::m_free
-	bool ___m_free_5;
+	bool ___m_free_7;
 	// System.Int64 TouchSocket.Core.Collections.Concurrent.IntelligentDataQueue`1::m_actualSize
-	int64_t ___m_actualSize_6;
+	int64_t ___m_actualSize_8;
 	// System.Int64 TouchSocket.Core.Collections.Concurrent.IntelligentDataQueue`1::m_maxSize
-	int64_t ___m_maxSize_7;
+	int64_t ___m_maxSize_9;
 };
 
 // System.Collections.Generic.KeyValuePair`2<System.Net.EndPoint,TouchSocket.Rpc.TouchRpc.UdpRpcActor>
@@ -3141,13 +3150,13 @@ struct Memory_1_t56F63672B8E752B13E0BBBBD034BA3C1F6CFDC17_marshaled_com
 struct Task_1_t90F2C6281824ECAB80DBCC0F8B5CEC0704B09291  : public Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572
 {
 	// TResult System.Threading.Tasks.Task`1::m_result
-	RuntimeObject* ___m_result_22;
+	RuntimeObject* ___m_result_38;
 };
 
 struct Task_1_t90F2C6281824ECAB80DBCC0F8B5CEC0704B09291_StaticFields
 {
 	// System.Threading.Tasks.TaskFactory`1<TResult> System.Threading.Tasks.Task`1::s_defaultFactory
-	TaskFactory_1_tB418F1C8406BC3FC7DB061FCA28F984FF89DF1DD* ___s_defaultFactory_23;
+	TaskFactory_1_tB418F1C8406BC3FC7DB061FCA28F984FF89DF1DD* ___s_defaultFactory_39;
 };
 
 // TouchSocket.Core.Run.WaitData`1<TouchSocket.Core.Run.IWaitResult>
@@ -3401,17 +3410,38 @@ struct FixedHeaderPackageAdapter_tB014DC0BE68DEF46EDA8EBE3FC993958B45B638A  : pu
 struct IPEndPoint_t2F09CBA7A808B67724B4E2954EEDC46D910F4ECB  : public EndPoint_t6233F4E2EB9F0F2D36E187F12BE050E6D8B73564
 {
 	// System.Net.IPAddress System.Net.IPEndPoint::_address
-	IPAddress_t2F4486449B0D73FF2D3B36A9FE5E9C3F63116484* ____address_0;
+	IPAddress_t2F4486449B0D73FF2D3B36A9FE5E9C3F63116484* ____address_2;
 	// System.Int32 System.Net.IPEndPoint::_port
-	int32_t ____port_1;
+	int32_t ____port_3;
 };
 
 struct IPEndPoint_t2F09CBA7A808B67724B4E2954EEDC46D910F4ECB_StaticFields
 {
 	// System.Net.IPEndPoint System.Net.IPEndPoint::Any
-	IPEndPoint_t2F09CBA7A808B67724B4E2954EEDC46D910F4ECB* ___Any_2;
+	IPEndPoint_t2F09CBA7A808B67724B4E2954EEDC46D910F4ECB* ___Any_5;
 	// System.Net.IPEndPoint System.Net.IPEndPoint::IPv6Any
-	IPEndPoint_t2F09CBA7A808B67724B4E2954EEDC46D910F4ECB* ___IPv6Any_3;
+	IPEndPoint_t2F09CBA7A808B67724B4E2954EEDC46D910F4ECB* ___IPv6Any_6;
+};
+
+// System.Net.Sockets.IPPacketInformation
+struct IPPacketInformation_tCD16AD717AD72D36684D9CFFDA0F6B53CCD3249B 
+{
+	// System.Net.IPAddress System.Net.Sockets.IPPacketInformation::address
+	IPAddress_t2F4486449B0D73FF2D3B36A9FE5E9C3F63116484* ___address_0;
+	// System.Int32 System.Net.Sockets.IPPacketInformation::networkInterface
+	int32_t ___networkInterface_1;
+};
+// Native definition for P/Invoke marshalling of System.Net.Sockets.IPPacketInformation
+struct IPPacketInformation_tCD16AD717AD72D36684D9CFFDA0F6B53CCD3249B_marshaled_pinvoke
+{
+	IPAddress_t2F4486449B0D73FF2D3B36A9FE5E9C3F63116484* ___address_0;
+	int32_t ___networkInterface_1;
+};
+// Native definition for COM marshalling of System.Net.Sockets.IPPacketInformation
+struct IPPacketInformation_tCD16AD717AD72D36684D9CFFDA0F6B53CCD3249B_marshaled_com
+{
+	IPAddress_t2F4486449B0D73FF2D3B36A9FE5E9C3F63116484* ___address_0;
+	int32_t ___networkInterface_1;
 };
 
 // System.Int16
@@ -3751,9 +3781,9 @@ struct Single_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C
 struct Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE  : public MarshalByRefObject_t8C2F4C5854177FD60439EB1FCCFC1B3CFAFE8DCE
 {
 	// System.IO.Stream/ReadWriteTask System.IO.Stream::_activeReadWriteTask
-	ReadWriteTask_t0821BF49EE38596C7734E86E1A6A39D769BE2C05* ____activeReadWriteTask_2;
+	ReadWriteTask_t0821BF49EE38596C7734E86E1A6A39D769BE2C05* ____activeReadWriteTask_3;
 	// System.Threading.SemaphoreSlim System.IO.Stream::_asyncActiveSemaphore
-	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ____asyncActiveSemaphore_3;
+	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ____asyncActiveSemaphore_4;
 };
 
 struct Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE_StaticFields
@@ -4087,22 +4117,22 @@ struct FILE_TIME_tBD950B410C18B85474477EEA8F3651A2BD367965
 struct Task_1_t64A1B649E170DDD2F882778DA67C65CBEBC1F4F3  : public Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572
 {
 	// TResult System.Threading.Tasks.Task`1::m_result
-	Result_tD70642E9761054B5CAE8623B9290C0CFB453330C ___m_result_22;
+	Result_tD70642E9761054B5CAE8623B9290C0CFB453330C ___m_result_38;
 };
 
 struct Task_1_t64A1B649E170DDD2F882778DA67C65CBEBC1F4F3_StaticFields
 {
 	// System.Threading.Tasks.TaskFactory`1<TResult> System.Threading.Tasks.Task`1::s_defaultFactory
-	TaskFactory_1_tFE04A68ECECABB729BC3EB4319997613845E0AC3* ___s_defaultFactory_23;
+	TaskFactory_1_tFE04A68ECECABB729BC3EB4319997613845E0AC3* ___s_defaultFactory_39;
 };
 
 // System.Net.Security.AuthenticatedStream
 struct AuthenticatedStream_t8DCF41E151F705E2494FC7836F5E2EF7C539FA39  : public Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE
 {
 	// System.IO.Stream System.Net.Security.AuthenticatedStream::_InnerStream
-	Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ____InnerStream_4;
+	Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* ____InnerStream_5;
 	// System.Boolean System.Net.Security.AuthenticatedStream::_LeaveStreamOpen
-	bool ____LeaveStreamOpen_5;
+	bool ____LeaveStreamOpen_6;
 };
 
 // TouchSocket.Sockets.BaseSocket
@@ -4118,25 +4148,25 @@ struct BaseSocket_tA442F30CB44D1EBF854C97E415EA7345593F4D8B  : public Dependency
 struct ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C  : public Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE
 {
 	// System.Int64 TouchSocket.Core.ByteManager.ByteBlock::m_length
-	int64_t ___m_length_4;
+	int64_t ___m_length_5;
 	// System.Boolean TouchSocket.Core.ByteManager.ByteBlock::m_using
-	bool ___m_using_5;
+	bool ___m_using_6;
 	// System.Byte[] TouchSocket.Core.ByteManager.ByteBlock::m_buffer
-	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___m_buffer_7;
+	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___m_buffer_8;
 	// System.Boolean TouchSocket.Core.ByteManager.ByteBlock::m_holding
-	bool ___m_holding_8;
+	bool ___m_holding_9;
 	// System.Boolean TouchSocket.Core.ByteManager.ByteBlock::m_needDis
-	bool ___m_needDis_9;
+	bool ___m_needDis_10;
 	// System.Int64 TouchSocket.Core.ByteManager.ByteBlock::m_position
-	int64_t ___m_position_10;
+	int64_t ___m_position_11;
 	// System.Int32 TouchSocket.Core.ByteManager.ByteBlock::m_dis
-	int32_t ___m_dis_11;
+	int32_t ___m_dis_12;
 };
 
 struct ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C_StaticFields
 {
 	// System.Single TouchSocket.Core.ByteManager.ByteBlock::m_ratio
-	float ___m_ratio_6;
+	float ___m_ratio_7;
 };
 
 // TouchSocket.Sockets.ByteBlockEventArgs
@@ -4312,43 +4342,43 @@ struct Exception_t_marshaled_com
 struct FileStream_t07C7222EE10B75F352B89B76E60820160FF10AD8  : public Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE
 {
 	// System.Byte[] System.IO.FileStream::buf
-	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___buf_6;
+	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___buf_8;
 	// System.String System.IO.FileStream::name
-	String_t* ___name_7;
+	String_t* ___name_9;
 	// Microsoft.Win32.SafeHandles.SafeFileHandle System.IO.FileStream::safeHandle
-	SafeFileHandle_t033FA6AAAC65F4BB25F4CBA9A242A58C95CD406E* ___safeHandle_8;
+	SafeFileHandle_t033FA6AAAC65F4BB25F4CBA9A242A58C95CD406E* ___safeHandle_10;
 	// System.Boolean System.IO.FileStream::isExposed
-	bool ___isExposed_9;
+	bool ___isExposed_11;
 	// System.Int64 System.IO.FileStream::append_startpos
-	int64_t ___append_startpos_10;
+	int64_t ___append_startpos_12;
 	// System.IO.FileAccess System.IO.FileStream::access
-	int32_t ___access_11;
+	int32_t ___access_13;
 	// System.Boolean System.IO.FileStream::owner
-	bool ___owner_12;
+	bool ___owner_14;
 	// System.Boolean System.IO.FileStream::async
-	bool ___async_13;
+	bool ___async_15;
 	// System.Boolean System.IO.FileStream::canseek
-	bool ___canseek_14;
+	bool ___canseek_16;
 	// System.Boolean System.IO.FileStream::anonymous
-	bool ___anonymous_15;
+	bool ___anonymous_17;
 	// System.Boolean System.IO.FileStream::buf_dirty
-	bool ___buf_dirty_16;
+	bool ___buf_dirty_18;
 	// System.Int32 System.IO.FileStream::buf_size
-	int32_t ___buf_size_17;
+	int32_t ___buf_size_19;
 	// System.Int32 System.IO.FileStream::buf_length
-	int32_t ___buf_length_18;
+	int32_t ___buf_length_20;
 	// System.Int32 System.IO.FileStream::buf_offset
-	int32_t ___buf_offset_19;
+	int32_t ___buf_offset_21;
 	// System.Int64 System.IO.FileStream::buf_start
-	int64_t ___buf_start_20;
+	int64_t ___buf_start_22;
 };
 
 struct FileStream_t07C7222EE10B75F352B89B76E60820160FF10AD8_StaticFields
 {
 	// System.Byte[] System.IO.FileStream::buf_recycle
-	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___buf_recycle_4;
+	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___buf_recycle_6;
 	// System.Object System.IO.FileStream::buf_recycle_lock
-	RuntimeObject* ___buf_recycle_lock_5;
+	RuntimeObject* ___buf_recycle_lock_7;
 };
 
 // TouchSocket.Http.HttpBase
@@ -4514,21 +4544,21 @@ struct MsgEventArgs_t3AB0803D9FAE490A5E2D15ED4EB69C65D0A99CA8  : public TouchSoc
 struct NetworkStream_tF39C3684B6D572BF47F518AD1DB1F4B12CEE4AE0  : public Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE
 {
 	// System.Net.Sockets.Socket System.Net.Sockets.NetworkStream::_streamSocket
-	Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* ____streamSocket_4;
+	Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* ____streamSocket_5;
 	// System.Boolean System.Net.Sockets.NetworkStream::_ownsSocket
-	bool ____ownsSocket_5;
+	bool ____ownsSocket_6;
 	// System.Boolean System.Net.Sockets.NetworkStream::_readable
-	bool ____readable_6;
+	bool ____readable_7;
 	// System.Boolean System.Net.Sockets.NetworkStream::_writeable
-	bool ____writeable_7;
+	bool ____writeable_8;
 	// System.Int32 System.Net.Sockets.NetworkStream::_closeTimeout
-	int32_t ____closeTimeout_8;
+	int32_t ____closeTimeout_9;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Net.Sockets.NetworkStream::_cleanedUp
-	bool ____cleanedUp_9;
+	bool ____cleanedUp_10;
 	// System.Int32 System.Net.Sockets.NetworkStream::_currentReadTimeout
-	int32_t ____currentReadTimeout_10;
+	int32_t ____currentReadTimeout_11;
 	// System.Int32 System.Net.Sockets.NetworkStream::_currentWriteTimeout
-	int32_t ____currentWriteTimeout_11;
+	int32_t ____currentWriteTimeout_12;
 };
 
 // TouchSocket.Rpc.TouchRpc.ProtocolDataEventArgs
@@ -4620,32 +4650,44 @@ struct SocketAsyncEventArgs_t69FA99F5C4FBBE1F321A770B65D38FE5D62027EC  : public 
 	Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* ___current_socket_4;
 	// System.Net.Sockets.SocketAsyncResult System.Net.Sockets.SocketAsyncEventArgs::socket_async_result
 	SocketAsyncResult_tB157B0D0A1219D5A71AC5030C8BA8EA9D0F25340* ___socket_async_result_5;
+	// System.Exception System.Net.Sockets.SocketAsyncEventArgs::<ConnectByNameError>k__BackingField
+	Exception_t* ___U3CConnectByNameErrorU3Ek__BackingField_6;
 	// System.Net.Sockets.Socket System.Net.Sockets.SocketAsyncEventArgs::<AcceptSocket>k__BackingField
-	Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* ___U3CAcceptSocketU3Ek__BackingField_6;
+	Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* ___U3CAcceptSocketU3Ek__BackingField_7;
 	// System.Int32 System.Net.Sockets.SocketAsyncEventArgs::<BytesTransferred>k__BackingField
-	int32_t ___U3CBytesTransferredU3Ek__BackingField_7;
+	int32_t ___U3CBytesTransferredU3Ek__BackingField_8;
+	// System.Boolean System.Net.Sockets.SocketAsyncEventArgs::<DisconnectReuseSocket>k__BackingField
+	bool ___U3CDisconnectReuseSocketU3Ek__BackingField_9;
 	// System.Net.Sockets.SocketAsyncOperation System.Net.Sockets.SocketAsyncEventArgs::<LastOperation>k__BackingField
-	int32_t ___U3CLastOperationU3Ek__BackingField_8;
+	int32_t ___U3CLastOperationU3Ek__BackingField_10;
+	// System.Net.Sockets.IPPacketInformation System.Net.Sockets.SocketAsyncEventArgs::<ReceiveMessageFromPacketInfo>k__BackingField
+	IPPacketInformation_tCD16AD717AD72D36684D9CFFDA0F6B53CCD3249B ___U3CReceiveMessageFromPacketInfoU3Ek__BackingField_11;
+	// System.Net.Sockets.SendPacketsElement[] System.Net.Sockets.SocketAsyncEventArgs::<SendPacketsElements>k__BackingField
+	SendPacketsElementU5BU5D_t3561DE4794CA0E485BDC621B4EEE2D54A769695B* ___U3CSendPacketsElementsU3Ek__BackingField_12;
+	// System.Net.Sockets.TransmitFileOptions System.Net.Sockets.SocketAsyncEventArgs::<SendPacketsFlags>k__BackingField
+	int32_t ___U3CSendPacketsFlagsU3Ek__BackingField_13;
 	// System.Int32 System.Net.Sockets.SocketAsyncEventArgs::<SendPacketsSendSize>k__BackingField
-	int32_t ___U3CSendPacketsSendSizeU3Ek__BackingField_9;
+	int32_t ___U3CSendPacketsSendSizeU3Ek__BackingField_14;
 	// System.Net.Sockets.SocketError System.Net.Sockets.SocketAsyncEventArgs::<SocketError>k__BackingField
-	int32_t ___U3CSocketErrorU3Ek__BackingField_10;
+	int32_t ___U3CSocketErrorU3Ek__BackingField_15;
 	// System.Net.Sockets.SocketFlags System.Net.Sockets.SocketAsyncEventArgs::<SocketFlags>k__BackingField
-	int32_t ___U3CSocketFlagsU3Ek__BackingField_11;
+	int32_t ___U3CSocketFlagsU3Ek__BackingField_16;
 	// System.Object System.Net.Sockets.SocketAsyncEventArgs::<UserToken>k__BackingField
-	RuntimeObject* ___U3CUserTokenU3Ek__BackingField_12;
+	RuntimeObject* ___U3CUserTokenU3Ek__BackingField_17;
 	// System.EventHandler`1<System.Net.Sockets.SocketAsyncEventArgs> System.Net.Sockets.SocketAsyncEventArgs::Completed
-	EventHandler_1_t5D3FC4609BD8133ED1226D6D49A1D8076B16A9ED* ___Completed_13;
+	EventHandler_1_t5D3FC4609BD8133ED1226D6D49A1D8076B16A9ED* ___Completed_18;
 	// System.Memory`1<System.Byte> System.Net.Sockets.SocketAsyncEventArgs::_buffer
-	Memory_1_tB7CEF4416F5014E364267478CEF016A4AC5C0036 ____buffer_14;
+	Memory_1_tB7CEF4416F5014E364267478CEF016A4AC5C0036 ____buffer_19;
 	// System.Int32 System.Net.Sockets.SocketAsyncEventArgs::_offset
-	int32_t ____offset_15;
+	int32_t ____offset_20;
 	// System.Int32 System.Net.Sockets.SocketAsyncEventArgs::_count
-	int32_t ____count_16;
+	int32_t ____count_21;
 	// System.Boolean System.Net.Sockets.SocketAsyncEventArgs::_bufferIsExplicitArray
-	bool ____bufferIsExplicitArray_17;
+	bool ____bufferIsExplicitArray_22;
 	// System.Collections.Generic.IList`1<System.ArraySegment`1<System.Byte>> System.Net.Sockets.SocketAsyncEventArgs::_bufferList
-	RuntimeObject* ____bufferList_18;
+	RuntimeObject* ____bufferList_23;
+	// System.Collections.Generic.List`1<System.ArraySegment`1<System.Byte>> System.Net.Sockets.SocketAsyncEventArgs::_bufferListInternal
+	List_1_tA624903E1259A700E57AC71565033F4E3C8470F9* ____bufferListInternal_24;
 };
 
 // TouchSocket.Rpc.TouchRpc.StreamOperator
@@ -5075,17 +5117,17 @@ struct SocketClient_t4BC22697467FC9687524B996477A9226F3843163  : public BaseSock
 struct SslStream_t19A079881850F9CAD7BAA6FB625BBC4647ED5A27  : public AuthenticatedStream_t8DCF41E151F705E2494FC7836F5E2EF7C539FA39
 {
 	// Mono.Net.Security.MobileTlsProvider System.Net.Security.SslStream::provider
-	MobileTlsProvider_tD60D82BEBF267F50F388A026DBB092C7188BB017* ___provider_6;
+	MobileTlsProvider_tD60D82BEBF267F50F388A026DBB092C7188BB017* ___provider_7;
 	// Mono.Security.Interface.MonoTlsSettings System.Net.Security.SslStream::settings
-	MonoTlsSettings_tD79AF4AE5C2CD533A3D7A08FED479B1EC1A031B0* ___settings_7;
+	MonoTlsSettings_tD79AF4AE5C2CD533A3D7A08FED479B1EC1A031B0* ___settings_8;
 	// System.Net.Security.RemoteCertificateValidationCallback System.Net.Security.SslStream::validationCallback
-	RemoteCertificateValidationCallback_t2F4C5801F96B2C2BF934511796C5BFEAEBF01955* ___validationCallback_8;
+	RemoteCertificateValidationCallback_t2F4C5801F96B2C2BF934511796C5BFEAEBF01955* ___validationCallback_9;
 	// System.Net.Security.LocalCertificateSelectionCallback System.Net.Security.SslStream::selectionCallback
-	LocalCertificateSelectionCallback_t71A03329606A5610ECC62BFBE6327C1EF9195859* ___selectionCallback_9;
+	LocalCertificateSelectionCallback_t71A03329606A5610ECC62BFBE6327C1EF9195859* ___selectionCallback_10;
 	// Mono.Net.Security.MobileAuthenticatedStream System.Net.Security.SslStream::impl
-	MobileAuthenticatedStream_tD0306DC2B0CDA3C7DB261C19FFA35CA8EE24309E* ___impl_10;
+	MobileAuthenticatedStream_tD0306DC2B0CDA3C7DB261C19FFA35CA8EE24309E* ___impl_11;
 	// System.Boolean System.Net.Security.SslStream::explicitSettings
-	bool ___explicitSettings_11;
+	bool ___explicitSettings_12;
 };
 
 // TouchSocket.Rpc.TouchRpc.StreamEventArgs
@@ -9561,7 +9603,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TcpTouchRpcClient_LoadConfig_mF8BE15ABB0
 		L_19 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_19);
 		String_t* L_20;
-		L_20 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_19);
+		L_20 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_19);
 		NullCheck(L_18);
 		RpcStore_AddRpcParser_mC53DC43E63A15FD2E6FF948F92884B13F54DB56C(L_18, L_20, __this, (bool)1, NULL);
 		return;
@@ -9580,7 +9622,7 @@ IL_0078:
 		L_24 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_24);
 		String_t* L_25;
-		L_25 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_24);
+		L_25 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_24);
 		NullCheck(L_23);
 		RpcStore_AddRpcParser_mC53DC43E63A15FD2E6FF948F92884B13F54DB56C(L_23, L_25, __this, (bool)1, NULL);
 		return;
@@ -10039,7 +10081,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_12 = V_2;
 		NullCheck(L_8);
 		ActionMap_Add_m27BE6DE977DDEB5651CD6DF33A7EDA8734F46FF4(L_8, L_11, L_12, NULL);
@@ -10110,7 +10152,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		NullCheck(L_8);
 		bool L_12;
 		L_12 = ActionMap_Remove_m63ECF3C0928188B9C618001A8C107812F8A5CDE9(L_8, L_11, NULL);
@@ -12393,7 +12435,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_12 = V_2;
 		NullCheck(L_8);
 		ActionMap_Add_m27BE6DE977DDEB5651CD6DF33A7EDA8734F46FF4(L_8, L_11, L_12, NULL);
@@ -12464,7 +12506,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		NullCheck(L_8);
 		bool L_12;
 		L_12 = ActionMap_Remove_m63ECF3C0928188B9C618001A8C107812F8A5CDE9(L_8, L_11, NULL);
@@ -16539,7 +16581,7 @@ IL_0046:
 				FileStream_t07C7222EE10B75F352B89B76E60820160FF10AD8* L_11 = V_1;
 				NullCheck(L_11);
 				int64_t L_12;
-				L_12 = VirtualFuncInvoker0< int64_t >::Invoke(11 /* System.Int64 System.IO.Stream::get_Length() */, L_11);
+				L_12 = VirtualFuncInvoker0< int64_t >::Invoke(13 /* System.Int64 System.IO.Stream::get_Length() */, L_11);
 				NullCheck(L_10);
 				TouchRpcFileInfo_set_FileLength_m95FBC92FBD81B999C090F47CC61CE0CE8FCBE560_inline(L_10, L_12, NULL);
 				bool L_13 = ___md51;
@@ -17296,7 +17338,7 @@ IL_0027:
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_8 = ___parameterBytes1;
 		NullCheck(L_7);
 		String_t* L_9;
-		L_9 = VirtualFuncInvoker1< String_t*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* >::Invoke(34 /* System.String System.Text.Encoding::GetString(System.Byte[]) */, L_7, L_8);
+		L_9 = VirtualFuncInvoker1< String_t*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* >::Invoke(47 /* System.String System.Text.Encoding::GetString(System.Byte[]) */, L_7, L_8);
 		Type_t* L_10 = ___parameterType2;
 		il2cpp_codegen_runtime_class_init_inline(JsonConvert_tC71391CA1AD816D77AD42CA20688B4396E3EE664_il2cpp_TypeInfo_var);
 		RuntimeObject* L_11;
@@ -17382,7 +17424,7 @@ IL_0020:
 		L_6 = JsonConvert_SerializeObject_m77F11A206CAA0EAC6F93C70D2E2BA538DCFD7DE3(L_5, NULL);
 		NullCheck(L_4);
 		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_7;
-		L_7 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(18 /* System.Byte[] System.Text.Encoding::GetBytes(System.String) */, L_4, L_6);
+		L_7 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(27 /* System.Byte[] System.Text.Encoding::GetBytes(System.String) */, L_4, L_6);
 		return L_7;
 	}
 
@@ -17835,21 +17877,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TouchRpcPackage_tEDD515DB08A812A730417F28E520
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_8 = ___byteBlock0;
 		NullCheck(L_8);
 		int32_t L_9;
-		L_9 = VirtualFuncInvoker0< int32_t >::Invoke(34 /* System.Int32 System.IO.Stream::ReadByte() */, L_8);
+		L_9 = VirtualFuncInvoker0< int32_t >::Invoke(39 /* System.Int32 System.IO.Stream::ReadByte() */, L_8);
 		NullCheck(L_7);
 		WaitResult_set_Status_m981F908DB3596C463B1DCA0E428D22A0E4F27E92_inline(L_7, (uint8_t)((int32_t)(uint8_t)L_9), NULL);
 		TouchRpcPackage_tEDD515DB08A812A730417F28E520B6D38565B9C4* L_10 = V_0;
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_11 = ___byteBlock0;
 		NullCheck(L_11);
 		int32_t L_12;
-		L_12 = VirtualFuncInvoker0< int32_t >::Invoke(34 /* System.Int32 System.IO.Stream::ReadByte() */, L_11);
+		L_12 = VirtualFuncInvoker0< int32_t >::Invoke(39 /* System.Int32 System.IO.Stream::ReadByte() */, L_11);
 		NullCheck(L_10);
 		L_10->___feedback_8 = (uint8_t)((int32_t)(uint8_t)L_12);
 		TouchRpcPackage_tEDD515DB08A812A730417F28E520B6D38565B9C4* L_13 = V_0;
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_14 = ___byteBlock0;
 		NullCheck(L_14);
 		int32_t L_15;
-		L_15 = VirtualFuncInvoker0< int32_t >::Invoke(34 /* System.Int32 System.IO.Stream::ReadByte() */, L_14);
+		L_15 = VirtualFuncInvoker0< int32_t >::Invoke(39 /* System.Int32 System.IO.Stream::ReadByte() */, L_14);
 		NullCheck(L_13);
 		L_13->___serializationType_9 = (uint8_t)((int32_t)(uint8_t)L_15);
 		TouchRpcPackage_tEDD515DB08A812A730417F28E520B6D38565B9C4* L_16 = V_0;
@@ -17888,7 +17930,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TouchRpcPackage_tEDD515DB08A812A730417F28E520
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_31 = ___byteBlock0;
 		NullCheck(L_31);
 		int32_t L_32;
-		L_32 = VirtualFuncInvoker0< int32_t >::Invoke(34 /* System.Int32 System.IO.Stream::ReadByte() */, L_31);
+		L_32 = VirtualFuncInvoker0< int32_t >::Invoke(39 /* System.Int32 System.IO.Stream::ReadByte() */, L_31);
 		V_1 = (uint8_t)((int32_t)(uint8_t)L_32);
 		TouchRpcPackage_tEDD515DB08A812A730417F28E520B6D38565B9C4* L_33 = V_0;
 		List_1_tBFF9DD9FFA06F20E74F9D7AD36610BD754D353A4* L_34 = (List_1_tBFF9DD9FFA06F20E74F9D7AD36610BD754D353A4*)il2cpp_codegen_object_new(List_1_tBFF9DD9FFA06F20E74F9D7AD36610BD754D353A4_il2cpp_TypeInfo_var);
@@ -18912,7 +18954,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JsonRpcAttribute_GetInvokenKey_m906
 	{
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_1 = ___methodInstance0;
 		String_t* L_2;
-		L_2 = VirtualFuncInvoker2< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94*, bool >::Invoke(8 /* System.String TouchSocket.Rpc.RpcAttribute::GetMethodName(TouchSocket.Rpc.MethodInstance,System.Boolean) */, __this, L_1, (bool)0);
+		L_2 = VirtualFuncInvoker2< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94*, bool >::Invoke(13 /* System.String TouchSocket.Rpc.RpcAttribute::GetMethodName(TouchSocket.Rpc.MethodInstance,System.Boolean) */, __this, L_1, (bool)0);
 		return L_2;
 	}
 
@@ -19364,7 +19406,7 @@ IL_00c2_1:
 				L_41 = JToken_ToString_mA0635F9BE505F761519F6544D6D08BCC74EB08C3(L_39, 0, L_40, NULL);
 				NullCheck(L_38);
 				ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_42;
-				L_42 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(18 /* System.Byte[] System.Text.Encoding::GetBytes(System.String) */, L_38, L_41);
+				L_42 = VirtualFuncInvoker1< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, String_t* >::Invoke(27 /* System.Byte[] System.Text.Encoding::GetBytes(System.String) */, L_38, L_41);
 				ByteBlockExtensions_Write_TisByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C_m347424D8E550541DE3B472B0895CED99B5BBC0B9(L_37, L_42, ByteBlockExtensions_Write_TisByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C_m347424D8E550541DE3B472B0895CED99B5BBC0B9_RuntimeMethod_var);
 				goto IL_011b_1;
 			}
@@ -19864,7 +19906,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonRpcParserPlugin__ctor_mEDAD169D9387E
 		L_3 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_3);
 		String_t* L_4;
-		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_3);
+		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_3);
 		NullCheck(L_2);
 		RpcStore_AddRpcParser_mC53DC43E63A15FD2E6FF948F92884B13F54DB56C(L_2, L_4, __this, (bool)1, NULL);
 	}
@@ -20013,7 +20055,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_12 = V_2;
 		NullCheck(L_8);
 		ActionMap_Add_m27BE6DE977DDEB5651CD6DF33A7EDA8734F46FF4(L_8, L_11, L_12, NULL);
@@ -20084,7 +20126,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		NullCheck(L_8);
 		bool L_12;
 		L_12 = ActionMap_Remove_m63ECF3C0928188B9C618001A8C107812F8A5CDE9(L_8, L_11, NULL);
@@ -20621,7 +20663,7 @@ IL_014c:
 		ParameterInfo_tBC2D68304851A59EFB2EAE6B168714CD45445F2F* L_102 = (L_99)->GetAt(static_cast<il2cpp_array_size_t>(L_101));
 		NullCheck(L_102);
 		bool L_103;
-		L_103 = VirtualFuncInvoker0< bool >::Invoke(14 /* System.Boolean System.Reflection.ParameterInfo::get_HasDefaultValue() */, L_102);
+		L_103 = VirtualFuncInvoker0< bool >::Invoke(19 /* System.Boolean System.Reflection.ParameterInfo::get_HasDefaultValue() */, L_102);
 		if (!L_103)
 		{
 			goto IL_0175;
@@ -20644,7 +20686,7 @@ IL_014c:
 		ParameterInfo_tBC2D68304851A59EFB2EAE6B168714CD45445F2F* L_113 = (L_110)->GetAt(static_cast<il2cpp_array_size_t>(L_112));
 		NullCheck(L_113);
 		RuntimeObject* L_114;
-		L_114 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(13 /* System.Object System.Reflection.ParameterInfo::get_DefaultValue() */, L_113);
+		L_114 = VirtualFuncInvoker0< RuntimeObject* >::Invoke(17 /* System.Object System.Reflection.ParameterInfo::get_DefaultValue() */, L_113);
 		NullCheck(L_106);
 		ArrayElementTypeCheck (L_106, L_114);
 		(L_106)->SetAt(static_cast<il2cpp_array_size_t>(L_107), (RuntimeObject*)L_114);
@@ -21276,7 +21318,7 @@ CATCH_0046:
 		Exception_t* L_6 = V_4;
 		NullCheck(L_6);
 		String_t* L_7;
-		L_7 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_6);
+		L_7 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_6);
 		InvokeResult_set_Message_m1BC0EE1150AFEED1158BCC3E20F8A56C90851BBC_inline((&V_0), L_7, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_0060;
@@ -21978,7 +22020,7 @@ IL_0051_1:
 			EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* L_9 = __this->___waitHandle_4;
 			NullCheck(L_9);
 			bool L_10;
-			L_10 = VirtualFuncInvoker0< bool >::Invoke(10 /* System.Boolean System.Threading.WaitHandle::WaitOne() */, L_9);
+			L_10 = VirtualFuncInvoker0< bool >::Invoke(12 /* System.Boolean System.Threading.WaitHandle::WaitOne() */, L_9);
 			goto IL_0074_1;
 		}
 
@@ -21989,7 +22031,7 @@ IL_005f_1:
 			EventWaitHandle_t18F2EB0161747B0646A9A406015A61A214A1EB7E* L_11 = __this->___waitHandle_4;
 			NullCheck(L_11);
 			bool L_12;
-			L_12 = VirtualFuncInvoker0< bool >::Invoke(10 /* System.Boolean System.Threading.WaitHandle::WaitOne() */, L_11);
+			L_12 = VirtualFuncInvoker0< bool >::Invoke(12 /* System.Boolean System.Threading.WaitHandle::WaitOne() */, L_11);
 		}
 
 IL_0074_1:
@@ -22776,6 +22818,12 @@ IL_0014:
 // System.Boolean TouchSocket.Sockets.IPHost::HostNameToIP(System.String,System.Net.IPAddress[]&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IPHost_HostNameToIP_m95C693B3C1E824ED736419A579B58A7582F4399F (String_t* ___hostname0, IPAddressU5BU5D_t3AEDF3B94746C9023A4549F878AA47F702C9CD0D** ___address1, const RuntimeMethod* method) 
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dns_tE6305F126E5677E1AFB444735257D41D0D0FE273_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
 	IPHostEntry_tAAAEB0F40DB9F28BE601B5FE7DA1D76191C94490* V_0 = NULL;
 	bool V_1 = false;
 	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
@@ -22783,6 +22831,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IPHost_HostNameToIP_m95C693B3C1E824ED736
 	{// begin try (depth: 1)
 		{
 			String_t* L_0 = ___hostname0;
+			il2cpp_codegen_runtime_class_init_inline(Dns_tE6305F126E5677E1AFB444735257D41D0D0FE273_il2cpp_TypeInfo_var);
 			IPHostEntry_tAAAEB0F40DB9F28BE601B5FE7DA1D76191C94490* L_1;
 			L_1 = Dns_GetHostEntry_m01156278E5CDAE38B7E1B2EC617F505A4B836D02(L_0, NULL);
 			V_0 = L_1;
@@ -25576,7 +25625,7 @@ IL_0034:
 		bool L_18;
 		L_18 = SslOption_get_CheckCertificateRevocation_m32F9573E0647866A6C64CA09F7AE8B302DE59437_inline(L_17, NULL);
 		NullCheck(L_10);
-		VirtualActionInvoker4< X509Certificate_t966CC553AF25AE7991F5B4C2AACBCF6C66C8F9C4*, bool, int32_t, bool >::Invoke(43 /* System.Void System.Net.Security.SslStream::AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.Boolean,System.Security.Authentication.SslProtocols,System.Boolean) */, L_10, L_12, L_14, L_16, L_18);
+		VirtualActionInvoker4< X509Certificate_t966CC553AF25AE7991F5B4C2AACBCF6C66C8F9C4*, bool, int32_t, bool >::Invoke(59 /* System.Void System.Net.Security.SslStream::AuthenticateAsServer(System.Security.Cryptography.X509Certificates.X509Certificate,System.Boolean,System.Security.Authentication.SslProtocols,System.Boolean) */, L_10, L_12, L_14, L_16, L_18);
 		SslStream_t19A079881850F9CAD7BAA6FB625BBC4647ED5A27* L_19 = V_0;
 		__this->___m_workStream_15 = L_19;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_workStream_15), (void*)L_19);
@@ -26230,7 +26279,7 @@ IL_00a9:
 				int32_t L_17 = ___offset1;
 				int32_t L_18 = ___length2;
 				NullCheck(L_15);
-				VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_15, L_16, L_17, L_18);
+				VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_15, L_16, L_17, L_18);
 				goto IL_00aa;
 			}
 
@@ -26385,7 +26434,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SocketClient_BeginSsl_mD897763C93935FE93
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_9 = V_0;
 		NullCheck(L_3);
 		RuntimeObject* L_10;
-		L_10 = VirtualFuncInvoker5< RuntimeObject*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C*, RuntimeObject* >::Invoke(22 /* System.IAsyncResult System.IO.Stream::BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object) */, L_3, L_5, 0, L_7, L_8, L_9);
+		L_10 = VirtualFuncInvoker5< RuntimeObject*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C*, RuntimeObject* >::Invoke(27 /* System.IAsyncResult System.IO.Stream::BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object) */, L_3, L_5, 0, L_7, L_8, L_9);
 		goto IL_0055;
 	}// end try (depth: 1)
 	catch(Il2CppExceptionWrapper& e)
@@ -26407,7 +26456,7 @@ CATCH_003f:
 		Exception_t* L_12 = V_1;
 		NullCheck(L_12);
 		String_t* L_13;
-		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_12);
+		L_13 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_12);
 		SocketClient_BreakOut_mC7FCC416C262AB42A68CE75FB53CF9606BA928D5(__this, L_13, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_0055;
@@ -26554,12 +26603,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SocketClient_EndSsl_mA46384D8BB2AE08BE1D
 		RuntimeObject* L_3 = ___result0;
 		NullCheck(L_2);
 		int32_t L_4;
-		L_4 = VirtualFuncInvoker1< int32_t, RuntimeObject* >::Invoke(23 /* System.Int32 System.IO.Stream::EndRead(System.IAsyncResult) */, L_2, L_3);
+		L_4 = VirtualFuncInvoker1< int32_t, RuntimeObject* >::Invoke(28 /* System.Int32 System.IO.Stream::EndRead(System.IAsyncResult) */, L_2, L_3);
 		V_1 = L_4;
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_5 = V_0;
 		int32_t L_6 = V_1;
 		NullCheck(L_5);
-		VirtualActionInvoker1< int64_t >::Invoke(31 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_5, ((int64_t)L_6));
+		VirtualActionInvoker1< int64_t >::Invoke(36 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_5, ((int64_t)L_6));
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_7 = V_0;
 		SocketClient_HandleBuffer_mF393B80316D31A9373ED161FD7520332AA9466C2(__this, L_7, NULL);
 		SocketClient_BeginSsl_mD897763C93935FE931F4B20AEE7F5DA7E35E2999(__this, NULL);
@@ -26584,7 +26633,7 @@ CATCH_0030:
 		Exception_t* L_9 = V_2;
 		NullCheck(L_9);
 		String_t* L_10;
-		L_10 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_9);
+		L_10 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_9);
 		SocketClient_BreakOut_mC7FCC416C262AB42A68CE75FB53CF9606BA928D5(__this, L_10, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_0046;
@@ -26624,7 +26673,7 @@ CATCH_0009:
 		Exception_t* L_2 = V_0;
 		NullCheck(L_2);
 		String_t* L_3;
-		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_2);
+		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_2);
 		SocketClient_BreakOut_mC7FCC416C262AB42A68CE75FB53CF9606BA928D5(__this, L_3, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_001f;
@@ -27087,7 +27136,7 @@ IL_0011:
 		int32_t L_10;
 		L_10 = SocketAsyncEventArgs_get_BytesTransferred_m18A255B3F69597D990A7287AAC5310DCDE9B77AE_inline(L_9, NULL);
 		NullCheck(L_8);
-		VirtualActionInvoker1< int64_t >::Invoke(31 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_8, ((int64_t)L_10));
+		VirtualActionInvoker1< int64_t >::Invoke(36 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_8, ((int64_t)L_10));
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_11 = V_0;
 		SocketClient_HandleBuffer_mF393B80316D31A9373ED161FD7520332AA9466C2(__this, L_11, NULL);
 	}
@@ -27151,7 +27200,7 @@ CATCH_007f:
 		Exception_t* L_25 = V_2;
 		NullCheck(L_25);
 		String_t* L_26;
-		L_26 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_25);
+		L_26 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_25);
 		SocketClient_BreakOut_mC7FCC416C262AB42A68CE75FB53CF9606BA928D5(__this, L_26, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_00a1;
@@ -27503,7 +27552,7 @@ IL_005f_2:
 						int32_t L_23;
 						L_23 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_20);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
 					}
 
 IL_0081_2:
@@ -27812,7 +27861,7 @@ IL_005f_2:
 						int32_t L_23;
 						L_23 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_20);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
 					}
 
 IL_0081_2:
@@ -29181,7 +29230,7 @@ IL_000a:
 		L_2 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_2);
 		String_t* L_3;
-		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_2);
+		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(170 /* System.String System.Type::get_FullName() */, L_2);
 		ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB* L_4 = (ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB_il2cpp_TypeInfo_var)));
 		NullCheck(L_4);
 		ObjectDisposedException__ctor_mB2C8582279AF3F0C1CF9AA52DA7331BF848DFD48(L_4, L_3, NULL);
@@ -29269,7 +29318,7 @@ IL_006a:
 		int32_t L_25 = ___timeout0;
 		NullCheck(L_24);
 		bool L_26;
-		L_26 = VirtualFuncInvoker1< bool, int32_t >::Invoke(11 /* System.Boolean System.Threading.WaitHandle::WaitOne(System.Int32) */, L_24, L_25);
+		L_26 = VirtualFuncInvoker1< bool, int32_t >::Invoke(13 /* System.Boolean System.Threading.WaitHandle::WaitOne(System.Int32) */, L_24, L_25);
 		if (!L_26)
 		{
 			goto IL_0126;
@@ -30052,7 +30101,7 @@ IL_0063:
 		String_t* L_20;
 		L_20 = ClientSslOption_get_TargetHost_m19B409D2720355C37E5883330FDF57BB97440019_inline(L_19, NULL);
 		NullCheck(L_18);
-		VirtualActionInvoker1< String_t* >::Invoke(39 /* System.Void System.Net.Security.SslStream::AuthenticateAsClient(System.String) */, L_18, L_20);
+		VirtualActionInvoker1< String_t* >::Invoke(50 /* System.Void System.Net.Security.SslStream::AuthenticateAsClient(System.String) */, L_18, L_20);
 		goto IL_0098;
 	}
 
@@ -30076,7 +30125,7 @@ IL_007a:
 		bool L_29;
 		L_29 = SslOption_get_CheckCertificateRevocation_m32F9573E0647866A6C64CA09F7AE8B302DE59437_inline(L_28, NULL);
 		NullCheck(L_21);
-		VirtualActionInvoker4< String_t*, X509CertificateCollection_t2900D71D188EDCA7DEB5077D36103EE5DA6805CE*, int32_t, bool >::Invoke(40 /* System.Void System.Net.Security.SslStream::AuthenticateAsClient(System.String,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,System.Boolean) */, L_21, L_23, L_25, L_27, L_29);
+		VirtualActionInvoker4< String_t*, X509CertificateCollection_t2900D71D188EDCA7DEB5077D36103EE5DA6805CE*, int32_t, bool >::Invoke(52 /* System.Void System.Net.Security.SslStream::AuthenticateAsClient(System.String,System.Security.Cryptography.X509Certificates.X509CertificateCollection,System.Security.Authentication.SslProtocols,System.Boolean) */, L_21, L_23, L_25, L_27, L_29);
 	}
 
 IL_0098:
@@ -30195,7 +30244,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TcpClientBase_BeginSsl_mAFB90072681E0052
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_8 = V_0;
 		NullCheck(L_2);
 		RuntimeObject* L_9;
-		L_9 = VirtualFuncInvoker5< RuntimeObject*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C*, RuntimeObject* >::Invoke(22 /* System.IAsyncResult System.IO.Stream::BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object) */, L_2, L_4, 0, L_6, L_7, L_8);
+		L_9 = VirtualFuncInvoker5< RuntimeObject*, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t, AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C*, RuntimeObject* >::Invoke(27 /* System.IAsyncResult System.IO.Stream::BeginRead(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object) */, L_2, L_4, 0, L_6, L_7, L_8);
 		goto IL_004b;
 	}// end try (depth: 1)
 	catch(Il2CppExceptionWrapper& e)
@@ -30217,7 +30266,7 @@ CATCH_0035:
 		Exception_t* L_11 = V_1;
 		NullCheck(L_11);
 		String_t* L_12;
-		L_12 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_11);
+		L_12 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_11);
 		TcpClientBase_BreakOut_mF9FEC57CD421C3B4B3AED431142A2CB4D6A93948(__this, L_12, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_004b;
@@ -30255,12 +30304,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TcpClientBase_EndSsl_mAD3F0DDDF34C02FC03
 		RuntimeObject* L_3 = ___result0;
 		NullCheck(L_2);
 		int32_t L_4;
-		L_4 = VirtualFuncInvoker1< int32_t, RuntimeObject* >::Invoke(23 /* System.Int32 System.IO.Stream::EndRead(System.IAsyncResult) */, L_2, L_3);
+		L_4 = VirtualFuncInvoker1< int32_t, RuntimeObject* >::Invoke(28 /* System.Int32 System.IO.Stream::EndRead(System.IAsyncResult) */, L_2, L_3);
 		V_1 = L_4;
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_5 = V_0;
 		int32_t L_6 = V_1;
 		NullCheck(L_5);
-		VirtualActionInvoker1< int64_t >::Invoke(31 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_5, ((int64_t)L_6));
+		VirtualActionInvoker1< int64_t >::Invoke(36 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_5, ((int64_t)L_6));
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_7 = V_0;
 		TcpClientBase_HandleBuffer_m8DFB3C2C781983D28FE695306B41396471D2B242(__this, L_7, NULL);
 		TcpClientBase_BeginSsl_mAFB90072681E0052730195B1CDE53A56A31C0173(__this, NULL);
@@ -30285,7 +30334,7 @@ CATCH_0030:
 		Exception_t* L_9 = V_2;
 		NullCheck(L_9);
 		String_t* L_10;
-		L_10 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_9);
+		L_10 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_9);
 		TcpClientBase_BreakOut_mF9FEC57CD421C3B4B3AED431142A2CB4D6A93948(__this, L_10, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_0046;
@@ -30465,7 +30514,7 @@ CATCH_0009:
 		Exception_t* L_2 = V_0;
 		NullCheck(L_2);
 		String_t* L_3;
-		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_2);
+		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_2);
 		TcpClientBase_BreakOut_mF9FEC57CD421C3B4B3AED431142A2CB4D6A93948(__this, L_3, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_001f;
@@ -30896,7 +30945,7 @@ IL_0054_2:
 						int32_t L_22;
 						L_22 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_19);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_19, L_20, L_21, L_22);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_19, L_20, L_21, L_22);
 					}
 
 IL_0076_2:
@@ -31205,7 +31254,7 @@ IL_005f_2:
 						int32_t L_23;
 						L_23 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_20);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
 					}
 
 IL_0081_2:
@@ -31466,7 +31515,7 @@ IL_000f:
 		int32_t L_10;
 		L_10 = SocketAsyncEventArgs_get_BytesTransferred_m18A255B3F69597D990A7287AAC5310DCDE9B77AE_inline(L_9, NULL);
 		NullCheck(L_8);
-		VirtualActionInvoker1< int64_t >::Invoke(31 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_8, ((int64_t)L_10));
+		VirtualActionInvoker1< int64_t >::Invoke(36 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_8, ((int64_t)L_10));
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_11 = V_0;
 		TcpClientBase_HandleBuffer_m8DFB3C2C781983D28FE695306B41396471D2B242(__this, L_11, NULL);
 	}
@@ -31535,7 +31584,7 @@ CATCH_007f:
 		Exception_t* L_26 = V_2;
 		NullCheck(L_26);
 		String_t* L_27;
-		L_27 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_26);
+		L_27 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_26);
 		TcpClientBase_BreakOut_mF9FEC57CD421C3B4B3AED431142A2CB4D6A93948(__this, L_27, (bool)0, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_00a7;
@@ -31639,7 +31688,7 @@ IL_00c1:
 				int32_t L_17 = ___offset1;
 				int32_t L_18 = ___length2;
 				NullCheck(L_15);
-				VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_15, L_16, L_17, L_18);
+				VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_15, L_16, L_17, L_18);
 				goto IL_00c2;
 			}
 
@@ -32645,7 +32694,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UdpSessionBase_DropMulticastGroup_mD7C88
 		L_1 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_1);
 		String_t* L_2;
-		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_1);
+		L_2 = VirtualFuncInvoker0< String_t* >::Invoke(170 /* System.String System.Type::get_FullName() */, L_1);
 		ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB* L_3 = (ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB_il2cpp_TypeInfo_var)));
 		NullCheck(L_3);
 		ObjectDisposedException__ctor_mB2C8582279AF3F0C1CF9AA52DA7331BF848DFD48(L_3, L_2, NULL);
@@ -32754,7 +32803,7 @@ IL_000e:
 		L_3 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_3);
 		String_t* L_4;
-		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_3);
+		L_4 = VirtualFuncInvoker0< String_t* >::Invoke(170 /* System.String System.Type::get_FullName() */, L_3);
 		ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB* L_5 = (ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ObjectDisposedException_tC5FB29E8E980E2010A2F6A5B9B791089419F89EB_il2cpp_TypeInfo_var)));
 		NullCheck(L_5);
 		ObjectDisposedException__ctor_mB2C8582279AF3F0C1CF9AA52DA7331BF848DFD48(L_5, L_4, NULL);
@@ -33648,7 +33697,7 @@ IL_0000:
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_9 = V_1;
 		int32_t L_10 = V_2;
 		NullCheck(L_9);
-		VirtualActionInvoker1< int64_t >::Invoke(31 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_9, ((int64_t)L_10));
+		VirtualActionInvoker1< int64_t >::Invoke(36 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_9, ((int64_t)L_10));
 		EndPoint_t6233F4E2EB9F0F2D36E187F12BE050E6D8B73564* L_11 = V_0;
 		ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* L_12 = V_1;
 		UdpSessionBase_HandleBuffer_mAF0D0B808A78522BAD4E607D830F9FED6D9C16E9(__this, L_11, L_12, NULL);
@@ -33672,7 +33721,7 @@ CATCH_0049:
 		Exception_t* L_14 = V_3;
 		NullCheck(L_14);
 		String_t* L_15;
-		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_14);
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_14);
 		Exception_t* L_16 = V_3;
 		NullCheck(L_13);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_13, 2, __this, L_15, L_16);
@@ -34214,7 +34263,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UdpSessionBase_ProcessReceive_m0F5027EF4
 		int32_t L_7;
 		L_7 = SocketAsyncEventArgs_get_BytesTransferred_m18A255B3F69597D990A7287AAC5310DCDE9B77AE_inline(L_6, NULL);
 		NullCheck(L_5);
-		VirtualActionInvoker1< int64_t >::Invoke(31 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_5, ((int64_t)L_7));
+		VirtualActionInvoker1< int64_t >::Invoke(36 /* System.Void System.IO.Stream::SetLength(System.Int64) */, L_5, ((int64_t)L_7));
 		SocketAsyncEventArgs_t69FA99F5C4FBBE1F321A770B65D38FE5D62027EC* L_8 = ___e1;
 		NullCheck(L_8);
 		EndPoint_t6233F4E2EB9F0F2D36E187F12BE050E6D8B73564* L_9;
@@ -34286,7 +34335,7 @@ CATCH_0075:
 		Exception_t* L_26 = V_2;
 		NullCheck(L_26);
 		String_t* L_27;
-		L_27 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_26);
+		L_27 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_26);
 		Exception_t* L_28 = V_2;
 		NullCheck(L_25);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_25, 2, __this, L_27, L_28);
@@ -34490,7 +34539,7 @@ IL_005f_2:
 						int32_t L_24;
 						L_24 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_21);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_21, L_22, L_23, L_24);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_21, L_22, L_23, L_24);
 					}
 
 IL_0081_2:
@@ -34679,7 +34728,7 @@ IL_0055_2:
 						int32_t L_23;
 						L_23 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_20);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
 					}
 
 IL_0077_2:
@@ -34868,7 +34917,7 @@ IL_005f_2:
 						int32_t L_24;
 						L_24 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_21);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_21, L_22, L_23, L_24);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_21, L_22, L_23, L_24);
 					}
 
 IL_0081_2:
@@ -35057,7 +35106,7 @@ IL_0055_2:
 						int32_t L_23;
 						L_23 = TransferByte_get_Length_m6BBDC37095E0A166A14572B32111913F493495FF_inline((&V_2), NULL);
 						NullCheck(L_20);
-						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
+						VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_20, L_21, L_22, L_23);
 					}
 
 IL_0077_2:
@@ -35795,14 +35844,14 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t QueueDataBytes_get_Length
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t SocketAsyncEventArgs_get_SocketError_m0609040BBEA9BB0C0C6161A7B9A0B5EF50A6346B_inline (SocketAsyncEventArgs_t69FA99F5C4FBBE1F321A770B65D38FE5D62027EC* __this, const RuntimeMethod* method) 
 {
 	{
-		int32_t L_0 = __this->___U3CSocketErrorU3Ek__BackingField_10;
+		int32_t L_0 = __this->___U3CSocketErrorU3Ek__BackingField_15;
 		return L_0;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t SocketAsyncEventArgs_get_LastOperation_m16A89968CA3F3185A1AE2E1DE1106CA6FBDF9AC3_inline (SocketAsyncEventArgs_t69FA99F5C4FBBE1F321A770B65D38FE5D62027EC* __this, const RuntimeMethod* method) 
 {
 	{
-		int32_t L_0 = __this->___U3CLastOperationU3Ek__BackingField_8;
+		int32_t L_0 = __this->___U3CLastOperationU3Ek__BackingField_10;
 		return L_0;
 	}
 }
@@ -35941,15 +35990,15 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void SocketAsyncEventArgs_set_Use
 {
 	{
 		RuntimeObject* L_0 = ___value0;
-		__this->___U3CUserTokenU3Ek__BackingField_12 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CUserTokenU3Ek__BackingField_12), (void*)L_0);
+		__this->___U3CUserTokenU3Ek__BackingField_17 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CUserTokenU3Ek__BackingField_17), (void*)L_0);
 		return;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ByteBlock_get_Buffer_m97BF5EA0343293522040EC1B0EB94CBA9F257F4C_inline (ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* __this, const RuntimeMethod* method) 
 {
 	{
-		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_0 = __this->___m_buffer_7;
+		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_0 = __this->___m_buffer_8;
 		return L_0;
 	}
 }
@@ -36016,14 +36065,14 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void SocketClient_set_Port_m68B9F
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Socket_get_Connected_m6E61ADEB0124FB8D46AC1EDFDC268D3C9F7869C5_inline (Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* __this, const RuntimeMethod* method) 
 {
 	{
-		bool L_0 = __this->___is_connected_26;
+		bool L_0 = __this->___is_connected_30;
 		return L_0;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool Socket_get_IsBound_m6CA0A4232291A7A0B99FCE2E5662A576D31A0A9D_inline (Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* __this, const RuntimeMethod* method) 
 {
 	{
-		bool L_0 = __this->___is_bound_25;
+		bool L_0 = __this->___is_bound_29;
 		return L_0;
 	}
 }
@@ -36105,14 +36154,14 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Func_3_t8FF0FEA46621C4FBDC346C1FA
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t SocketAsyncEventArgs_get_BytesTransferred_m18A255B3F69597D990A7287AAC5310DCDE9B77AE_inline (SocketAsyncEventArgs_t69FA99F5C4FBBE1F321A770B65D38FE5D62027EC* __this, const RuntimeMethod* method) 
 {
 	{
-		int32_t L_0 = __this->___U3CBytesTransferredU3Ek__BackingField_7;
+		int32_t L_0 = __this->___U3CBytesTransferredU3Ek__BackingField_8;
 		return L_0;
 	}
 }
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* SocketAsyncEventArgs_get_UserToken_m7953E8417ECA92D0AE46615B343136763B0CFB12_inline (SocketAsyncEventArgs_t69FA99F5C4FBBE1F321A770B65D38FE5D62027EC* __this, const RuntimeMethod* method) 
 {
 	{
-		RuntimeObject* L_0 = __this->___U3CUserTokenU3Ek__BackingField_12;
+		RuntimeObject* L_0 = __this->___U3CUserTokenU3Ek__BackingField_17;
 		return L_0;
 	}
 }
@@ -36243,7 +36292,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Socket_t1F49472CDA22B581C29A25822
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR int32_t Socket_get_AddressFamily_m42C390D31345314080EC35356ACFBBFF7E1123E5_inline (Socket_t1F49472CDA22B581C29A258225ABF3ADA9DED67E* __this, const RuntimeMethod* method) 
 {
 	{
-		int32_t L_0 = __this->___addressFamily_17;
+		int32_t L_0 = __this->___addressFamily_21;
 		return L_0;
 	}
 }
@@ -36276,7 +36325,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Socket_set_UseOnlyOverlapped
 {
 	{
 		bool L_0 = ___value0;
-		__this->___useOverlappedIO_15 = L_0;
+		__this->___useOverlappedIO_19 = L_0;
 		return;
 	}
 }

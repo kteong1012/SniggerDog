@@ -41,14 +41,14 @@ static Il2CppMethodPointer s_methodPointers[8] =
 };
 static const int32_t s_InvokerIndices[8] = 
 {
-	3730,
-	3730,
-	10749,
-	16683,
-	3730,
-	3730,
-	10749,
-	16683,
+	5999,
+	5999,
+	15114,
+	24003,
+	5999,
+	5999,
+	15114,
+	24003,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Sirenix_OdinInspector_CompatibilityLayer_CodeGenModule;
 const Il2CppCodeGenModule g_Sirenix_OdinInspector_CompatibilityLayer_CodeGenModule = 

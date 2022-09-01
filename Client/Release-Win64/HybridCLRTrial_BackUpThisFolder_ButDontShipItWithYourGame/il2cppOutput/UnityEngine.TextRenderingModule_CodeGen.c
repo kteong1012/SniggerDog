@@ -80,73 +80,127 @@ extern void TextGenerator_GetLinesInternal_mDAC83E88FD1FD79CCCE294E49E02ED748CFC
 extern void TextGenerator_get_rectExtents_Injected_m2AB029C462FB27B9643C3EA2EB345E0EB011B2B8 (void);
 // 0x00000022 System.Boolean UnityEngine.TextGenerator::Populate_Internal_Injected(System.String,UnityEngine.Font,UnityEngine.Color&,System.Int32,System.Single,System.Single,UnityEngine.FontStyle,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,UnityEngine.TextAnchor,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.UInt32&)
 extern void TextGenerator_Populate_Internal_Injected_m694EA7CA7449D60B16643460DA13ABC6BE0F2947 (void);
-// 0x00000023 System.Int32 UnityEngine.CharacterInfo::get_advance()
+// 0x00000023 System.String UnityEngine.TextMesh::get_text()
+extern void TextMesh_get_text_mB3E900AED17390DE50DFC984428BC29EB1CA60A2 (void);
+// 0x00000024 System.Void UnityEngine.TextMesh::set_text(System.String)
+extern void TextMesh_set_text_mDF79D39638ED82797D0B0B3BB9E6B10712F8EA9E (void);
+// 0x00000025 UnityEngine.Font UnityEngine.TextMesh::get_font()
+extern void TextMesh_get_font_m94D3A4C8E4DB171B74E4FF00AC7EC27F3D495664 (void);
+// 0x00000026 System.Void UnityEngine.TextMesh::set_font(UnityEngine.Font)
+extern void TextMesh_set_font_m7E407CAEDBB382B95B70069D8FAB8A9E74EAAA74 (void);
+// 0x00000027 System.Int32 UnityEngine.TextMesh::get_fontSize()
+extern void TextMesh_get_fontSize_m9D9DCB98FC5E439868F25A8CDA2A4F5C2D85985C (void);
+// 0x00000028 System.Void UnityEngine.TextMesh::set_fontSize(System.Int32)
+extern void TextMesh_set_fontSize_mAB9F7FFC0E4DB759B786F6A9357B18C86015498B (void);
+// 0x00000029 UnityEngine.FontStyle UnityEngine.TextMesh::get_fontStyle()
+extern void TextMesh_get_fontStyle_mB5186C6CCE5303FF459E6C95D7EB35C48A22AD73 (void);
+// 0x0000002A System.Void UnityEngine.TextMesh::set_fontStyle(UnityEngine.FontStyle)
+extern void TextMesh_set_fontStyle_m038D1FE5DA05B74AF611B1D2DCDD771756E744CF (void);
+// 0x0000002B System.Single UnityEngine.TextMesh::get_offsetZ()
+extern void TextMesh_get_offsetZ_mBFF3610B382430095EF40CB4D00A770F87FD4529 (void);
+// 0x0000002C System.Void UnityEngine.TextMesh::set_offsetZ(System.Single)
+extern void TextMesh_set_offsetZ_m387CC7DE7BBD2FECADF377051EB3E57E0F7B7DF7 (void);
+// 0x0000002D UnityEngine.TextAlignment UnityEngine.TextMesh::get_alignment()
+extern void TextMesh_get_alignment_m9D0F0104F6DDA4C0B716B5C391F881200766915A (void);
+// 0x0000002E System.Void UnityEngine.TextMesh::set_alignment(UnityEngine.TextAlignment)
+extern void TextMesh_set_alignment_mCEAFE4A6CB546C3CB2B03582289FCC943EEF760F (void);
+// 0x0000002F UnityEngine.TextAnchor UnityEngine.TextMesh::get_anchor()
+extern void TextMesh_get_anchor_m504B52CADC07A2B29CF2F229A0F03B2E102DCD69 (void);
+// 0x00000030 System.Void UnityEngine.TextMesh::set_anchor(UnityEngine.TextAnchor)
+extern void TextMesh_set_anchor_m3FCB7C4B1FF66CE189B56076C0306AFE984FCD32 (void);
+// 0x00000031 System.Single UnityEngine.TextMesh::get_characterSize()
+extern void TextMesh_get_characterSize_mA9495F227772CFEBB2EB64B65166E682DB5E8147 (void);
+// 0x00000032 System.Void UnityEngine.TextMesh::set_characterSize(System.Single)
+extern void TextMesh_set_characterSize_mAEAE87C4648EF49409BDA93E5F504356B68D6052 (void);
+// 0x00000033 System.Single UnityEngine.TextMesh::get_lineSpacing()
+extern void TextMesh_get_lineSpacing_mC8A8CA472D961F42465D3193B44E0104E2DD817E (void);
+// 0x00000034 System.Void UnityEngine.TextMesh::set_lineSpacing(System.Single)
+extern void TextMesh_set_lineSpacing_m3FB0A3F54E8F0412DD8BED2095AF0A73491E0658 (void);
+// 0x00000035 System.Single UnityEngine.TextMesh::get_tabSize()
+extern void TextMesh_get_tabSize_m627F284247B15DF0F03336C7418A24EFA5A7D459 (void);
+// 0x00000036 System.Void UnityEngine.TextMesh::set_tabSize(System.Single)
+extern void TextMesh_set_tabSize_m1CA08EEE2A13E28227466754E7FE616C2DC023BA (void);
+// 0x00000037 System.Boolean UnityEngine.TextMesh::get_richText()
+extern void TextMesh_get_richText_mD09467720AE70BEA5ACB9F5227693507957949D6 (void);
+// 0x00000038 System.Void UnityEngine.TextMesh::set_richText(System.Boolean)
+extern void TextMesh_set_richText_m26D52770D73A6B142A153B913F2D005E895F2EE2 (void);
+// 0x00000039 UnityEngine.Color UnityEngine.TextMesh::get_color()
+extern void TextMesh_get_color_m128E5D16AA72D5284C70957253DEAEE4FBEB023E (void);
+// 0x0000003A System.Void UnityEngine.TextMesh::set_color(UnityEngine.Color)
+extern void TextMesh_set_color_mF08F30C3CD797C16289225B567724B9F07DC641E (void);
+// 0x0000003B System.Void UnityEngine.TextMesh::.ctor()
+extern void TextMesh__ctor_m987D6C4E18BF8F2DB68D8D0A88FF226263F8BB52 (void);
+// 0x0000003C System.Void UnityEngine.TextMesh::get_color_Injected(UnityEngine.Color&)
+extern void TextMesh_get_color_Injected_m3E6F8CA2677A2304BCF58A8FCE4468B29D97F769 (void);
+// 0x0000003D System.Void UnityEngine.TextMesh::set_color_Injected(UnityEngine.Color&)
+extern void TextMesh_set_color_Injected_mC7C51FAE003F1B2FB510F50DC1C4AFBFE740B4E4 (void);
+// 0x0000003E System.Int32 UnityEngine.CharacterInfo::get_advance()
 extern void CharacterInfo_get_advance_m0AAC68ABA1BD5B184B53E01F270BA4FD1D2C2B9A (void);
-// 0x00000024 System.Int32 UnityEngine.CharacterInfo::get_glyphWidth()
+// 0x0000003F System.Int32 UnityEngine.CharacterInfo::get_glyphWidth()
 extern void CharacterInfo_get_glyphWidth_m874E46221A743197C48F80D6F51B1F06F7E06D5D (void);
-// 0x00000025 System.Int32 UnityEngine.CharacterInfo::get_minY()
+// 0x00000040 System.Int32 UnityEngine.CharacterInfo::get_minY()
 extern void CharacterInfo_get_minY_m9BC2A892418F3E986B0EAFE56F28FABD8CAA4A3A (void);
-// 0x00000026 System.Int32 UnityEngine.CharacterInfo::get_maxY()
+// 0x00000041 System.Int32 UnityEngine.CharacterInfo::get_maxY()
 extern void CharacterInfo_get_maxY_m2439B7BB55176E566ECE4CAB87B3AA252DF46927 (void);
-// 0x00000027 System.Int32 UnityEngine.CharacterInfo::get_minX()
+// 0x00000042 System.Int32 UnityEngine.CharacterInfo::get_minX()
 extern void CharacterInfo_get_minX_m69B3FB781E712AE29CDEC596F9932862FB553328 (void);
-// 0x00000028 System.Int32 UnityEngine.CharacterInfo::get_maxX()
+// 0x00000043 System.Int32 UnityEngine.CharacterInfo::get_maxX()
 extern void CharacterInfo_get_maxX_m55625E1CD75FA327A33D2DA9C4A15C846CBB0A20 (void);
-// 0x00000029 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomLeftUnFlipped()
+// 0x00000044 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomLeftUnFlipped()
 extern void CharacterInfo_get_uvBottomLeftUnFlipped_mCBA8417A773038E225D431DA5A5D67445AD13244 (void);
-// 0x0000002A UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomRightUnFlipped()
+// 0x00000045 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomRightUnFlipped()
 extern void CharacterInfo_get_uvBottomRightUnFlipped_m8C9B5C60873D8DA8232F37B87B03D6B235A0997E (void);
-// 0x0000002B UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopRightUnFlipped()
+// 0x00000046 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopRightUnFlipped()
 extern void CharacterInfo_get_uvTopRightUnFlipped_m13A645BC543D634A53EE7C0282C64F68535EAC29 (void);
-// 0x0000002C UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopLeftUnFlipped()
+// 0x00000047 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopLeftUnFlipped()
 extern void CharacterInfo_get_uvTopLeftUnFlipped_m5DE3E983B48D8E5611FF7C8F78827A1841DCD2CB (void);
-// 0x0000002D UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomLeft()
+// 0x00000048 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomLeft()
 extern void CharacterInfo_get_uvBottomLeft_mDBE99341E4D50DB991F249E438891D118AB2DF9F (void);
-// 0x0000002E UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomRight()
+// 0x00000049 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvBottomRight()
 extern void CharacterInfo_get_uvBottomRight_m2A6F8FA7B8C05E65653AE2986E0889CCEAE3EF17 (void);
-// 0x0000002F UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopRight()
+// 0x0000004A UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopRight()
 extern void CharacterInfo_get_uvTopRight_m706389A181F4E4EAAB886C08D6E1A9C3D8FD2C16 (void);
-// 0x00000030 UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopLeft()
+// 0x0000004B UnityEngine.Vector2 UnityEngine.CharacterInfo::get_uvTopLeft()
 extern void CharacterInfo_get_uvTopLeft_m8366979523BC656BF87BA43327604E6870BC6A33 (void);
-// 0x00000031 System.Void UnityEngine.UIVertex::.cctor()
+// 0x0000004C System.Void UnityEngine.UIVertex::.cctor()
 extern void UIVertex__cctor_m62783D5748758AC9B743A9894D411429E6CD7ED5 (void);
-// 0x00000032 System.Void UnityEngine.Font::add_textureRebuilt(System.Action`1<UnityEngine.Font>)
+// 0x0000004D System.Void UnityEngine.Font::add_textureRebuilt(System.Action`1<UnityEngine.Font>)
 extern void Font_add_textureRebuilt_m0C7E9998192691918BC92548EE955380AD63FF0B (void);
-// 0x00000033 System.Void UnityEngine.Font::remove_textureRebuilt(System.Action`1<UnityEngine.Font>)
+// 0x0000004E System.Void UnityEngine.Font::remove_textureRebuilt(System.Action`1<UnityEngine.Font>)
 extern void Font_remove_textureRebuilt_mCCA3614ED92E2BE1EAC5FCE2D7DDFEDB0DCDE127 (void);
-// 0x00000034 UnityEngine.Material UnityEngine.Font::get_material()
+// 0x0000004F UnityEngine.Material UnityEngine.Font::get_material()
 extern void Font_get_material_m61ABDEC14C6D659DDC5A4F080023699116C17364 (void);
-// 0x00000035 System.Boolean UnityEngine.Font::get_dynamic()
+// 0x00000050 System.Boolean UnityEngine.Font::get_dynamic()
 extern void Font_get_dynamic_m5231258BFEAABA3B3EA6AB5D8C2FDCBC2AD1371C (void);
-// 0x00000036 System.Int32 UnityEngine.Font::get_fontSize()
+// 0x00000051 System.Int32 UnityEngine.Font::get_fontSize()
 extern void Font_get_fontSize_m02C2F5C7A7C89A878F04C2087248DD46BBF9E26B (void);
-// 0x00000037 System.Void UnityEngine.Font::.ctor()
+// 0x00000052 System.Void UnityEngine.Font::.ctor()
 extern void Font__ctor_m9106C7F312AE77F6721001A5A3143951201AC841 (void);
-// 0x00000038 System.Void UnityEngine.Font::.ctor(System.String[],System.Int32)
+// 0x00000053 System.Void UnityEngine.Font::.ctor(System.String[],System.Int32)
 extern void Font__ctor_m9F4256214EE9A4A3F9C8287C21ABCAA0BCCBA461 (void);
-// 0x00000039 UnityEngine.Font UnityEngine.Font::CreateDynamicFontFromOSFont(System.String,System.Int32)
+// 0x00000054 UnityEngine.Font UnityEngine.Font::CreateDynamicFontFromOSFont(System.String,System.Int32)
 extern void Font_CreateDynamicFontFromOSFont_mEA2B3179ED72459BB4A0230AC0D66E519A3FBF3A (void);
-// 0x0000003A UnityEngine.Font UnityEngine.Font::CreateDynamicFontFromOSFont(System.String[],System.Int32)
+// 0x00000055 UnityEngine.Font UnityEngine.Font::CreateDynamicFontFromOSFont(System.String[],System.Int32)
 extern void Font_CreateDynamicFontFromOSFont_m70BD087601B093724516B6ED3758CA0C4CC6AF9B (void);
-// 0x0000003B System.Void UnityEngine.Font::InvokeTextureRebuilt_Internal(UnityEngine.Font)
+// 0x00000056 System.Void UnityEngine.Font::InvokeTextureRebuilt_Internal(UnityEngine.Font)
 extern void Font_InvokeTextureRebuilt_Internal_m86017C5A7B49F602937D8C32FC978B876AFC37F9 (void);
-// 0x0000003C System.Boolean UnityEngine.Font::HasCharacter(System.Char)
+// 0x00000057 System.Boolean UnityEngine.Font::HasCharacter(System.Char)
 extern void Font_HasCharacter_m71A84FE036055880E1543D79A38FEFA495AD200B (void);
-// 0x0000003D System.Boolean UnityEngine.Font::HasCharacter(System.Int32)
+// 0x00000058 System.Boolean UnityEngine.Font::HasCharacter(System.Int32)
 extern void Font_HasCharacter_mAB838A26F002CB5E4B4DB297F7D6836A28625B18 (void);
-// 0x0000003E System.Void UnityEngine.Font::Internal_CreateFont(UnityEngine.Font,System.String)
+// 0x00000059 System.Void UnityEngine.Font::Internal_CreateFont(UnityEngine.Font,System.String)
 extern void Font_Internal_CreateFont_mF7CE69E4C8DFB953EA74F262DE3D28B83C4DF22F (void);
-// 0x0000003F System.Void UnityEngine.Font::Internal_CreateDynamicFont(UnityEngine.Font,System.String[],System.Int32)
+// 0x0000005A System.Void UnityEngine.Font::Internal_CreateDynamicFont(UnityEngine.Font,System.String[],System.Int32)
 extern void Font_Internal_CreateDynamicFont_m2636DB3403FBA8C67D05EB548244B3CB2CBD3F81 (void);
-// 0x00000040 System.Boolean UnityEngine.Font::GetCharacterInfo(System.Char,UnityEngine.CharacterInfo&,System.Int32,UnityEngine.FontStyle)
+// 0x0000005B System.Boolean UnityEngine.Font::GetCharacterInfo(System.Char,UnityEngine.CharacterInfo&,System.Int32,UnityEngine.FontStyle)
 extern void Font_GetCharacterInfo_m66CF18A6ECA8A877CA793DCC733DCF9659F398E8 (void);
-// 0x00000041 System.Void UnityEngine.Font::RequestCharactersInTexture(System.String,System.Int32,UnityEngine.FontStyle)
+// 0x0000005C System.Void UnityEngine.Font::RequestCharactersInTexture(System.String,System.Int32,UnityEngine.FontStyle)
 extern void Font_RequestCharactersInTexture_m87509ABBEDF61305BA10B2DC65B565E57FF6DDD4 (void);
-// 0x00000042 System.Void UnityEngine.Font/FontTextureRebuildCallback::.ctor(System.Object,System.IntPtr)
+// 0x0000005D System.Void UnityEngine.Font/FontTextureRebuildCallback::.ctor(System.Object,System.IntPtr)
 extern void FontTextureRebuildCallback__ctor_m1AF27FC83F3136E493F47015F99CE7A4E6BCA0BC (void);
-// 0x00000043 System.Void UnityEngine.Font/FontTextureRebuildCallback::Invoke()
+// 0x0000005E System.Void UnityEngine.Font/FontTextureRebuildCallback::Invoke()
 extern void FontTextureRebuildCallback_Invoke_m8B52C3F4823ADBB80062209E6BA2B33202AE958D (void);
-static Il2CppMethodPointer s_methodPointers[67] = 
+static Il2CppMethodPointer s_methodPointers[94] = 
 {
 	TextGenerationSettings_CompareColors_m29E454405FB3871CA77CC7F94DAB1B4320BD5E53,
 	TextGenerationSettings_CompareVector2_mF3EE374922B2ECE13BA7B01B26199494A30C2E2E,
@@ -182,6 +236,33 @@ static Il2CppMethodPointer s_methodPointers[67] =
 	TextGenerator_GetLinesInternal_mDAC83E88FD1FD79CCCE294E49E02ED748CFC8E12,
 	TextGenerator_get_rectExtents_Injected_m2AB029C462FB27B9643C3EA2EB345E0EB011B2B8,
 	TextGenerator_Populate_Internal_Injected_m694EA7CA7449D60B16643460DA13ABC6BE0F2947,
+	TextMesh_get_text_mB3E900AED17390DE50DFC984428BC29EB1CA60A2,
+	TextMesh_set_text_mDF79D39638ED82797D0B0B3BB9E6B10712F8EA9E,
+	TextMesh_get_font_m94D3A4C8E4DB171B74E4FF00AC7EC27F3D495664,
+	TextMesh_set_font_m7E407CAEDBB382B95B70069D8FAB8A9E74EAAA74,
+	TextMesh_get_fontSize_m9D9DCB98FC5E439868F25A8CDA2A4F5C2D85985C,
+	TextMesh_set_fontSize_mAB9F7FFC0E4DB759B786F6A9357B18C86015498B,
+	TextMesh_get_fontStyle_mB5186C6CCE5303FF459E6C95D7EB35C48A22AD73,
+	TextMesh_set_fontStyle_m038D1FE5DA05B74AF611B1D2DCDD771756E744CF,
+	TextMesh_get_offsetZ_mBFF3610B382430095EF40CB4D00A770F87FD4529,
+	TextMesh_set_offsetZ_m387CC7DE7BBD2FECADF377051EB3E57E0F7B7DF7,
+	TextMesh_get_alignment_m9D0F0104F6DDA4C0B716B5C391F881200766915A,
+	TextMesh_set_alignment_mCEAFE4A6CB546C3CB2B03582289FCC943EEF760F,
+	TextMesh_get_anchor_m504B52CADC07A2B29CF2F229A0F03B2E102DCD69,
+	TextMesh_set_anchor_m3FCB7C4B1FF66CE189B56076C0306AFE984FCD32,
+	TextMesh_get_characterSize_mA9495F227772CFEBB2EB64B65166E682DB5E8147,
+	TextMesh_set_characterSize_mAEAE87C4648EF49409BDA93E5F504356B68D6052,
+	TextMesh_get_lineSpacing_mC8A8CA472D961F42465D3193B44E0104E2DD817E,
+	TextMesh_set_lineSpacing_m3FB0A3F54E8F0412DD8BED2095AF0A73491E0658,
+	TextMesh_get_tabSize_m627F284247B15DF0F03336C7418A24EFA5A7D459,
+	TextMesh_set_tabSize_m1CA08EEE2A13E28227466754E7FE616C2DC023BA,
+	TextMesh_get_richText_mD09467720AE70BEA5ACB9F5227693507957949D6,
+	TextMesh_set_richText_m26D52770D73A6B142A153B913F2D005E895F2EE2,
+	TextMesh_get_color_m128E5D16AA72D5284C70957253DEAEE4FBEB023E,
+	TextMesh_set_color_mF08F30C3CD797C16289225B567724B9F07DC641E,
+	TextMesh__ctor_m987D6C4E18BF8F2DB68D8D0A88FF226263F8BB52,
+	TextMesh_get_color_Injected_m3E6F8CA2677A2304BCF58A8FCE4468B29D97F769,
+	TextMesh_set_color_Injected_mC7C51FAE003F1B2FB510F50DC1C4AFBFE740B4E4,
 	CharacterInfo_get_advance_m0AAC68ABA1BD5B184B53E01F270BA4FD1D2C2B9A,
 	CharacterInfo_get_glyphWidth_m874E46221A743197C48F80D6F51B1F06F7E06D5D,
 	CharacterInfo_get_minY_m9BC2A892418F3E986B0EAFE56F28FABD8CAA4A3A,
@@ -238,96 +319,123 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[17] =
 	{ 0x06000001, TextGenerationSettings_CompareColors_m29E454405FB3871CA77CC7F94DAB1B4320BD5E53_AdjustorThunk },
 	{ 0x06000002, TextGenerationSettings_CompareVector2_mF3EE374922B2ECE13BA7B01B26199494A30C2E2E_AdjustorThunk },
 	{ 0x06000003, TextGenerationSettings_Equals_m04DE9655555622E3A4EECC2EAB3BC36B38E20840_AdjustorThunk },
-	{ 0x06000023, CharacterInfo_get_advance_m0AAC68ABA1BD5B184B53E01F270BA4FD1D2C2B9A_AdjustorThunk },
-	{ 0x06000024, CharacterInfo_get_glyphWidth_m874E46221A743197C48F80D6F51B1F06F7E06D5D_AdjustorThunk },
-	{ 0x06000025, CharacterInfo_get_minY_m9BC2A892418F3E986B0EAFE56F28FABD8CAA4A3A_AdjustorThunk },
-	{ 0x06000026, CharacterInfo_get_maxY_m2439B7BB55176E566ECE4CAB87B3AA252DF46927_AdjustorThunk },
-	{ 0x06000027, CharacterInfo_get_minX_m69B3FB781E712AE29CDEC596F9932862FB553328_AdjustorThunk },
-	{ 0x06000028, CharacterInfo_get_maxX_m55625E1CD75FA327A33D2DA9C4A15C846CBB0A20_AdjustorThunk },
-	{ 0x06000029, CharacterInfo_get_uvBottomLeftUnFlipped_mCBA8417A773038E225D431DA5A5D67445AD13244_AdjustorThunk },
-	{ 0x0600002A, CharacterInfo_get_uvBottomRightUnFlipped_m8C9B5C60873D8DA8232F37B87B03D6B235A0997E_AdjustorThunk },
-	{ 0x0600002B, CharacterInfo_get_uvTopRightUnFlipped_m13A645BC543D634A53EE7C0282C64F68535EAC29_AdjustorThunk },
-	{ 0x0600002C, CharacterInfo_get_uvTopLeftUnFlipped_m5DE3E983B48D8E5611FF7C8F78827A1841DCD2CB_AdjustorThunk },
-	{ 0x0600002D, CharacterInfo_get_uvBottomLeft_mDBE99341E4D50DB991F249E438891D118AB2DF9F_AdjustorThunk },
-	{ 0x0600002E, CharacterInfo_get_uvBottomRight_m2A6F8FA7B8C05E65653AE2986E0889CCEAE3EF17_AdjustorThunk },
-	{ 0x0600002F, CharacterInfo_get_uvTopRight_m706389A181F4E4EAAB886C08D6E1A9C3D8FD2C16_AdjustorThunk },
-	{ 0x06000030, CharacterInfo_get_uvTopLeft_m8366979523BC656BF87BA43327604E6870BC6A33_AdjustorThunk },
+	{ 0x0600003E, CharacterInfo_get_advance_m0AAC68ABA1BD5B184B53E01F270BA4FD1D2C2B9A_AdjustorThunk },
+	{ 0x0600003F, CharacterInfo_get_glyphWidth_m874E46221A743197C48F80D6F51B1F06F7E06D5D_AdjustorThunk },
+	{ 0x06000040, CharacterInfo_get_minY_m9BC2A892418F3E986B0EAFE56F28FABD8CAA4A3A_AdjustorThunk },
+	{ 0x06000041, CharacterInfo_get_maxY_m2439B7BB55176E566ECE4CAB87B3AA252DF46927_AdjustorThunk },
+	{ 0x06000042, CharacterInfo_get_minX_m69B3FB781E712AE29CDEC596F9932862FB553328_AdjustorThunk },
+	{ 0x06000043, CharacterInfo_get_maxX_m55625E1CD75FA327A33D2DA9C4A15C846CBB0A20_AdjustorThunk },
+	{ 0x06000044, CharacterInfo_get_uvBottomLeftUnFlipped_mCBA8417A773038E225D431DA5A5D67445AD13244_AdjustorThunk },
+	{ 0x06000045, CharacterInfo_get_uvBottomRightUnFlipped_m8C9B5C60873D8DA8232F37B87B03D6B235A0997E_AdjustorThunk },
+	{ 0x06000046, CharacterInfo_get_uvTopRightUnFlipped_m13A645BC543D634A53EE7C0282C64F68535EAC29_AdjustorThunk },
+	{ 0x06000047, CharacterInfo_get_uvTopLeftUnFlipped_m5DE3E983B48D8E5611FF7C8F78827A1841DCD2CB_AdjustorThunk },
+	{ 0x06000048, CharacterInfo_get_uvBottomLeft_mDBE99341E4D50DB991F249E438891D118AB2DF9F_AdjustorThunk },
+	{ 0x06000049, CharacterInfo_get_uvBottomRight_m2A6F8FA7B8C05E65653AE2986E0889CCEAE3EF17_AdjustorThunk },
+	{ 0x0600004A, CharacterInfo_get_uvTopRight_m706389A181F4E4EAAB886C08D6E1A9C3D8FD2C16_AdjustorThunk },
+	{ 0x0600004B, CharacterInfo_get_uvTopLeft_m8366979523BC656BF87BA43327604E6870BC6A33_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[67] = 
+static const int32_t s_InvokerIndices[94] = 
 {
-	2699,
-	2859,
-	6478,
-	10749,
-	8500,
-	10749,
-	10749,
-	10567,
-	7801,
-	10749,
-	8532,
-	8532,
-	8532,
-	3653,
-	3653,
-	1724,
-	2776,
-	3305,
-	3305,
-	10600,
-	10600,
-	10600,
-	10627,
-	10567,
-	10567,
-	16632,
-	15791,
+	4563,
+	4751,
+	9507,
+	15114,
+	12178,
+	15114,
+	15114,
+	14884,
+	11223,
+	15114,
+	12220,
+	12220,
+	12220,
+	5816,
+	5816,
+	2983,
+	4653,
+	5358,
+	5358,
+	14929,
+	14929,
+	14929,
+	14970,
+	14884,
+	14884,
+	23935,
+	23004,
 	3,
 	4,
-	8532,
-	8532,
-	8532,
-	8418,
+	12220,
+	12220,
+	12220,
+	12057,
 	2,
-	10567,
-	10567,
-	10567,
-	10567,
-	10567,
-	10567,
-	10735,
-	10735,
-	10735,
-	10735,
-	10735,
-	10735,
-	10735,
-	10735,
-	16683,
-	15793,
-	15793,
-	10600,
-	10503,
-	10567,
-	10749,
-	4717,
-	13734,
-	13734,
-	15793,
-	6499,
-	6343,
-	14116,
-	13085,
-	798,
-	2208,
-	4720,
-	10749,
+	14929,
+	12220,
+	14929,
+	12220,
+	14884,
+	12178,
+	14884,
+	12178,
+	15017,
+	12306,
+	14884,
+	12178,
+	14884,
+	12178,
+	15017,
+	12306,
+	15017,
+	12306,
+	15017,
+	12306,
+	14787,
+	12079,
+	14796,
+	12089,
+	15114,
+	12057,
+	12057,
+	14884,
+	14884,
+	14884,
+	14884,
+	14884,
+	14884,
+	15099,
+	15099,
+	15099,
+	15099,
+	15099,
+	15099,
+	15099,
+	15099,
+	24003,
+	23009,
+	23009,
+	14929,
+	14787,
+	14884,
+	15114,
+	7230,
+	20061,
+	20061,
+	23009,
+	9530,
+	9327,
+	20764,
+	19006,
+	1264,
+	3835,
+	7233,
+	15114,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_TextRenderingModule_CodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_TextRenderingModule_CodeGenModule = 
 {
 	"UnityEngine.TextRenderingModule.dll",
-	67,
+	94,
 	s_methodPointers,
 	17,
 	s_adjustorThunks,

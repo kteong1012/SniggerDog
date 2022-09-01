@@ -247,12 +247,14 @@ public class RefTypes : MonoBehaviour
         Debug.Log("async task 1");
         await Task.Delay(3000);
         Debug.Log("async task 2");
+        TestAsync3();
     }
 
     // Update is called once per frame
     void Update()
     {
         TestAsync();
+
     }
 
     public static int TestAsync()

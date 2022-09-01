@@ -1306,19 +1306,19 @@ struct StringBuilder_t  : public RuntimeObject
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E  : public RuntimeObject
 {
 	// System.String System.Uri::m_String
-	String_t* ___m_String_13;
+	String_t* ___m_String_16;
 	// System.String System.Uri::m_originalUnicodeString
-	String_t* ___m_originalUnicodeString_14;
+	String_t* ___m_originalUnicodeString_17;
 	// System.UriParser System.Uri::m_Syntax
-	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_15;
+	UriParser_t920B0868286118827C08B08A15A9456AF6C19D81* ___m_Syntax_18;
 	// System.String System.Uri::m_DnsSafeHost
-	String_t* ___m_DnsSafeHost_16;
+	String_t* ___m_DnsSafeHost_19;
 	// System.Uri/Flags System.Uri::m_Flags
-	uint64_t ___m_Flags_17;
+	uint64_t ___m_Flags_20;
 	// System.Uri/UriInfo System.Uri::m_Info
-	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_18;
+	UriInfo_t5F91F77A93545DDDA6BB24A609BAF5E232CC1A09* ___m_Info_21;
 	// System.Boolean System.Uri::m_iriParsing
-	bool ___m_iriParsing_19;
+	bool ___m_iriParsing_22;
 };
 
 struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
@@ -1350,23 +1350,23 @@ struct Uri_t1500A52B5F71A04F5D05C0852D0F2A0941842A0E_StaticFields
 	// System.String System.Uri::SchemeDelimiter
 	String_t* ___SchemeDelimiter_12;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitialized
-	bool ___s_ConfigInitialized_20;
+	bool ___s_ConfigInitialized_23;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_ConfigInitializing
-	bool ___s_ConfigInitializing_21;
+	bool ___s_ConfigInitializing_24;
 	// System.UriIdnScope modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IdnScope
-	int32_t ___s_IdnScope_22;
+	int32_t ___s_IdnScope_25;
 	// System.Boolean modreq(System.Runtime.CompilerServices.IsVolatile) System.Uri::s_IriParsing
-	bool ___s_IriParsing_23;
+	bool ___s_IriParsing_26;
 	// System.Boolean System.Uri::useDotNetRelativeOrAbsolute
-	bool ___useDotNetRelativeOrAbsolute_24;
+	bool ___useDotNetRelativeOrAbsolute_27;
 	// System.Boolean System.Uri::IsWindowsFileSystem
-	bool ___IsWindowsFileSystem_25;
+	bool ___IsWindowsFileSystem_29;
 	// System.Object System.Uri::s_initLock
-	RuntimeObject* ___s_initLock_26;
+	RuntimeObject* ___s_initLock_30;
 	// System.Char[] System.Uri::HexLowerChars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_27;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___HexLowerChars_34;
 	// System.Char[] System.Uri::_WSchars
-	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_28;
+	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ____WSchars_35;
 };
 
 // System.ValueType
@@ -2103,19 +2103,19 @@ struct Parser_t0AD3F13CE3B3B6EA16191873E806C64A0F825D23_marshaled_com
 struct DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 
 {
 	// System.DateTime System.DateTimeOffset::_dateTime
-	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ____dateTime_3;
+	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ____dateTime_9;
 	// System.Int16 System.DateTimeOffset::_offsetMinutes
-	int16_t ____offsetMinutes_4;
+	int16_t ____offsetMinutes_10;
 };
 
 struct DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4_StaticFields
 {
 	// System.DateTimeOffset System.DateTimeOffset::MinValue
-	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___MinValue_0;
+	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___MinValue_6;
 	// System.DateTimeOffset System.DateTimeOffset::MaxValue
-	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___MaxValue_1;
+	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___MaxValue_7;
 	// System.DateTimeOffset System.DateTimeOffset::UnixEpoch
-	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___UnixEpoch_2;
+	DateTimeOffset_t4EE701FE2F386D6F932FAC9B11E4B74A5B30F0A4 ___UnixEpoch_8;
 };
 
 // System.Delegate
@@ -2289,37 +2289,37 @@ struct RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B
 struct TimeZoneInfo_t30FD24E315EC4F4D942AF797CCD4CC4ED6B5CAD8  : public RuntimeObject
 {
 	// System.String System.TimeZoneInfo::_id
-	String_t* ____id_1;
+	String_t* ____id_14;
 	// System.String System.TimeZoneInfo::_displayName
-	String_t* ____displayName_2;
+	String_t* ____displayName_15;
 	// System.String System.TimeZoneInfo::_standardDisplayName
-	String_t* ____standardDisplayName_3;
+	String_t* ____standardDisplayName_16;
 	// System.String System.TimeZoneInfo::_daylightDisplayName
-	String_t* ____daylightDisplayName_4;
+	String_t* ____daylightDisplayName_17;
 	// System.TimeSpan System.TimeZoneInfo::_baseUtcOffset
-	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ____baseUtcOffset_5;
+	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ____baseUtcOffset_18;
 	// System.Boolean System.TimeZoneInfo::_supportsDaylightSavingTime
-	bool ____supportsDaylightSavingTime_6;
+	bool ____supportsDaylightSavingTime_19;
 	// System.TimeZoneInfo/AdjustmentRule[] System.TimeZoneInfo::_adjustmentRules
-	AdjustmentRuleU5BU5D_tE06E08FC55F09158CD673CE867C3771D92906DFA* ____adjustmentRules_7;
+	AdjustmentRuleU5BU5D_tE06E08FC55F09158CD673CE867C3771D92906DFA* ____adjustmentRules_20;
 };
 
 struct TimeZoneInfo_t30FD24E315EC4F4D942AF797CCD4CC4ED6B5CAD8_StaticFields
 {
 	// System.Lazy`1<System.Boolean> System.TimeZoneInfo::lazyHaveRegistry
-	Lazy_1_tE828BFCC51472E56E0835AF95E5D43FAA716D0D6* ___lazyHaveRegistry_0;
+	Lazy_1_tE828BFCC51472E56E0835AF95E5D43FAA716D0D6* ___lazyHaveRegistry_11;
 	// System.TimeZoneInfo System.TimeZoneInfo::s_utcTimeZone
-	TimeZoneInfo_t30FD24E315EC4F4D942AF797CCD4CC4ED6B5CAD8* ___s_utcTimeZone_8;
+	TimeZoneInfo_t30FD24E315EC4F4D942AF797CCD4CC4ED6B5CAD8* ___s_utcTimeZone_23;
 	// System.TimeZoneInfo/CachedData System.TimeZoneInfo::s_cachedData
-	CachedData_t369B36942C95D8657719006E55DEA9EB23E03CFF* ___s_cachedData_9;
+	CachedData_t369B36942C95D8657719006E55DEA9EB23E03CFF* ___s_cachedData_24;
 	// System.DateTime System.TimeZoneInfo::s_maxDateOnly
-	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ___s_maxDateOnly_10;
+	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ___s_maxDateOnly_25;
 	// System.DateTime System.TimeZoneInfo::s_minDateOnly
-	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ___s_minDateOnly_11;
+	DateTime_t66193957C73913903DDAD89FEDC46139BCA5802D ___s_minDateOnly_26;
 	// System.TimeSpan System.TimeZoneInfo::MaxOffset
-	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ___MaxOffset_12;
+	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ___MaxOffset_27;
 	// System.TimeSpan System.TimeZoneInfo::MinOffset
-	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ___MinOffset_13;
+	TimeSpan_t8195C5B013A2C532FEBDF0B64B6911982E750F5A ___MinOffset_28;
 };
 
 // MS.Internal.Xml.XPath.XPathArrayIterator
@@ -7989,7 +7989,7 @@ IL_007b:
 		Type_t* L_29 = ___destinationType1;
 		NullCheck(L_29);
 		Type_t* L_30;
-		L_30 = VirtualFuncInvoker0< Type_t* >::Invoke(46 /* System.Type System.Type::GetElementType() */, L_29);
+		L_30 = VirtualFuncInvoker0< Type_t* >::Invoke(189 /* System.Type System.Type::GetElementType() */, L_29);
 		V_1 = L_30;
 		Type_t* L_31 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(XmlBaseConverter_tB935E170055CCB49F182D426AC09B2D4C0DA919D_il2cpp_TypeInfo_var);
@@ -8979,7 +8979,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* XmlListConverter_CreateInvalidCl
 		Type_t* L_7 = ___sourceType0;
 		NullCheck(L_7);
 		String_t* L_8;
-		L_8 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_7);
+		L_8 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_7);
 		NullCheck(L_6);
 		ArrayElementTypeCheck (L_6, L_8);
 		(L_6)->SetAt(static_cast<il2cpp_array_size_t>(1), (RuntimeObject*)L_8);
@@ -9004,7 +9004,7 @@ IL_0031:
 		Type_t* L_15 = ___sourceType0;
 		NullCheck(L_15);
 		String_t* L_16;
-		L_16 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_15);
+		L_16 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_15);
 		NullCheck(L_14);
 		ArrayElementTypeCheck (L_14, L_16);
 		(L_14)->SetAt(static_cast<il2cpp_array_size_t>(1), (RuntimeObject*)L_16);
@@ -9012,7 +9012,7 @@ IL_0031:
 		Type_t* L_18 = ___destinationType1;
 		NullCheck(L_18);
 		String_t* L_19;
-		L_19 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_18);
+		L_19 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_18);
 		NullCheck(L_17);
 		ArrayElementTypeCheck (L_17, L_19);
 		(L_17)->SetAt(static_cast<il2cpp_array_size_t>(2), (RuntimeObject*)L_19);
@@ -28590,7 +28590,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool StringFunctions_Contains_m469D45150BBA94
 		String_t* L_12 = V_1;
 		NullCheck(L_10);
 		int32_t L_13;
-		L_13 = VirtualFuncInvoker3< int32_t, String_t*, String_t*, int32_t >::Invoke(11 /* System.Int32 System.Globalization.CompareInfo::IndexOf(System.String,System.String,System.Globalization.CompareOptions) */, L_10, L_11, L_12, ((int32_t)1073741824));
+		L_13 = VirtualFuncInvoker3< int32_t, String_t*, String_t*, int32_t >::Invoke(19 /* System.Int32 System.Globalization.CompareInfo::IndexOf(System.String,System.String,System.Globalization.CompareOptions) */, L_10, L_11, L_12, ((int32_t)1073741824));
 		return (bool)((((int32_t)((((int32_t)L_13) < ((int32_t)0))? 1 : 0)) == ((int32_t)0))? 1 : 0);
 	}
 }
@@ -28655,7 +28655,7 @@ IL_003a:
 		String_t* L_15 = V_1;
 		NullCheck(L_13);
 		int32_t L_16;
-		L_16 = VirtualFuncInvoker3< int32_t, String_t*, String_t*, int32_t >::Invoke(11 /* System.Int32 System.Globalization.CompareInfo::IndexOf(System.String,System.String,System.Globalization.CompareOptions) */, L_13, L_14, L_15, ((int32_t)1073741824));
+		L_16 = VirtualFuncInvoker3< int32_t, String_t*, String_t*, int32_t >::Invoke(19 /* System.Int32 System.Globalization.CompareInfo::IndexOf(System.String,System.String,System.Globalization.CompareOptions) */, L_13, L_14, L_15, ((int32_t)1073741824));
 		V_2 = L_16;
 		int32_t L_17 = V_2;
 		if ((((int32_t)L_17) < ((int32_t)1)))
@@ -28739,7 +28739,7 @@ IL_003a:
 		String_t* L_15 = V_1;
 		NullCheck(L_13);
 		int32_t L_16;
-		L_16 = VirtualFuncInvoker3< int32_t, String_t*, String_t*, int32_t >::Invoke(11 /* System.Int32 System.Globalization.CompareInfo::IndexOf(System.String,System.String,System.Globalization.CompareOptions) */, L_13, L_14, L_15, ((int32_t)1073741824));
+		L_16 = VirtualFuncInvoker3< int32_t, String_t*, String_t*, int32_t >::Invoke(19 /* System.Int32 System.Globalization.CompareInfo::IndexOf(System.String,System.String,System.Globalization.CompareOptions) */, L_13, L_14, L_15, ((int32_t)1073741824));
 		V_2 = L_16;
 		int32_t L_17 = V_2;
 		if ((((int32_t)L_17) < ((int32_t)0)))
@@ -29359,7 +29359,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StringFunctions__cctor_m1529CA43B1AF841A
 		L_0 = CultureInfo_get_InvariantCulture_m78DAB8CBE8766445310782B6E61FB7A9983AD425(NULL);
 		NullCheck(L_0);
 		CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* L_1;
-		L_1 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(12 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_0);
+		L_1 = VirtualFuncInvoker0< CompareInfo_t1B1A6AC3486B570C76ABA52149C9BD4CD82F9E57* >::Invoke(18 /* System.Globalization.CompareInfo System.Globalization.CultureInfo::get_CompareInfo() */, L_0);
 		((StringFunctions_t46C9229E031209FAA465BAC56334DBE0190024EA_StaticFields*)il2cpp_codegen_static_fields_for(StringFunctions_t46C9229E031209FAA465BAC56334DBE0190024EA_il2cpp_TypeInfo_var))->___s_compareInfo_3 = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&((StringFunctions_t46C9229E031209FAA465BAC56334DBE0190024EA_StaticFields*)il2cpp_codegen_static_fields_for(StringFunctions_t46C9229E031209FAA465BAC56334DBE0190024EA_il2cpp_TypeInfo_var))->___s_compareInfo_3), (void*)L_1);
 		return;

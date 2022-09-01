@@ -74,6 +74,8 @@ struct StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF;
 struct ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263;
 // System.ArgumentNullException
 struct ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129;
+// System.AsyncCallback
+struct AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C;
 // System.Attribute
 struct Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA;
 // UnityEngine.Camera
@@ -86,6 +88,8 @@ struct DelegateData_t9B286B493293CD2D23A5B2B5EF0E5B1324C2B77E;
 struct EmbeddedAttribute_tE12941E90BE7D41A61A8FF0507EC86D12F1C2ACC;
 // System.Enum
 struct Enum_t2A1A94B24E3B776EEF4E5E485E290BB9D4D072E2;
+// System.IAsyncResult
+struct IAsyncResult_t7B9B5A0ECB35DCEC31B8A8122C37D687369253B5;
 // System.Collections.IDictionary
 struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
 // UnityEngine.ISubsystemDescriptor
@@ -675,69 +679,69 @@ struct U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171B
 struct CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 
 {
 	// UnityEngine.Rect UnityEngine.Rendering.CameraProperties::screenRect
-	Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___screenRect_0;
+	Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D ___screenRect_1;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::viewDir
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___viewDir_1;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___viewDir_2;
 	// System.Single UnityEngine.Rendering.CameraProperties::projectionNear
-	float ___projectionNear_2;
+	float ___projectionNear_3;
 	// System.Single UnityEngine.Rendering.CameraProperties::projectionFar
-	float ___projectionFar_3;
+	float ___projectionFar_4;
 	// System.Single UnityEngine.Rendering.CameraProperties::cameraNear
-	float ___cameraNear_4;
+	float ___cameraNear_5;
 	// System.Single UnityEngine.Rendering.CameraProperties::cameraFar
-	float ___cameraFar_5;
+	float ___cameraFar_6;
 	// System.Single UnityEngine.Rendering.CameraProperties::cameraAspect
-	float ___cameraAspect_6;
+	float ___cameraAspect_7;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::cameraToWorld
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___cameraToWorld_7;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___cameraToWorld_8;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::actualWorldToClip
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___actualWorldToClip_8;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___actualWorldToClip_9;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::cameraClipToWorld
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___cameraClipToWorld_9;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___cameraClipToWorld_10;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::cameraWorldToClip
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___cameraWorldToClip_10;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___cameraWorldToClip_11;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::implicitProjection
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___implicitProjection_11;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___implicitProjection_12;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::stereoWorldToClipLeft
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___stereoWorldToClipLeft_12;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___stereoWorldToClipLeft_13;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::stereoWorldToClipRight
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___stereoWorldToClipRight_13;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___stereoWorldToClipRight_14;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.CameraProperties::worldToCamera
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___worldToCamera_14;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___worldToCamera_15;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::up
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___up_15;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___up_16;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::right
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___right_16;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___right_17;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::transformDirection
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___transformDirection_17;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___transformDirection_18;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::cameraEuler
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___cameraEuler_18;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___cameraEuler_19;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::velocity
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___velocity_19;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___velocity_20;
 	// System.Single UnityEngine.Rendering.CameraProperties::farPlaneWorldSpaceLength
-	float ___farPlaneWorldSpaceLength_20;
+	float ___farPlaneWorldSpaceLength_21;
 	// System.UInt32 UnityEngine.Rendering.CameraProperties::rendererCount
-	uint32_t ___rendererCount_21;
+	uint32_t ___rendererCount_22;
 	// UnityEngine.Rendering.CameraProperties/<m_ShadowCullPlanes>e__FixedBuffer UnityEngine.Rendering.CameraProperties::m_ShadowCullPlanes
-	U3Cm_ShadowCullPlanesU3Ee__FixedBuffer_tEBBBC21BE4AF7AC2F831E9A67E5E5CFEBDF2DE4F ___m_ShadowCullPlanes_22;
+	U3Cm_ShadowCullPlanesU3Ee__FixedBuffer_tEBBBC21BE4AF7AC2F831E9A67E5E5CFEBDF2DE4F ___m_ShadowCullPlanes_24;
 	// UnityEngine.Rendering.CameraProperties/<m_CameraCullPlanes>e__FixedBuffer UnityEngine.Rendering.CameraProperties::m_CameraCullPlanes
-	U3Cm_CameraCullPlanesU3Ee__FixedBuffer_t41B125C97F22DF8C016DBA29753704559C53DCD9 ___m_CameraCullPlanes_23;
+	U3Cm_CameraCullPlanesU3Ee__FixedBuffer_t41B125C97F22DF8C016DBA29753704559C53DCD9 ___m_CameraCullPlanes_25;
 	// System.Single UnityEngine.Rendering.CameraProperties::baseFarDistance
-	float ___baseFarDistance_24;
+	float ___baseFarDistance_26;
 	// UnityEngine.Vector3 UnityEngine.Rendering.CameraProperties::shadowCullCenter
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___shadowCullCenter_25;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___shadowCullCenter_27;
 	// UnityEngine.Rendering.CameraProperties/<layerCullDistances>e__FixedBuffer UnityEngine.Rendering.CameraProperties::layerCullDistances
-	U3ClayerCullDistancesU3Ee__FixedBuffer_t899804C5038AB391CB8F8C17638A02661B106C3F ___layerCullDistances_26;
+	U3ClayerCullDistancesU3Ee__FixedBuffer_t899804C5038AB391CB8F8C17638A02661B106C3F ___layerCullDistances_28;
 	// System.Int32 UnityEngine.Rendering.CameraProperties::layerCullSpherical
-	int32_t ___layerCullSpherical_27;
+	int32_t ___layerCullSpherical_29;
 	// UnityEngine.Rendering.CoreCameraValues UnityEngine.Rendering.CameraProperties::coreCameraValues
-	CoreCameraValues_t5BD0108A962D53208E8523BA29AFFA9F9A295F1F ___coreCameraValues_28;
+	CoreCameraValues_t5BD0108A962D53208E8523BA29AFFA9F9A295F1F ___coreCameraValues_30;
 	// System.UInt32 UnityEngine.Rendering.CameraProperties::cameraType
-	uint32_t ___cameraType_29;
+	uint32_t ___cameraType_31;
 	// System.Int32 UnityEngine.Rendering.CameraProperties::projectionIsOblique
-	int32_t ___projectionIsOblique_30;
+	int32_t ___projectionIsOblique_32;
 	// System.Int32 UnityEngine.Rendering.CameraProperties::isImplicitProjectionMatrix
-	int32_t ___isImplicitProjectionMatrix_31;
+	int32_t ___isImplicitProjectionMatrix_33;
 };
 
 // UnityEngine.Rendering.CommandBuffer
@@ -1277,109 +1281,109 @@ struct ScriptableCullingParameters_tD9539440A4A7DA4C7578CCE16F24466A5DC89899
 	// UnityEngine.Rendering.LODParameters UnityEngine.Rendering.ScriptableCullingParameters::m_LODParameters
 	LODParameters_t54D2AA0FD8E53BCF51D7A42BC1A72FCA8C78A08A ___m_LODParameters_1;
 	// UnityEngine.Rendering.ScriptableCullingParameters/<m_CullingPlanes>e__FixedBuffer UnityEngine.Rendering.ScriptableCullingParameters::m_CullingPlanes
-	U3Cm_CullingPlanesU3Ee__FixedBuffer_t1E4CBEC7086738067A0EF9A1B2B6B36059DAB955 ___m_CullingPlanes_3;
+	U3Cm_CullingPlanesU3Ee__FixedBuffer_t1E4CBEC7086738067A0EF9A1B2B6B36059DAB955 ___m_CullingPlanes_4;
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::m_CullingPlaneCount
-	int32_t ___m_CullingPlaneCount_4;
+	int32_t ___m_CullingPlaneCount_5;
 	// System.UInt32 UnityEngine.Rendering.ScriptableCullingParameters::m_CullingMask
-	uint32_t ___m_CullingMask_5;
+	uint32_t ___m_CullingMask_6;
 	// System.UInt64 UnityEngine.Rendering.ScriptableCullingParameters::m_SceneMask
-	uint64_t ___m_SceneMask_6;
+	uint64_t ___m_SceneMask_7;
 	// UnityEngine.Rendering.ScriptableCullingParameters/<m_LayerFarCullDistances>e__FixedBuffer UnityEngine.Rendering.ScriptableCullingParameters::m_LayerFarCullDistances
-	U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171BBF4FB4EB667D ___m_LayerFarCullDistances_8;
+	U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171BBF4FB4EB667D ___m_LayerFarCullDistances_10;
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::m_LayerCull
-	int32_t ___m_LayerCull_9;
+	int32_t ___m_LayerCull_11;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.ScriptableCullingParameters::m_CullingMatrix
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_CullingMatrix_10;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_CullingMatrix_12;
 	// UnityEngine.Vector3 UnityEngine.Rendering.ScriptableCullingParameters::m_Origin
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Origin_11;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Origin_13;
 	// System.Single UnityEngine.Rendering.ScriptableCullingParameters::m_ShadowDistance
-	float ___m_ShadowDistance_12;
+	float ___m_ShadowDistance_14;
 	// System.Single UnityEngine.Rendering.ScriptableCullingParameters::m_ShadowNearPlaneOffset
-	float ___m_ShadowNearPlaneOffset_13;
+	float ___m_ShadowNearPlaneOffset_15;
 	// UnityEngine.Rendering.CullingOptions UnityEngine.Rendering.ScriptableCullingParameters::m_CullingOptions
-	int32_t ___m_CullingOptions_14;
+	int32_t ___m_CullingOptions_16;
 	// UnityEngine.Rendering.ReflectionProbeSortingCriteria UnityEngine.Rendering.ScriptableCullingParameters::m_ReflectionProbeSortingCriteria
-	int32_t ___m_ReflectionProbeSortingCriteria_15;
+	int32_t ___m_ReflectionProbeSortingCriteria_17;
 	// UnityEngine.Rendering.CameraProperties UnityEngine.Rendering.ScriptableCullingParameters::m_CameraProperties
-	CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 ___m_CameraProperties_16;
+	CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 ___m_CameraProperties_18;
 	// System.Single UnityEngine.Rendering.ScriptableCullingParameters::m_AccurateOcclusionThreshold
-	float ___m_AccurateOcclusionThreshold_17;
+	float ___m_AccurateOcclusionThreshold_19;
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::m_MaximumPortalCullingJobs
-	int32_t ___m_MaximumPortalCullingJobs_18;
+	int32_t ___m_MaximumPortalCullingJobs_20;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.ScriptableCullingParameters::m_StereoViewMatrix
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoViewMatrix_19;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoViewMatrix_23;
 	// UnityEngine.Matrix4x4 UnityEngine.Rendering.ScriptableCullingParameters::m_StereoProjectionMatrix
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoProjectionMatrix_20;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoProjectionMatrix_24;
 	// System.Single UnityEngine.Rendering.ScriptableCullingParameters::m_StereoSeparationDistance
-	float ___m_StereoSeparationDistance_21;
+	float ___m_StereoSeparationDistance_25;
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::m_maximumVisibleLights
-	int32_t ___m_maximumVisibleLights_22;
+	int32_t ___m_maximumVisibleLights_26;
 	// System.Boolean UnityEngine.Rendering.ScriptableCullingParameters::m_ConservativeEnclosingSphere
-	bool ___m_ConservativeEnclosingSphere_23;
+	bool ___m_ConservativeEnclosingSphere_27;
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::m_NumIterationsEnclosingSphere
-	int32_t ___m_NumIterationsEnclosingSphere_24;
+	int32_t ___m_NumIterationsEnclosingSphere_28;
 };
 
 struct ScriptableCullingParameters_tD9539440A4A7DA4C7578CCE16F24466A5DC89899_StaticFields
 {
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::maximumCullingPlaneCount
-	int32_t ___maximumCullingPlaneCount_2;
+	int32_t ___maximumCullingPlaneCount_3;
 	// System.Int32 UnityEngine.Rendering.ScriptableCullingParameters::layerCount
-	int32_t ___layerCount_7;
+	int32_t ___layerCount_9;
 };
 // Native definition for P/Invoke marshalling of UnityEngine.Rendering.ScriptableCullingParameters
 struct ScriptableCullingParameters_tD9539440A4A7DA4C7578CCE16F24466A5DC89899_marshaled_pinvoke
 {
 	int32_t ___m_IsOrthographic_0;
 	LODParameters_t54D2AA0FD8E53BCF51D7A42BC1A72FCA8C78A08A ___m_LODParameters_1;
-	U3Cm_CullingPlanesU3Ee__FixedBuffer_t1E4CBEC7086738067A0EF9A1B2B6B36059DAB955 ___m_CullingPlanes_3;
-	int32_t ___m_CullingPlaneCount_4;
-	uint32_t ___m_CullingMask_5;
-	uint64_t ___m_SceneMask_6;
-	U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171BBF4FB4EB667D ___m_LayerFarCullDistances_8;
-	int32_t ___m_LayerCull_9;
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_CullingMatrix_10;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Origin_11;
-	float ___m_ShadowDistance_12;
-	float ___m_ShadowNearPlaneOffset_13;
-	int32_t ___m_CullingOptions_14;
-	int32_t ___m_ReflectionProbeSortingCriteria_15;
-	CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 ___m_CameraProperties_16;
-	float ___m_AccurateOcclusionThreshold_17;
-	int32_t ___m_MaximumPortalCullingJobs_18;
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoViewMatrix_19;
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoProjectionMatrix_20;
-	float ___m_StereoSeparationDistance_21;
-	int32_t ___m_maximumVisibleLights_22;
-	int32_t ___m_ConservativeEnclosingSphere_23;
-	int32_t ___m_NumIterationsEnclosingSphere_24;
+	U3Cm_CullingPlanesU3Ee__FixedBuffer_t1E4CBEC7086738067A0EF9A1B2B6B36059DAB955 ___m_CullingPlanes_4;
+	int32_t ___m_CullingPlaneCount_5;
+	uint32_t ___m_CullingMask_6;
+	uint64_t ___m_SceneMask_7;
+	U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171BBF4FB4EB667D ___m_LayerFarCullDistances_10;
+	int32_t ___m_LayerCull_11;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_CullingMatrix_12;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Origin_13;
+	float ___m_ShadowDistance_14;
+	float ___m_ShadowNearPlaneOffset_15;
+	int32_t ___m_CullingOptions_16;
+	int32_t ___m_ReflectionProbeSortingCriteria_17;
+	CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 ___m_CameraProperties_18;
+	float ___m_AccurateOcclusionThreshold_19;
+	int32_t ___m_MaximumPortalCullingJobs_20;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoViewMatrix_23;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoProjectionMatrix_24;
+	float ___m_StereoSeparationDistance_25;
+	int32_t ___m_maximumVisibleLights_26;
+	int32_t ___m_ConservativeEnclosingSphere_27;
+	int32_t ___m_NumIterationsEnclosingSphere_28;
 };
 // Native definition for COM marshalling of UnityEngine.Rendering.ScriptableCullingParameters
 struct ScriptableCullingParameters_tD9539440A4A7DA4C7578CCE16F24466A5DC89899_marshaled_com
 {
 	int32_t ___m_IsOrthographic_0;
 	LODParameters_t54D2AA0FD8E53BCF51D7A42BC1A72FCA8C78A08A ___m_LODParameters_1;
-	U3Cm_CullingPlanesU3Ee__FixedBuffer_t1E4CBEC7086738067A0EF9A1B2B6B36059DAB955 ___m_CullingPlanes_3;
-	int32_t ___m_CullingPlaneCount_4;
-	uint32_t ___m_CullingMask_5;
-	uint64_t ___m_SceneMask_6;
-	U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171BBF4FB4EB667D ___m_LayerFarCullDistances_8;
-	int32_t ___m_LayerCull_9;
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_CullingMatrix_10;
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Origin_11;
-	float ___m_ShadowDistance_12;
-	float ___m_ShadowNearPlaneOffset_13;
-	int32_t ___m_CullingOptions_14;
-	int32_t ___m_ReflectionProbeSortingCriteria_15;
-	CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 ___m_CameraProperties_16;
-	float ___m_AccurateOcclusionThreshold_17;
-	int32_t ___m_MaximumPortalCullingJobs_18;
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoViewMatrix_19;
-	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoProjectionMatrix_20;
-	float ___m_StereoSeparationDistance_21;
-	int32_t ___m_maximumVisibleLights_22;
-	int32_t ___m_ConservativeEnclosingSphere_23;
-	int32_t ___m_NumIterationsEnclosingSphere_24;
+	U3Cm_CullingPlanesU3Ee__FixedBuffer_t1E4CBEC7086738067A0EF9A1B2B6B36059DAB955 ___m_CullingPlanes_4;
+	int32_t ___m_CullingPlaneCount_5;
+	uint32_t ___m_CullingMask_6;
+	uint64_t ___m_SceneMask_7;
+	U3Cm_LayerFarCullDistancesU3Ee__FixedBuffer_tD64F550B6761957A5DA6A33A171BBF4FB4EB667D ___m_LayerFarCullDistances_10;
+	int32_t ___m_LayerCull_11;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_CullingMatrix_12;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Origin_13;
+	float ___m_ShadowDistance_14;
+	float ___m_ShadowNearPlaneOffset_15;
+	int32_t ___m_CullingOptions_16;
+	int32_t ___m_ReflectionProbeSortingCriteria_17;
+	CameraProperties_t9318B43C06A9BAC4CD8BC5EFCC9FE6882D296D57 ___m_CameraProperties_18;
+	float ___m_AccurateOcclusionThreshold_19;
+	int32_t ___m_MaximumPortalCullingJobs_20;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoViewMatrix_23;
+	Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 ___m_StereoProjectionMatrix_24;
+	float ___m_StereoSeparationDistance_25;
+	int32_t ___m_maximumVisibleLights_26;
+	int32_t ___m_ConservativeEnclosingSphere_27;
+	int32_t ___m_NumIterationsEnclosingSphere_28;
 };
 
 // System.SystemException

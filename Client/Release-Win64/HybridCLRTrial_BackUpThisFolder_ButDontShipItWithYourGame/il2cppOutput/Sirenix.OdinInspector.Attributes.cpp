@@ -67,6 +67,8 @@ struct AssetListAttribute_t09EBA19D3A94DAFABE14859780D67C43136FCA1E;
 struct AssetSelectorAttribute_tB2251FB35D3ABFB8A2228A5664243AEE109261F3;
 // Sirenix.OdinInspector.AssetsOnlyAttribute
 struct AssetsOnlyAttribute_t90A2FF102A5F2143F512435487E206C199CAC380;
+// System.AsyncCallback
+struct AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C;
 // System.Attribute
 struct Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA;
 // System.Reflection.Binder
@@ -171,6 +173,8 @@ struct HideNetworkBehaviourFieldsAttribute_t21327255D78B4069ACD57466B01C15CD19B9
 struct HideReferenceObjectPickerAttribute_t3B1D99B9B73F1D9D7D4355253D92EA91B3FFD70A;
 // Sirenix.OdinInspector.HorizontalGroupAttribute
 struct HorizontalGroupAttribute_tAAD5E60B2C96173C79E1AE7382F84088FA6136F7;
+// System.IAsyncResult
+struct IAsyncResult_t7B9B5A0ECB35DCEC31B8A8122C37D687369253B5;
 // System.Collections.IDictionary
 struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
 // Sirenix.OdinInspector.IncludeMyAttributesAttribute
@@ -6743,7 +6747,7 @@ IL_00ab:
 		bool L_28 = L_27->___AnimateVisibility_5;
 		__this->___AnimateVisibility_5 = (bool)((int32_t)((int32_t)L_26&(int32_t)L_28));
 		PropertyGroupAttribute_t431BBFDAA802926EC2B946D37A7896D8CBE2279E* L_29 = ___other0;
-		VirtualActionInvoker1< PropertyGroupAttribute_t431BBFDAA802926EC2B946D37A7896D8CBE2279E* >::Invoke(6 /* System.Void Sirenix.OdinInspector.PropertyGroupAttribute::CombineValuesWith(Sirenix.OdinInspector.PropertyGroupAttribute) */, __this, L_29);
+		VirtualActionInvoker1< PropertyGroupAttribute_t431BBFDAA802926EC2B946D37A7896D8CBE2279E* >::Invoke(11 /* System.Void Sirenix.OdinInspector.PropertyGroupAttribute::CombineValuesWith(Sirenix.OdinInspector.PropertyGroupAttribute) */, __this, L_29);
 		return __this;
 	}
 }

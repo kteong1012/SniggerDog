@@ -473,356 +473,348 @@ extern void TcpC2SSession__ctor_m1F8D73E0D8013A5EE7BF9D5B70F2BD3BDEF061CC (void)
 extern void TcpC2SSession__ctor_m9B385DBDD9AB552107E87103AF1B6CD3094A638D (void);
 // 0x000000F6 Cysharp.Threading.Tasks.UniTask`1<TRes> PostMainland.TcpC2SSession::Request(TReq,System.Boolean)
 // 0x000000F7 System.Void PostMainland.TcpC2SSession::Send(T,System.Boolean)
-// 0x000000F8 System.Void PostMainland.TcpC2SSession/<Request>d__4`2::.ctor()
-// 0x000000F9 System.Void PostMainland.TcpC2SSession/<Request>d__4`2::MoveNext()
-// 0x000000FA System.Void PostMainland.TcpC2SSession/<Request>d__4`2::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
-// 0x000000FB TouchSocket.Sockets.TcpClient PostMainland.TcpClientService::get_TcpClient()
+// 0x000000F8 System.Void PostMainland.TcpC2SSession/<Request>d__4`2::MoveNext()
+// 0x000000F9 System.Void PostMainland.TcpC2SSession/<Request>d__4`2::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+// 0x000000FA TouchSocket.Sockets.TcpClient PostMainland.TcpClientService::get_TcpClient()
 extern void TcpClientService_get_TcpClient_mA04F0DEBBEEF8A55C8C6549485CFAFA0CEFF7654 (void);
-// 0x000000FC System.Void PostMainland.TcpClientService::set_TcpClient(TouchSocket.Sockets.TcpClient)
+// 0x000000FB System.Void PostMainland.TcpClientService::set_TcpClient(TouchSocket.Sockets.TcpClient)
 extern void TcpClientService_set_TcpClient_mF1E0422FA395F5EF9989442FAEADE26F76435C02 (void);
-// 0x000000FD System.Void PostMainland.TcpClientService::.ctor(TouchSocket.Sockets.IPHost)
+// 0x000000FC System.Void PostMainland.TcpClientService::.ctor(TouchSocket.Sockets.IPHost)
 extern void TcpClientService__ctor_mB3B0475D6F3C2C7BEA06AA11FABE2E1F94412EB1 (void);
-// 0x000000FE System.Void PostMainland.TcpClientService::OnReceived(TouchSocket.Sockets.TcpClient,TouchSocket.Core.ByteManager.ByteBlock,TouchSocket.Sockets.IRequestInfo)
+// 0x000000FD System.Void PostMainland.TcpClientService::OnReceived(TouchSocket.Sockets.TcpClient,TouchSocket.Core.ByteManager.ByteBlock,TouchSocket.Sockets.IRequestInfo)
 extern void TcpClientService_OnReceived_m4A25B8C667131FEAB75E882CD1700EFDE1DFBAD7 (void);
-// 0x000000FF System.Void PostMainland.TcpClientService::Send(TouchSocket.Sockets.TcpClient,T,System.Boolean)
-// 0x00000100 Cysharp.Threading.Tasks.UniTask`1<TRes> PostMainland.TcpClientService::Request(TouchSocket.Sockets.TcpClient,TReq,System.Boolean,System.Single)
-// 0x00000101 System.Void PostMainland.TcpClientService/<>c::.cctor()
+// 0x000000FE System.Void PostMainland.TcpClientService::Send(TouchSocket.Sockets.TcpClient,T,System.Boolean)
+// 0x000000FF Cysharp.Threading.Tasks.UniTask`1<TRes> PostMainland.TcpClientService::Request(TouchSocket.Sockets.TcpClient,TReq,System.Boolean,System.Single)
+// 0x00000100 System.Void PostMainland.TcpClientService/<>c::.cctor()
 extern void U3CU3Ec__cctor_m59464CEA2D50AF10D332167500445C53D42AA27A (void);
-// 0x00000102 System.Void PostMainland.TcpClientService/<>c::.ctor()
+// 0x00000101 System.Void PostMainland.TcpClientService/<>c::.ctor()
 extern void U3CU3Ec__ctor_m78F770E31DC52078041EBB6CB5029A921DF99888 (void);
-// 0x00000103 TouchSocket.Sockets.DataHandlingAdapter PostMainland.TcpClientService/<>c::<.ctor>b__8_0()
+// 0x00000102 TouchSocket.Sockets.DataHandlingAdapter PostMainland.TcpClientService/<>c::<.ctor>b__8_0()
 extern void U3CU3Ec_U3C_ctorU3Eb__8_0_m72F6A7E3A45DD536DE8A1E791CE74BE4BE526C10 (void);
-// 0x00000104 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_0::.ctor()
+// 0x00000103 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_0::.ctor()
 extern void U3CU3Ec__DisplayClass9_0__ctor_mAA0F6F42186D8FE2B14CA03F99EE108DB606C21A (void);
-// 0x00000105 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_1::.ctor()
-extern void U3CU3Ec__DisplayClass9_1__ctor_m9055CC2AA0F690B5493A0F3CCC164C6C70217420 (void);
-// 0x00000106 System.Boolean PostMainland.TcpClientService/<>c__DisplayClass9_1::<OnReceived>b__0(PostMainland.RequestAwaiter)
-extern void U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__0_mC94818433A7579C7A3A679EC51E13EC8B52CA74E (void);
-// 0x00000107 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_1::<OnReceived>b__1()
-extern void U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__1_mAABD4E563F366E1729B388BB2E9E776F11B73087 (void);
-// 0x00000108 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_1::<OnReceived>b__2()
-extern void U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__2_m7706705B98DA2DADF97C6FCEEB6510EBE3E30164 (void);
-// 0x00000109 System.Void PostMainland.TcpClientService/<Request>d__11`2::.ctor()
-// 0x0000010A System.Void PostMainland.TcpClientService/<Request>d__11`2::MoveNext()
-// 0x0000010B System.Void PostMainland.TcpClientService/<Request>d__11`2::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
-// 0x0000010C PostMainland.TcpClientServiceManager PostMainland.TcpClientServiceManager::get_Instance()
+// 0x00000104 System.Boolean PostMainland.TcpClientService/<>c__DisplayClass9_0::<OnReceived>b__0(PostMainland.RequestAwaiter)
+extern void U3CU3Ec__DisplayClass9_0_U3COnReceivedU3Eb__0_mC6F13994D1F21AAACF2B0282183459B39F75421C (void);
+// 0x00000105 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_0::<OnReceived>b__1()
+extern void U3CU3Ec__DisplayClass9_0_U3COnReceivedU3Eb__1_m1A6230DC7FCB90D205205C028AD036EFA6C3271A (void);
+// 0x00000106 System.Void PostMainland.TcpClientService/<>c__DisplayClass9_0::<OnReceived>b__2()
+extern void U3CU3Ec__DisplayClass9_0_U3COnReceivedU3Eb__2_mDF1E1FE95B3A7EFD941E253196CF26B25BBC5DDF (void);
+// 0x00000107 System.Void PostMainland.TcpClientService/<Request>d__11`2::MoveNext()
+// 0x00000108 System.Void PostMainland.TcpClientService/<Request>d__11`2::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+// 0x00000109 PostMainland.TcpClientServiceManager PostMainland.TcpClientServiceManager::get_Instance()
 extern void TcpClientServiceManager_get_Instance_mF2818D60DA9C5D337E1225E3CB28E1A329619BE3 (void);
-// 0x0000010D System.Void PostMainland.TcpClientServiceManager::.ctor()
+// 0x0000010A System.Void PostMainland.TcpClientServiceManager::.ctor()
 extern void TcpClientServiceManager__ctor_m4CBBF1603699DE86C59D7D832809AE98B8CFD76F (void);
-// 0x0000010E System.Void PostMainland.TcpClientServiceManager::.cctor()
+// 0x0000010B System.Void PostMainland.TcpClientServiceManager::.cctor()
 extern void TcpClientServiceManager__cctor_mACB908194A687A09D8B1D8A59DA28682BF64BD40 (void);
-// 0x0000010F System.Void PostMainland.TcpS2CSession::.ctor(TouchSocket.Sockets.SocketClient)
+// 0x0000010C System.Void PostMainland.TcpS2CSession::.ctor(TouchSocket.Sockets.SocketClient)
 extern void TcpS2CSession__ctor_m6574F75122060A13EA6812D118619DE712C3C15D (void);
-// 0x00000110 Cysharp.Threading.Tasks.UniTask`1<TRes> PostMainland.TcpS2CSession::Request(TReq,System.Boolean)
-// 0x00000111 System.Void PostMainland.TcpS2CSession::Send(T,System.Boolean)
-// 0x00000112 System.Boolean PostMainland.TcpServerService::get_HasStarted()
+// 0x0000010D Cysharp.Threading.Tasks.UniTask`1<TRes> PostMainland.TcpS2CSession::Request(TReq,System.Boolean)
+// 0x0000010E System.Void PostMainland.TcpS2CSession::Send(T,System.Boolean)
+// 0x0000010F System.Boolean PostMainland.TcpServerService::get_HasStarted()
 extern void TcpServerService_get_HasStarted_m8F302D18F44857C882D4D919EF73A4BA03A59216 (void);
-// 0x00000113 System.Void PostMainland.TcpServerService::set_HasStarted(System.Boolean)
+// 0x00000110 System.Void PostMainland.TcpServerService::set_HasStarted(System.Boolean)
 extern void TcpServerService_set_HasStarted_mD248C245230C57BF975B49E1EA9E8B466E1029EE (void);
-// 0x00000114 System.Void PostMainland.TcpServerService::.ctor(PostMainland.IProtocalManagerService,PostMainland.ServerType)
+// 0x00000111 System.Void PostMainland.TcpServerService::.ctor(PostMainland.IProtocalManagerService,PostMainland.ServerType)
 extern void TcpServerService__ctor_mB068C99387FE895D7AC05456BAC3A4315AFD77CE (void);
-// 0x00000115 System.Void PostMainland.TcpServerService::Start(System.String,System.Int32)
+// 0x00000112 System.Void PostMainland.TcpServerService::Start(System.String,System.Int32)
 extern void TcpServerService_Start_m648B3A15E1C835DE739588C804080FDA8D477FA3 (void);
-// 0x00000116 System.Void PostMainland.TcpServerService::OnReceived(TouchSocket.Sockets.SocketClient,TouchSocket.Core.ByteManager.ByteBlock,TouchSocket.Sockets.IRequestInfo)
+// 0x00000113 System.Void PostMainland.TcpServerService::OnReceived(TouchSocket.Sockets.SocketClient,TouchSocket.Core.ByteManager.ByteBlock,TouchSocket.Sockets.IRequestInfo)
 extern void TcpServerService_OnReceived_m4AF4F0290DCC3F7055C3722EEBA434A005338EE4 (void);
-// 0x00000117 System.Void PostMainland.TcpServerService::OnDisconnected(TouchSocket.Sockets.SocketClient,TouchSocket.Sockets.ClientDisconnectedEventArgs)
+// 0x00000114 System.Void PostMainland.TcpServerService::OnDisconnected(TouchSocket.Sockets.SocketClient,TouchSocket.Sockets.ClientDisconnectedEventArgs)
 extern void TcpServerService_OnDisconnected_mDEE2622DD500E2D13F670A2C0B648A62503FD0E2 (void);
-// 0x00000118 System.Void PostMainland.TcpServerService::OnConnected(TouchSocket.Sockets.SocketClient,TouchSocket.Core.TouchSocketEventArgs)
+// 0x00000115 System.Void PostMainland.TcpServerService::OnConnected(TouchSocket.Sockets.SocketClient,TouchSocket.Core.TouchSocketEventArgs)
 extern void TcpServerService_OnConnected_mA087DE2598473C624255D01686B86D0092CAD1DD (void);
-// 0x00000119 System.Void PostMainland.TcpServerService::OnConnecting(TouchSocket.Sockets.SocketClient,TouchSocket.Sockets.ClientOperationEventArgs)
+// 0x00000116 System.Void PostMainland.TcpServerService::OnConnecting(TouchSocket.Sockets.SocketClient,TouchSocket.Sockets.ClientOperationEventArgs)
 extern void TcpServerService_OnConnecting_m977CF9EEA51C58529D854C3B022CFDFF5E246573 (void);
-// 0x0000011A System.Void PostMainland.TcpServerService/<>c::.cctor()
+// 0x00000117 System.Void PostMainland.TcpServerService/<>c::.cctor()
 extern void U3CU3Ec__cctor_m4D7A1C82A0F67518A32C1281F1D1B52C330D1840 (void);
-// 0x0000011B System.Void PostMainland.TcpServerService/<>c::.ctor()
+// 0x00000118 System.Void PostMainland.TcpServerService/<>c::.ctor()
 extern void U3CU3Ec__ctor_m3A206A2AC0F44C97EFB5A3E5EE923E3A9EA2627D (void);
-// 0x0000011C TouchSocket.Sockets.DataHandlingAdapter PostMainland.TcpServerService/<>c::<Start>b__8_0()
+// 0x00000119 TouchSocket.Sockets.DataHandlingAdapter PostMainland.TcpServerService/<>c::<Start>b__8_0()
 extern void U3CU3Ec_U3CStartU3Eb__8_0_m78373FC0A80D227CF82720DD7E3F89375547A958 (void);
-// 0x0000011D System.Void PostMainland.TcpServerService/<>c::<Start>b__8_1(TouchSocket.Core.Plugins.IPluginsManager)
+// 0x0000011A System.Void PostMainland.TcpServerService/<>c::<Start>b__8_1(TouchSocket.Core.Plugins.IPluginsManager)
 extern void U3CU3Ec_U3CStartU3Eb__8_1_mA58E0F402DB34F50DECC062854E1BC378D9FBF39 (void);
-// 0x0000011E System.Void PostMainland.TcpServerService/<>c::<Start>b__8_2(TouchSocket.Core.Dependency.IContainer)
+// 0x0000011B System.Void PostMainland.TcpServerService/<>c::<Start>b__8_2(TouchSocket.Core.Dependency.IContainer)
 extern void U3CU3Ec_U3CStartU3Eb__8_2_m7876436D1A80333A04D2DD04B2619229B3AB49F1 (void);
-// 0x0000011F System.Void PostMainland.TcpServerService/<>c__DisplayClass9_0::.ctor()
+// 0x0000011C System.Void PostMainland.TcpServerService/<>c__DisplayClass9_0::.ctor()
 extern void U3CU3Ec__DisplayClass9_0__ctor_m610F216991543336061EA74F07C141E175DD72D2 (void);
-// 0x00000120 System.Void PostMainland.TcpServerService/<>c__DisplayClass9_1::.ctor()
+// 0x0000011D System.Void PostMainland.TcpServerService/<>c__DisplayClass9_1::.ctor()
 extern void U3CU3Ec__DisplayClass9_1__ctor_m4D27CBC3E3884FBEFF631479B8C9B9F928653B3E (void);
-// 0x00000121 System.Void PostMainland.TcpServerService/<>c__DisplayClass9_2::.ctor()
+// 0x0000011E System.Void PostMainland.TcpServerService/<>c__DisplayClass9_1::<OnReceived>b__0()
+extern void U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__0_m23E4A97697D47C249135495114A0A94BC5A2B122 (void);
+// 0x0000011F System.Void PostMainland.TcpServerService/<>c__DisplayClass9_2::.ctor()
 extern void U3CU3Ec__DisplayClass9_2__ctor_mF6ABB0F1DE0F8755397DF66DDA9F44FE13273768 (void);
-// 0x00000122 System.Void PostMainland.TcpServerService/<>c__DisplayClass9_2::<OnReceived>b__0()
-extern void U3CU3Ec__DisplayClass9_2_U3COnReceivedU3Eb__0_m3CE1FD72AFD61F1DC4185411A9183D342334BB63 (void);
-// 0x00000123 System.Void PostMainland.TcpServerService/<>c__DisplayClass9_3::.ctor()
-extern void U3CU3Ec__DisplayClass9_3__ctor_mE57FC3559762C6AF1FE16A8510D2AE52B5A03986 (void);
-// 0x00000124 System.Void PostMainland.TcpServerService/<>c__DisplayClass9_3::<OnReceived>b__1()
-extern void U3CU3Ec__DisplayClass9_3_U3COnReceivedU3Eb__1_mC0DB10B0E6634D3B51D34B0A4225190A4407F70B (void);
-// 0x00000125 System.String PostMainland.C2S_Login::get_Account()
+// 0x00000120 System.Void PostMainland.TcpServerService/<>c__DisplayClass9_2::<OnReceived>b__1()
+extern void U3CU3Ec__DisplayClass9_2_U3COnReceivedU3Eb__1_mFC8D74D27688DDD68371AA9F0F1651E034ABEAAB (void);
+// 0x00000121 System.String PostMainland.C2S_Login::get_Account()
 extern void C2S_Login_get_Account_m08F390838CE19A18B1F39D068FF3D631EBCF46A8 (void);
-// 0x00000126 System.Void PostMainland.C2S_Login::set_Account(System.String)
+// 0x00000122 System.Void PostMainland.C2S_Login::set_Account(System.String)
 extern void C2S_Login_set_Account_mF3E9E222A721463E2179D1946D15070431781DF6 (void);
-// 0x00000127 System.String PostMainland.C2S_Login::get_Password()
+// 0x00000123 System.String PostMainland.C2S_Login::get_Password()
 extern void C2S_Login_get_Password_mE57F8469869EACC76FC1F21131AF86C7B81F8281 (void);
-// 0x00000128 System.Void PostMainland.C2S_Login::set_Password(System.String)
+// 0x00000124 System.Void PostMainland.C2S_Login::set_Password(System.String)
 extern void C2S_Login_set_Password_mDEDC6B31D5EC4EE221388C8DAC15A7FD4467E4EB (void);
-// 0x00000129 System.Int32 PostMainland.C2S_Login::get_RpcId()
+// 0x00000125 System.Int32 PostMainland.C2S_Login::get_RpcId()
 extern void C2S_Login_get_RpcId_mDA58B23624CAD4C8452D575CFE25001F9FD46340 (void);
-// 0x0000012A System.Void PostMainland.C2S_Login::set_RpcId(System.Int32)
+// 0x00000126 System.Void PostMainland.C2S_Login::set_RpcId(System.Int32)
 extern void C2S_Login_set_RpcId_mB363419D96800763CF169282053980E400079019 (void);
-// 0x0000012B System.String PostMainland.C2S_Login::ToString()
+// 0x00000127 System.String PostMainland.C2S_Login::ToString()
 extern void C2S_Login_ToString_m6AC32A0942099694B53C95E80D5131C322625803 (void);
-// 0x0000012C System.Void PostMainland.C2S_Login::.ctor()
+// 0x00000128 System.Void PostMainland.C2S_Login::.ctor()
 extern void C2S_Login__ctor_m6A88117F01FB03CC3496C019F2E6FA6C7FCA3E66 (void);
-// 0x0000012D System.Void PostMainland.C2S_Login::.cctor()
+// 0x00000129 System.Void PostMainland.C2S_Login::.cctor()
 extern void C2S_Login__cctor_m91C5F3D2048E058D0E33FF08EBA851A648FCFF0D (void);
-// 0x0000012E System.Void PostMainland.C2S_Login/SerializationHelper::Serialize(PostMainland.C2S_Login,Nino.Serialization.Writer)
+// 0x0000012A System.Void PostMainland.C2S_Login/SerializationHelper::Serialize(PostMainland.C2S_Login,Nino.Serialization.Writer)
 extern void SerializationHelper_Serialize_m0EE4AE78A3DA2DA9107E27DE75B0BB9FB6E0D79B (void);
-// 0x0000012F PostMainland.C2S_Login PostMainland.C2S_Login/SerializationHelper::Deserialize(Nino.Serialization.Reader)
+// 0x0000012B PostMainland.C2S_Login PostMainland.C2S_Login/SerializationHelper::Deserialize(Nino.Serialization.Reader)
 extern void SerializationHelper_Deserialize_mBF8C58C346CB57B4E1DD4F7CFC2B274C902E89F2 (void);
-// 0x00000130 System.Void PostMainland.C2S_Login/SerializationHelper::.ctor()
+// 0x0000012C System.Void PostMainland.C2S_Login/SerializationHelper::.ctor()
 extern void SerializationHelper__ctor_mBE383293F4DE0ED7EE636C88244740912C03FFD6 (void);
-// 0x00000131 System.String PostMainland.S2C_Login::get_Name()
+// 0x0000012D System.String PostMainland.S2C_Login::get_Name()
 extern void S2C_Login_get_Name_mE6A37DDF99A4E407ECC7F8BE6A76B6EE3C87FFE9 (void);
-// 0x00000132 System.Void PostMainland.S2C_Login::set_Name(System.String)
+// 0x0000012E System.Void PostMainland.S2C_Login::set_Name(System.String)
 extern void S2C_Login_set_Name_mEC0AC71F75447418E29B8453DAFE2CA374968930 (void);
-// 0x00000133 System.Int32 PostMainland.S2C_Login::get_RpcId()
+// 0x0000012F System.Int32 PostMainland.S2C_Login::get_RpcId()
 extern void S2C_Login_get_RpcId_mE4B133EC91D05D19577579D97968E2B0F0CE157A (void);
-// 0x00000134 System.Void PostMainland.S2C_Login::set_RpcId(System.Int32)
+// 0x00000130 System.Void PostMainland.S2C_Login::set_RpcId(System.Int32)
 extern void S2C_Login_set_RpcId_mA6023E4997505AC6DBF228D2E514E8BB9E9A07D3 (void);
-// 0x00000135 System.Int32 PostMainland.S2C_Login::get_Error()
+// 0x00000131 System.Int32 PostMainland.S2C_Login::get_Error()
 extern void S2C_Login_get_Error_mBBD58EDE011676FEACD955EF207CDEC0FF0A617D (void);
-// 0x00000136 System.Void PostMainland.S2C_Login::set_Error(System.Int32)
+// 0x00000132 System.Void PostMainland.S2C_Login::set_Error(System.Int32)
 extern void S2C_Login_set_Error_m4AF6C715FCF40E5EBFA60FEB2C6918297DD49B3D (void);
-// 0x00000137 System.String PostMainland.S2C_Login::get_Message()
+// 0x00000133 System.String PostMainland.S2C_Login::get_Message()
 extern void S2C_Login_get_Message_m6942EA848F5CF94907A3787CBE4B3FA12E089161 (void);
-// 0x00000138 System.Void PostMainland.S2C_Login::set_Message(System.String)
+// 0x00000134 System.Void PostMainland.S2C_Login::set_Message(System.String)
 extern void S2C_Login_set_Message_m648F8B9AD7E1008C4EA4281C7ED919DF041AF491 (void);
-// 0x00000139 System.String PostMainland.S2C_Login::ToString()
+// 0x00000135 System.String PostMainland.S2C_Login::ToString()
 extern void S2C_Login_ToString_m881852BC0DFF8D18E494322C064DEAE63ED91812 (void);
-// 0x0000013A System.Void PostMainland.S2C_Login::.ctor()
+// 0x00000136 System.Void PostMainland.S2C_Login::.ctor()
 extern void S2C_Login__ctor_mD152E368F0DE8598552730754A4369A35957A5D1 (void);
-// 0x0000013B System.Void PostMainland.S2C_Login::.cctor()
+// 0x00000137 System.Void PostMainland.S2C_Login::.cctor()
 extern void S2C_Login__cctor_mD3594619BC87F2F11D190F71AE4668CC6790B925 (void);
-// 0x0000013C System.Void PostMainland.S2C_Login/SerializationHelper::Serialize(PostMainland.S2C_Login,Nino.Serialization.Writer)
+// 0x00000138 System.Void PostMainland.S2C_Login/SerializationHelper::Serialize(PostMainland.S2C_Login,Nino.Serialization.Writer)
 extern void SerializationHelper_Serialize_m8233822E30597ED7C2B2798C794A48E8F5A46E48 (void);
-// 0x0000013D PostMainland.S2C_Login PostMainland.S2C_Login/SerializationHelper::Deserialize(Nino.Serialization.Reader)
+// 0x00000139 PostMainland.S2C_Login PostMainland.S2C_Login/SerializationHelper::Deserialize(Nino.Serialization.Reader)
 extern void SerializationHelper_Deserialize_mC414C5A369F58A7D6D3EF95C90DB56B2F5754568 (void);
-// 0x0000013E System.Void PostMainland.S2C_Login/SerializationHelper::.ctor()
+// 0x0000013A System.Void PostMainland.S2C_Login/SerializationHelper::.ctor()
 extern void SerializationHelper__ctor_mFCE1A38A155C0B7E42A847B15414C66F5BDC49A7 (void);
-// 0x0000013F System.String PostMainland.S2C_Notify::get_Message()
+// 0x0000013B System.String PostMainland.S2C_Notify::get_Message()
 extern void S2C_Notify_get_Message_mE0BBC62C09346B16308B0EEAB69170BAF8ACCA40 (void);
-// 0x00000140 System.Void PostMainland.S2C_Notify::set_Message(System.String)
+// 0x0000013C System.Void PostMainland.S2C_Notify::set_Message(System.String)
 extern void S2C_Notify_set_Message_m6F350F97F7860E81E0FDF0A24AB84693A3A43D54 (void);
-// 0x00000141 TouchSocket.Core.Log.LogType PostMainland.S2C_Notify::get_MessageType()
+// 0x0000013D TouchSocket.Core.Log.LogType PostMainland.S2C_Notify::get_MessageType()
 extern void S2C_Notify_get_MessageType_m842524A5080776B80C8884C5F80B47EC52B3CF9D (void);
-// 0x00000142 System.Void PostMainland.S2C_Notify::set_MessageType(TouchSocket.Core.Log.LogType)
+// 0x0000013E System.Void PostMainland.S2C_Notify::set_MessageType(TouchSocket.Core.Log.LogType)
 extern void S2C_Notify_set_MessageType_mBEDABAC0B0D6DFD3FD85FC2A36E8EE613D639F5F (void);
-// 0x00000143 System.String PostMainland.S2C_Notify::ToString()
+// 0x0000013F System.String PostMainland.S2C_Notify::ToString()
 extern void S2C_Notify_ToString_m542BE5E36EFCA69BF6E7E187CFE83C90A37FFFD6 (void);
-// 0x00000144 System.Void PostMainland.S2C_Notify::.ctor()
+// 0x00000140 System.Void PostMainland.S2C_Notify::.ctor()
 extern void S2C_Notify__ctor_m7AADACA97EEDA0692FAD752B9B92FC6EB19A4535 (void);
-// 0x00000145 System.Void PostMainland.S2C_Notify::.cctor()
+// 0x00000141 System.Void PostMainland.S2C_Notify::.cctor()
 extern void S2C_Notify__cctor_m332239EB89AA2EC1B6737A36A3763630D1F4F4CA (void);
-// 0x00000146 System.Void PostMainland.S2C_Notify/SerializationHelper::Serialize(PostMainland.S2C_Notify,Nino.Serialization.Writer)
+// 0x00000142 System.Void PostMainland.S2C_Notify/SerializationHelper::Serialize(PostMainland.S2C_Notify,Nino.Serialization.Writer)
 extern void SerializationHelper_Serialize_m3B8F78193E90A71FDF9EA2C8DB277935FE1FBF03 (void);
-// 0x00000147 PostMainland.S2C_Notify PostMainland.S2C_Notify/SerializationHelper::Deserialize(Nino.Serialization.Reader)
+// 0x00000143 PostMainland.S2C_Notify PostMainland.S2C_Notify/SerializationHelper::Deserialize(Nino.Serialization.Reader)
 extern void SerializationHelper_Deserialize_m0069A3C6FAB13013110F4B2891E21B7EB2D9E28F (void);
-// 0x00000148 System.Void PostMainland.S2C_Notify/SerializationHelper::.ctor()
+// 0x00000144 System.Void PostMainland.S2C_Notify/SerializationHelper::.ctor()
 extern void SerializationHelper__ctor_m16C8F3746DFAD80F615AD0CFDEEDAEA7A95A088F (void);
-// 0x00000149 System.String PostMainland.S2G_Test::get_Message()
+// 0x00000145 System.String PostMainland.S2G_Test::get_Message()
 extern void S2G_Test_get_Message_m3D2D183E5F765E195D11AEC942615968A55189A2 (void);
-// 0x0000014A System.Void PostMainland.S2G_Test::set_Message(System.String)
+// 0x00000146 System.Void PostMainland.S2G_Test::set_Message(System.String)
 extern void S2G_Test_set_Message_m1BE695BD6703F0B6AB6CF8FD82F6826AA245888D (void);
-// 0x0000014B System.String PostMainland.S2G_Test::ToString()
+// 0x00000147 System.String PostMainland.S2G_Test::ToString()
 extern void S2G_Test_ToString_mC2755DFFD5033A11D203D2D0997BC2A9A75F3B38 (void);
-// 0x0000014C System.Void PostMainland.S2G_Test::.ctor()
+// 0x00000148 System.Void PostMainland.S2G_Test::.ctor()
 extern void S2G_Test__ctor_m32D5DF0ED362E6DCA9CD3792FB8642F1AE157983 (void);
-// 0x0000014D System.Void PostMainland.S2G_Test::.cctor()
+// 0x00000149 System.Void PostMainland.S2G_Test::.cctor()
 extern void S2G_Test__cctor_m143837106A63F04C02094D18135500940EEFD7A2 (void);
-// 0x0000014E System.Void PostMainland.S2G_Test/SerializationHelper::Serialize(PostMainland.S2G_Test,Nino.Serialization.Writer)
+// 0x0000014A System.Void PostMainland.S2G_Test/SerializationHelper::Serialize(PostMainland.S2G_Test,Nino.Serialization.Writer)
 extern void SerializationHelper_Serialize_m3ABED62D1D481ED7A4CFF75DAD25A0DC95B8AC9D (void);
-// 0x0000014F PostMainland.S2G_Test PostMainland.S2G_Test/SerializationHelper::Deserialize(Nino.Serialization.Reader)
+// 0x0000014B PostMainland.S2G_Test PostMainland.S2G_Test/SerializationHelper::Deserialize(Nino.Serialization.Reader)
 extern void SerializationHelper_Deserialize_m10C2A9097CD2718A4B8F43A0D099CF6D5FB383FB (void);
-// 0x00000150 System.Void PostMainland.S2G_Test/SerializationHelper::.ctor()
+// 0x0000014C System.Void PostMainland.S2G_Test/SerializationHelper::.ctor()
 extern void SerializationHelper__ctor_m3CD90C584C9A8E6FBBB7D63394A186B4B8023C3E (void);
-// 0x00000151 System.Int32 PostMainland.BufferWriter::get_WriterIndex()
+// 0x0000014D System.Int32 PostMainland.BufferWriter::get_WriterIndex()
 extern void BufferWriter_get_WriterIndex_m3DA392C2E0B6DB828775FBC05010692D4788562E (void);
-// 0x00000152 System.Byte[] PostMainland.BufferWriter::get_Buffer()
+// 0x0000014E System.Byte[] PostMainland.BufferWriter::get_Buffer()
 extern void BufferWriter_get_Buffer_m0308F4205E226446644C0F15D351A303C2C17D81 (void);
-// 0x00000153 System.Void PostMainland.BufferWriter::Write(System.Int32)
+// 0x0000014F System.Void PostMainland.BufferWriter::Write(System.Int32)
 extern void BufferWriter_Write_m52EA4C0AD35471F67A86EF63C6B2B2AA9E3E5FD6 (void);
-// 0x00000154 System.Void PostMainland.BufferWriter::Write(System.UInt32)
+// 0x00000150 System.Void PostMainland.BufferWriter::Write(System.UInt32)
 extern void BufferWriter_Write_mA1F5EDDC7F72E032C06C8BB356B73DB9E1FFE639 (void);
-// 0x00000155 System.Void PostMainland.BufferWriter::Write(System.Boolean)
+// 0x00000151 System.Void PostMainland.BufferWriter::Write(System.Boolean)
 extern void BufferWriter_Write_m136A02E654ADDE76910C032181576DF5C590A57D (void);
-// 0x00000156 System.Void PostMainland.BufferWriter::Write(System.Int64)
+// 0x00000152 System.Void PostMainland.BufferWriter::Write(System.Int64)
 extern void BufferWriter_Write_m3EC1819DC3ED634A9B0AD4F630B4555EBF5A2DB6 (void);
-// 0x00000157 System.Void PostMainland.BufferWriter::Write(System.Byte)
+// 0x00000153 System.Void PostMainland.BufferWriter::Write(System.Byte)
 extern void BufferWriter_Write_m6E2C4CE96171EE86335532A3C3B52A2DB0A41054 (void);
-// 0x00000158 System.Void PostMainland.BufferWriter::WriteBuffer(System.Byte[])
+// 0x00000154 System.Void PostMainland.BufferWriter::WriteBuffer(System.Byte[])
 extern void BufferWriter_WriteBuffer_m2D2F67D0F838F15BF66F0917E040237F49CC3521 (void);
-// 0x00000159 System.Void PostMainland.BufferWriter::Dispose()
+// 0x00000155 System.Void PostMainland.BufferWriter::Dispose()
 extern void BufferWriter_Dispose_m7DB530A3497FA648465FD6BC2C5D62858AA1AA6F (void);
-// 0x0000015A System.Void PostMainland.BufferWriter::.ctor()
+// 0x00000156 System.Void PostMainland.BufferWriter::.ctor()
 extern void BufferWriter__ctor_mE1B8F71C2AF046F3B3D5D6CBE574451D1D728F5F (void);
-// 0x0000015B System.Void PostMainland.BufferReader::.ctor(System.Byte[])
+// 0x00000157 System.Void PostMainland.BufferReader::.ctor(System.Byte[])
 extern void BufferReader__ctor_mA538B3EBFBB356EA07B09B4E90C0DC21F57B64F4 (void);
-// 0x0000015C System.Byte PostMainland.BufferReader::ReadByte()
+// 0x00000158 System.Byte PostMainland.BufferReader::ReadByte()
 extern void BufferReader_ReadByte_m0CC105DEB209C0FD8699CE5EC78EF82F2ED6096B (void);
-// 0x0000015D System.UInt32 PostMainland.BufferReader::ReadUInt32()
+// 0x00000159 System.UInt32 PostMainland.BufferReader::ReadUInt32()
 extern void BufferReader_ReadUInt32_mE5370CCBEE95956F6169A2C6C61BE9ADF2F573FF (void);
-// 0x0000015E System.Int64 PostMainland.BufferReader::ReadInt64()
+// 0x0000015A System.Int64 PostMainland.BufferReader::ReadInt64()
 extern void BufferReader_ReadInt64_mC68A69C463E479546A80E1E3C9C9CC0235DE4480 (void);
-// 0x0000015F System.Int32 PostMainland.BufferReader::ReadInt32()
+// 0x0000015B System.Int32 PostMainland.BufferReader::ReadInt32()
 extern void BufferReader_ReadInt32_mDD762075C5D3B6E4EBB45553F85E4B6A14B72659 (void);
-// 0x00000160 System.Byte[] PostMainland.BufferReader::ReadBuffer(System.Int32)
+// 0x0000015C System.Byte[] PostMainland.BufferReader::ReadBuffer(System.Int32)
 extern void BufferReader_ReadBuffer_mC90B96EBAD9C4F81BE8F4DB76D4617D02742AF78 (void);
-// 0x00000161 System.Boolean PostMainland.BufferReader::CheckSize(System.Int32,System.Int32)
+// 0x0000015D System.Boolean PostMainland.BufferReader::CheckSize(System.Int32,System.Int32)
 extern void BufferReader_CheckSize_mBAB5B6B0D2FA0101D50DE57EEBF6550239BF5B9E (void);
-// 0x00000162 System.Void PostMainland.BufferReader::Dispose()
+// 0x0000015E System.Void PostMainland.BufferReader::Dispose()
 extern void BufferReader_Dispose_m6684522D4563CE24BC344A1E719C0FE22804DE44 (void);
-// 0x00000163 System.Void PostMainland.ProtocalId::.ctor()
+// 0x0000015F System.Void PostMainland.ProtocalId::.ctor()
 extern void ProtocalId__ctor_m9E5B900733B8AC4CA971CCF8862B1AB8805F62CA (void);
-// 0x00000164 System.Void PostMainland.ProtocalHandlerAttribute::.ctor()
+// 0x00000160 System.Void PostMainland.ProtocalHandlerAttribute::.ctor()
 extern void ProtocalHandlerAttribute__ctor_m85538309AEB1F2F2A8D9A52E2C4867832A207661 (void);
-// 0x00000165 System.UInt32 PostMainland.IProtocalHandler::GetProtocalId()
-// 0x00000166 Cysharp.Threading.Tasks.UniTask PostMainland.IMessageHandler::Handle(PostMainland.INetworkSession,System.Byte[])
-// 0x00000167 System.UInt32 PostMainland.IMessageHandler::GetMessageId()
-// 0x00000168 Cysharp.Threading.Tasks.UniTask PostMainland.MessageHandler`1::Execute(PostMainland.INetworkSession,TM)
-// 0x00000169 System.UInt32 PostMainland.MessageHandler`1::GetMessageId()
-// 0x0000016A System.UInt32 PostMainland.MessageHandler`1::GetProtocalId()
-// 0x0000016B Cysharp.Threading.Tasks.UniTask PostMainland.MessageHandler`1::Handle(PostMainland.INetworkSession,System.Byte[])
-// 0x0000016C System.Void PostMainland.MessageHandler`1::.ctor()
-// 0x0000016D System.Void PostMainland.MessageHandler`1/<Handle>d__3::.ctor()
-// 0x0000016E System.Void PostMainland.MessageHandler`1/<Handle>d__3::MoveNext()
-// 0x0000016F System.Void PostMainland.MessageHandler`1/<Handle>d__3::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
-// 0x00000170 Cysharp.Threading.Tasks.UniTask PostMainland.IRequestHandler::Handle(PostMainland.INetworkSession,PostMainland.IRequest,PostMainland.IResponse,System.Boolean)
-// 0x00000171 System.UInt32 PostMainland.IRequestHandler::GetRequestId()
-// 0x00000172 System.UInt32 PostMainland.IRequestHandler::GetResponseId()
-// 0x00000173 Cysharp.Threading.Tasks.UniTask PostMainland.RequestHandler`2::Execute(PostMainland.INetworkSession,TReq,TRes,System.Action)
-// 0x00000174 System.UInt32 PostMainland.RequestHandler`2::GetProtocalId()
-// 0x00000175 System.UInt32 PostMainland.RequestHandler`2::GetRequestId()
-// 0x00000176 System.UInt32 PostMainland.RequestHandler`2::GetResponseId()
-// 0x00000177 Cysharp.Threading.Tasks.UniTask PostMainland.RequestHandler`2::Handle(PostMainland.INetworkSession,PostMainland.IRequest,PostMainland.IResponse,System.Boolean)
-// 0x00000178 System.Void PostMainland.RequestHandler`2::.ctor()
-// 0x00000179 System.Void PostMainland.RequestHandler`2/<>c__DisplayClass4_0::.ctor()
-// 0x0000017A System.Void PostMainland.RequestHandler`2/<>c__DisplayClass4_0::<Handle>g__Reply|0()
-// 0x0000017B System.Void PostMainland.RequestHandler`2/<Handle>d__4::.ctor()
-// 0x0000017C System.Void PostMainland.RequestHandler`2/<Handle>d__4::MoveNext()
-// 0x0000017D System.Void PostMainland.RequestHandler`2/<Handle>d__4::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
-// 0x0000017E PostMainland.IMessageHandler PostMainland.IProtocalManagerService::GetMessageHandler(System.UInt32)
-// 0x0000017F PostMainland.IRequestHandler PostMainland.IProtocalManagerService::GetRequestHandler(System.UInt32)
-// 0x00000180 PostMainland.IProtocal PostMainland.IProtocalManagerService::CreateProtocal(System.UInt32)
-// 0x00000181 System.Type PostMainland.IProtocalManagerService::GetProtocalType(System.UInt32)
-// 0x00000182 System.Void PostMainland.PacketParser::.ctor(System.Byte[])
+// 0x00000161 System.UInt32 PostMainland.IProtocalHandler::GetProtocalId()
+// 0x00000162 Cysharp.Threading.Tasks.UniTask PostMainland.IMessageHandler::Handle(PostMainland.INetworkSession,System.Byte[])
+// 0x00000163 System.UInt32 PostMainland.IMessageHandler::GetMessageId()
+// 0x00000164 Cysharp.Threading.Tasks.UniTask PostMainland.MessageHandler`1::Execute(PostMainland.INetworkSession,TM)
+// 0x00000165 System.UInt32 PostMainland.MessageHandler`1::GetMessageId()
+// 0x00000166 System.UInt32 PostMainland.MessageHandler`1::GetProtocalId()
+// 0x00000167 Cysharp.Threading.Tasks.UniTask PostMainland.MessageHandler`1::Handle(PostMainland.INetworkSession,System.Byte[])
+// 0x00000168 System.Void PostMainland.MessageHandler`1::.ctor()
+// 0x00000169 System.Void PostMainland.MessageHandler`1/<Handle>d__3::MoveNext()
+// 0x0000016A System.Void PostMainland.MessageHandler`1/<Handle>d__3::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+// 0x0000016B Cysharp.Threading.Tasks.UniTask PostMainland.IRequestHandler::Handle(PostMainland.INetworkSession,PostMainland.IRequest,PostMainland.IResponse,System.Boolean)
+// 0x0000016C System.UInt32 PostMainland.IRequestHandler::GetRequestId()
+// 0x0000016D System.UInt32 PostMainland.IRequestHandler::GetResponseId()
+// 0x0000016E Cysharp.Threading.Tasks.UniTask PostMainland.RequestHandler`2::Execute(PostMainland.INetworkSession,TReq,TRes,System.Action)
+// 0x0000016F System.UInt32 PostMainland.RequestHandler`2::GetProtocalId()
+// 0x00000170 System.UInt32 PostMainland.RequestHandler`2::GetRequestId()
+// 0x00000171 System.UInt32 PostMainland.RequestHandler`2::GetResponseId()
+// 0x00000172 Cysharp.Threading.Tasks.UniTask PostMainland.RequestHandler`2::Handle(PostMainland.INetworkSession,PostMainland.IRequest,PostMainland.IResponse,System.Boolean)
+// 0x00000173 System.Void PostMainland.RequestHandler`2::.ctor()
+// 0x00000174 System.Void PostMainland.RequestHandler`2/<>c__DisplayClass4_0::.ctor()
+// 0x00000175 System.Void PostMainland.RequestHandler`2/<>c__DisplayClass4_0::<Handle>g__Reply|0()
+// 0x00000176 System.Void PostMainland.RequestHandler`2/<Handle>d__4::MoveNext()
+// 0x00000177 System.Void PostMainland.RequestHandler`2/<Handle>d__4::SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+// 0x00000178 PostMainland.IMessageHandler PostMainland.IProtocalManagerService::GetMessageHandler(System.UInt32)
+// 0x00000179 PostMainland.IRequestHandler PostMainland.IProtocalManagerService::GetRequestHandler(System.UInt32)
+// 0x0000017A PostMainland.IProtocal PostMainland.IProtocalManagerService::CreateProtocal(System.UInt32)
+// 0x0000017B System.Type PostMainland.IProtocalManagerService::GetProtocalType(System.UInt32)
+// 0x0000017C System.Void PostMainland.PacketParser::.ctor(System.Byte[])
 extern void PacketParser__ctor_m9747C9A62CED16B2E2864C110431EA5D8CA80B66 (void);
-// 0x00000183 System.Boolean PostMainland.PacketParser::Parse(System.Byte[]&)
+// 0x0000017D System.Boolean PostMainland.PacketParser::Parse(System.Byte[]&)
 extern void PacketParser_Parse_mFB8480925D703E8E62351D5286AB56CDB4629B53 (void);
-// 0x00000184 System.UInt32 PostMainland.ProtocalAttribute::get_Id()
+// 0x0000017E System.UInt32 PostMainland.ProtocalAttribute::get_Id()
 extern void ProtocalAttribute_get_Id_m7376BC8BE5C14C265B16C7FD6EC096C676022F4E (void);
-// 0x00000185 System.Void PostMainland.ProtocalAttribute::.ctor(System.UInt32)
+// 0x0000017F System.Void PostMainland.ProtocalAttribute::.ctor(System.UInt32)
 extern void ProtocalAttribute__ctor_m35EA77104A703E0150A1AF533C4D52BE03351DF0 (void);
-// 0x00000186 System.Int32 PostMainland.IRequest::get_RpcId()
-// 0x00000187 System.Void PostMainland.IRequest::set_RpcId(System.Int32)
-// 0x00000188 System.Int32 PostMainland.IResponse::get_RpcId()
-// 0x00000189 System.Void PostMainland.IResponse::set_RpcId(System.Int32)
-// 0x0000018A System.Int32 PostMainland.IResponse::get_Error()
-// 0x0000018B System.Void PostMainland.IResponse::set_Error(System.Int32)
-// 0x0000018C System.String PostMainland.IResponse::get_Message()
-// 0x0000018D System.Void PostMainland.IResponse::set_Message(System.String)
-// 0x0000018E System.Collections.Generic.List`1<System.Type> PostMainland.IProtocalCollector::Collect()
-// 0x0000018F System.Type PostMainland.IProtocalCollector::GetProtocalTypeById(System.UInt32)
-// 0x00000190 System.Void PostMainland.ProtocalCollector::.ctor(System.Reflection.Assembly)
+// 0x00000180 System.Int32 PostMainland.IRequest::get_RpcId()
+// 0x00000181 System.Void PostMainland.IRequest::set_RpcId(System.Int32)
+// 0x00000182 System.Int32 PostMainland.IResponse::get_RpcId()
+// 0x00000183 System.Void PostMainland.IResponse::set_RpcId(System.Int32)
+// 0x00000184 System.Int32 PostMainland.IResponse::get_Error()
+// 0x00000185 System.Void PostMainland.IResponse::set_Error(System.Int32)
+// 0x00000186 System.String PostMainland.IResponse::get_Message()
+// 0x00000187 System.Void PostMainland.IResponse::set_Message(System.String)
+// 0x00000188 System.Collections.Generic.List`1<System.Type> PostMainland.IProtocalCollector::Collect()
+// 0x00000189 System.Type PostMainland.IProtocalCollector::GetProtocalTypeById(System.UInt32)
+// 0x0000018A System.Void PostMainland.ProtocalCollector::.ctor(System.Reflection.Assembly)
 extern void ProtocalCollector__ctor_mFD698D7DC579D3E0CCE61EF3DB9E35CAA50E0D8A (void);
-// 0x00000191 System.Collections.Generic.List`1<System.Type> PostMainland.ProtocalCollector::Collect()
+// 0x0000018B System.Collections.Generic.List`1<System.Type> PostMainland.ProtocalCollector::Collect()
 extern void ProtocalCollector_Collect_mBF46AC20E6322D757EA92D35B23344807D704236 (void);
-// 0x00000192 System.Type PostMainland.ProtocalCollector::GetProtocalTypeById(System.UInt32)
+// 0x0000018C System.Type PostMainland.ProtocalCollector::GetProtocalTypeById(System.UInt32)
 extern void ProtocalCollector_GetProtocalTypeById_m63388A6E8AFC669DCBBF2EE38DA934C9169318B9 (void);
-// 0x00000193 System.Collections.Generic.List`1<System.Type> PostMainland.IProtocalHandlerCollector::Collect()
-// 0x00000194 PostMainland.IRequestHandler PostMainland.IProtocalHandlerCollector::GetRequestHandler(System.UInt32)
-// 0x00000195 PostMainland.IMessageHandler PostMainland.IProtocalHandlerCollector::GetMessageHandler(System.UInt32)
-// 0x00000196 System.Void PostMainland.ProtocalHandlerCollector::.ctor(System.Reflection.Assembly)
+// 0x0000018D System.Collections.Generic.List`1<System.Type> PostMainland.IProtocalHandlerCollector::Collect()
+// 0x0000018E PostMainland.IRequestHandler PostMainland.IProtocalHandlerCollector::GetRequestHandler(System.UInt32)
+// 0x0000018F PostMainland.IMessageHandler PostMainland.IProtocalHandlerCollector::GetMessageHandler(System.UInt32)
+// 0x00000190 System.Void PostMainland.ProtocalHandlerCollector::.ctor(System.Reflection.Assembly)
 extern void ProtocalHandlerCollector__ctor_mC418AF4936C630DC5135F4BB8416B708695131BB (void);
-// 0x00000197 System.Collections.Generic.List`1<System.Type> PostMainland.ProtocalHandlerCollector::Collect()
+// 0x00000191 System.Collections.Generic.List`1<System.Type> PostMainland.ProtocalHandlerCollector::Collect()
 extern void ProtocalHandlerCollector_Collect_mE4A1B9FA2189BC2A9583BF3AB35AF5FAF08870B4 (void);
-// 0x00000198 PostMainland.IRequestHandler PostMainland.ProtocalHandlerCollector::GetRequestHandler(System.UInt32)
+// 0x00000192 PostMainland.IRequestHandler PostMainland.ProtocalHandlerCollector::GetRequestHandler(System.UInt32)
 extern void ProtocalHandlerCollector_GetRequestHandler_mD01738D4D51E023350E2367D63227D3E8D2EFF08 (void);
-// 0x00000199 PostMainland.IMessageHandler PostMainland.ProtocalHandlerCollector::GetMessageHandler(System.UInt32)
+// 0x00000193 PostMainland.IMessageHandler PostMainland.ProtocalHandlerCollector::GetMessageHandler(System.UInt32)
 extern void ProtocalHandlerCollector_GetMessageHandler_m9D9E63AB13506B2A23A70E89DF4F40E8B632B826 (void);
-// 0x0000019A System.Byte[] PostMainland.ProtocalHelper::SerializeProtocal(T)
-// 0x0000019B T PostMainland.ProtocalHelper::DeserializeProtocal(System.Byte[])
-// 0x0000019C PostMainland.IProtocal PostMainland.ProtocalHelper::DeserializeProtocal(System.Type,System.Byte[])
+// 0x00000194 System.Byte[] PostMainland.ProtocalHelper::SerializeProtocal(T)
+// 0x00000195 T PostMainland.ProtocalHelper::DeserializeProtocal(System.Byte[])
+// 0x00000196 PostMainland.IProtocal PostMainland.ProtocalHelper::DeserializeProtocal(System.Type,System.Byte[])
 extern void ProtocalHelper_DeserializeProtocal_m1DAEDB5E74B82B1855DA72DA2555B6A5996FC74A (void);
-// 0x0000019D System.UInt32 PostMainland.ProtocalHelper::GetProtocalId(PostMainland.IProtocal)
+// 0x00000197 System.UInt32 PostMainland.ProtocalHelper::GetProtocalId(PostMainland.IProtocal)
 extern void ProtocalHelper_GetProtocalId_m7F6C4C4306CA25829181CC8AC42615B3F84FA478 (void);
-// 0x0000019E PostMainland.ProtocalType PostMainland.ProtocalHelper::GetProtocalType(PostMainland.IProtocal)
+// 0x00000198 PostMainland.ProtocalType PostMainland.ProtocalHelper::GetProtocalType(PostMainland.IProtocal)
 extern void ProtocalHelper_GetProtocalType_mF70FC187FB092E836FE23B8002A9D06E650E1B72 (void);
-// 0x0000019F System.Void PostMainland.ProtocalHelper::.ctor()
+// 0x00000199 System.Void PostMainland.ProtocalHelper::.ctor()
 extern void ProtocalHelper__ctor_m11D6152E2E45F0BDB77C961444542B0A3FB6702C (void);
-// 0x000001A0 System.Void PostMainland.ProtocalHelper::.cctor()
+// 0x0000019A System.Void PostMainland.ProtocalHelper::.cctor()
 extern void ProtocalHelper__cctor_mE9B10617F75F98005A467BC98FFCE3FB3812E91D (void);
-// 0x000001A1 System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IMessageHandler> PostMainland.ProtocalManager::get_MessageHandlers()
+// 0x0000019B System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IMessageHandler> PostMainland.ProtocalManager::get_MessageHandlers()
 extern void ProtocalManager_get_MessageHandlers_m308B9A67D0396A5857061DB1100C2A120BDA9917 (void);
-// 0x000001A2 System.Void PostMainland.ProtocalManager::set_MessageHandlers(System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IMessageHandler>)
+// 0x0000019C System.Void PostMainland.ProtocalManager::set_MessageHandlers(System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IMessageHandler>)
 extern void ProtocalManager_set_MessageHandlers_m7DD3415CA0A285CDE44342968852ABB33F75A354 (void);
-// 0x000001A3 System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IRequestHandler> PostMainland.ProtocalManager::get_RequestHandlers()
+// 0x0000019D System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IRequestHandler> PostMainland.ProtocalManager::get_RequestHandlers()
 extern void ProtocalManager_get_RequestHandlers_mACAFF98E97E29C39150FD94142DF8ADED58900FE (void);
-// 0x000001A4 System.Void PostMainland.ProtocalManager::set_RequestHandlers(System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IRequestHandler>)
+// 0x0000019E System.Void PostMainland.ProtocalManager::set_RequestHandlers(System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,PostMainland.IRequestHandler>)
 extern void ProtocalManager_set_RequestHandlers_m255B573EDC5BB1680D236FA69B7ACFF79BD45CB0 (void);
-// 0x000001A5 System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,System.Type> PostMainland.ProtocalManager::get_ProtocalTypes()
+// 0x0000019F System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,System.Type> PostMainland.ProtocalManager::get_ProtocalTypes()
 extern void ProtocalManager_get_ProtocalTypes_mA7E1C72BB457D76599C98E9B052364EAD43A0ED4 (void);
-// 0x000001A6 System.Void PostMainland.ProtocalManager::set_ProtocalTypes(System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,System.Type>)
+// 0x000001A0 System.Void PostMainland.ProtocalManager::set_ProtocalTypes(System.Collections.Concurrent.ConcurrentDictionary`2<System.UInt32,System.Type>)
 extern void ProtocalManager_set_ProtocalTypes_m3C531BEB8B899680376ACC6B55626C36ED84DEA5 (void);
-// 0x000001A7 System.Void PostMainland.ProtocalManager::.ctor(PostMainland.IAssemblyManager)
+// 0x000001A1 System.Void PostMainland.ProtocalManager::.ctor(PostMainland.IAssemblyManager)
 extern void ProtocalManager__ctor_mC73F789E8F059E8CC097E794C276E4CF4875B92A (void);
-// 0x000001A8 PostMainland.IMessageHandler PostMainland.ProtocalManager::GetMessageHandler(System.UInt32)
+// 0x000001A2 PostMainland.IMessageHandler PostMainland.ProtocalManager::GetMessageHandler(System.UInt32)
 extern void ProtocalManager_GetMessageHandler_m733F5CB7F48F93926E190980E75481114D8CD6AE (void);
-// 0x000001A9 PostMainland.IRequestHandler PostMainland.ProtocalManager::GetRequestHandler(System.UInt32)
+// 0x000001A3 PostMainland.IRequestHandler PostMainland.ProtocalManager::GetRequestHandler(System.UInt32)
 extern void ProtocalManager_GetRequestHandler_mA2270B8FCB6E75E5CFED78A67BE796F16C7F9FE7 (void);
-// 0x000001AA PostMainland.IProtocal PostMainland.ProtocalManager::CreateProtocal(System.UInt32)
+// 0x000001A4 PostMainland.IProtocal PostMainland.ProtocalManager::CreateProtocal(System.UInt32)
 extern void ProtocalManager_CreateProtocal_m3C4EE81D06C9F2068E6E4E4F16CA1C2FEC1D2FF9 (void);
-// 0x000001AB System.Type PostMainland.ProtocalManager::GetProtocalType(System.UInt32)
+// 0x000001A5 System.Type PostMainland.ProtocalManager::GetProtocalType(System.UInt32)
 extern void ProtocalManager_GetProtocalType_m5A121DF3C831860BAE7E822346BB54CE1A2789A6 (void);
-// 0x000001AC System.Void PostMainland.ProtocalManager/<>c::.cctor()
+// 0x000001A6 System.Void PostMainland.ProtocalManager/<>c::.cctor()
 extern void U3CU3Ec__cctor_m6BDDAEFF79F33249D1FA560F7BF504FE0624359E (void);
-// 0x000001AD System.Void PostMainland.ProtocalManager/<>c::.ctor()
+// 0x000001A7 System.Void PostMainland.ProtocalManager/<>c::.ctor()
 extern void U3CU3Ec__ctor_m2AF22A046D380B3F99FDD79C0F0D6E972D8C146D (void);
-// 0x000001AE System.Boolean PostMainland.ProtocalManager/<>c::<.ctor>b__12_0(System.Type)
+// 0x000001A8 System.Boolean PostMainland.ProtocalManager/<>c::<.ctor>b__12_0(System.Type)
 extern void U3CU3Ec_U3C_ctorU3Eb__12_0_mC68E9F7F26D27630AF192D5B6F9CE36DBB94C9F5 (void);
-// 0x000001AF System.Boolean PostMainland.ProtocalManager/<>c::<.ctor>b__12_1(System.Type)
+// 0x000001A9 System.Boolean PostMainland.ProtocalManager/<>c::<.ctor>b__12_1(System.Type)
 extern void U3CU3Ec_U3C_ctorU3Eb__12_1_m98515A6BBE3F7096F36B1140DA902AC92ADC6946 (void);
-// 0x000001B0 System.Int32 PostMainland.ProtocalRequestHeaderHandlingAdapter::get_HeaderLength()
+// 0x000001AA System.Int32 PostMainland.ProtocalRequestHeaderHandlingAdapter::get_HeaderLength()
 extern void ProtocalRequestHeaderHandlingAdapter_get_HeaderLength_mF1AC3F4700A4546079BDF8E04C2975B2A44D6CA6 (void);
-// 0x000001B1 System.Boolean PostMainland.ProtocalRequestHeaderHandlingAdapter::get_CanSendRequestInfo()
+// 0x000001AB System.Boolean PostMainland.ProtocalRequestHeaderHandlingAdapter::get_CanSendRequestInfo()
 extern void ProtocalRequestHeaderHandlingAdapter_get_CanSendRequestInfo_mC6C32DB6AAEBCDEFD6E355C9A46A6C55E0E531B2 (void);
-// 0x000001B2 PostMainland.ProtocalRequest PostMainland.ProtocalRequestHeaderHandlingAdapter::GetInstance()
+// 0x000001AC PostMainland.ProtocalRequest PostMainland.ProtocalRequestHeaderHandlingAdapter::GetInstance()
 extern void ProtocalRequestHeaderHandlingAdapter_GetInstance_m413E256CB1013A037E48C27BD5B7AB14BCF4812E (void);
-// 0x000001B3 System.Void PostMainland.ProtocalRequestHeaderHandlingAdapter::PreviewSend(TouchSocket.Sockets.IRequestInfo,System.Boolean)
+// 0x000001AD System.Void PostMainland.ProtocalRequestHeaderHandlingAdapter::PreviewSend(TouchSocket.Sockets.IRequestInfo,System.Boolean)
 extern void ProtocalRequestHeaderHandlingAdapter_PreviewSend_m64FB6710BC4B490F81273ECBD40B455196A8880D (void);
-// 0x000001B4 System.Void PostMainland.ProtocalRequestHeaderHandlingAdapter::.ctor()
+// 0x000001AE System.Void PostMainland.ProtocalRequestHeaderHandlingAdapter::.ctor()
 extern void ProtocalRequestHeaderHandlingAdapter__ctor_m380942B82D65EFF7E5CD6CF01722F74BB5814068 (void);
-// 0x000001B5 PostMainland.ProtocalType PostMainland.ProtocalRequest::get_Type()
+// 0x000001AF PostMainland.ProtocalType PostMainland.ProtocalRequest::get_Type()
 extern void ProtocalRequest_get_Type_m98A6CA0D7207904CEEDA7108EEDCEAE77D3E823F (void);
-// 0x000001B6 System.Boolean PostMainland.ProtocalRequest::get_UseCrc16()
+// 0x000001B0 System.Boolean PostMainland.ProtocalRequest::get_UseCrc16()
 extern void ProtocalRequest_get_UseCrc16_mBC9F9587EF42A443E80864C5DCD00F0638C533D4 (void);
-// 0x000001B7 System.UInt32 PostMainland.ProtocalRequest::get_Id()
+// 0x000001B1 System.UInt32 PostMainland.ProtocalRequest::get_Id()
 extern void ProtocalRequest_get_Id_m2858947C6022B7F777B323BB4C978D0127A963CF (void);
-// 0x000001B8 System.Int32 PostMainland.ProtocalRequest::get_BodyLength()
+// 0x000001B2 System.Int32 PostMainland.ProtocalRequest::get_BodyLength()
 extern void ProtocalRequest_get_BodyLength_m5AD338936E999926A7A27C26028B9718264FCDC7 (void);
-// 0x000001B9 System.Byte[] PostMainland.ProtocalRequest::get_Body()
+// 0x000001B3 System.Byte[] PostMainland.ProtocalRequest::get_Body()
 extern void ProtocalRequest_get_Body_mECAB9EA5BF2AE3E17FBB093B59D96DA8300A1B7C (void);
-// 0x000001BA PostMainland.ProtocalRequest PostMainland.ProtocalRequest::FromProtocal(T,System.Boolean)
-// 0x000001BB System.Byte[] PostMainland.ProtocalRequest::ToBytes()
+// 0x000001B4 PostMainland.ProtocalRequest PostMainland.ProtocalRequest::FromProtocal(T,System.Boolean)
+// 0x000001B5 System.Byte[] PostMainland.ProtocalRequest::ToBytes()
 extern void ProtocalRequest_ToBytes_mB0D6C0C53F0D9D0EC32D04711F7320E7B256FB16 (void);
-// 0x000001BC System.Boolean PostMainland.ProtocalRequest::OnParsingBody(System.Byte[])
+// 0x000001B6 System.Boolean PostMainland.ProtocalRequest::OnParsingBody(System.Byte[])
 extern void ProtocalRequest_OnParsingBody_m6EC48C62D1AA9664D83AA7F76587C74714760C07 (void);
-// 0x000001BD System.Boolean PostMainland.ProtocalRequest::OnParsingHeader(System.Byte[])
+// 0x000001B7 System.Boolean PostMainland.ProtocalRequest::OnParsingHeader(System.Byte[])
 extern void ProtocalRequest_OnParsingHeader_m76BC1A00A781A31759E41B01D887EEAE467B2FCF (void);
-// 0x000001BE System.Byte PostMainland.ProtocalRequest::ToFirstByte(PostMainland.ProtocalType,System.Boolean)
+// 0x000001B8 System.Byte PostMainland.ProtocalRequest::ToFirstByte(PostMainland.ProtocalType,System.Boolean)
 extern void ProtocalRequest_ToFirstByte_mEF4377C3F134B75A14BEC12EC27CCA735B91C195 (void);
-// 0x000001BF System.ValueTuple`2<PostMainland.ProtocalType,System.Boolean> PostMainland.ProtocalRequest::FromFirstByte(System.Byte)
+// 0x000001B9 System.ValueTuple`2<PostMainland.ProtocalType,System.Boolean> PostMainland.ProtocalRequest::FromFirstByte(System.Byte)
 extern void ProtocalRequest_FromFirstByte_m0C7D34A5663109374FADE9B0FA42789BF73118F9 (void);
-// 0x000001C0 System.Void PostMainland.ProtocalRequest::.ctor()
+// 0x000001BA System.Void PostMainland.ProtocalRequest::.ctor()
 extern void ProtocalRequest__ctor_mA114E39AECC91CE2175CAF48D1E70F4753C221A8 (void);
-// 0x000001C1 System.Void PostMainland.ProtocalRequest::.cctor()
+// 0x000001BB System.Void PostMainland.ProtocalRequest::.cctor()
 extern void ProtocalRequest__cctor_mA06E546AD339AF23CECBAFAA5838865E9DF42694 (void);
-static Il2CppMethodPointer s_methodPointers[449] = 
+static Il2CppMethodPointer s_methodPointers[443] = 
 {
 	StringUtil_ToStr_mF0A1AE2682C973D8B7E892905D3F170F079166F0,
 	StringUtil_ToStr_m75FE526D987C38E5F129F926AA9E02C8E782BE24,
@@ -1073,7 +1065,6 @@ static Il2CppMethodPointer s_methodPointers[449] =
 	NULL,
 	NULL,
 	NULL,
-	NULL,
 	TcpClientService_get_TcpClient_mA04F0DEBBEEF8A55C8C6549485CFAFA0CEFF7654,
 	TcpClientService_set_TcpClient_mF1E0422FA395F5EF9989442FAEADE26F76435C02,
 	TcpClientService__ctor_mB3B0475D6F3C2C7BEA06AA11FABE2E1F94412EB1,
@@ -1084,11 +1075,9 @@ static Il2CppMethodPointer s_methodPointers[449] =
 	U3CU3Ec__ctor_m78F770E31DC52078041EBB6CB5029A921DF99888,
 	U3CU3Ec_U3C_ctorU3Eb__8_0_m72F6A7E3A45DD536DE8A1E791CE74BE4BE526C10,
 	U3CU3Ec__DisplayClass9_0__ctor_mAA0F6F42186D8FE2B14CA03F99EE108DB606C21A,
-	U3CU3Ec__DisplayClass9_1__ctor_m9055CC2AA0F690B5493A0F3CCC164C6C70217420,
-	U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__0_mC94818433A7579C7A3A679EC51E13EC8B52CA74E,
-	U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__1_mAABD4E563F366E1729B388BB2E9E776F11B73087,
-	U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__2_m7706705B98DA2DADF97C6FCEEB6510EBE3E30164,
-	NULL,
+	U3CU3Ec__DisplayClass9_0_U3COnReceivedU3Eb__0_mC6F13994D1F21AAACF2B0282183459B39F75421C,
+	U3CU3Ec__DisplayClass9_0_U3COnReceivedU3Eb__1_m1A6230DC7FCB90D205205C028AD036EFA6C3271A,
+	U3CU3Ec__DisplayClass9_0_U3COnReceivedU3Eb__2_mDF1E1FE95B3A7EFD941E253196CF26B25BBC5DDF,
 	NULL,
 	NULL,
 	TcpClientServiceManager_get_Instance_mF2818D60DA9C5D337E1225E3CB28E1A329619BE3,
@@ -1112,10 +1101,9 @@ static Il2CppMethodPointer s_methodPointers[449] =
 	U3CU3Ec_U3CStartU3Eb__8_2_m7876436D1A80333A04D2DD04B2619229B3AB49F1,
 	U3CU3Ec__DisplayClass9_0__ctor_m610F216991543336061EA74F07C141E175DD72D2,
 	U3CU3Ec__DisplayClass9_1__ctor_m4D27CBC3E3884FBEFF631479B8C9B9F928653B3E,
+	U3CU3Ec__DisplayClass9_1_U3COnReceivedU3Eb__0_m23E4A97697D47C249135495114A0A94BC5A2B122,
 	U3CU3Ec__DisplayClass9_2__ctor_mF6ABB0F1DE0F8755397DF66DDA9F44FE13273768,
-	U3CU3Ec__DisplayClass9_2_U3COnReceivedU3Eb__0_m3CE1FD72AFD61F1DC4185411A9183D342334BB63,
-	U3CU3Ec__DisplayClass9_3__ctor_mE57FC3559762C6AF1FE16A8510D2AE52B5A03986,
-	U3CU3Ec__DisplayClass9_3_U3COnReceivedU3Eb__1_mC0DB10B0E6634D3B51D34B0A4225190A4407F70B,
+	U3CU3Ec__DisplayClass9_2_U3COnReceivedU3Eb__1_mFC8D74D27688DDD68371AA9F0F1651E034ABEAAB,
 	C2S_Login_get_Account_m08F390838CE19A18B1F39D068FF3D631EBCF46A8,
 	C2S_Login_set_Account_mF3E9E222A721463E2179D1946D15070431781DF6,
 	C2S_Login_get_Password_mE57F8469869EACC76FC1F21131AF86C7B81F8281,
@@ -1180,8 +1168,6 @@ static Il2CppMethodPointer s_methodPointers[449] =
 	BufferReader_Dispose_m6684522D4563CE24BC344A1E719C0FE22804DE44,
 	ProtocalId__ctor_m9E5B900733B8AC4CA971CCF8862B1AB8805F62CA,
 	ProtocalHandlerAttribute__ctor_m85538309AEB1F2F2A8D9A52E2C4867832A207661,
-	NULL,
-	NULL,
 	NULL,
 	NULL,
 	NULL,
@@ -1284,472 +1270,466 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[5] =
 	{ 0x06000009, SegmentSaveState__ctor_m828EE14ED04A9D2915AE05C762258D85BD2C1D87_AdjustorThunk },
 	{ 0x0600000A, SegmentSaveState_get_ReaderIndex_m8225113D50E7764577FD8434935865EA82C2D9B7_AdjustorThunk },
 	{ 0x0600000B, SegmentSaveState_get_WriterIndex_m089A8B1774093C9AA63E57E2773C9AD845BE4E22_AdjustorThunk },
-	{ 0x06000182, PacketParser__ctor_m9747C9A62CED16B2E2864C110431EA5D8CA80B66_AdjustorThunk },
-	{ 0x06000183, PacketParser_Parse_mFB8480925D703E8E62351D5286AB56CDB4629B53_AdjustorThunk },
+	{ 0x0600017C, PacketParser__ctor_m9747C9A62CED16B2E2864C110431EA5D8CA80B66_AdjustorThunk },
+	{ 0x0600017D, PacketParser_Parse_mFB8480925D703E8E62351D5286AB56CDB4629B53_AdjustorThunk },
 };
-static const int32_t s_InvokerIndices[449] = 
+static const int32_t s_InvokerIndices[443] = 
 {
-	15266,
-	13740,
-	0,
-	0,
-	0,
-	10749,
-	8532,
-	4724,
-	4440,
-	10567,
-	10567,
-	10749,
-	8500,
-	8532,
-	2208,
-	4467,
-	15266,
-	8532,
-	2208,
-	10567,
-	8500,
-	10567,
-	8500,
-	10567,
-	10567,
-	10503,
-	10503,
-	8500,
-	8500,
-	10600,
-	8532,
-	10600,
-	10567,
-	10749,
-	10567,
-	8532,
-	2208,
-	10749,
-	13601,
-	8500,
-	8500,
-	8500,
-	6343,
-	8430,
-	8430,
-	10503,
-	8430,
-	10503,
-	8499,
-	10566,
-	10566,
-	8499,
-	8500,
-	10567,
-	8653,
-	10726,
-	8653,
-	10726,
-	10567,
-	8500,
-	10567,
-	8500,
-	8501,
-	10568,
-	8462,
-	10530,
-	8654,
-	10727,
-	8501,
-	10568,
-	14021,
-	14021,
-	8601,
-	10668,
-	8462,
-	10530,
-	8500,
-	10567,
-	8500,
-	10567,
-	8501,
-	10568,
-	8532,
-	16638,
-	15793,
-	10600,
-	8532,
-	10600,
-	8439,
-	10510,
-	8661,
-	10734,
-	8664,
-	10737,
-	8667,
-	10740,
-	8553,
-	10618,
-	8524,
-	10592,
-	10749,
-	8532,
-	8532,
-	6252,
-	3275,
-	8430,
-	3933,
-	2080,
-	8418,
-	8500,
-	3724,
-	8532,
-	8418,
-	8591,
-	10600,
-	6378,
-	6378,
-	10600,
-	15266,
-	10567,
-	10749,
-	14122,
-	15762,
-	14123,
-	15768,
-	14124,
-	15777,
-	0,
-	0,
-	10749,
-	10600,
-	8532,
-	10749,
-	8532,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	14994,
-	14994,
-	14994,
-	0,
-	0,
-	16638,
-	15793,
-	16638,
-	15793,
-	10749,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	10749,
-	8532,
-	13740,
-	13740,
-	10567,
-	10600,
-	10749,
-	10600,
-	15266,
-	16638,
-	8500,
-	10749,
-	4724,
-	8532,
-	8532,
-	16683,
-	10749,
-	10749,
-	16631,
-	16631,
-	16620,
-	16631,
-	16631,
-	16631,
-	16638,
-	10567,
-	8500,
-	10568,
-	8501,
-	10749,
-	10749,
-	6742,
-	10568,
-	10568,
-	10568,
-	10568,
-	7574,
-	10749,
-	16683,
-	13924,
-	13927,
-	10749,
-	0,
-	15793,
-	13039,
-	0,
-	14116,
-	14116,
-	14116,
-	0,
-	0,
-	0,
-	15266,
-	10749,
-	10600,
-	8532,
-	10600,
-	8532,
-	10567,
-	8500,
-	10749,
-	0,
-	0,
-	16631,
-	10749,
-	16683,
-	10503,
-	8430,
-	10503,
-	8430,
-	10568,
-	8501,
-	10600,
-	8532,
-	10600,
-	8532,
-	10749,
-	10749,
-	10749,
-	8532,
-	2149,
-	10749,
-	8532,
-	8532,
-	0,
-	0,
-	0,
-	0,
-	0,
-	10600,
-	8532,
-	8532,
-	2239,
-	0,
-	0,
-	16683,
-	10749,
-	10600,
-	10749,
-	10749,
-	6378,
-	10749,
-	10749,
-	0,
-	0,
-	0,
-	16638,
-	10749,
-	16683,
-	8532,
-	0,
-	0,
-	10503,
-	8430,
-	4717,
-	4717,
-	2239,
-	4724,
-	4724,
-	4724,
-	16683,
-	10749,
-	10600,
-	8532,
-	8532,
-	10749,
-	10749,
-	10749,
-	10749,
-	10749,
-	10749,
-	10600,
-	8532,
-	10600,
-	8532,
-	10567,
-	8500,
-	10600,
-	10749,
-	16683,
-	4724,
-	7645,
-	10749,
-	10600,
-	8532,
-	10567,
-	8500,
-	10567,
-	8500,
-	10600,
-	8532,
-	10600,
-	10749,
-	16683,
-	4724,
-	7645,
-	10749,
-	10600,
-	8532,
-	10567,
-	8500,
-	10600,
-	10749,
-	16683,
-	4724,
-	7645,
-	10749,
-	10600,
-	8532,
-	10600,
-	10749,
-	16683,
-	4724,
-	7645,
-	10749,
-	10567,
-	10600,
-	8500,
-	8653,
-	8430,
-	8501,
-	8430,
-	8532,
-	10749,
-	10749,
-	8532,
-	10503,
-	10726,
-	10568,
-	10567,
-	7641,
-	2731,
-	10749,
-	10749,
-	10749,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	8532,
-	6252,
-	10726,
-	8653,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	0,
-	8532,
-	10600,
-	7659,
-	0,
-	0,
-	0,
-	8532,
-	10600,
-	7659,
-	7659,
-	0,
-	0,
-	13740,
-	15424,
-	14994,
-	10749,
-	16683,
-	10600,
-	8532,
-	10600,
-	8532,
-	10600,
-	8532,
-	8532,
-	7659,
-	7659,
-	7659,
-	7659,
-	16683,
-	10749,
-	6378,
-	6378,
-	10567,
-	10503,
-	10600,
-	4706,
-	10749,
-	10503,
-	10503,
-	10726,
-	10567,
-	10600,
-	0,
-	10600,
-	6378,
-	6378,
-	2693,
-	5586,
-	10749,
-	16683,
+	22372,
+	20067,
+	0,
+	0,
+	0,
+	15114,
+	12220,
+	7239,
+	6880,
+	14884,
+	14884,
+	15114,
+	12178,
+	12220,
+	3835,
+	6913,
+	22372,
+	12220,
+	3835,
+	14884,
+	12178,
+	14884,
+	12178,
+	14884,
+	14884,
+	14787,
+	14787,
+	12178,
+	12178,
+	14929,
+	12220,
+	14929,
+	14884,
+	15114,
+	14884,
+	12220,
+	3835,
+	15114,
+	19891,
+	12178,
+	12178,
+	12178,
+	9327,
+	12079,
+	12079,
+	14787,
+	12079,
+	14787,
+	12177,
+	14883,
+	14883,
+	12177,
+	12178,
+	14884,
+	12367,
+	15086,
+	12367,
+	15086,
+	14884,
+	12178,
+	14884,
+	12178,
+	12179,
+	14885,
+	12125,
+	14830,
+	12368,
+	15087,
+	12179,
+	14885,
+	20619,
+	20619,
+	12306,
+	15017,
+	12125,
+	14830,
+	12178,
+	14884,
+	12178,
+	14884,
+	12179,
+	14885,
+	12220,
+	23943,
+	23009,
+	14929,
+	12220,
+	14929,
+	12094,
+	14800,
+	12378,
+	15098,
+	12381,
+	15101,
+	12384,
+	15104,
+	12246,
+	14958,
+	12209,
+	14917,
+	15114,
+	12220,
+	12220,
+	9202,
+	5325,
+	12079,
+	6215,
+	3654,
+	12057,
+	12178,
+	5991,
+	12220,
+	12057,
+	12295,
+	14929,
+	9372,
+	9372,
+	14929,
+	22372,
+	14884,
+	15114,
+	20776,
+	22952,
+	20777,
+	22962,
+	20778,
+	22977,
+	0,
+	0,
+	15114,
+	14929,
+	12220,
+	15114,
+	12220,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	21982,
+	21982,
+	21982,
+	0,
+	0,
+	23943,
+	23009,
+	23943,
+	23009,
+	15114,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	15114,
+	12220,
+	20067,
+	20067,
+	14884,
+	14929,
+	15114,
+	14929,
+	22372,
+	23943,
+	12178,
+	15114,
+	7239,
+	12220,
+	12220,
+	24003,
+	15114,
+	15114,
+	23934,
+	23934,
+	23915,
+	23934,
+	23934,
+	23934,
+	23943,
+	14884,
+	12178,
+	14885,
+	12179,
+	15114,
+	15114,
+	9820,
+	14885,
+	14885,
+	14885,
+	14885,
+	10889,
+	15114,
+	24003,
+	20314,
+	20317,
+	15114,
+	0,
+	23009,
+	18881,
+	0,
+	20764,
+	20764,
+	20764,
+	0,
+	0,
+	0,
+	22372,
+	15114,
+	14929,
+	12220,
+	14929,
+	12220,
+	14884,
+	12178,
+	15114,
+	0,
+	0,
+	23934,
+	15114,
+	24003,
+	14787,
+	12079,
+	14787,
+	12079,
+	14885,
+	12179,
+	14929,
+	12220,
+	14929,
+	12220,
+	15114,
+	15114,
+	15114,
+	12220,
+	3745,
+	15114,
+	12220,
+	12220,
+	0,
+	0,
+	0,
+	0,
+	14929,
+	12220,
+	12220,
+	3875,
+	0,
+	0,
+	24003,
+	15114,
+	14929,
+	15114,
+	9372,
+	15114,
+	15114,
+	0,
+	0,
+	23943,
+	15114,
+	24003,
+	12220,
+	0,
+	0,
+	14787,
+	12079,
+	7230,
+	7230,
+	3875,
+	7239,
+	7239,
+	7239,
+	24003,
+	15114,
+	14929,
+	12220,
+	12220,
+	15114,
+	15114,
+	15114,
+	15114,
+	15114,
+	14929,
+	12220,
+	14929,
+	12220,
+	14884,
+	12178,
+	14929,
+	15114,
+	24003,
+	7239,
+	11006,
+	15114,
+	14929,
+	12220,
+	14884,
+	12178,
+	14884,
+	12178,
+	14929,
+	12220,
+	14929,
+	15114,
+	24003,
+	7239,
+	11006,
+	15114,
+	14929,
+	12220,
+	14884,
+	12178,
+	14929,
+	15114,
+	24003,
+	7239,
+	11006,
+	15114,
+	14929,
+	12220,
+	14929,
+	15114,
+	24003,
+	7239,
+	11006,
+	15114,
+	14884,
+	14929,
+	12178,
+	12367,
+	12079,
+	12179,
+	12079,
+	12220,
+	15114,
+	15114,
+	12220,
+	14787,
+	15086,
+	14885,
+	14884,
+	11002,
+	4603,
+	15114,
+	15114,
+	15114,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	12220,
+	9202,
+	15086,
+	12367,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	0,
+	12220,
+	14929,
+	11025,
+	0,
+	0,
+	0,
+	12220,
+	14929,
+	11025,
+	11025,
+	0,
+	0,
+	20067,
+	22608,
+	21982,
+	15114,
+	24003,
+	14929,
+	12220,
+	14929,
+	12220,
+	14929,
+	12220,
+	12220,
+	11025,
+	11025,
+	11025,
+	11025,
+	24003,
+	15114,
+	9372,
+	9372,
+	14884,
+	14787,
+	14929,
+	7214,
+	15114,
+	14787,
+	14787,
+	15086,
+	14884,
+	14929,
+	0,
+	14929,
+	9372,
+	9372,
+	4555,
+	8360,
+	15114,
+	24003,
 };
 static const Il2CppTokenRangePair s_rgctxIndices[25] = 
 {
 	{ 0x0200000C, { 10, 15 } },
 	{ 0x0200000F, { 32, 16 } },
-	{ 0x0200001F, { 58, 7 } },
-	{ 0x02000024, { 72, 8 } },
-	{ 0x0200003C, { 81, 4 } },
-	{ 0x0200003D, { 85, 4 } },
-	{ 0x0200003F, { 89, 4 } },
-	{ 0x02000040, { 93, 2 } },
-	{ 0x02000041, { 95, 8 } },
+	{ 0x0200001F, { 56, 8 } },
+	{ 0x02000023, { 69, 9 } },
+	{ 0x0200003A, { 79, 2 } },
+	{ 0x0200003B, { 81, 4 } },
+	{ 0x0200003D, { 85, 2 } },
+	{ 0x0200003E, { 87, 2 } },
+	{ 0x0200003F, { 89, 8 } },
 	{ 0x06000003, { 0, 1 } },
 	{ 0x06000004, { 1, 1 } },
 	{ 0x06000005, { 2, 8 } },
@@ -1758,14 +1738,14 @@ static const Il2CppTokenRangePair s_rgctxIndices[25] =
 	{ 0x060000CF, { 48, 1 } },
 	{ 0x060000D3, { 49, 1 } },
 	{ 0x060000D5, { 50, 1 } },
-	{ 0x060000F6, { 51, 6 } },
-	{ 0x060000F7, { 57, 1 } },
-	{ 0x060000FF, { 65, 1 } },
-	{ 0x06000100, { 66, 6 } },
-	{ 0x06000111, { 80, 1 } },
-	{ 0x0600019A, { 103, 1 } },
-	{ 0x0600019B, { 104, 1 } },
-	{ 0x060001BA, { 105, 2 } },
+	{ 0x060000F6, { 51, 4 } },
+	{ 0x060000F7, { 55, 1 } },
+	{ 0x060000FE, { 64, 1 } },
+	{ 0x060000FF, { 65, 4 } },
+	{ 0x0600010E, { 78, 1 } },
+	{ 0x06000194, { 97, 1 } },
+	{ 0x06000195, { 98, 1 } },
+	{ 0x060001B4, { 99, 2 } },
 };
 extern const uint32_t g_rgctx_String_Join_TisT_t04E5ECEC3A17C31944DC8884D947FB46E0B30A70_m8DB2F5989F103831F29770B54A5FBDE6F03A6291;
 extern const uint32_t g_rgctx_String_Join_TisT_tDF70C0517F73D8C633A43579B66E01FF0E92B096_m4E6022B4AF36E470CE4381127F91FB2FF5DE2CCC;
@@ -1818,8 +1798,6 @@ extern const uint32_t g_rgctx_List_1__ctor_mA205373BE9F01E02F0D81072BB3836EC4F8D
 extern const uint32_t g_rgctx_LoggerGroup_Debug_TisT_t4669E9CA8AAE5D4EECA942AFA8C2E834D60F2AE0_m1DCD20CFDA496D38C689097E3FBCFB6BCDE95C92;
 extern const uint32_t g_rgctx_LoggerGroup_Debug_TisT_tE6EFACC1FEEB8621E440C25A075393CDEE37B5B1_mD1B0A28E7C65AEF7EE890AA6AC6760C0DCE57115;
 extern const uint32_t g_rgctx_LoggerGroup_Debug_TisT_tB993B4D5D3C3B72DFCF845D99145EFD426C1D93A_mAC86C2159672B261D39875BDCF5549D2EA63C554;
-extern const uint32_t g_rgctx_U3CRequestU3Ed__4_2_tA24D62B4A9D34959E213ACE4945D76B311B5B576;
-extern const uint32_t g_rgctx_U3CRequestU3Ed__4_2__ctor_mD8F1988E95E4A0DB95A6FAD90AB047146A75AF39;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_Create_m2B6865D072190EF4399F39F1528107881C361852;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_t48D909828AD534A8069C0E119BC9F8BCFE599EBC;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_Start_TisU3CRequestU3Ed__4_2_tA24D62B4A9D34959E213ACE4945D76B311B5B576_mCC66E7823DDC737C3BB9545935529CB016B792F2;
@@ -1832,9 +1810,8 @@ extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_AwaitUnsafeOnCompleted
 extern const uint32_t g_rgctx_Awaiter_GetResult_mC0B10E83EC15BEF87DE37A95AAFAA2FE763B9FE7;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_SetException_mF44C40A123D882834894A7414BAEF4DE4DF666B4;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_SetResult_m9388F2168B4D3E85C03921E8A3AFA3E4922AE80C;
+extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_SetStateMachine_m52A18933007F364643E917AD6298CBA60B2FA731;
 extern const uint32_t g_rgctx_ProtocalRequest_FromProtocal_TisT_t79452EDC352DB8C6FFDA260527D83AA39DCC9A19_m38185CE7174796EFC0EDA6F6FDDE7223B2D32615;
-extern const uint32_t g_rgctx_U3CRequestU3Ed__11_2_t43B00D5157038702D2BAB3114E2D8305A7F6DE2A;
-extern const uint32_t g_rgctx_U3CRequestU3Ed__11_2__ctor_m622503FFDC238FFEC31A27C1A9A8E4BBF089AC72;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_Create_m54AB0388FAE0074A56A5ECE4FA7FA0AD629B6094;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_tFEE354B3C3D17B12C242409FA10FDF526586E31D;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_Start_TisU3CRequestU3Ed__11_2_t43B00D5157038702D2BAB3114E2D8305A7F6DE2A_mA068FAC6F914969446B9E5D426CD458D6BDFC0C6;
@@ -1847,18 +1824,15 @@ extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_AwaitUnsafeOnCompleted
 extern const uint32_t g_rgctx_TRes_t5306C71700389E4E943FE6B5393BD332CE4C458F;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_SetException_m4C09DD21D76F0558C9F7F2ADD8CE52E880AA3446;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_SetResult_m39BC0C86B41626C03F5AC233343C5E30F2BF22EE;
+extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_1_SetStateMachine_m4EC54BAF2D43CC218A768AD9552E51BE9A7AB33B;
 extern const uint32_t g_rgctx_ProtocalRequest_FromProtocal_TisT_tC02B9248425FCBAD49C65F34E5E2C4A8B64AEFE9_m7D7336781E61C369FFDD35709017790A0C96FCC0;
 extern const uint32_t g_rgctx_MessageHandler_1_GetMessageId_mDEEBEEA14C71F8ECBE048DD616DDCF4761B1C1EB;
-extern const uint32_t g_rgctx_U3CHandleU3Ed__3_t0F4A19C2D5747326F9CBC36C1A6A3DEC53973A5E;
-extern const uint32_t g_rgctx_U3CHandleU3Ed__3__ctor_m6DAFE647350A57D53AFF510B66E85D983A734F04;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_Start_TisU3CHandleU3Ed__3_t0F4A19C2D5747326F9CBC36C1A6A3DEC53973A5E_mA059C90FA133FB3139D84F2CF1ADAF9647CC35DA;
 extern const uint32_t g_rgctx_ProtocalHelper_DeserializeProtocal_TisTM_t4F9CDE75C25C3C8CFE1D1DCBA0AA648B5F6873FB_m79A506E0D219B8B7CD26EB41DC7AE70971A68962;
 extern const uint32_t g_rgctx_MessageHandler_1_t3C04A78B4B643330927F8B423668EDAE93A440EB;
 extern const uint32_t g_rgctx_MessageHandler_1_Execute_mB66C33EE42252FCD808350401B5AD73873D60E90;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_AwaitUnsafeOnCompleted_TisAwaiter_tFACD37B3B2ACD03C61DB949FD0E4FAB189A1D956_TisU3CHandleU3Ed__3_t6889A4A6683E108D9699FCD1622190DC37B63A62_m0B0D57265C101E2F1470E466FEA5D774D3E6ECE6;
 extern const uint32_t g_rgctx_RequestHandler_2_GetRequestId_m18572C610C0BFB118A3F2C11D3D0E36CAC7BE0FC;
-extern const uint32_t g_rgctx_U3CHandleU3Ed__4_t6930F872426751A1B640C239CE8EE38258CD95BB;
-extern const uint32_t g_rgctx_U3CHandleU3Ed__4__ctor_m2C7EC26C6EBCCF619777A8F97785FDB7FA262252;
 extern const uint32_t g_rgctx_AsyncUniTaskMethodBuilder_Start_TisU3CHandleU3Ed__4_t6930F872426751A1B640C239CE8EE38258CD95BB_mE6B2CAAA261232936CB8B26A0606C9BC69CFF92D;
 extern const uint32_t g_rgctx_TRes_t4ED27D8BAB39119595FEAD47D6662726E6D943E8;
 extern const uint32_t g_rgctx_INetworkSession_Send_TisTRes_t4ED27D8BAB39119595FEAD47D6662726E6D943E8_m7F394AA1F533D7B8A619A831CCAE8B8232A9D0A2;
@@ -1874,7 +1848,7 @@ extern const uint32_t g_rgctx_Serializer_Serialize_TisT_t55E896CC1006F13C135F39C
 extern const uint32_t g_rgctx_Deserializer_Deserialize_TisT_t48A5F6FC380061D16D22C7B2F1714A909BCCD8BA_mD335FA1FB0AB920D02F27EFFE5F38E0A6D16AA4D;
 extern const uint32_t g_rgctx_T_t380F4D51879A6887251BF2C73E8CED11E3A34DF9;
 extern const uint32_t g_rgctx_ProtocalHelper_SerializeProtocal_TisT_t380F4D51879A6887251BF2C73E8CED11E3A34DF9_mB44DFFB4A97F229F493DA84BFDF48C7AF67720F0;
-static const Il2CppRGCTXDefinition s_rgctxValues[107] = 
+static const Il2CppRGCTXDefinition s_rgctxValues[101] = 
 {
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_String_Join_TisT_t04E5ECEC3A17C31944DC8884D947FB46E0B30A70_m8DB2F5989F103831F29770B54A5FBDE6F03A6291 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_String_Join_TisT_tDF70C0517F73D8C633A43579B66E01FF0E92B096_m4E6022B4AF36E470CE4381127F91FB2FF5DE2CCC },
@@ -1927,8 +1901,6 @@ static const Il2CppRGCTXDefinition s_rgctxValues[107] =
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_LoggerGroup_Debug_TisT_t4669E9CA8AAE5D4EECA942AFA8C2E834D60F2AE0_m1DCD20CFDA496D38C689097E3FBCFB6BCDE95C92 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_LoggerGroup_Debug_TisT_tE6EFACC1FEEB8621E440C25A075393CDEE37B5B1_mD1B0A28E7C65AEF7EE890AA6AC6760C0DCE57115 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_LoggerGroup_Debug_TisT_tB993B4D5D3C3B72DFCF845D99145EFD426C1D93A_mAC86C2159672B261D39875BDCF5549D2EA63C554 },
-	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_U3CRequestU3Ed__4_2_tA24D62B4A9D34959E213ACE4945D76B311B5B576 },
-	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CRequestU3Ed__4_2__ctor_mD8F1988E95E4A0DB95A6FAD90AB047146A75AF39 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_Create_m2B6865D072190EF4399F39F1528107881C361852 },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_t48D909828AD534A8069C0E119BC9F8BCFE599EBC },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_Start_TisU3CRequestU3Ed__4_2_tA24D62B4A9D34959E213ACE4945D76B311B5B576_mCC66E7823DDC737C3BB9545935529CB016B792F2 },
@@ -1941,9 +1913,8 @@ static const Il2CppRGCTXDefinition s_rgctxValues[107] =
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_Awaiter_GetResult_mC0B10E83EC15BEF87DE37A95AAFAA2FE763B9FE7 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_SetException_mF44C40A123D882834894A7414BAEF4DE4DF666B4 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_SetResult_m9388F2168B4D3E85C03921E8A3AFA3E4922AE80C },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_SetStateMachine_m52A18933007F364643E917AD6298CBA60B2FA731 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ProtocalRequest_FromProtocal_TisT_t79452EDC352DB8C6FFDA260527D83AA39DCC9A19_m38185CE7174796EFC0EDA6F6FDDE7223B2D32615 },
-	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_U3CRequestU3Ed__11_2_t43B00D5157038702D2BAB3114E2D8305A7F6DE2A },
-	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CRequestU3Ed__11_2__ctor_m622503FFDC238FFEC31A27C1A9A8E4BBF089AC72 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_Create_m54AB0388FAE0074A56A5ECE4FA7FA0AD629B6094 },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_tFEE354B3C3D17B12C242409FA10FDF526586E31D },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_Start_TisU3CRequestU3Ed__11_2_t43B00D5157038702D2BAB3114E2D8305A7F6DE2A_mA068FAC6F914969446B9E5D426CD458D6BDFC0C6 },
@@ -1956,18 +1927,15 @@ static const Il2CppRGCTXDefinition s_rgctxValues[107] =
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TRes_t5306C71700389E4E943FE6B5393BD332CE4C458F },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_SetException_m4C09DD21D76F0558C9F7F2ADD8CE52E880AA3446 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_SetResult_m39BC0C86B41626C03F5AC233343C5E30F2BF22EE },
+	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_1_SetStateMachine_m4EC54BAF2D43CC218A768AD9552E51BE9A7AB33B },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ProtocalRequest_FromProtocal_TisT_tC02B9248425FCBAD49C65F34E5E2C4A8B64AEFE9_m7D7336781E61C369FFDD35709017790A0C96FCC0 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_MessageHandler_1_GetMessageId_mDEEBEEA14C71F8ECBE048DD616DDCF4761B1C1EB },
-	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_U3CHandleU3Ed__3_t0F4A19C2D5747326F9CBC36C1A6A3DEC53973A5E },
-	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CHandleU3Ed__3__ctor_m6DAFE647350A57D53AFF510B66E85D983A734F04 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_Start_TisU3CHandleU3Ed__3_t0F4A19C2D5747326F9CBC36C1A6A3DEC53973A5E_mA059C90FA133FB3139D84F2CF1ADAF9647CC35DA },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_ProtocalHelper_DeserializeProtocal_TisTM_t4F9CDE75C25C3C8CFE1D1DCBA0AA648B5F6873FB_m79A506E0D219B8B7CD26EB41DC7AE70971A68962 },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_MessageHandler_1_t3C04A78B4B643330927F8B423668EDAE93A440EB },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_MessageHandler_1_Execute_mB66C33EE42252FCD808350401B5AD73873D60E90 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_AwaitUnsafeOnCompleted_TisAwaiter_tFACD37B3B2ACD03C61DB949FD0E4FAB189A1D956_TisU3CHandleU3Ed__3_t6889A4A6683E108D9699FCD1622190DC37B63A62_m0B0D57265C101E2F1470E466FEA5D774D3E6ECE6 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_RequestHandler_2_GetRequestId_m18572C610C0BFB118A3F2C11D3D0E36CAC7BE0FC },
-	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_U3CHandleU3Ed__4_t6930F872426751A1B640C239CE8EE38258CD95BB },
-	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_U3CHandleU3Ed__4__ctor_m2C7EC26C6EBCCF619777A8F97785FDB7FA262252 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_AsyncUniTaskMethodBuilder_Start_TisU3CHandleU3Ed__4_t6930F872426751A1B640C239CE8EE38258CD95BB_mE6B2CAAA261232936CB8B26A0606C9BC69CFF92D },
 	{ (Il2CppRGCTXDataType)2, (const void *)&g_rgctx_TRes_t4ED27D8BAB39119595FEAD47D6662726E6D943E8 },
 	{ (Il2CppRGCTXDataType)3, (const void *)&g_rgctx_INetworkSession_Send_TisTRes_t4ED27D8BAB39119595FEAD47D6662726E6D943E8_m7F394AA1F533D7B8A619A831CCAE8B8232A9D0A2 },
@@ -1988,7 +1956,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_PostMainland_Shares_CodeGenModule;
 const Il2CppCodeGenModule g_PostMainland_Shares_CodeGenModule = 
 {
 	"PostMainland.Shares.dll",
-	449,
+	443,
 	s_methodPointers,
 	5,
 	s_adjustorThunks,
@@ -1997,7 +1965,7 @@ const Il2CppCodeGenModule g_PostMainland_Shares_CodeGenModule =
 	NULL,
 	25,
 	s_rgctxIndices,
-	107,
+	101,
 	s_rgctxValues,
 	NULL,
 	NULL, // module initializer,

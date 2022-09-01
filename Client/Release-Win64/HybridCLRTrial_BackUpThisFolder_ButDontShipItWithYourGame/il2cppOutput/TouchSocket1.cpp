@@ -1040,7 +1040,7 @@ struct ConcurrentDictionary_2_t80A79129AC7D401EC326D2543DE5B03DF585C39F  : publi
 struct ConcurrentDictionary_2_t80A79129AC7D401EC326D2543DE5B03DF585C39F_StaticFields
 {
 	// System.Boolean System.Collections.Concurrent.ConcurrentDictionary`2::s_isValueWriteAtomic
-	bool ___s_isValueWriteAtomic_7;
+	bool ___s_isValueWriteAtomic_9;
 };
 
 // System.Collections.Concurrent.ConcurrentDictionary`2<System.Int32,System.Object>
@@ -1065,7 +1065,7 @@ struct ConcurrentDictionary_2_tFDF36D27CABA72215EF949C34ADEAA5CC43B8B0E  : publi
 struct ConcurrentDictionary_2_tFDF36D27CABA72215EF949C34ADEAA5CC43B8B0E_StaticFields
 {
 	// System.Boolean System.Collections.Concurrent.ConcurrentDictionary`2::s_isValueWriteAtomic
-	bool ___s_isValueWriteAtomic_7;
+	bool ___s_isValueWriteAtomic_9;
 };
 
 // System.Collections.Concurrent.ConcurrentDictionary`2<System.Int64,TouchSocket.Rpc.TouchRpc.TouchRpcCallContext>
@@ -1090,7 +1090,7 @@ struct ConcurrentDictionary_2_tEE9EF6C516323555DF6C14DAB95129A4E04D0E87  : publi
 struct ConcurrentDictionary_2_tEE9EF6C516323555DF6C14DAB95129A4E04D0E87_StaticFields
 {
 	// System.Boolean System.Collections.Concurrent.ConcurrentDictionary`2::s_isValueWriteAtomic
-	bool ___s_isValueWriteAtomic_7;
+	bool ___s_isValueWriteAtomic_9;
 };
 
 // System.Collections.Generic.Dictionary`2<System.String,System.String>
@@ -1332,23 +1332,23 @@ struct Method_t27A87E96AFDF4D60A7CA8EF0B2A8DEB00A7BB877  : public RuntimeObject
 struct Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8  : public RuntimeObject
 {
 	// System.Int32 System.Random::_inext
-	int32_t ____inext_0;
+	int32_t ____inext_3;
 	// System.Int32 System.Random::_inextp
-	int32_t ____inextp_1;
+	int32_t ____inextp_4;
 	// System.Int32[] System.Random::_seedArray
-	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ____seedArray_2;
+	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ____seedArray_5;
 };
 
 struct Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8_StaticFields
 {
 	// System.Random System.Random::s_globalRandom
-	Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8* ___s_globalRandom_4;
+	Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8* ___s_globalRandom_7;
 };
 
 struct Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8_ThreadStaticFields
 {
 	// System.Random System.Random::t_threadRandom
-	Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8* ___t_threadRandom_3;
+	Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8* ___t_threadRandom_6;
 };
 
 // TouchSocket.Rpc.TouchRpc.RpcActorGroup
@@ -1433,9 +1433,9 @@ struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572  : public RuntimeObject
 	// System.Int32 modreq(System.Runtime.CompilerServices.IsVolatile) System.Threading.Tasks.Task::m_stateFlags
 	int32_t ___m_stateFlags_6;
 	// System.Object modreq(System.Runtime.CompilerServices.IsVolatile) System.Threading.Tasks.Task::m_continuationObject
-	RuntimeObject* ___m_continuationObject_7;
+	RuntimeObject* ___m_continuationObject_23;
 	// System.Threading.Tasks.Task/ContingentProperties modreq(System.Runtime.CompilerServices.IsVolatile) System.Threading.Tasks.Task::m_contingentProperties
-	ContingentProperties_t3FA59480914505CEA917B1002EC675F29D0CB540* ___m_contingentProperties_10;
+	ContingentProperties_t3FA59480914505CEA917B1002EC675F29D0CB540* ___m_contingentProperties_26;
 };
 
 struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572_StaticFields
@@ -1443,35 +1443,35 @@ struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572_StaticFields
 	// System.Int32 System.Threading.Tasks.Task::s_taskIdCounter
 	int32_t ___s_taskIdCounter_0;
 	// System.Object System.Threading.Tasks.Task::s_taskCompletionSentinel
-	RuntimeObject* ___s_taskCompletionSentinel_8;
+	RuntimeObject* ___s_taskCompletionSentinel_24;
 	// System.Boolean System.Threading.Tasks.Task::s_asyncDebuggingEnabled
-	bool ___s_asyncDebuggingEnabled_9;
+	bool ___s_asyncDebuggingEnabled_25;
 	// System.Action`1<System.Object> System.Threading.Tasks.Task::s_taskCancelCallback
-	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___s_taskCancelCallback_11;
+	Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___s_taskCancelCallback_27;
 	// System.Func`1<System.Threading.Tasks.Task/ContingentProperties> System.Threading.Tasks.Task::s_createContingentProperties
-	Func_1_tD59A12717D79BFB403BF973694B1BE5B85474BD1* ___s_createContingentProperties_14;
+	Func_1_tD59A12717D79BFB403BF973694B1BE5B85474BD1* ___s_createContingentProperties_30;
 	// System.Threading.Tasks.TaskFactory System.Threading.Tasks.Task::<Factory>k__BackingField
-	TaskFactory_tF781BD37BE23917412AD83424D1497C7C1509DF0* ___U3CFactoryU3Ek__BackingField_15;
+	TaskFactory_tF781BD37BE23917412AD83424D1497C7C1509DF0* ___U3CFactoryU3Ek__BackingField_31;
 	// System.Threading.Tasks.Task System.Threading.Tasks.Task::<CompletedTask>k__BackingField
-	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___U3CCompletedTaskU3Ek__BackingField_16;
+	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___U3CCompletedTaskU3Ek__BackingField_32;
 	// System.Predicate`1<System.Threading.Tasks.Task> System.Threading.Tasks.Task::s_IsExceptionObservedByParentPredicate
-	Predicate_1_t7F48518B008C1472339EEEBABA3DE203FE1F26ED* ___s_IsExceptionObservedByParentPredicate_17;
+	Predicate_1_t7F48518B008C1472339EEEBABA3DE203FE1F26ED* ___s_IsExceptionObservedByParentPredicate_33;
 	// System.Threading.ContextCallback System.Threading.Tasks.Task::s_ecCallback
-	ContextCallback_tE8AFBDBFCC040FDA8DA8C1EEFE9BD66B16BDA007* ___s_ecCallback_18;
+	ContextCallback_tE8AFBDBFCC040FDA8DA8C1EEFE9BD66B16BDA007* ___s_ecCallback_34;
 	// System.Predicate`1<System.Object> System.Threading.Tasks.Task::s_IsTaskContinuationNullPredicate
-	Predicate_1_t8342C85FF4E41CD1F7024AC0CDC3E5312A32CB12* ___s_IsTaskContinuationNullPredicate_19;
+	Predicate_1_t8342C85FF4E41CD1F7024AC0CDC3E5312A32CB12* ___s_IsTaskContinuationNullPredicate_35;
 	// System.Collections.Generic.Dictionary`2<System.Int32,System.Threading.Tasks.Task> System.Threading.Tasks.Task::s_currentActiveTasks
-	Dictionary_2_t403063CE4960B4F46C688912237C6A27E550FF55* ___s_currentActiveTasks_20;
+	Dictionary_2_t403063CE4960B4F46C688912237C6A27E550FF55* ___s_currentActiveTasks_36;
 	// System.Object System.Threading.Tasks.Task::s_activeTasksLock
-	RuntimeObject* ___s_activeTasksLock_21;
+	RuntimeObject* ___s_activeTasksLock_37;
 };
 
 struct Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572_ThreadStaticFields
 {
 	// System.Threading.Tasks.Task System.Threading.Tasks.Task::t_currentTask
-	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___t_currentTask_12;
+	Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572* ___t_currentTask_28;
 	// System.Threading.Tasks.StackGuard System.Threading.Tasks.Task::t_stackGuard
-	StackGuard_tACE063A1B7374BDF4AD472DE4585D05AD8745352* ___t_stackGuard_13;
+	StackGuard_tACE063A1B7374BDF4AD472DE4585D05AD8745352* ___t_stackGuard_29;
 };
 
 // TouchSocket.Rpc.TouchRpc.TouchRpcCallContext
@@ -2269,9 +2269,9 @@ struct RpcStore_t374ED75CE2CC2BD57572110196AF99415F3F3DE6_StaticFields
 struct Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE  : public MarshalByRefObject_t8C2F4C5854177FD60439EB1FCCFC1B3CFAFE8DCE
 {
 	// System.IO.Stream/ReadWriteTask System.IO.Stream::_activeReadWriteTask
-	ReadWriteTask_t0821BF49EE38596C7734E86E1A6A39D769BE2C05* ____activeReadWriteTask_2;
+	ReadWriteTask_t0821BF49EE38596C7734E86E1A6A39D769BE2C05* ____activeReadWriteTask_3;
 	// System.Threading.SemaphoreSlim System.IO.Stream::_asyncActiveSemaphore
-	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ____asyncActiveSemaphore_3;
+	SemaphoreSlim_t0D5CB5685D9BFA5BF95CEC6E7395490F933E8DB2* ____asyncActiveSemaphore_4;
 };
 
 struct Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE_StaticFields
@@ -2513,13 +2513,13 @@ struct AsyncTaskMethodBuilder_1_tCE41A87B24D19F8B3DEBF5BD73FA521DF59EF849_Static
 struct Task_1_t64A1B649E170DDD2F882778DA67C65CBEBC1F4F3  : public Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572
 {
 	// TResult System.Threading.Tasks.Task`1::m_result
-	Result_tD70642E9761054B5CAE8623B9290C0CFB453330C ___m_result_22;
+	Result_tD70642E9761054B5CAE8623B9290C0CFB453330C ___m_result_38;
 };
 
 struct Task_1_t64A1B649E170DDD2F882778DA67C65CBEBC1F4F3_StaticFields
 {
 	// System.Threading.Tasks.TaskFactory`1<TResult> System.Threading.Tasks.Task`1::s_defaultFactory
-	TaskFactory_1_tFE04A68ECECABB729BC3EB4319997613845E0AC3* ___s_defaultFactory_23;
+	TaskFactory_1_tFE04A68ECECABB729BC3EB4319997613845E0AC3* ___s_defaultFactory_39;
 };
 
 // TouchSocket.Sockets.BaseSocket
@@ -2535,25 +2535,25 @@ struct BaseSocket_tA442F30CB44D1EBF854C97E415EA7345593F4D8B  : public Dependency
 struct ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C  : public Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE
 {
 	// System.Int64 TouchSocket.Core.ByteManager.ByteBlock::m_length
-	int64_t ___m_length_4;
+	int64_t ___m_length_5;
 	// System.Boolean TouchSocket.Core.ByteManager.ByteBlock::m_using
-	bool ___m_using_5;
+	bool ___m_using_6;
 	// System.Byte[] TouchSocket.Core.ByteManager.ByteBlock::m_buffer
-	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___m_buffer_7;
+	ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ___m_buffer_8;
 	// System.Boolean TouchSocket.Core.ByteManager.ByteBlock::m_holding
-	bool ___m_holding_8;
+	bool ___m_holding_9;
 	// System.Boolean TouchSocket.Core.ByteManager.ByteBlock::m_needDis
-	bool ___m_needDis_9;
+	bool ___m_needDis_10;
 	// System.Int64 TouchSocket.Core.ByteManager.ByteBlock::m_position
-	int64_t ___m_position_10;
+	int64_t ___m_position_11;
 	// System.Int32 TouchSocket.Core.ByteManager.ByteBlock::m_dis
-	int32_t ___m_dis_11;
+	int32_t ___m_dis_12;
 };
 
 struct ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C_StaticFields
 {
 	// System.Single TouchSocket.Core.ByteManager.ByteBlock::m_ratio
-	float ___m_ratio_6;
+	float ___m_ratio_7;
 };
 
 // System.Threading.CancellationTokenRegistration
@@ -7274,7 +7274,7 @@ CATCH_0254_1:
 				Exception_t* L_123 = V_6;
 				NullCheck(L_123);
 				String_t* L_124;
-				L_124 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_123);
+				L_124 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_123);
 				Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_125;
 				memset((&L_125), 0, sizeof(L_125));
 				Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_125), 1, L_124, /*hidden argument*/NULL);
@@ -7919,7 +7919,7 @@ CATCH_0305_1:
 				Exception_t* L_162 = V_7;
 				NullCheck(L_162);
 				String_t* L_163;
-				L_163 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_162);
+				L_163 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_162);
 				Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_164;
 				memset((&L_164), 0, sizeof(L_164));
 				Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_164), 1, L_163, /*hidden argument*/NULL);
@@ -8285,7 +8285,7 @@ CATCH_010d:
 		Exception_t* L_62 = V_5;
 		NullCheck(L_62);
 		String_t* L_63;
-		L_63 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_62);
+		L_63 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_62);
 		Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_64;
 		memset((&L_64), 0, sizeof(L_64));
 		Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_64), 1, L_63, /*hidden argument*/NULL);
@@ -8638,7 +8638,7 @@ CATCH_02f3_1:
 				Exception_t* L_160 = V_9;
 				NullCheck(L_160);
 				String_t* L_161;
-				L_161 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_160);
+				L_161 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_160);
 				Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_162;
 				memset((&L_162), 0, sizeof(L_162));
 				Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_162), 3, L_161, /*hidden argument*/NULL);
@@ -9016,7 +9016,7 @@ CATCH_0179:
 		Exception_t* L_86 = V_6;
 		NullCheck(L_86);
 		String_t* L_87;
-		L_87 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_86);
+		L_87 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_86);
 		Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_88;
 		memset((&L_88), 0, sizeof(L_88));
 		Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_88), 1, L_87, /*hidden argument*/NULL);
@@ -9403,7 +9403,7 @@ CATCH_039b_1:
 				Exception_t* L_195 = V_10;
 				NullCheck(L_195);
 				String_t* L_196;
-				L_196 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_195);
+				L_196 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_195);
 				Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_197;
 				memset((&L_197), 0, sizeof(L_197));
 				Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_197), 3, L_196, /*hidden argument*/NULL);
@@ -9679,7 +9679,7 @@ CATCH_005e:
 		Exception_t* L_22 = V_7;
 		NullCheck(L_22);
 		String_t* L_23;
-		L_23 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_22);
+		L_23 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_22);
 		Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_24;
 		memset((&L_24), 0, sizeof(L_24));
 		Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_24), 1, L_23, /*hidden argument*/NULL);
@@ -10196,7 +10196,7 @@ CATCH_0316_1:
 				Exception_t* L_160 = V_15;
 				NullCheck(L_160);
 				String_t* L_161;
-				L_161 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_160);
+				L_161 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_160);
 				Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_162;
 				memset((&L_162), 0, sizeof(L_162));
 				Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_162), 1, L_161, /*hidden argument*/NULL);
@@ -10626,7 +10626,7 @@ CATCH_01e5_3:
 							Exception_t* L_95 = V_9;
 							NullCheck(L_95);
 							String_t* L_96;
-							L_96 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_95);
+							L_96 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_95);
 							Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_97;
 							memset((&L_97), 0, sizeof(L_97));
 							Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_97), 1, L_96, /*hidden argument*/NULL);
@@ -10701,7 +10701,7 @@ CATCH_022f:
 		Exception_t* L_115 = V_10;
 		NullCheck(L_115);
 		String_t* L_116;
-		L_116 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_115);
+		L_116 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_115);
 		NullCheck(L_114);
 		ArrayElementTypeCheck (L_114, L_116);
 		(L_114)->SetAt(static_cast<il2cpp_array_size_t>(1), (RuntimeObject*)L_116);
@@ -13547,7 +13547,7 @@ CATCH_00b1_1:
 				Exception_t* L_37 = V_5;
 				NullCheck(L_37);
 				String_t* L_38;
-				L_38 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_37);
+				L_38 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_37);
 				NullCheck(L_36);
 				WaitResult_set_Message_m3282843EC4D26561DB1EF4C8706E263BBA196FD6_inline(L_36, L_38, NULL);
 				IL2CPP_POP_ACTIVE_EXCEPTION();
@@ -13966,7 +13966,7 @@ CATCH_0185:
 		Exception_t* L_81 = V_10;
 		NullCheck(L_81);
 		String_t* L_82;
-		L_82 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_81);
+		L_82 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_81);
 		InvokeResult_set_Message_m1BC0EE1150AFEED1158BCC3E20F8A56C90851BBC_inline((&V_2), L_82, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_01a7;
@@ -14365,11 +14365,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Result_tD70642E9761054B5CAE8623B9290C0CFB4533
 		Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_6 = ___stream0;
 		NullCheck(L_6);
 		int64_t L_7;
-		L_7 = VirtualFuncInvoker0< int64_t >::Invoke(11 /* System.Int64 System.IO.Stream::get_Length() */, L_6);
+		L_7 = VirtualFuncInvoker0< int64_t >::Invoke(13 /* System.Int64 System.IO.Stream::get_Length() */, L_6);
 		Stream_tF844051B786E8F7F4244DBD218D74E8617B9A2DE* L_8 = ___stream0;
 		NullCheck(L_8);
 		int64_t L_9;
-		L_9 = VirtualFuncInvoker0< int64_t >::Invoke(12 /* System.Int64 System.IO.Stream::get_Position() */, L_8);
+		L_9 = VirtualFuncInvoker0< int64_t >::Invoke(14 /* System.Int64 System.IO.Stream::get_Position() */, L_8);
 		V_2 = ((int64_t)il2cpp_codegen_subtract(L_7, L_9));
 		WaitStream_t19715C47EBA6B0B1F565648637A5E9D488DAF416* L_10 = V_0;
 		int64_t L_11 = V_2;
@@ -14382,7 +14382,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Result_tD70642E9761054B5CAE8623B9290C0CFB4533
 		L_14 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(L_13, NULL);
 		NullCheck(L_14);
 		String_t* L_15;
-		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(26 /* System.String System.Type::get_FullName() */, L_14);
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(170 /* System.String System.Type::get_FullName() */, L_14);
 		NullCheck(L_12);
 		WaitStream_set_StreamType_m5B8A56DBFF6F5C9DE398597951848728573B6483_inline(L_12, L_15, NULL);
 		il2cpp_codegen_runtime_class_init_inline(BytePool_tE3D1FAA45873F64BB434DDC70CAE2F2A056439B7_il2cpp_TypeInfo_var);
@@ -14531,7 +14531,7 @@ IL_00f8_2:
 					L_50 = Math_Min_m6F49B85AE4935E4AF3AB6128B3B5E55A6C4A1716((524288.0), ((double)(((double)L_49)/(10.0))), NULL);
 					NullCheck(L_45);
 					int32_t L_51;
-					L_51 = VirtualFuncInvoker3< int32_t, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(32 /* System.Int32 System.IO.Stream::Read(System.Byte[],System.Int32,System.Int32) */, L_45, L_47, 0, il2cpp_codegen_cast_double_to_int<int32_t>(L_50));
+					L_51 = VirtualFuncInvoker3< int32_t, ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(37 /* System.Int32 System.IO.Stream::Read(System.Byte[],System.Int32,System.Int32) */, L_45, L_47, 0, il2cpp_codegen_cast_double_to_int<int32_t>(L_50));
 					V_7 = L_51;
 					int32_t L_52 = V_7;
 					if ((((int32_t)L_52) > ((int32_t)0)))
@@ -14735,7 +14735,7 @@ CATCH_0235_1:
 				Exception_t* L_108 = V_10;
 				NullCheck(L_108);
 				String_t* L_109;
-				L_109 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_108);
+				L_109 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_108);
 				Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_110;
 				memset((&L_110), 0, sizeof(L_110));
 				Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_110), 1, L_109, /*hidden argument*/NULL);
@@ -15052,7 +15052,7 @@ CATCH_0168:
 		Exception_t* L_78 = V_4;
 		NullCheck(L_78);
 		String_t* L_79;
-		L_79 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_78);
+		L_79 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_78);
 		Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_80;
 		memset((&L_80), 0, sizeof(L_80));
 		Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_80), 1, L_79, /*hidden argument*/NULL);
@@ -15066,7 +15066,7 @@ CATCH_0168:
 		Exception_t* L_84 = V_4;
 		NullCheck(L_84);
 		String_t* L_85;
-		L_85 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_84);
+		L_85 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_84);
 		NullCheck(L_83);
 		WaitResult_set_Message_m3282843EC4D26561DB1EF4C8706E263BBA196FD6_inline(L_83, L_85, NULL);
 		RuntimeObject* L_86;
@@ -15471,7 +15471,7 @@ CATCH_0168:
 		Exception_t* L_78 = V_4;
 		NullCheck(L_78);
 		String_t* L_79;
-		L_79 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_78);
+		L_79 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_78);
 		Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_80;
 		memset((&L_80), 0, sizeof(L_80));
 		Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_80), 1, L_79, /*hidden argument*/NULL);
@@ -15485,7 +15485,7 @@ CATCH_0168:
 		Exception_t* L_84 = V_4;
 		NullCheck(L_84);
 		String_t* L_85;
-		L_85 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_84);
+		L_85 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_84);
 		NullCheck(L_83);
 		WaitResult_set_Message_m3282843EC4D26561DB1EF4C8706E263BBA196FD6_inline(L_83, L_85, NULL);
 		RuntimeObject* L_86;
@@ -17198,7 +17198,7 @@ CATCH_02e0:
 		Exception_t* L_64 = V_3;
 		NullCheck(L_64);
 		String_t* L_65;
-		L_65 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_64);
+		L_65 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_64);
 		RpcActor_Close_mE3FAF0ACF86CBF3C3F5B0637E9F00A25687FDF69(__this, L_65, NULL);
 		IL2CPP_POP_ACTIVE_EXCEPTION();
 		goto IL_1076;
@@ -17307,7 +17307,7 @@ CATCH_0374_1:
 			Exception_t* L_88 = V_6;
 			NullCheck(L_88);
 			String_t* L_89;
-			L_89 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_88);
+			L_89 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_88);
 			NullCheck(L_87);
 			WaitResult_set_Message_m3282843EC4D26561DB1EF4C8706E263BBA196FD6_inline(L_87, L_89, NULL);
 			IL2CPP_POP_ACTIVE_EXCEPTION();
@@ -18182,7 +18182,7 @@ CATCH_07e4:
 		Exception_t* L_254 = V_35;
 		NullCheck(L_254);
 		String_t* L_255;
-		L_255 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_254);
+		L_255 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_254);
 		String_t* L_256;
 		L_256 = String_Format_m9499958F4B0BB6089C75760AB647AB3CA4D55806(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralAB816CB8143D8C9ABE1C3DBF91C6139B2B23CFE3)), L_253, L_255, NULL);
 		NullCheck(L_250);
@@ -18232,7 +18232,7 @@ CATCH_0838:
 		Exception_t* L_265 = V_37;
 		NullCheck(L_265);
 		String_t* L_266;
-		L_266 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_265);
+		L_266 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_265);
 		String_t* L_267;
 		L_267 = String_Concat_mAF2CE02CC0CB7460753D0A1A91CCF2B1E9804C5D(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral3751B13D88D66096B185AF18FF6E3FCD000829DE)), L_266, NULL);
 		NullCheck(L_264);
@@ -18298,7 +18298,7 @@ CATCH_08a4:
 		Exception_t* L_282 = V_40;
 		NullCheck(L_282);
 		String_t* L_283;
-		L_283 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_282);
+		L_283 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_282);
 		String_t* L_284;
 		L_284 = String_Concat_mAF2CE02CC0CB7460753D0A1A91CCF2B1E9804C5D(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralF76DAAD87DB4B93BA9D96741E9ED6654B13924EE)), L_283, NULL);
 		NullCheck(L_281);
@@ -18369,7 +18369,7 @@ CATCH_08ff:
 		Exception_t* L_298 = V_43;
 		NullCheck(L_298);
 		String_t* L_299;
-		L_299 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_298);
+		L_299 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_298);
 		String_t* L_300;
 		L_300 = String_Format_m9499958F4B0BB6089C75760AB647AB3CA4D55806(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralAB816CB8143D8C9ABE1C3DBF91C6139B2B23CFE3)), L_297, L_299, NULL);
 		NullCheck(L_294);
@@ -18528,7 +18528,7 @@ CATCH_09f8:
 		Exception_t* L_324 = V_48;
 		NullCheck(L_324);
 		String_t* L_325;
-		L_325 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_324);
+		L_325 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_324);
 		Exception_t* L_326 = V_48;
 		NullCheck(L_323);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_323, 2, __this, L_325, L_326);
@@ -18587,7 +18587,7 @@ CATCH_0a56:
 		Exception_t* L_337 = V_51;
 		NullCheck(L_337);
 		String_t* L_338;
-		L_338 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_337);
+		L_338 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_337);
 		Exception_t* L_339 = V_51;
 		NullCheck(L_336);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_336, 2, __this, L_338, L_339);
@@ -18646,7 +18646,7 @@ CATCH_0ab4:
 		Exception_t* L_350 = V_54;
 		NullCheck(L_350);
 		String_t* L_351;
-		L_351 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_350);
+		L_351 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_350);
 		Exception_t* L_352 = V_54;
 		NullCheck(L_349);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_349, 2, __this, L_351, L_352);
@@ -18795,7 +18795,7 @@ CATCH_0b7a:
 		Exception_t* L_380 = V_59;
 		NullCheck(L_380);
 		String_t* L_381;
-		L_381 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_380);
+		L_381 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_380);
 		Exception_t* L_382 = V_59;
 		NullCheck(L_379);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_379, 2, __this, L_381, L_382);
@@ -18857,7 +18857,7 @@ CATCH_0bdb:
 		Exception_t* L_394 = V_61;
 		NullCheck(L_394);
 		String_t* L_395;
-		L_395 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_394);
+		L_395 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_394);
 		Exception_t* L_396 = V_61;
 		NullCheck(L_393);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_393, 2, __this, L_395, L_396);
@@ -18996,7 +18996,7 @@ CATCH_0c6b:
 		Exception_t* L_416 = V_65;
 		NullCheck(L_416);
 		String_t* L_417;
-		L_417 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_416);
+		L_417 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_416);
 		Exception_t* L_418 = V_65;
 		NullCheck(L_415);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_415, 2, __this, L_417, L_418);
@@ -19135,7 +19135,7 @@ CATCH_0cfb:
 		Exception_t* L_438 = V_69;
 		NullCheck(L_438);
 		String_t* L_439;
-		L_439 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_438);
+		L_439 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_438);
 		Exception_t* L_440 = V_69;
 		NullCheck(L_437);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_437, 2, __this, L_439, L_440);
@@ -19180,7 +19180,7 @@ CATCH_0d3b:
 		Exception_t* L_447 = V_71;
 		NullCheck(L_447);
 		String_t* L_448;
-		L_448 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_447);
+		L_448 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_447);
 		Exception_t* L_449 = V_71;
 		NullCheck(L_446);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_446, 2, __this, L_448, L_449);
@@ -19222,7 +19222,7 @@ CATCH_0d7b:
 		Exception_t* L_455 = V_73;
 		NullCheck(L_455);
 		String_t* L_456;
-		L_456 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_455);
+		L_456 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_455);
 		Exception_t* L_457 = V_73;
 		NullCheck(L_454);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_454, 2, __this, L_456, L_457);
@@ -19356,7 +19356,7 @@ CATCH_0dfe:
 		Exception_t* L_475 = V_77;
 		NullCheck(L_475);
 		String_t* L_476;
-		L_476 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_475);
+		L_476 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_475);
 		Exception_t* L_477 = V_77;
 		NullCheck(L_474);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_474, 2, __this, L_476, L_477);
@@ -19517,7 +19517,7 @@ CATCH_0ebc:
 		Exception_t* L_504 = V_81;
 		NullCheck(L_504);
 		String_t* L_505;
-		L_505 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_504);
+		L_505 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_504);
 		Exception_t* L_506 = V_81;
 		NullCheck(L_503);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_503, 2, __this, L_505, L_506);
@@ -19562,7 +19562,7 @@ CATCH_0efc:
 		Exception_t* L_513 = V_83;
 		NullCheck(L_513);
 		String_t* L_514;
-		L_514 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_513);
+		L_514 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_513);
 		Exception_t* L_515 = V_83;
 		NullCheck(L_512);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_512, 2, __this, L_514, L_515);
@@ -19607,7 +19607,7 @@ CATCH_0f3f:
 		Exception_t* L_522 = V_84;
 		NullCheck(L_522);
 		String_t* L_523;
-		L_523 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_522);
+		L_523 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_522);
 		Exception_t* L_524 = V_84;
 		NullCheck(L_521);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_521, 2, __this, L_523, L_524);
@@ -19740,7 +19740,7 @@ CATCH_0fcf:
 		Exception_t* L_544 = V_88;
 		NullCheck(L_544);
 		String_t* L_545;
-		L_545 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_544);
+		L_545 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_544);
 		Exception_t* L_546 = V_88;
 		NullCheck(L_543);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_543, 2, __this, L_545, L_546);
@@ -19795,7 +19795,7 @@ CATCH_102d:
 		Exception_t* L_558 = V_90;
 		NullCheck(L_558);
 		String_t* L_559;
-		L_559 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_558);
+		L_559 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_558);
 		Exception_t* L_560 = V_90;
 		NullCheck(L_557);
 		InterfaceActionInvoker4< int32_t, RuntimeObject*, String_t*, Exception_t* >::Invoke(0 /* System.Void TouchSocket.Core.Log.ILog::Debug(TouchSocket.Core.Log.LogType,System.Object,System.String,System.Exception) */, ((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ILog_t9C13849EB770584F4193951E0671EEB5891BDCFF_il2cpp_TypeInfo_var)), L_557, 2, __this, L_559, L_560);
@@ -21717,7 +21717,7 @@ CATCH_01f9:
 		Exception_t* L_88 = V_10;
 		NullCheck(L_88);
 		String_t* L_89;
-		L_89 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_88);
+		L_89 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_88);
 		NullCheck(L_87);
 		WaitResult_set_Message_m3282843EC4D26561DB1EF4C8706E263BBA196FD6_inline(L_87, L_89, NULL);
 		FileOperationEventArgs_t0BEDC52D17292F64C277B64D93321F90CCCB8BF7* L_90 = V_2;
@@ -22420,7 +22420,7 @@ CATCH_0292_3:
 								Exception_t* L_129 = V_12;
 								NullCheck(L_129);
 								String_t* L_130;
-								L_130 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_129);
+								L_130 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_129);
 								Result_tD70642E9761054B5CAE8623B9290C0CFB453330C L_131;
 								memset((&L_131), 0, sizeof(L_131));
 								Result__ctor_mD0F015012CABC3CCB4388B07F1E16DC74D581A9F((&L_131), 1, L_130, /*hidden argument*/NULL);
@@ -22438,7 +22438,7 @@ CATCH_0292_3:
 								Exception_t* L_135 = V_12;
 								NullCheck(L_135);
 								String_t* L_136;
-								L_136 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_135);
+								L_136 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_135);
 								NullCheck(L_134);
 								Channel_Cancel_m908D66DD29B34E31D0C69C87F7EBC19F7C45C52C(L_134, L_136, NULL);
 							}
@@ -22607,7 +22607,7 @@ CATCH_036f:
 			Exception_t* L_167 = V_14;
 			NullCheck(L_167);
 			String_t* L_168;
-			L_168 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_167);
+			L_168 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_167);
 			NullCheck(L_166);
 			WaitResult_set_Message_m3282843EC4D26561DB1EF4C8706E263BBA196FD6_inline(L_166, L_168, NULL);
 			FileOperator_tCD203A8F0633EDB40290FAA4AAF8B0F00DFD996F* L_169 = V_3;
@@ -22618,7 +22618,7 @@ CATCH_036f:
 			Exception_t* L_174 = V_14;
 			NullCheck(L_174);
 			String_t* L_175;
-			L_175 = VirtualFuncInvoker0< String_t* >::Invoke(5 /* System.String System.Exception::get_Message() */, L_174);
+			L_175 = VirtualFuncInvoker0< String_t* >::Invoke(19 /* System.String System.Exception::get_Message() */, L_174);
 			NullCheck(L_173);
 			ArrayElementTypeCheck (L_173, L_175);
 			(L_173)->SetAt(static_cast<il2cpp_array_size_t>(0), (RuntimeObject*)L_175);
@@ -22944,7 +22944,7 @@ IL_0044:
 		int32_t L_17 = V_2;
 		int32_t L_18 = V_3;
 		NullCheck(L_14);
-		VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(35 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_14, L_16, L_17, L_18);
+		VirtualActionInvoker3< ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031*, int32_t, int32_t >::Invoke(40 /* System.Void System.IO.Stream::Write(System.Byte[],System.Int32,System.Int32) */, L_14, L_16, L_17, L_18);
 		StreamOperator_t9DD3DCE59258B7BA964C87BD7430F3B55F9B4979* L_19 = __this->___streamOperator_1;
 		int32_t L_20 = V_3;
 		int64_t L_21 = __this->___size_3;
@@ -24101,7 +24101,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HttpTouchRpcClient_LoadConfig_mD2021FD95
 		L_19 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_19);
 		String_t* L_20;
-		L_20 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_19);
+		L_20 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_19);
 		NullCheck(L_18);
 		RpcStore_AddRpcParser_mC53DC43E63A15FD2E6FF948F92884B13F54DB56C(L_18, L_20, __this, (bool)1, NULL);
 		return;
@@ -24120,7 +24120,7 @@ IL_0087:
 		L_24 = Object_GetType_mE10A8FC1E57F3DF29972CCBC026C2DC3942263B3(__this, NULL);
 		NullCheck(L_24);
 		String_t* L_25;
-		L_25 = VirtualFuncInvoker0< String_t* >::Invoke(8 /* System.String System.Reflection.MemberInfo::get_Name() */, L_24);
+		L_25 = VirtualFuncInvoker0< String_t* >::Invoke(23 /* System.String System.Reflection.MemberInfo::get_Name() */, L_24);
 		NullCheck(L_23);
 		RpcStore_AddRpcParser_mC53DC43E63A15FD2E6FF948F92884B13F54DB56C(L_23, L_25, __this, (bool)1, NULL);
 		return;
@@ -25777,7 +25777,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_12 = V_2;
 		NullCheck(L_8);
 		ActionMap_Add_m27BE6DE977DDEB5651CD6DF33A7EDA8734F46FF4(L_8, L_11, L_12, NULL);
@@ -25848,7 +25848,7 @@ IL_0006:
 		MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* L_10 = V_2;
 		NullCheck(L_9);
 		String_t* L_11;
-		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(10 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
+		L_11 = VirtualFuncInvoker1< String_t*, MethodInstance_t3704E7FEA846E3007E37A2A428A7A9876DD76A94* >::Invoke(15 /* System.String TouchSocket.Rpc.RpcAttribute::GetInvokenKey(TouchSocket.Rpc.MethodInstance) */, L_9, L_10);
 		NullCheck(L_8);
 		bool L_12;
 		L_12 = ActionMap_Remove_m63ECF3C0928188B9C618001A8C107812F8A5CDE9(L_8, L_11, NULL);
@@ -27452,7 +27452,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WaitFileInfo_set_ClientID_m8
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* ByteBlock_get_Buffer_m97BF5EA0343293522040EC1B0EB94CBA9F257F4C_inline (ByteBlock_t4AA054519494657F80FB3AEDB55C34F967C6B29C* __this, const RuntimeMethod* method) 
 {
 	{
-		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_0 = __this->___m_buffer_7;
+		ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031* L_0 = __this->___m_buffer_8;
 		return L_0;
 	}
 }

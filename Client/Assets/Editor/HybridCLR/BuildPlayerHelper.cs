@@ -20,51 +20,8 @@ namespace HybridCLR.Editor
             }
         }
 
-        [MenuItem("HybridCLR/Build/Win64_Debug")]
-        public static void Build_Win64_Debug()
-        {
-            BuildTarget target = BuildTarget.StandaloneWindows64;
-            BuildTarget activeTarget = EditorUserBuildSettings.activeBuildTarget;
-            if (activeTarget != BuildTarget.StandaloneWindows64 && activeTarget != BuildTarget.StandaloneWindows)
-            {
-                Debug.LogError("请先切到Win平台再打包");
-                return;
-            }
-            // Get filename.
-            string outputPath = $"{BuildConfig.ProjectDir}/Release-Win64";
-
-            var buildOptions = BuildOptions.Development;
-
-            string location = $"{outputPath}/HybridCLRTrial.exe";
-
-            Debug.Log("====> Build App");
-            BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions()
-            {
-                scenes = new string[] { "Assets/Scenes/StartUp.unity" },
-                locationPathName = location,
-                options = buildOptions,
-                target = target,
-                targetGroup = BuildTargetGroup.Standalone,
-            };
-
-            var report = BuildPipeline.BuildPlayer(buildPlayerOptions);
-            if (report.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
-            {
-                Debug.LogError("打包失败");
-                return;
-            }
-
-            Debug.Log("====> Build AssetBundle");
-            AssetBundleBuildHelper.BuildAssetBundleByTarget(target);
-            Debug.Log("====> 复制 AssetBundle");
-            CopyAssetBundles($"{outputPath}/HybridCLRTrial_Data/StreamingAssets");
-
-#if UNITY_EDITOR
-            Application.OpenURL($"file:///{location}");
-#endif
-        }
-        [MenuItem("HybridCLR/Build/Win64_Release")]
-        public static void Build_Win64_Release()
+        [MenuItem("HybridCLR/Build/Win64")]
+        public static void Build_Win64()
         {
             BuildTarget target = BuildTarget.StandaloneWindows64;
             BuildTarget activeTarget = EditorUserBuildSettings.activeBuildTarget;

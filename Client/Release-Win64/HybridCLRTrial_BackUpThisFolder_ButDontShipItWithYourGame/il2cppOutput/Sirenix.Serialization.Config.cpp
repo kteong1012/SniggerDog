@@ -40,6 +40,8 @@ struct IntPtrU5BU5D_tFD177F8C806A6921AD7150264CCC62FA00CAD832;
 struct StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF;
 // System.ArgumentNullException
 struct ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129;
+// System.AsyncCallback
+struct AsyncCallback_t7FEF460CBDCFB9C5FA2EF776984778B9A4145F4C;
 // Sirenix.Serialization.CustomLogger
 struct CustomLogger_t6040AD320682803EC99394A34340712670E1BEA2;
 // System.DelegateData
@@ -62,6 +64,8 @@ struct GUIStyleState_t7A948723D9DCDFD8EE4F418B6EC909C18E023F95;
 struct GlobalConfigAttribute_t887F6852A68821DB6B0C69048CAF30065E83064B;
 // Sirenix.Serialization.GlobalSerializationConfig
 struct GlobalSerializationConfig_tF44A9F8572E42F8D3BFD2F91420918D064D2A4AA;
+// System.IAsyncResult
+struct IAsyncResult_t7B9B5A0ECB35DCEC31B8A8122C37D687369253B5;
 // System.Collections.IDictionary
 struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
 // Sirenix.Serialization.ILogger

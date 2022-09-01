@@ -12,7 +12,7 @@ namespace PostMainland
 
         public async UniTask Initialize()
         {
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
             var initParameters = new YooAssets.EditorSimulateModeParameters();
             initParameters.LocationServices = new AddressLocationServices();
 #else
