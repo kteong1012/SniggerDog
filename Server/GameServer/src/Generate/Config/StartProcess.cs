@@ -21,6 +21,7 @@ public sealed partial class StartProcess :  Bright.Config.BeanBase
         ServerType = _buf.ReadString();
         Host = _buf.ReadString();
         Port = _buf.ReadInt();
+        IsGameServer = _buf.ReadBool();
         DatabaseName = _buf.ReadString();
         PostInit();
     }
@@ -47,6 +48,10 @@ public sealed partial class StartProcess :  Bright.Config.BeanBase
     /// </summary>
     public int Port { get; private set; }
     /// <summary>
+    /// 是否是业务服务器
+    /// </summary>
+    public bool IsGameServer { get; private set; }
+    /// <summary>
     /// 数据库名
     /// </summary>
     public string DatabaseName { get; private set; }
@@ -70,6 +75,7 @@ public sealed partial class StartProcess :  Bright.Config.BeanBase
         + "ServerType:" + ServerType + ","
         + "Host:" + Host + ","
         + "Port:" + Port + ","
+        + "IsGameServer:" + IsGameServer + ","
         + "DatabaseName:" + DatabaseName + ","
         + "}";
     }

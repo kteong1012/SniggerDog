@@ -6,8 +6,6 @@ namespace PostMainland
     public class Game
     {
         private readonly IContainer _container = Global.Container;
-        private readonly ThreadSynchronizationContext _threadSynchronizationContext = ThreadSynchronizationContext.Instance;
-        private readonly TimeInfo _timeInfo = TimeInfo.Instance;
         private readonly ServerType _serverType;
 
         public Game(ServerType serverType)
@@ -17,42 +15,34 @@ namespace PostMainland
         public void Start()
         {
             _container.RegisterSingleton<ServerType>(_serverType);
+            IGameServerInitializer initializer = null;
+            Log.Message($"初始化{_serverType}");
             switch (_serverType)
             {
-                case ServerType.Main:
-                    break;
                 case ServerType.Login:
-                    new LoginServerInitializer(_serverType).Initialize(_container);
+                    initializer = new GameServerInitializer();
+                    break;
+                case ServerType.Realm:
+                    initializer = new GameServerInitializer();
                     break;
                 case ServerType.Gate:
+                    initializer = new GameServerInitializer();
                     break;
                 case ServerType.World:
+                    initializer = new GameServerInitializer();
                     break;
                 case ServerType.Solcial:
+                    initializer = new GameServerInitializer();
                     break;
                 case ServerType.Battle:
+                    initializer = new GameServerInitializer();
                     break;
                 case ServerType.GM:
                     break;
                 default:
                     break;
             }
-            while (true)
-            {
-                Thread.Sleep(1);
-                Update();
-                LateUpdate();
-            }
-        }
-
-        public void LateUpdate()
-        {
-        }
-
-        public void Update()
-        {
-            _timeInfo.Update();
-            _threadSynchronizationContext.Update();
+            initializer?.Initialize(_serverType, _container);
         }
     }
 }

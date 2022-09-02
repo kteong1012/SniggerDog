@@ -4,6 +4,6 @@ namespace PostMainland
 {
     public interface IGameServerInitializer
     {
-        void Initialize(IContainer globalContainer);
+        void Initialize(ServerType serverType, IContainer globalContainer);
     }
 }

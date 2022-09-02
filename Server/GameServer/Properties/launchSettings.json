@@ -7,11 +7,11 @@
     },
     "GameServerMain": {
       "commandName": "Project",
-      "commandLineArgs": "--t Main"
+      "commandLineArgs": "--t Main --1 true"
     },
     "GameServerLogin": {
       "commandName": "Project",
-      "commandLineArgs": "--w ..\\..\\..\\..\\ --t Login --p GameServer/bin/Debug/net6.0/GameServer.dll --h 127.0.0.1 --port 20001"
+      "commandLineArgs": "--t Login --h 127.0.0.1 --port 20001 --g true"
     }
   }
 }

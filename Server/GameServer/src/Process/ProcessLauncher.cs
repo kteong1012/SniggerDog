@@ -23,6 +23,7 @@ namespace PostMainland
             _process.StartInfo.FileName = "dotnet";
             _process.StartInfo.WorkingDirectory = ".";
             _process.StartInfo.Arguments = _options.ToString();
+            _process.StartInfo.CreateNoWindow = false;
             _process.Start();
         }
         public void CheckAlive()

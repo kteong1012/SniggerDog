@@ -22,8 +22,13 @@ namespace PostMainland
         public static YooAssetPlayMode PlayMode { get; private set; }
         private Assembly _gameAss;
         private static Dictionary<string, byte[]> _abBytes = new Dictionary<string, byte[]>();
+
+        public static event Action update;
+        public static event Action fixedUpdate;
+        public static event Action lateUpdate;
         void Start()
         {
+            DontDestroyOnLoad(gameObject);
             PlayMode = (YooAssetPlayMode)playMode;
             Application.runInBackground = true;
             StartCoroutine(DownLoadDlls(this.StartGame));
@@ -113,6 +118,19 @@ namespace PostMainland
             var appType = _gameAss.GetType("App");
             var mainMethod = appType.GetMethod("Main");
             mainMethod.Invoke(null, null);
+        }
+
+        private void Update()
+        {
+            update?.Invoke();
+        }
+        private void FixedUpdate()
+        {
+            fixedUpdate?.Invoke();
+        }
+        private void LateUpdate()
+        {
+            lateUpdate?.Invoke();
         }
     }
 }

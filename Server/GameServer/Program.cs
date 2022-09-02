@@ -39,108 +39,76 @@ namespace PostMainland
             Log.Message($"{serverType}启动,pid:{pid}");
             try
             {
-                switch (serverType)
+                if (serverType == ServerType.Main)
                 {
-                    case ServerType.Main:
-                        KillAllServers();
-                        RecordPid(pid);
-                        StartAllServers();
-                        break;
-                    case ServerType.Login:
-                    case ServerType.Gate:
-                    case ServerType.World:
-                    case ServerType.Solcial:
-                    case ServerType.Battle:
-                        RecordPid(pid);
-                        Game game = new Game(serverType);
-                        game.Start();
-                        break;
-                    case ServerType.GM:
-                        break;
-                    default:
-                        break;
+                    StartAllServers(options.OneProcess);
+                }
+                if (options.IsGameServer)
+                {
+                    Game game = new Game(serverType);
+                    game.Start();
                 }
             }
             catch (Exception e)
             {
-                Log.Error(e.Message);
+                Log.Error(e.Message + e.StackTrace);
             }
 
 
 
             while (true)
             {
-                var lineStr = Console.ReadLine();
-                if (lineStr == "Close")
-                {
-                    break;
-                }
+                Thread.Sleep(1);
+                Update();
+                LateUpdate();
             }
         }
-        private static void RecordPid(int pid)
+        private static void StartAllServers(bool oneProcess)
         {
-            File.AppendAllLines(_pidLogFile, new string[] { pid.ToString() });
-        }
-        private static void KillAllServers()
-        {
-            if (!File.Exists(_pidLogFile))
-            {
-                return;
-            }
-            var text = File.ReadAllLines(_pidLogFile);
-            if (text.IsNullOrEmpty())
-            {
-                return;
-            }
-            var pids = text.Select(s => int.Parse(s));
-            foreach (var pid in pids)
-            {
-                try
-                {
-                    var process = Process.GetProcessById(pid);
-                    if (process == null)
-                    {
-                        continue;
-                    }
-                    if (process.HasExited)
-                    {
-                        continue;
-                    }
-                    var name = process.ProcessName;
-                    var id = process.Id;
-                    process.Kill();
-                    process.Close();
-                    Log.Message($"Kill process {name} {id}");
-
-                }
-                catch (Exception e)
-                {
-                    Log.Error(e);
-                }
-            }
-            File.WriteAllText(_pidLogFile, string.Empty);
-
-        }
-        private static void StartAllServers()
-        {
-            var launchers = new List<ProcessLauncher>();
             foreach (var serverInfo in TbStartProcess.Instance.DataList)
             {
-                ProcessLauncherOptions options = new ProcessLauncherOptions();
-                options.Host = serverInfo.Host;
-                options.Port = serverInfo.Port;
-                options.ServerType = serverInfo.ServerType;
+                if (oneProcess)
+                {
+                    if (Enum.TryParse(serverInfo.ServerType, out ServerType serverType))
+                    {
+                        Game game = new Game(serverType);
+                        game.Start();
+                    }
+                }
+                else
+                {
+                    var launchers = new List<ProcessLauncher>();
+                    ProcessLauncherOptions options = new ProcessLauncherOptions();
+                    options.Host = serverInfo.Host;
+                    options.Port = serverInfo.Port;
+                    options.ServerType = serverInfo.ServerType;
+                    options.IsGameServer = serverInfo.IsGameServer;
 
-                ProcessLauncher launcher = new ProcessLauncher(options);
-                launcher.Launch();
-                launchers.Add(launcher);
-            }
+                    ProcessLauncher launcher = new ProcessLauncher(options);
+                    launcher.Launch();
+                    launchers.Add(launcher);
 
-            while (true)
-            {
-                Thread.Sleep(100);
-                launchers.ForEach(launcher => launcher.CheckAlive());
+                    while (true)
+                    {
+                        Thread.Sleep(100);
+                        launchers.ForEach(launcher => launcher.CheckAlive());
+                    }
+                }
             }
+        }
+
+
+        private static readonly ThreadSynchronizationContext _threadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        private static readonly TimeInfo _timeInfo = TimeInfo.Instance;
+
+        public static void LateUpdate()
+        {
+        }
+
+        public static void Update()
+        {
+            _timeInfo.Update();
+            _threadSynchronizationContext.Update();
         }
     }
 }

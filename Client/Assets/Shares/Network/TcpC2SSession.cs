@@ -23,9 +23,9 @@ namespace PostMainland
             _tcp = _service.TcpClient;
         }
 
-        public async UniTask<TRes> Request<TRes, TReq>(TReq request, bool check = false) where TRes : IResponse where TReq : IRequest<TRes>
+        public async UniTask<TRes> Request<TRes, TReq>(TReq request, bool check = false, float timeout = 2f) where TRes : IResponse where TReq : IRequest<TRes>
         {
-            return await _service.Request<TRes, TReq>(_tcp, request, check);
+            return await _service.Request<TRes, TReq>(_tcp, request, check, timeout);
         }
 
         public void Send<T>(T message, bool check = false) where T : IProtocal

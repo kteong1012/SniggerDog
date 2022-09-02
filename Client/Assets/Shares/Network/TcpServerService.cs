@@ -30,7 +30,8 @@ namespace PostMainland
         {
             TouchSocketConfig config = new TouchSocketConfig();
             string hostString = string.Join(":", host, port);
-            config.SetListenIPHosts(new IPHost[] { new IPHost(host) })
+            Log.Message($"{_serverType}  {host}  {port}");
+            config.SetListenIPHosts(new IPHost[] { new IPHost(hostString) })
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())
                 .SetMaxCount(10000)
                 .SetThreadCount(10)
@@ -42,7 +43,8 @@ namespace PostMainland
                 {
 
                 });
-            _service.Setup(config).Start();
+            _service.Setup(config);
+            _service.Start();
             HasStarted = true;
             Log.Message($"{_serverType}服务器开始监听{hostString}");
         }
@@ -51,6 +53,9 @@ namespace PostMainland
         {
             if (requestInfo is ProtocalRequest pr)
             {
+                Type type = _protocalManager.GetProtocalType(pr.Id);
+                IProtocal protocal = ProtocalHelper.DeserializeProtocal(type, pr.Body);
+                Log.Message($"ServTcpRecv: [{_serverType}] {protocal}");
                 switch (pr.Type)
                 {
                     case ProtocalType.Request:
@@ -59,8 +64,7 @@ namespace PostMainland
                             if (handler != null)
                             {
                                 var session = new TcpS2CSession(client);
-                                Type type = _protocalManager.GetProtocalType(pr.Id);
-                                IRequest request = ProtocalHelper.DeserializeProtocal(type, pr.Body) as IRequest;
+                                IRequest request = protocal as IRequest;
                                 IResponse response = _protocalManager.CreateProtocal(handler.GetResponseId()) as IResponse;
                                 ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(session, request, response, pr.UseCrc16));
                             }
@@ -82,14 +86,17 @@ namespace PostMainland
         }
         private void OnDisconnected(SocketClient client, ClientDisconnectedEventArgs e)
         {
+            Log.Message($"{client.ID} 断开连接");
         }
 
         private void OnConnected(SocketClient client, TouchSocketEventArgs e)
         {
+            Log.Message($"{client.ID} 连接成功");
         }
 
         private void OnConnecting(SocketClient client, ClientOperationEventArgs e)
         {
+            Log.Message($"{client.ID} 正在连接");
         }
     }
 }
