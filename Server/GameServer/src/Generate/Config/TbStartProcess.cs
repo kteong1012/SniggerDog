@@ -107,10 +107,7 @@ namespace Cfg
         {
             if( _buf == null)
             {
-                    if (_buf == null)
-            {
                 _buf = _dataLoader();
-            }
             }
             _buf.ReaderIndex = readerInex;
         }
