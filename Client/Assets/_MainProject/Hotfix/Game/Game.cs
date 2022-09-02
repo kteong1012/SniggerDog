@@ -18,13 +18,14 @@ namespace PostMainland
 
         private static async void DoStart()
         {
-            await YooAssetsManager.Instance.Initialize();
+            await CheckHotfixResources();
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
             Log.SetLogs(new UnityLogger());
             Global.Container = new Container()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>()
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
                 .RegisterSingleton<IConfigLoader, Luban>();
+
 
             Global.Container.Resolve<IConfigLoader>();
             var assMgr = Global.Container.Resolve<IAssemblyManager>();
@@ -54,6 +55,12 @@ namespace PostMainland
         }
         public static void OnApplicationQuit()
         {
+
+        }
+
+        private static async UniTask CheckHotfixResources()
+        {
+            await YooAssetsManager.Instance.Initialize(LoadDll.PlayMode);
 
         }
     }

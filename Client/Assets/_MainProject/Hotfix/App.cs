@@ -66,6 +66,7 @@ public class App
             // "MongoDB.Bson.dll",
             // "DOTween.Modules.dll",
              "UniTask.dll",
+             "PostMainland.Shares.dll",
         };
 
         AssetBundle dllAB = LoadDll.AssemblyAssetBundle;

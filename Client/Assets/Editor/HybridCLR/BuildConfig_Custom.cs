@@ -27,7 +27,7 @@ namespace HybridCLR.Editor
             "System.Core.dll", // 如果使用了Linq，需要这个
             
              "UniTask.dll",
-
+             "PostMainland.Shares.dll",
             //
             // 注意！修改这个列表请同步修改HotFix2模块中App.cs文件中的 LoadMetadataForAOTAssembly函数中aotDllList列表。
             // 两者需要完全一致

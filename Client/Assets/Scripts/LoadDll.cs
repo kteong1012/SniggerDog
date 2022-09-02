@@ -6,15 +6,25 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.Networking;
+using YooAsset;
 
 namespace PostMainland
 {
+    public enum YooAssetPlayMode
+    {
+        EditorSimulateMode,
+        OfflinePlayMode,
+        HostPlayMode
+    }
     public class LoadDll : MonoBehaviour
     {
+        public YooAssets.EPlayMode playMode;
+        public static YooAssetPlayMode PlayMode { get; private set; }
         private Assembly _gameAss;
         private static Dictionary<string, byte[]> _abBytes = new Dictionary<string, byte[]>();
         void Start()
         {
+            PlayMode = (YooAssetPlayMode)playMode;
             Application.runInBackground = true;
             StartCoroutine(DownLoadDlls(this.StartGame));
         }
