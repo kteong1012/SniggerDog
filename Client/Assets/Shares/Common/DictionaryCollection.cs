@@ -6,7 +6,7 @@ namespace PostMainland
 {
     public class DictionaryCollection<K, V> : IDisposable
     {
-        public ConcurrentDictionary<K, V> Dict = new ConcurrentDictionary<K, V>();
+        public ConcurrentDictionary<K, V> Dict { get; } = new ConcurrentDictionary<K, V>();
         public int Count => Dict.Count;
 
         public bool TryAdd(K key, V value)

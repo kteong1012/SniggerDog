@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
 using System.Reflection;
+using TouchSocket.Core.Dependency;
 using TouchSocket.Sockets;
 
 namespace PostMainland
@@ -43,14 +44,14 @@ namespace PostMainland
 
     public interface IRequestHandler : IProtocalHandler
     {
-        UniTask Handle(INetworkSession session, IRequest request, IResponse response, bool check);
+        UniTask Handle(INetworkSession session, IContainer serverContainer, IRequest request, IResponse response, bool check);
         uint GetRequestId();
         uint GetResponseId();
     }
     [ProtocalHandler]
     public abstract class RequestHandler<TReq, TRes> : IRequestHandler where TRes : IResponse where TReq : IRequest<TRes>
     {
-        public abstract UniTask Execute(INetworkSession session, TReq request, TRes response, Action reply);
+        public abstract UniTask Execute(INetworkSession session, IContainer serverContainer, TReq request, TRes response, Action reply);
 
         public uint GetProtocalId()
         {
@@ -69,9 +70,9 @@ namespace PostMainland
             ProtocalAttribute protocalAttr = this.GetType().BaseType.GenericTypeArguments[1].GetCustomAttribute<ProtocalAttribute>(false);
             return protocalAttr.Id;
         }
-        public async UniTask Handle(INetworkSession session, IRequest request, IResponse response, bool check)
+        public async UniTask Handle(INetworkSession session, IContainer serverContainer, IRequest request, IResponse response, bool check)
         {
-            await Execute(session, (TReq)request, (TRes)response, Reply);
+            await Execute(session, serverContainer, (TReq)request, (TRes)response, Reply);
             void Reply()
             {
                 response.RpcId = request.RpcId;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="wtx7q5i9">
   <resources>
-    <component id="km5b1" name="UINormalButton.xml" path="/" exported="true"/>
+    <component id="km5b1" name="UINormalButton.xml" path="/Buttons/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

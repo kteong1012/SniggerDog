@@ -387,10 +387,7 @@ namespace {{x.namespace_with_top_module}}
         {
             if( _buf == null)
             {
-                    if (_buf == null)
-            {
                 _buf = _dataLoader();
-            }
             }
             _buf.ReaderIndex = readerInex;
         }

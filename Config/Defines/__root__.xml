@@ -17,6 +17,9 @@
 	<importexcel name="beans.xlsx" type="bean"/>相对data目录
 	<importexcel name="tables.xlsx" type="table"/> 相对data目录
 
+
+	<importexcel name="Game/ErrorCode.xlsx" type="enum"/>错误码枚举
+
 	<externalselector name="unity_cs"/>
 	<externalselector name="ue_cpp"/>
     <externalselector name="dotnet_cs"/>

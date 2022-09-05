@@ -7,9 +7,11 @@ Client/[Tt]emp/
 Client/[Oo]bj/
 Client/[Bb]uild/
 Client/[Bb]uilds/
+Client/[Bb]undles/
 Client/[Ll]ogs/
 Client/[Uu]ser[Ss]ettings/
 Client/*.sln
+Client/Release*/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -47,7 +49,7 @@ Client/*.csproj
 *.mdb
 *.opendb
 *.VC.db
-
+/packages/
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -72,3 +74,6 @@ Client/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 Client/[Aa]ssets/[Ss]treamingAssets/aa.meta
 Client/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Luban chage
+.cache.meta

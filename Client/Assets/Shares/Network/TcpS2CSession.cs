@@ -13,7 +13,7 @@ namespace PostMainland
             _client = client;
         }
 
-        public UniTask<TRes> Request<TRes, TReq>(TReq request, bool check = false)
+        public UniTask<TRes> Request<TRes, TReq>(TReq request, bool check = false, float timeout = 2f)
             where TRes : IResponse
             where TReq : IRequest<TRes>
         {

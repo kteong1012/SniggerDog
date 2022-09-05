@@ -2,5 +2,6 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-*/bin/*
+*/[Bb]in/*
 */obj/*
+[Bb]in

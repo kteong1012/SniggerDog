@@ -6,9 +6,10 @@ namespace PostMainland
     [FGUIWrapper("UILoginPanel","UILoginPanel","ui://wotugxqgkm5b0")]
     public partial class UILoginPanel : UIWrapper
     {
-    	public GTextField txtAccount;
     	public GButton btnLogin;
     	public AsyncGButton btnLoginAsync;
+    	public GTextInput inputAccount;
+    	public GTextInput inputPassword;
 
         public override void Bind(GComponent com, int sortingOrder)
         {
@@ -17,9 +18,10 @@ namespace PostMainland
                 Root = com;
                 com.sortingOrder = sortingOrder;
                     
-    			txtAccount = (GTextField)com.GetChildAt(0);
     			btnLogin = (GButton)com.GetChildAt(1);
     			btnLoginAsync = new AsyncGButton(btnLogin);
+    			inputAccount = (GTextInput)com.GetChildAt(5);
+    			inputPassword = (GTextInput)com.GetChildAt(6);
     		}
     		Initialize();
     	}

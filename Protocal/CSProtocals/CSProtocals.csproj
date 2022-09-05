@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="set WORKPLACE=$(ProjectDir)\..&#xD;&#xA;set START=dotnet $(TargetPath)&#xD;&#xA;set TEMPLATE_PATH=%25WORKPLACE%25\Common\Template\protocal_template.txt&#xD;&#xA;&#xD;&#xA;%25START%25 --temp %25TEMPLATE_PATH%25 --out %25WORKPLACE%25\..\Client\Assets\Shares\Protocal\Defines\CSProtocals.cs --type cs --start 1000000" />
+    <Exec Command="set WORKPLACE=$(ProjectDir)\..&#xD;&#xA;set START=dotnet $(TargetPath)&#xD;&#xA;set TEMPLATE_PATH=%25WORKPLACE%25\Common\Template\protocal_template.txt&#xD;&#xA;&#xD;&#xA;%25START%25 --temp %25TEMPLATE_PATH%25 --out %25WORKPLACE%25\..\Client\Assets\Shares\Protocal\Defines\CSProtocals.cs --type cs --start 1000000&#xD;&#xA;&#xD;&#xA;echo 生成代码成功" />
   </Target>
 
 </Project>

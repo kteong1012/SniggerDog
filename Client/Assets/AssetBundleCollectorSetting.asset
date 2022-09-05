@@ -46,12 +46,12 @@ MonoBehaviour:
     - CollectPath: Assets/Bundles/Configbin/Datas
       CollectorType: 0
       AddressRuleName: AddressByCollectorAndFileName
-      PackRuleName: PackRawFile
+      PackRuleName: PackGroup
       FilterRuleName: CollectAll
       AssetTags: 
     - CollectPath: Assets/Bundles/Configbin/Indexes
       CollectorType: 0
       AddressRuleName: AddressByCollectorAndFileName
-      PackRuleName: PackRawFile
+      PackRuleName: PackGroup
       FilterRuleName: CollectAll
       AssetTags: 

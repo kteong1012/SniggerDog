@@ -33,9 +33,6 @@ namespace PostMainland
             {
                 switch (pr.Type)
                 {
-                    case ProtocalType.Request:
-                        //客户端不处理请求
-                        break;
                     case ProtocalType.Response:
                         Type type = _protocalManager.GetProtocalType(pr.Id);
                         IResponse response = ProtocalHelper.DeserializeProtocal(type, pr.Body) as IResponse;
@@ -46,14 +43,14 @@ namespace PostMainland
                             ThreadSynchronizationContext.Instance.PostNext(() => request.SetCompleted(response));
                         }
                         break;
+                    case ProtocalType.Request:
                     case ProtocalType.Protocal:
+                    default:
                         var handler = _protocalManager.GetMessageHandler(pr.Id);
                         if (handler != null)
                         {
                             ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(new TcpC2SSession(client), pr.Body));
                         }
-                        break;
-                    default:
                         break;
                 }
             }
