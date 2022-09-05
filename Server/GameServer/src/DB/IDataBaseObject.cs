@@ -5,19 +5,20 @@ namespace PostMainland
     public interface IDataBaseObject
     {
 #pragma warning disable IDE1006
-        long _id { get; set; }
+        long Dbid { get; set; }
     }
     [BsonSerializer]
     public class DataBaseObject : IDataBaseObject
     {
-        public long _id { get; set; }
+        [BsonId]
+        public long Dbid { get; set; }
         public void WithId(long dbid)
         {
-            _id = dbid;
+            Dbid = dbid;
         }
         public void GenerateId()
         {
-            _id = DBIDGenerator.NextID();
+            Dbid = DBIDGenerator.NextID();
         }
     }
 }

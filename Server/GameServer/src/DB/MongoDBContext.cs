@@ -19,7 +19,7 @@ namespace PostMainland
 
         public async UniTask<T> Query<T>(long dbid, string name = null) where T : IDataBaseObject
         {
-            var cursor = await GetCollection<T>(name).FindAsync(x => x._id == dbid);
+            var cursor = await GetCollection<T>(name).FindAsync(x => x.Dbid == dbid);
             return await cursor.FirstOrDefaultAsync();
         }
         public async UniTask<List<T>> QueryMany<T>(Expression<Func<T, bool>> filter, string name = null)
@@ -38,7 +38,7 @@ namespace PostMainland
         public async UniTask Save<T>(T obj, string name = null) where T : IDataBaseObject
         {
             var collection = GetCollection<T>(name);
-            await collection.ReplaceOneAsync(d => d._id == obj._id, obj, new ReplaceOptions() { IsUpsert = true });
+            await collection.ReplaceOneAsync(d => d.Dbid == obj.Dbid, obj, new ReplaceOptions() { IsUpsert = true });
         }
 
         private IMongoCollection<T> GetCollection<T>(string name)
