@@ -33,12 +33,8 @@ namespace PostMainland
             Global.Container.Resolve<IConfigLoader>();
             var assMgr = Global.Container.Resolve<IAssemblyManager>();
             assMgr.AddTypes(typeof(Game).Assembly.GetTypes());
-            TcpC2SSession session = new TcpC2SSession(new IPHost("127.0.0.1:20001"));
-            var ack = await session.Request<S2C_Login, C2S_Login>(new C2S_Login() { Account = "baoyu" },false,120);
-            Log.Message(ack.Name);
-            var panel = await FGUI.Instance.OpenAsync<UILoginPanel>();
 
-            panel.txtAccount.text = TbGlobal.Instance.LoginServerAddress;
+            FGUI.Instance.OpenAsync<UILoginPanel>().Forget();
         }
 
         public static void Update()

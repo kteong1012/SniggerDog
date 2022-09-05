@@ -5,13 +5,13 @@ namespace PostMainland
     public partial class ProtocalId
     {
 {{~for t in types~}}
-        public const uint {{index = index + 1}}{{t.name}} = {{index}};
+        public const uint {{index = index + 1}}{{to_upper_case t.name}} = {{index}};
 {{~end~}}
     }
 
 {{~for t in types~}}
     [NinoSerialize]
-    [Protocal(ProtocalId.{{t.name}})]
+    [Protocal(ProtocalId.{{to_upper_case t.name}})]
     public partial class {{t.name}} : {{t.base_type_name}}
     {
     {{~for f in t.fields~}}

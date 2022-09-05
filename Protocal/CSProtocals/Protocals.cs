@@ -15,13 +15,14 @@ namespace ProtocalDefine
         public LogType MessageType { get; set; }
     }
     [ProtocalDefine]
-    public class C2S_Login : Request<S2C_Login>
+    public class C2L_Login : Request<L2C_Login>
     {
         public string Account { get; set; }
         public string Password { get; set; }
+        public int SectionId { get; set; }
     }
     [ProtocalDefine]
-    public class S2C_Login : Response
+    public class L2C_Login : Response
     {
         public string Name { get; set; }
     }

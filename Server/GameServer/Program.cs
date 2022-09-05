@@ -45,7 +45,7 @@ namespace PostMainland
                 }
                 if (options.IsGameServer)
                 {
-                    Game game = new Game(serverType);
+                    Server game = new Server(serverType);
                     game.Start();
                 }
             }
@@ -71,7 +71,7 @@ namespace PostMainland
                 {
                     if (Enum.TryParse(serverInfo.ServerType, out ServerType serverType))
                     {
-                        Game game = new Game(serverType);
+                        Server game = new Server(serverType);
                         game.Start();
                     }
                 }

@@ -29,7 +29,7 @@ namespace PostMainland
         public void Start(string host, int port)
         {
             TouchSocketConfig config = new TouchSocketConfig();
-            string hostString = string.Join(":", host, port);
+            string hostString = StringUtils.ToIPAddress(host, port);
             Log.Message($"{_serverType}  {host}  {port}");
             config.SetListenIPHosts(new IPHost[] { new IPHost(hostString) })
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())
@@ -66,7 +66,7 @@ namespace PostMainland
                                 var session = new TcpS2CSession(client);
                                 IRequest request = protocal as IRequest;
                                 IResponse response = _protocalManager.CreateProtocal(handler.GetResponseId()) as IResponse;
-                                ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(session, request, response, pr.UseCrc16));
+                                ThreadSynchronizationContext.Instance.PostNext(() => handler.Handle(session, ServerCollection.Servers.GetContainer(_serverType), request, response, pr.UseCrc16));
                             }
                         }
                         break;

@@ -14,7 +14,7 @@ namespace PostMainland
 
             AddAssemblyManager();
             AddProtocalManager();
-            AddServerService(true);
+            StartServerService(true);
         }
 
         public void AddAssemblyManager()
@@ -25,9 +25,8 @@ namespace PostMainland
         {
             container.RegisterSingleton<IProtocalManagerService, ProtocalManager>();
         }
-        public void AddServerService(bool connectDb = true)
+        public void StartServerService(bool connectDb = true)
         {
-            container.RegisterSingleton<TcpServerService, TcpServerService>();
             var processCfg = TbStartProcess.Instance.GetOrDefault((int)serverType);
             if (processCfg != null)
             {

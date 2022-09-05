@@ -43,4 +43,13 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="..\..\Client\Assets\_MainProject\Hotfix\Game\Network\ErrorCodeExtension.cs" Link="src\Game\Network\ErrorCodeExtension.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\Game\Network\" />
+    <Folder Include="src\Common\" />
+  </ItemGroup>
+
 </Project>
