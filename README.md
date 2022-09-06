@@ -3,16 +3,16 @@
   - 包含Unity客户端与服务端代码，服务端支持单机分布式多进程运行。
   - 无回调网络请求，使用async/await即可接收response。
      ```csharp
-public static async UniTask<ErrorCode> StartLogin(string accountName, string password)
-{
-    TcpC2SSession session = new TcpC2SSession(_loginIpHost);
-    var response = await session.Request<L2C_Login, C2L_Login>(new C2L_Login() { Account = accountName, Password = password });
-    if(!response.Success(out var errorCode))
+    public static async UniTask<ErrorCode> StartLogin(string accountName, string password)
     {
-        return errorCode;
+        TcpC2SSession session = new TcpC2SSession(_loginIpHost);
+        var response = await session.Request<L2C_Login, C2L_Login>(new C2L_Login() { Account = accountName, Password = password });
+        if(!response.Success(out var errorCode))
+        {
+            return errorCode;
+        }
+        return ErrorCode.Success;
     }
-    return ErrorCode.Success;
-}
      ```
   - 
 ## 使用的开源库
