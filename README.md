@@ -6,5 +6,6 @@
   - 网络模块（[TouchSocket](https://github.com/RRQM/TouchSocket)）: 这是一个轻量级的、支持插件的综合网络通信库。基础通信功能包含Tcp、Udp、Ssl、Rpc、Http等。其中http服务器支持WebSocket、静态网页、XmlRpc、WebApi、JsonRpc等扩展插件。和自定义协议的TouchRpc，支持Ssl加密、异步调用、权限管理、错误状态返回、服务回调、分布式调用等。在空载函数执行时，10万次调用仅3.8秒，在不返回状态时，仅0.9秒。
   - UI模块([Fairy-GUI](https://www.fairygui.com/)) : 非常优秀的专业游戏UI解决方案
   - 代码热更([HybridCLR](https://github.com/focus-creative-games/hybridclr)) : HybridCLR(代号wolong)是一个特性完整、零成本、高性能、低内存的近乎完美的Unity全平台原生c#热更方案。
+  - 序列化([Nino](https://github.com/JasonXuDeveloper/Nino)) : 实用的高性能C#模块，尤其在Unity平台能带来令人难以置信的效益。Definite useful and high performance modules for C# projects, especially for Unity.
 ## 其它插件
   - [UniTask](https://github.com/Cysharp/UniTask) : 为Unity提高一个高效无GC的async/await解决方案。 Provides an efficient allocation free async/await integration for Unity.
