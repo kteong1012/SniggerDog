@@ -19,7 +19,7 @@ namespace PostMainland
             Main.lateUpdate += LateUpdate;
         }
 
-        private static async void DoStart()
+        private static void DoStart()
         {
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
             Log.SetLogs(new UnityLogger());
