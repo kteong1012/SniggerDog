@@ -2,12 +2,12 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+!*/.gitkeep
 Client/[Ll]ibrary/
 Client/[Tt]emp/
 Client/[Oo]bj/
 Client/[Bb]uild/
 Client/[Bb]uilds/
-Client/[Bb]undles/
 Client/[Ll]ogs/
 Client/[Uu]ser[Ss]ettings/
 Client/*.sln
