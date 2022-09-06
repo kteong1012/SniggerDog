@@ -7,6 +7,11 @@ using YooAsset;
 
 namespace PostMainland
 {
+    public enum LoadDllMode
+    {
+        Editor,
+        FromYooAssets
+    }
     public class Main : MonoBehaviour
     {
         public static Main Instance { get; private set; }
@@ -14,6 +19,7 @@ namespace PostMainland
         [LabelText("版本号")] public string version;
 
         public YooAssets.EPlayMode playMode;
+        public LoadDllMode loadDllMode;
 
         public static event Action update;
         public static event Action fixedUpdate;
@@ -21,23 +27,27 @@ namespace PostMainland
 
         private void Awake()
         {
+            Application.runInBackground = true;
             Instance = this; 
             DontDestroyOnLoad(gameObject);
         }
 
-        private async void Start()
+        private void Start()
         {
 #if !UNITY_EDITOR
             playMode = YooAssets.EPlayMode.HostPlayMode;
 #endif
-            await YooAssetsManager.Instance.Initialize(playMode);
-             await LoadHotfixDll();
+            Init().Forget();
         }
 
-
+        public async UniTask Init()
+        {
+            await YooAssetsManager.Instance.Initialize(playMode);
+            await LoadHotfixDll();
+        }
         public async UniTask LoadHotfixDll()
         {
-            LoadDll loadDll = new LoadDll();
+            LoadDll loadDll = new LoadDll(loadDllMode);
             Assembly _gameAss = await loadDll.StartLoad();
             if (_gameAss == null)
             {

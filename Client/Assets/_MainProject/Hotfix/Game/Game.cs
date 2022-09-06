@@ -21,7 +21,6 @@ namespace PostMainland
 
         private static async void DoStart()
         {
-            await CheckHotfixResources();
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
             Log.SetLogs(new UnityLogger());
             Global.Container = new Container()
@@ -54,12 +53,6 @@ namespace PostMainland
         }
         public static void OnApplicationQuit()
         {
-
-        }
-
-        private static async UniTask CheckHotfixResources()
-        {
-            await YooAssetsManager.Instance.Initialize(Main.Instance.playMode);
 
         }
     }

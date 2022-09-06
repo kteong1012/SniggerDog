@@ -1,22 +1,24 @@
 using Cysharp.Threading.Tasks;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Networking;
-using YooAsset;
 
 namespace PostMainland
 {
     public class LoadDll
     {
+        public LoadDll(LoadDllMode loadDllMode)
+        {
+            _loadDllMode = loadDllMode;
+        }
         private static Dictionary<string, byte[]> _abBytes = new Dictionary<string, byte[]>();
+        private readonly LoadDllMode _loadDllMode;
+
         public async UniTask<Assembly> StartLoad()
         {
-            Application.runInBackground = true;
             return await DownLoadDlls();
         }
 
@@ -26,58 +28,35 @@ namespace PostMainland
             return _abBytes[dllName];
         }
 
-        private string GetWebRequestPath(string asset)
-        {
-            var path = $"{Application.streamingAssetsPath}/{asset}";
-            if (!path.Contains("://"))
-            {
-                path = "file://" + path;
-            }
-            return path;
-        }
-
         private async UniTask<Assembly> DownLoadDlls()
         {
-            var abs = new string[]
+            if (_loadDllMode == LoadDllMode.Editor)
             {
-                "common",
-            };
-            foreach (var ab in abs)
+                var dllBytes = await File.ReadAllBytesAsync("Temp/Bin/Debug/Hotfix.dll");
+                var pdbBytes = await File.ReadAllBytesAsync("Temp/Bin/Debug/Hotfix.pdb");
+                return Assembly.Load(dllBytes, pdbBytes);
+            }
+            else
             {
-                string dllPath = GetWebRequestPath(ab);
+                var ab = "common";
+                string location = $"HotfixDll_{ab}";
                 Debug.Log($"start download ab:{ab}");
-                UnityWebRequest www = UnityWebRequest.Get(dllPath);
-                await www.SendWebRequest().ToUniTask();
-
-#if UNITY_2020_1_OR_NEWER
-                if (www.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.Log(www.error);
-                }
-#else
-            if (www.isHttpError || www.isNetworkError)
-            {
-                Debug.Log(www.error);
+                //Or retrieve results as binary data
+                byte[] abBytes = await YooAssetsManager.Instance.LoadRawFileBytesAsync(location);
+                Debug.Log($"dll:{ab}  size:{abBytes.Length}");
+                _abBytes[ab] = abBytes;
+                return await LoadGameDll();
             }
-#endif
-                else
-                {
-                    //Or retrieve results as binary data
-                    byte[] abBytes = www.downloadHandler.data;
-                    Debug.Log($"dll:{ab}  size:{abBytes.Length}");
-                    _abBytes[ab] = abBytes;
-                }
-            }
-            return LoadGameDll();
         }
 
 
         public static AssetBundle AssemblyAssetBundle { get; private set; }
 
-        private Assembly LoadGameDll()
+        private async UniTask<Assembly> LoadGameDll()
         {
+            var ab = "common";
             Assembly gameAss = null;
-            AssetBundle dllAB = AssemblyAssetBundle = AssetBundle.LoadFromMemory(GetAbBytes("common"));
+            AssetBundle dllAB = AssemblyAssetBundle = await AssetBundle.LoadFromMemoryAsync(_abBytes[ab]);
 #if !UNITY_EDITOR
             TextAsset dllBytes = dllAB.LoadAsset<TextAsset>("Hotfix.dll.bytes");
             gameAss = System.Reflection.Assembly.Load(dllBytes.bytes);

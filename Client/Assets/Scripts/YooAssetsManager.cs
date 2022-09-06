@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using YooAsset;
 
@@ -12,8 +13,8 @@ namespace PostMainland
 
         public async UniTask Initialize(YooAssets.EPlayMode playMode)
         {
-#if !UNITY_EDITOR
-            playMode = YooAssetPlayMode.HostPlayMode;
+#if UNITY_EDITOR
+            playMode = YooAssets.EPlayMode.HostPlayMode;
 #endif
             switch (playMode)
             {
@@ -53,24 +54,23 @@ namespace PostMainland
 
 #if UNITY_EDITOR
             if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.Android)
-                return $"{hostServerIP}/CDN/Android/{gameVersion}";
+                return $"{hostServerIP}/Android/{gameVersion}";
             else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.iOS)
-                return $"{hostServerIP}/CDN/IPhone/{gameVersion}";
+                return $"{hostServerIP}/IPhone/{gameVersion}";
             else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.WebGL)
-                return $"{hostServerIP}/CDN/WebGL/{gameVersion}";
+                return $"{hostServerIP}/WebGL/{gameVersion}";
             else
-                return $"{hostServerIP}/CDN/StandaloneWindows64/{gameVersion}";
+                return $"{hostServerIP}/StandaloneWindows64/{gameVersion}";
 #else
 		            if (Application.platform == RuntimePlatform.Android)
-			            return $"{hostServerIP}/CDN/Android/{gameVersion}";
+			            return $"{hostServerIP}/Android/{gameVersion}";
 		            else if (Application.platform == RuntimePlatform.IPhonePlayer)
-			            return $"{hostServerIP}/CDN/IPhone/{gameVersion}";
+			            return $"{hostServerIP}/IPhone/{gameVersion}";
 		            else if (Application.platform == RuntimePlatform.WebGLPlayer)
-			            return $"{hostServerIP}/CDN/WebGL/{gameVersion}";
+			            return $"{hostServerIP}/WebGL/{gameVersion}";
 		            else
-			            return $"{hostServerIP}/CDN/StandaloneWindows64/{gameVersion}";
+			            return $"{hostServerIP}/StandaloneWindows64/{gameVersion}";
 #endif
-            return $"{hostServerIP}/CDN/StandaloneWindows64/{gameVersion}";
         }
         public async UniTask<T> LoadAsync<T>(string location) where T : UnityEngine.Object
         {
@@ -87,12 +87,6 @@ namespace PostMainland
 
         }
         public async UniTask<byte[]> LoadRawFileBytesAsync(string location)
-        {
-            var handle = YooAssets.GetRawFileAsync(location);
-            await handle.ToUniTask();
-            return handle.LoadFileData();
-        }
-        public async UniTask<byte[]> LoadRawFileBytesSync(string location)
         {
             var handle = YooAssets.GetRawFileAsync(location);
             await handle.ToUniTask();
