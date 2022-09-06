@@ -14,7 +14,7 @@
         return ErrorCode.Success;
     }
      ```
-  - 
+  - 自动化生成UI界面代码、协议代码、配置代码，解放大部分的繁杂工作量。
 ## 使用的开源库
   - 配置模块([Luban](https://github.com/focus-creative-games/luban)) : 强大的配置工具。你的最佳游戏配置解决方案。
   - 资源加载([YooAssets](https://github.com/tuyoogame/YooAsset)) : YooAsset是一套用于Unity3D的资源管理系统，用于帮助研发团队快速部署和交付游戏。它可以满足商业化游戏的各类需求，并且经历多款百万DAU游戏产品的验证。
