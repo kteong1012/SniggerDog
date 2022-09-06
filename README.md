@@ -1,6 +1,7 @@
 # 宝鱼的游戏框架
 ## 特点
   - 包含Unity客户端与服务端代码，服务端支持单机分布式多进程运行。
+  - 网络协议用的是TouchSocket的适配器模式，可以低成本自定义协议结构，包括加密、校验之类的。
   - 无回调网络请求，使用async/await即可接收response。
      ```csharp
     public static async UniTask<ErrorCode> StartLogin(string accountName, string password)
