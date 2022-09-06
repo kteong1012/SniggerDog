@@ -14,9 +14,9 @@ namespace PostMainland
         public static void Start()
         {
             DoStart();
-            LoadDll.update += Update;
-            LoadDll.fixedUpdate += FixedUpdate;
-            LoadDll.lateUpdate += LateUpdate;
+            Main.update += Update;
+            Main.fixedUpdate += FixedUpdate;
+            Main.lateUpdate += LateUpdate;
         }
 
         private static async void DoStart()
@@ -59,7 +59,7 @@ namespace PostMainland
 
         private static async UniTask CheckHotfixResources()
         {
-            await YooAssetsManager.Instance.Initialize(LoadDll.PlayMode);
+            await YooAssetsManager.Instance.Initialize(Main.Instance.playMode);
 
         }
     }

@@ -10,41 +10,67 @@ namespace PostMainland
         private static YooAssetsManager _instance = new YooAssetsManager();
         public static YooAssetsManager Instance => _instance;
 
-        public async UniTask Initialize(YooAssetPlayMode playMode)
+        public async UniTask Initialize(YooAssets.EPlayMode playMode)
         {
 #if !UNITY_EDITOR
             playMode = YooAssetPlayMode.HostPlayMode;
 #endif
             switch (playMode)
             {
-                case YooAssetPlayMode.EditorSimulateMode:
+                case YooAssets.EPlayMode.EditorSimulateMode:
                     {
                         var initParameters = new YooAssets.EditorSimulateModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
                         await YooAssets.InitializeAsync(initParameters);
                     }
                     break;
-                case YooAssetPlayMode.OfflinePlayMode:
+                case YooAssets.EPlayMode.OfflinePlayMode:
                     {
                         var initParameters = new YooAssets.OfflinePlayModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
                         await YooAssets.InitializeAsync(initParameters);
                     }
                     break;
-                case YooAssetPlayMode.HostPlayMode:
+                case YooAssets.EPlayMode.HostPlayMode:
                     {
                         var initParameters = new YooAssets.HostPlayModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
                         initParameters.DecryptionServices = null;
                         initParameters.ClearCacheWhenDirty = false;
-                        initParameters.DefaultHostServer = "http://127.0.0.1:8088/Bundles/StandaloneWindows64/1/";
-                        initParameters.FallbackHostServer = "http://127.0.0.1:8088/Bundles/StandaloneWindows64/1/";
+                        initParameters.DefaultHostServer = "http://127.0.0.1:8088/StandaloneWindows64/1/";
+                        initParameters.FallbackHostServer = "http://127.0.0.1:8088/StandaloneWindows64/1/";
                         await YooAssets.InitializeAsync(initParameters);
                     }
                     break;
                 default:
                     break;
             }
+        }
+        private string GetHostServerURL()
+        {
+            string hostServerIP = Main.Instance.hotfixResUrl;
+            string gameVersion = Main.Instance.version;
+
+#if UNITY_EDITOR
+            if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.Android)
+                return $"{hostServerIP}/CDN/Android/{gameVersion}";
+            else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.iOS)
+                return $"{hostServerIP}/CDN/IPhone/{gameVersion}";
+            else if (UnityEditor.EditorUserBuildSettings.activeBuildTarget == UnityEditor.BuildTarget.WebGL)
+                return $"{hostServerIP}/CDN/WebGL/{gameVersion}";
+            else
+                return $"{hostServerIP}/CDN/StandaloneWindows64/{gameVersion}";
+#else
+		            if (Application.platform == RuntimePlatform.Android)
+			            return $"{hostServerIP}/CDN/Android/{gameVersion}";
+		            else if (Application.platform == RuntimePlatform.IPhonePlayer)
+			            return $"{hostServerIP}/CDN/IPhone/{gameVersion}";
+		            else if (Application.platform == RuntimePlatform.WebGLPlayer)
+			            return $"{hostServerIP}/CDN/WebGL/{gameVersion}";
+		            else
+			            return $"{hostServerIP}/CDN/StandaloneWindows64/{gameVersion}";
+#endif
+            return $"{hostServerIP}/CDN/StandaloneWindows64/{gameVersion}";
         }
         public async UniTask<T> LoadAsync<T>(string location) where T : UnityEngine.Object
         {

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,28 +11,13 @@ using YooAsset;
 
 namespace PostMainland
 {
-    public enum YooAssetPlayMode
+    public class LoadDll
     {
-        EditorSimulateMode,
-        OfflinePlayMode,
-        HostPlayMode
-    }
-    public class LoadDll : MonoBehaviour
-    {
-        public YooAssets.EPlayMode playMode;
-        public static YooAssetPlayMode PlayMode { get; private set; }
-        private Assembly _gameAss;
         private static Dictionary<string, byte[]> _abBytes = new Dictionary<string, byte[]>();
-
-        public static event Action update;
-        public static event Action fixedUpdate;
-        public static event Action lateUpdate;
-        void Start()
+        public async UniTask<Assembly> StartLoad()
         {
-            DontDestroyOnLoad(gameObject);
-            PlayMode = (YooAssetPlayMode)playMode;
             Application.runInBackground = true;
-            StartCoroutine(DownLoadDlls(this.StartGame));
+            return await DownLoadDlls();
         }
 
 
@@ -50,7 +36,7 @@ namespace PostMainland
             return path;
         }
 
-        IEnumerator DownLoadDlls(Action onDownloadComplete)
+        private async UniTask<Assembly> DownLoadDlls()
         {
             var abs = new string[]
             {
@@ -61,7 +47,7 @@ namespace PostMainland
                 string dllPath = GetWebRequestPath(ab);
                 Debug.Log($"start download ab:{ab}");
                 UnityWebRequest www = UnityWebRequest.Get(dllPath);
-                yield return www.SendWebRequest();
+                await www.SendWebRequest().ToUniTask();
 
 #if UNITY_2020_1_OR_NEWER
                 if (www.result != UnityWebRequest.Result.Success)
@@ -82,55 +68,24 @@ namespace PostMainland
                     _abBytes[ab] = abBytes;
                 }
             }
-
-            onDownloadComplete();
-        }
-
-
-        void StartGame()
-        {
-            LoadGameDll();
-            RunMain();
+            return LoadGameDll();
         }
 
 
         public static AssetBundle AssemblyAssetBundle { get; private set; }
 
-        private void LoadGameDll()
+        private Assembly LoadGameDll()
         {
+            Assembly gameAss = null;
             AssetBundle dllAB = AssemblyAssetBundle = AssetBundle.LoadFromMemory(GetAbBytes("common"));
 #if !UNITY_EDITOR
             TextAsset dllBytes = dllAB.LoadAsset<TextAsset>("Hotfix.dll.bytes");
-            _gameAss = System.Reflection.Assembly.Load(dllBytes.bytes);
+            gameAss = System.Reflection.Assembly.Load(dllBytes.bytes);
 #else
             Debug.Log(AppDomain.CurrentDomain.GetAssemblies().Count());
-            _gameAss = AppDomain.CurrentDomain.GetAssemblies().First(assembly => assembly.GetName().Name == "Hotfix");
+            gameAss = AppDomain.CurrentDomain.GetAssemblies().First(assembly => assembly.GetName().Name == "Hotfix");
 #endif
-        }
-
-        public void RunMain()
-        {
-            if (_gameAss == null)
-            {
-                UnityEngine.Debug.LogError("dll未加载");
-                return;
-            }
-            var appType = _gameAss.GetType("App");
-            var mainMethod = appType.GetMethod("Main");
-            mainMethod.Invoke(null, null);
-        }
-
-        private void Update()
-        {
-            update?.Invoke();
-        }
-        private void FixedUpdate()
-        {
-            fixedUpdate?.Invoke();
-        }
-        private void LateUpdate()
-        {
-            lateUpdate?.Invoke();
+            return gameAss;
         }
     }
 }
