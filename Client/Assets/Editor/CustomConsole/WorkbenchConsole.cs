@@ -14,18 +14,6 @@ namespace PostMainland
             WorkbenchConsole workbenchConsole = GetWindow<WorkbenchConsole>(false, "工作台");
             workbenchConsole.Show();
         }
-
-
-        [VerticalGroup("生成"), Button("生成Hotfix_Debug并启动")]
-        public void BuildDebugAndPlay()
-        {
-            HotfixCodeBuilder.BuildDebugAndPlay();
-        }
-        [VerticalGroup("生成"), Button("生成Hotfix_Release并启动")]
-        public void BuildReleaseAndPlay()
-        {
-            HotfixCodeBuilder.BuildReleaseAndPlay();
-        }
         [VerticalGroup("生成"), Button("生成协议")]
         public void BuildProtocals()
         {
