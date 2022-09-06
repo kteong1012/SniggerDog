@@ -1,5 +1,11 @@
 # 宝鱼的游戏框架
-包含Unity客户端与服务端代码，服务端支持单机分布式多进程运行。
+## 特点
+  - 包含Unity客户端与服务端代码，服务端支持单机分布式多进程运行。
+  - 无回调网络请求，使用async/await即可接收response。
+     ```csharp
+     using System;
+     ```
+  - 
 ## 使用的开源库
   - 配置模块([Luban](https://github.com/focus-creative-games/luban)) : 强大的配置工具。你的最佳游戏配置解决方案。
   - 资源加载([YooAssets](https://github.com/tuyoogame/YooAsset)) : YooAsset是一套用于Unity3D的资源管理系统，用于帮助研发团队快速部署和交付游戏。它可以满足商业化游戏的各类需求，并且经历多款百万DAU游戏产品的验证。
