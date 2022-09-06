@@ -36,6 +36,7 @@ namespace PostMainland
         {
 #if !UNITY_EDITOR
             playMode = YooAssets.EPlayMode.HostPlayMode;
+            loadDllMode = LoadDllMode.FromYooAssets;
 #endif
             Init().Forget();
         }
