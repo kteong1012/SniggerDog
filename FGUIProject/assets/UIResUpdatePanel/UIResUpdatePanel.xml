@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,640">
+  <displayList>
+    <loader id="n11_lveb" name="loaderBg" xy="0,0" size="1280,640" url="ui://qsw3ypu9lveb2" fill="scaleFree"/>
+    <component id="n9_lveb" name="progressBar" src="lveb1" fileName="ProgressBar1.xml" xy="135,546" size="1010,49">
+      <ProgressBar value="16" max="100"/>
+    </component>
+    <text id="n13_lveb" name="txtTask" xy="0,482" size="1280,48" fontSize="32" color="#ffffff" align="center" vAlign="middle" autoSize="none" strokeColor="#000000" singleLine="true" text="正在加载资源"/>
+    <text id="n14_lveb" name="txtProgress" xy="137,555" size="1005,35" fontSize="25" align="center" vAlign="middle" autoSize="none" singleLine="true" text="10M/100M"/>
+  </displayList>
+</component>

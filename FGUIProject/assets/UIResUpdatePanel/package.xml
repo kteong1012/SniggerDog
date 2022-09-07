@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="qsw3ypu9">
+  <resources>
+    <component id="lveb0" name="UIResUpdatePanel.xml" path="/" exported="true"/>
+    <component id="lveb1" name="ProgressBar1.xml" path="/"/>
+    <image id="lveb2" name="bg0.jpg" path="/Images/"/>
+    <image id="lveb3" name="bg1.jpg" path="/Images/"/>
+  </resources>
+  <publish name="" path="../Client/Assets/Resources/FGUI" packageCount="2" codePath="../Client/Assets/Scripts/UI/Generate"/>
+</packageDescription>

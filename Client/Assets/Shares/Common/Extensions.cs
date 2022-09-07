@@ -47,5 +47,19 @@ namespace PostMainland
                 return false;
             }
         }
+        public static void SavelyAdd<T>(this List<T> list, T element)
+        {
+            if (!list.Contains(element))
+            {
+                list.Add(element);
+            }
+        }
+        public static void SavelyRemove<T>(this List<T> list, T element)
+        {
+            if (list.Contains(element))
+            {
+                list.Remove(element);
+            }
+        }
     }
 }

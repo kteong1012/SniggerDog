@@ -40,4 +40,8 @@ namespace PostMainland
             this.url = url;
         }
     }
+    [AttributeUsage(AttributeTargets.Class)]
+    public class FGUILocalLoadAttribute : Attribute
+    {
+    }
 }

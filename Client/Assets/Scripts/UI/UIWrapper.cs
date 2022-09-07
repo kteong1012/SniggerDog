@@ -1,6 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
 using FairyGUI;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -36,6 +38,9 @@ namespace PostMainland
                 name = value;
             }
         }
+        private List<UIWrapper> _children = new List<UIWrapper>();
+        public List<UIWrapper> Children => _children;
+        public UIWrapper Parent { get; private set; }
         #endregion
 
         #region Apis
@@ -54,14 +59,32 @@ namespace PostMainland
             OnHide();
             SetActiveWithScale(false);
         }
-        public void Close()
+        public async UniTask<T> AddChild<T>() where T : UIWrapper
         {
-            Hide();
-            Release();
+            T ui = await FGUI.Instance.CreateAsync<T>(null, Root);
+            _children.SavelyAdd(ui);
+            ui.Parent = this;
+            return ui;
+        }
+        public void RemoveChild(UIWrapper ui)
+        {
+            if (ui != null)
+            {
+                _children.SavelyRemove(ui);
+                ui.Dispose();
+            }
         }
         #endregion
 
         #region Life Cycle
+        /// <summary>
+        /// 不要使用此接口，用FGUI.Instance.Close
+        /// </summary>
+        public void Close()
+        {
+            Hide();
+            Dispose();
+        }
         protected void Initialize()
         {
             if (!_initialize)
@@ -83,23 +106,29 @@ namespace PostMainland
         {
 
         }
-        protected virtual void PrevRelease()
-        {
-
-        }
-        protected virtual void PostRelease()
+        protected virtual void OnDispose()
         {
 
         }
         #endregion
 
         #region Private Methods
-        private void Release()
+        private void Dispose(bool removeFromParent = true)
         {
-            PrevRelease();
+            if (removeFromParent)
+            {
+                if (Parent != null)
+                {
+                    Parent.Children.Remove(this);
+                }
+            }
+            foreach (var child in _children)
+            {
+                child.Dispose(false);
+            }
+            _children.Clear();
             Root?.Dispose();
             FGUI.Instance.ReleaseAssest(GetType());
-            PostRelease();
         }
         private void SetActiveWithScale(bool active)
         {

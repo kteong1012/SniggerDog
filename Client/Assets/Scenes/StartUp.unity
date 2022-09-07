@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c4e3f31fd93a242bbe64ead490b8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotfixResUrl: 127.0.0.1:8088
+  hotfixResUrl: http://127.0.0.1:8088
   version: 1
-  playMode: 0
+  playMode: 2
   loadDllMode: 1
 --- !u!1 &1317180096
 GameObject:

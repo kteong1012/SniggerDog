@@ -12,6 +12,7 @@ namespace PostMainland
         private static YooAssetsManager _instance = new YooAssetsManager();
         public static YooAssetsManager Instance => _instance;
 
+        public bool IsInitialized => YooAssets.IsInitialized;
         public async UniTask Initialize(YooAssets.EPlayMode playMode)
         {
 #if UNITY_EDITOR
@@ -24,16 +25,16 @@ namespace PostMainland
                     {
                         var initParameters = new YooAssets.EditorSimulateModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
-                        await YooAssets.InitializeAsync(initParameters);
-                        uniTaskCompletionSource.TrySetResult();
+                        YooAssets.InitializeAsync(initParameters).Completed +=
+                            _ => uniTaskCompletionSource.TrySetResult();
                     }
                     break;
                 case YooAssets.EPlayMode.OfflinePlayMode:
                     {
                         var initParameters = new YooAssets.OfflinePlayModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
-                        await YooAssets.InitializeAsync(initParameters);
-                        uniTaskCompletionSource.TrySetResult();
+                        YooAssets.InitializeAsync(initParameters).Completed +=
+                            _ => uniTaskCompletionSource.TrySetResult();
                     }
                     break;
                 case YooAssets.EPlayMode.HostPlayMode:
@@ -44,14 +45,14 @@ namespace PostMainland
                         initParameters.ClearCacheWhenDirty = false;
                         initParameters.DefaultHostServer = GetHostServerURL();
                         initParameters.FallbackHostServer = GetHostServerURL();
-                        await YooAssets.InitializeAsync(initParameters);
-                        // 运行补丁流程
-                        PatchUpdater.Run(uniTaskCompletionSource);
+                        YooAssets.InitializeAsync(initParameters).Completed +=
+                            _ => PatchUpdater.Run(uniTaskCompletionSource);// 运行补丁流程
                     }
                     break;
                 default:
                     break;
             }
+            await uniTaskCompletionSource.Task;
         }
         private string GetHostServerURL()
         {
@@ -86,9 +87,9 @@ namespace PostMainland
             handle.Release();
             return result;
         }
-        public async UniTask<UnityEngine.Object> LoadAsync(Type type,string location)
+        public async UniTask<UnityEngine.Object> LoadAsync(Type type, string location)
         {
-            var handle = YooAssets.LoadAssetAsync(location,type);
+            var handle = YooAssets.LoadAssetAsync(location, type);
             await handle.ToUniTask();
             var result = handle.AssetObject;
             handle.Release();

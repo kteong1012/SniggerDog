@@ -27,6 +27,7 @@ namespace PostMainland
         private IAssemblyManager _assemblyManager;
         private Dictionary<Type, (string packageName, string resName, string url)> _uiInfos = new Dictionary<Type, (string packageName, string resName, string url)>();
         private List<AssetOperationHandleCounter> _counters = new List<AssetOperationHandleCounter>(100);
+        private Dictionary<Type, UIWrapper> _uiWrappers = new Dictionary<Type, UIWrapper>();
 
         public static FGUI Instance
         {
@@ -41,14 +42,13 @@ namespace PostMainland
         }
         public FGUI(IAssemblyManager assemblyManager)
         {
-            AddPackage("AACommon");
             GRoot.inst.Center();
             GRoot.inst.SetContentScaleFactor(1280, 640, UIContentScaler.ScreenMatchMode.MatchWidthOrHeight);
             this._assemblyManager = assemblyManager;
             UpdateUIInfos();
         }
 
-        private void UpdateUIInfos()
+        public void UpdateUIInfos()
         {
             _uiInfos.Clear();
             var types = _assemblyManager.Types.Where(t => t.IsDefined(typeof(FGUIWrapperAttribute)));
@@ -60,23 +60,49 @@ namespace PostMainland
         }
         #region Api
 
-        public UIPackage AddPackage(string packageName)
+        public UIPackage AddPackage(string packageName, bool localLoad, bool checkAACommon = true)
         {
-            var bytes = YooAssetsManager.Instance.Load<TextAsset>($"Fgui_{packageName}_fui").bytes;
-            return UIPackage.AddPackage(bytes, packageName, OnLoadResourceFinished);
+            var package = UIPackage.GetByName(packageName);
+            if (package != null)
+            {
+                return package;
+            }
+            if (localLoad)
+            {
+                return UIPackage.AddPackage($"FGUI/{packageName}");
+            }
+            else
+            {
+                if (checkAACommon)
+                {
+                    AddPackage("AACommon", false, false);
+                }
+                var bytes = YooAssetsManager.Instance.Load<TextAsset>($"Fgui_{packageName}_fui").bytes;
+                return UIPackage.AddPackage(bytes, packageName, OnLoadResourceFinished);
+            }
         }
         public async UniTask<T> OpenAsync<T>(FGUILayer layer = FGUILayer.Main, string name = null, bool createNew = false) where T : UIWrapper
         {
-            if (!GetNameInfo<T>(out var nameInfo))
+            T wrapper = null;
+            if (_uiWrappers.TryGetValue(typeof(T), out var ui))
             {
-                return null;
+                wrapper = ui as T;
             }
-            if (name.IsNullOrEmpty())
+            else
             {
-                name = nameInfo.resName;
+                if (!GetNameInfo<T>(out var nameInfo))
+                {
+                    return null;
+                }
+                if (name.IsNullOrEmpty())
+                {
+                    name = nameInfo.resName;
+                }
+                bool localLoad = typeof(T).IsDefined(typeof(FGUILocalLoadAttribute), false);
+                GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, localLoad, GRoot.inst, createNew);
+                wrapper = GetWrapper<T>(com, name, 10 * (int)layer);
+                _uiWrappers.SavelyAdd(typeof(T), wrapper);
             }
-            GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, GRoot.inst, createNew);
-            T wrapper = GetWrapper<T>(com, name, 10 * (int)layer);
             wrapper.Show();
             return wrapper;
         }
@@ -94,18 +120,18 @@ namespace PostMainland
             {
                 name = nameInfo.resName;
             }
-            GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, parent, createNew);
+            bool localLoad = typeof(T).IsDefined(typeof(FGUILocalLoadAttribute), false);
+            GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, localLoad, parent, createNew);
             T view = GetWrapper<T>(com, name, parent.sortingOrder);
             view.Show();
             return view;
         }
-        public T GetWrapper<T>(GComponent root, string name, int sortingOrder) where T : UIWrapper
+        public void Close<T>()
         {
-            T view = root.displayObject.gameObject.GetOrAddComponent<T>();
-            view.Bind(root, sortingOrder);
-            view.Name = name;
-            view.Show();
-            return view;
+            if(_uiWrappers.TryGetValue(typeof(T), out var wrapper))
+            {
+                wrapper.Close();
+            }
         }
         public void ReleaseAssest(Type type)
         {
@@ -114,15 +140,28 @@ namespace PostMainland
                 var counter = _counters.FirstOrDefault(x => x.packageName == nameInfo.packageName);
                 if (counter != null)
                 {
-                    counter.handle.Release();
-                    counter.handle = null;
-                    _counters.Remove(counter);
+                    counter.count--;
+                    if (counter.count == 0)
+                    {
+                        _counters.Remove(counter);
+                        counter.handle.Release();
+                        counter.handle = null;
+                    }
+
                 }
             }
         }
         #endregion
 
         #region Logics
+        private T GetWrapper<T>(GComponent root, string name, int sortingOrder) where T : UIWrapper
+        {
+            T view = root.displayObject.gameObject.GetOrAddComponent<T>();
+            view.Bind(root, sortingOrder);
+            view.Name = name;
+            view.Show();
+            return view;
+        }
 
         private bool GetNameInfo<T>(out (string packageName, string resName, string url) nameInfo) where T : UIWrapper
         {
@@ -132,14 +171,14 @@ namespace PostMainland
         {
             return _uiInfos.TryGetValue(type, out nameInfo);
         }
-        private async UniTask<GComponent> GetOrCreateAsync(string name, string packageName, string resName, GComponent parent = null, bool createNew = false)
+        private async UniTask<GComponent> GetOrCreateAsync(string name, string packageName, string resName, bool localLoad, GComponent parent = null, bool createNew = false)
         {
             var objs = parent.GetChildren().Where(x => x.name == name && !x.visible);
             GObject obj = objs.FirstOrDefault();
             if (createNew || obj == null)
             {
                 UniTaskCompletionSource<GObject> tcs = new UniTaskCompletionSource<GObject>();
-                AddPackage(packageName);
+                AddPackage(packageName, localLoad);
                 UIPackage.CreateObjectAsync(packageName, resName, (o) =>
                 {
                     tcs.TrySetResult(o);

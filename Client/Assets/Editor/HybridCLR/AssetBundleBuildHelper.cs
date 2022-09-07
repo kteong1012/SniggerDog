@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostMainland;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -79,6 +80,8 @@ namespace HybridCLR.Editor
             {
                 AssetDatabase.CopyAsset(ToRelativeAssetPath($"{outputDir}/{ab.assetBundleName}"),
                     ToRelativeAssetPath($"{streamingAssetPathDst}/{ab.assetBundleName}"));
+                AssetDatabase.CopyAsset(ToRelativeAssetPath($"{outputDir}/{ab.assetBundleName}"),
+                    $"{AppConst.HotfixDllBundleOutputDir}/{ab.assetBundleName}.bytes");
             }
         }
 

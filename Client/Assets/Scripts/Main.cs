@@ -2,6 +2,8 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Reflection;
+using System.Threading;
+using TouchSocket.Core.Dependency;
 using UnityEngine;
 using YooAsset;
 
@@ -25,10 +27,12 @@ namespace PostMainland
         public static event Action fixedUpdate;
         public static event Action lateUpdate;
 
+        private ThreadSynchronizationContext _threadSynchronizationContext = ThreadSynchronizationContext.Instance;
+        private TimeInfo _timeInfo = TimeInfo.Instance;
         private void Awake()
         {
             Application.runInBackground = true;
-            Instance = this; 
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -43,6 +47,16 @@ namespace PostMainland
 
         public async UniTask Init()
         {
+            SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
+            Log.SetLogs(new UnityLogger());
+            Global.Container = new Container()
+                .RegisterSingleton<IAssemblyManager, AssemblyManager>();
+            var assMgr = Global.Container.Resolve<IAssemblyManager>();
+            assMgr.AddTypes(typeof(Main).Assembly.GetTypes());
+            if (playMode == YooAssets.EPlayMode.HostPlayMode)
+            {
+                await FGUI.Instance.OpenAsync<UIResUpdatePanel>();
+            }
             await YooAssetsManager.Instance.Initialize(playMode);
             await LoadHotfixDll();
         }
@@ -62,6 +76,8 @@ namespace PostMainland
 
         private void Update()
         {
+            _threadSynchronizationContext?.Update();
+            _timeInfo?.Update();
             update?.Invoke();
         }
         private void FixedUpdate()

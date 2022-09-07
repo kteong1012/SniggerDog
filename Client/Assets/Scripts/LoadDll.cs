@@ -22,7 +22,6 @@ namespace PostMainland
             return await DownLoadDlls();
         }
 
-
         public static byte[] GetAbBytes(string dllName)
         {
             return _abBytes[dllName];
@@ -40,10 +39,8 @@ namespace PostMainland
             {
                 var ab = "common";
                 string location = $"HotfixDll_{ab}";
-                Debug.Log($"start download ab:{ab}");
                 //Or retrieve results as binary data
                 byte[] abBytes = await YooAssetsManager.Instance.LoadRawFileBytesAsync(location);
-                Debug.Log($"dll:{ab}  size:{abBytes.Length}");
                 _abBytes[ab] = abBytes;
                 return await LoadGameDll();
             }
@@ -61,7 +58,6 @@ namespace PostMainland
             TextAsset dllBytes = dllAB.LoadAsset<TextAsset>("Hotfix.dll.bytes");
             gameAss = System.Reflection.Assembly.Load(dllBytes.bytes);
 #else
-            Debug.Log(AppDomain.CurrentDomain.GetAssemblies().Count());
             gameAss = AppDomain.CurrentDomain.GetAssemblies().First(assembly => assembly.GetName().Name == "Hotfix");
 #endif
             return gameAss;
