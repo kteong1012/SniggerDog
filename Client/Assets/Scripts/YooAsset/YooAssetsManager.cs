@@ -17,6 +17,7 @@ namespace PostMainland
 #if UNITY_EDITOR
             playMode = YooAssets.EPlayMode.HostPlayMode;
 #endif
+            UniTaskCompletionSource uniTaskCompletionSource = new UniTaskCompletionSource();
             switch (playMode)
             {
                 case YooAssets.EPlayMode.EditorSimulateMode:
@@ -24,6 +25,7 @@ namespace PostMainland
                         var initParameters = new YooAssets.EditorSimulateModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
                         await YooAssets.InitializeAsync(initParameters);
+                        uniTaskCompletionSource.TrySetResult();
                     }
                     break;
                 case YooAssets.EPlayMode.OfflinePlayMode:
@@ -31,6 +33,7 @@ namespace PostMainland
                         var initParameters = new YooAssets.OfflinePlayModeParameters();
                         initParameters.LocationServices = new AddressLocationServices();
                         await YooAssets.InitializeAsync(initParameters);
+                        uniTaskCompletionSource.TrySetResult();
                     }
                     break;
                 case YooAssets.EPlayMode.HostPlayMode:
@@ -42,6 +45,8 @@ namespace PostMainland
                         initParameters.DefaultHostServer = GetHostServerURL();
                         initParameters.FallbackHostServer = GetHostServerURL();
                         await YooAssets.InitializeAsync(initParameters);
+                        // 运行补丁流程
+                        PatchUpdater.Run(uniTaskCompletionSource);
                     }
                     break;
                 default:
