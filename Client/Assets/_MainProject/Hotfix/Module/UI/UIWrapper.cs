@@ -46,7 +46,18 @@ namespace PostMainland
             {
                 Initialize();
             }
+            SetActiveWithScale(true);
             OnShow();
+        }
+        public void Hide()
+        {
+            OnHide();
+            SetActiveWithScale(false);
+        }
+        public void Close()
+        {
+            Hide();
+            Release();
         }
         #endregion
 
@@ -72,9 +83,27 @@ namespace PostMainland
         {
 
         }
-        protected virtual void OnDispose()
+        protected virtual void PrevRelease()
         {
 
+        }
+        protected virtual void PostRelease()
+        {
+
+        }
+        #endregion
+
+        #region Private Methods
+        private void Release()
+        {
+            PrevRelease();
+            Root?.Dispose();
+            FGUI.Instance.ReleaseAssest(GetType());
+            PostRelease();
+        }
+        private void SetActiveWithScale(bool active)
+        {
+            Root.scale = active ? Vector2.one : Vector2.zero;
         }
         #endregion
     }

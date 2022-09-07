@@ -6,14 +6,27 @@ using System.Linq;
 using System.Reflection;
 using TouchSocket.Core.Dependency;
 using UnityEngine;
+using YooAsset;
 
 namespace PostMainland
 {
+    public class AssetOperationHandleCounter
+    {
+        public string packageName;
+        public int count;
+        public AssetOperationHandle handle;
+        public AssetOperationHandleCounter(AssetOperationHandle handle, string packageName)
+        {
+            this.handle = handle;
+            this.packageName = packageName;
+        }
+    }
     public class FGUI
     {
         private static FGUI _ins;
         private IAssemblyManager _assemblyManager;
         private Dictionary<Type, (string packageName, string resName, string url)> _uiInfos = new Dictionary<Type, (string packageName, string resName, string url)>();
+        private List<AssetOperationHandleCounter> _counters = new List<AssetOperationHandleCounter>(100);
 
         public static FGUI Instance
         {
@@ -94,13 +107,30 @@ namespace PostMainland
             view.Show();
             return view;
         }
+        public void ReleaseAssest(Type type)
+        {
+            if (GetNameInfo(type, out var nameInfo))
+            {
+                var counter = _counters.FirstOrDefault(x => x.packageName == nameInfo.packageName);
+                if (counter != null)
+                {
+                    counter.handle.Release();
+                    counter.handle = null;
+                    _counters.Remove(counter);
+                }
+            }
+        }
         #endregion
 
         #region Logics
 
         private bool GetNameInfo<T>(out (string packageName, string resName, string url) nameInfo) where T : UIWrapper
         {
-            return _uiInfos.TryGetValue(typeof(T), out nameInfo);
+            return GetNameInfo(typeof(T), out nameInfo);
+        }
+        private bool GetNameInfo(Type type, out (string packageName, string resName, string url) nameInfo)
+        {
+            return _uiInfos.TryGetValue(type, out nameInfo);
         }
         private async UniTask<GComponent> GetOrCreateAsync(string name, string packageName, string resName, GComponent parent = null, bool createNew = false)
         {
@@ -124,15 +154,22 @@ namespace PostMainland
         #endregion
 
         #region Callbacks
-        private void OnLoadResourceFinished(string name, string extension, Type type, PackageItem item)
+        private object OnLoadResourceFinished(string name, string extension, System.Type type, out DestroyMethod method)
         {
-            Log.Message($"{name}, {extension}, {type}, {item}");
-
-            if (type == typeof(Texture))
+            method = DestroyMethod.None; //注意：这里一定要设置为None
+            string location = $"Fgui_{name}{extension}";
+            var handle = YooAssets.LoadAssetAsync(location, type);
+            var counter = _counters.FirstOrDefault(x => x.packageName == name);
+            if (counter != null)
             {
-                Texture t = YooAssetsManager.Instance.Load<Texture>(name);
-                item.owner.SetItemAsset(item, t, DestroyMethod.Custom);
+                counter.count++;
             }
+            else
+            {
+                counter = new AssetOperationHandleCounter(handle, name);
+                _counters.Add(counter);
+            }
+            return handle.AssetObject;
         }
         #endregion
     }

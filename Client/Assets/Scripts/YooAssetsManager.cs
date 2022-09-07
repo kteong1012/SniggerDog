@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -38,8 +39,8 @@ namespace PostMainland
                         initParameters.LocationServices = new AddressLocationServices();
                         initParameters.DecryptionServices = null;
                         initParameters.ClearCacheWhenDirty = false;
-                        initParameters.DefaultHostServer = "http://127.0.0.1:8088/StandaloneWindows64/1/";
-                        initParameters.FallbackHostServer = "http://127.0.0.1:8088/StandaloneWindows64/1/";
+                        initParameters.DefaultHostServer = GetHostServerURL();
+                        initParameters.FallbackHostServer = GetHostServerURL();
                         await YooAssets.InitializeAsync(initParameters);
                     }
                     break;
@@ -62,14 +63,14 @@ namespace PostMainland
             else
                 return $"{hostServerIP}/StandaloneWindows64/{gameVersion}";
 #else
-		            if (Application.platform == RuntimePlatform.Android)
-			            return $"{hostServerIP}/Android/{gameVersion}";
-		            else if (Application.platform == RuntimePlatform.IPhonePlayer)
-			            return $"{hostServerIP}/IPhone/{gameVersion}";
-		            else if (Application.platform == RuntimePlatform.WebGLPlayer)
-			            return $"{hostServerIP}/WebGL/{gameVersion}";
-		            else
-			            return $"{hostServerIP}/StandaloneWindows64/{gameVersion}";
+            if (Application.platform == RuntimePlatform.Android)
+                return $"{hostServerIP}/Android/{gameVersion}";
+            else if (Application.platform == RuntimePlatform.IPhonePlayer)
+                return $"{hostServerIP}/IPhone/{gameVersion}";
+            else if (Application.platform == RuntimePlatform.WebGLPlayer)
+                return $"{hostServerIP}/WebGL/{gameVersion}";
+            else
+                return $"{hostServerIP}/StandaloneWindows64/{gameVersion}";
 #endif
         }
         public async UniTask<T> LoadAsync<T>(string location) where T : UnityEngine.Object
@@ -77,6 +78,14 @@ namespace PostMainland
             var handle = YooAssets.LoadAssetAsync<T>(location);
             await handle.ToUniTask();
             T result = handle.AssetObject as T;
+            handle.Release();
+            return result;
+        }
+        public async UniTask<UnityEngine.Object> LoadAsync(Type type,string location)
+        {
+            var handle = YooAssets.LoadAssetAsync(location,type);
+            await handle.ToUniTask();
+            var result = handle.AssetObject;
             handle.Release();
             return result;
         }
