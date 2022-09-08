@@ -10,8 +10,8 @@ namespace PostMainland
         {
             button.onClick.Set(() => callback?.Invoke());
         }
-        public delegate UniTask ButtonOnClickAsync();
-        public static void SetOnClickAsync(this AsyncGButton button, ButtonOnClickAsync onClickAsync, int timeoutMilli = 2000)
+        public delegate UniTask ButtonOnClickAsyncDelegate();
+        public static void SetOnClickAsync(this AsyncGButton button, ButtonOnClickAsyncDelegate onClickAsync, int timeoutMilli = 2000)
         {
             async UniTask OnClick()
             {

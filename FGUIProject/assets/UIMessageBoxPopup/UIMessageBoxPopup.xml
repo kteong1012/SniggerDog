@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1280,640">
+  <controller name="mode" pages="0,OKOnly,1,OKNO" selected="0"/>
+  <displayList>
+    <graph id="n0_lveb" name="n0" xy="333,97" size="613,400" type="rect" lineSize="6" lineColor="#ffcccccc" fillColor="#ff333333"/>
+    <graph id="n3_lveb" name="n3" xy="338,152" size="604,7" type="rect" lineColor="#ffcccccc" fillColor="#ffcccccc"/>
+    <text id="n8_lveb" name="txtTitle" xy="578,113" pivot="0.5,0.5" size="124,29" fontSize="20" color="#ffffff" align="center" ubb="true" vars="true" singleLine="true" text="标题只有一行"/>
+    <component id="n6_lveb" name="txtContent" src="lveb3" fileName="Components/ComScrollableText_FFFFFF.xml" pkg="wtx7q5i9" xy="365,183" size="550,217"/>
+    <component id="n4_lveb" name="btnConfirm" src="km5b1" fileName="Buttons/UINormalButton.xml" pkg="wtx7q5i9" xy="590,422">
+      <gearXY controller="mode" pages="0,1" values="590,422|449,422"/>
+    </component>
+    <component id="n7_lveb" name="btnCancel" src="km5b1" fileName="Buttons/UINormalButton.xml" pkg="wtx7q5i9" xy="749,422">
+      <gearDisplay controller="mode" pages="1"/>
+    </component>
+  </displayList>
+</component>

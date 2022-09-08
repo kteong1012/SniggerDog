@@ -8,7 +8,14 @@ using UnityEngine;
 
 namespace PostMainland
 {
-    public enum FGUILayer { Main }
+    public enum FGUILayer
+    {
+        Background = 0,
+        Panel = 10,
+        Popup = 20,
+        Tips = 30,
+        Loading = 40,
+    }
     public class AsyncGButton
     {
         public bool isLocking = false;
@@ -134,6 +141,9 @@ namespace PostMainland
         {
             Root.scale = active ? Vector2.one : Vector2.zero;
         }
+        #endregion
+
+        #region Extensions
         #endregion
     }
 }

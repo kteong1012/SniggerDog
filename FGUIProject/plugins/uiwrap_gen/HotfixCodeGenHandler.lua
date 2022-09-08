@@ -1,6 +1,12 @@
 ---@class HotfixCodeGenHandler 热更层代码生成器
 local HotfixCodeGenHandler = {}
 
+function UpperFirstChar(str)
+    local first = string.upper(string.sub(str,1,1));
+    local behind = string.sub(str,2)
+    return first..behind
+end
+
 --- 执行生成热更层代码
 ---@param handler CS.FairyEditor.PublishHandler
 ---@param codeGenConfig CodeGenConfig
@@ -51,7 +57,7 @@ function HotfixCodeGenHandler.Do(handler, codeGenConfig)
             local customComponentFlagsArray = {}
             -- 是否为跨包组件标记数组
             local crossPackageFlagsArray = {}
-
+            local btnCallbackNames = {}
             for j = 0, memberCnt - 1
             do
                 local memberInfo = members[j]
@@ -83,6 +89,8 @@ function HotfixCodeGenHandler.Do(handler, codeGenConfig)
                 writer:writeln('\tpublic %s %s;', typeName, memberVarNamePrefix .. memberInfo.varName)
                 if typeName == 'GButton' then
                     writer:writeln('\tpublic AsyncGButton %sAsync;', memberVarNamePrefix .. memberInfo.varName)
+                    local callbackName = "OnClick"..UpperFirstChar(memberInfo.varName)
+                    table.insert(btnCallbackNames,callbackName)
                 end
             end
 
@@ -120,6 +128,8 @@ function HotfixCodeGenHandler.Do(handler, codeGenConfig)
                         local typeName = memberInfo.type
                         writer:writeln('\t\t\t%s = (%s)com.GetChildAt(%s);', memberVarName, typeName, memberInfo.index)
                         if typeName == 'GButton' then
+                            local callbackName = "OnClick"..UpperFirstChar(memberInfo.varName)
+                            writer:writeln('\t\t\t%s.SetOnClick(()=>%s());', memberVarName,callbackName)
                             writer:writeln('\t\t\t%sAsync = new AsyncGButton(%s);', memberVarName,memberVarName)
                         end
                     end
@@ -134,6 +144,9 @@ function HotfixCodeGenHandler.Do(handler, codeGenConfig)
             writer:writeln('\t\t}')
             writer:writeln('\t\tInitialize();')
             writer:writeln('\t}')
+            for _, name in pairs(btnCallbackNames) do
+                writer:writeln('\tpartial void %s();',name)
+            end
             writer:writeln('}')
             writer:endBlock()
 

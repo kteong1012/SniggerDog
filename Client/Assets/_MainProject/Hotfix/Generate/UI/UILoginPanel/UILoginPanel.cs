@@ -19,11 +19,13 @@ namespace PostMainland
                 com.sortingOrder = sortingOrder;
                     
     			btnLogin = (GButton)com.GetChildAt(1);
+    			btnLogin.SetOnClick(()=>OnClickBtnLogin());
     			btnLoginAsync = new AsyncGButton(btnLogin);
     			inputAccount = (GTextInput)com.GetChildAt(5);
     			inputPassword = (GTextInput)com.GetChildAt(6);
     		}
     		Initialize();
     	}
+    	partial void OnClickBtnLogin();
     }
 }

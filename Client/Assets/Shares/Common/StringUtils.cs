@@ -17,5 +17,9 @@ namespace PostMainland
         {
             return string.Join(":", host, port);
         }
+        public static string UpperCaseFirstChar(this string s)
+        {
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
     }
 }

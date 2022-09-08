@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1280,640">
   <displayList>
-    <graph id="n3_tsyq" name="n3" xy="0,0" size="1280,640" type="rect" fillColor="#ff999999">
+    <graph id="n3_tsyq" name="n3" xy="0,0" size="1280,640" type="rect" fillColor="#ff333333">
       <relation target="" sidePair="width-width,height-height"/>
     </graph>
     <component id="n1_km5b" name="btnLogin" src="km5b1" fileName="Buttons/UINormalButton.xml" pkg="wtx7q5i9" xy="500,486" size="280,80">
       <Button title="登陆"/>
     </component>
-    <text id="n4_tsyq" name="n4" xy="491,30" size="301,70" fontSize="42" align="center" vAlign="middle" autoSize="none" text="登陆"/>
+    <text id="n4_tsyq" name="n4" xy="489,30" size="301,70" fontSize="42" color="#cccccc" align="center" vAlign="middle" autoSize="none" text="登陆"/>
     <graph id="n5_tsyq" name="n5" xy="363,146" size="550,50" type="rect"/>
     <graph id="n6_tsyq" name="n6" xy="363,287" size="553,44" type="rect"/>
     <text id="n7_tsyq" name="inputAccount" xy="363,146" size="550,50" fontSize="33" align="center" autoSize="none" singleLine="true" text="" input="true"/>

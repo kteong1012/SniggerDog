@@ -81,7 +81,7 @@ namespace PostMainland
                 return UIPackage.AddPackage(bytes, packageName, OnLoadResourceFinished);
             }
         }
-        public async UniTask<T> OpenAsync<T>(FGUILayer layer = FGUILayer.Main, string name = null, bool createNew = false) where T : UIWrapper
+        public async UniTask<T> OpenAsync<T>(FGUILayer layer = FGUILayer.Panel, string name = null, bool createNew = false) where T : UIWrapper
         {
             T wrapper = null;
             if (_uiWrappers.TryGetValue(typeof(T), out var ui))
