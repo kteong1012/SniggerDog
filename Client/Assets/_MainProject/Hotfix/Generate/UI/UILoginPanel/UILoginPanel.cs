@@ -10,6 +10,7 @@ namespace PostMainland
     	public AsyncGButton btnLoginAsync;
     	public GTextInput inputAccount;
     	public GTextInput inputPassword;
+    	public GTextField txtTips;
 
         public override void Bind(GComponent com, int sortingOrder)
         {
@@ -23,6 +24,7 @@ namespace PostMainland
     			btnLoginAsync = new AsyncGButton(btnLogin);
     			inputAccount = (GTextInput)com.GetChildAt(5);
     			inputPassword = (GTextInput)com.GetChildAt(6);
+    			txtTips = (GTextField)com.GetChildAt(7);
     		}
     		Initialize();
     	}

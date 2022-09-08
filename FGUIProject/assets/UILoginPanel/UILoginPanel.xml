@@ -12,5 +12,6 @@
     <graph id="n6_tsyq" name="n6" xy="363,287" size="553,44" type="rect"/>
     <text id="n7_tsyq" name="inputAccount" xy="363,146" size="550,50" fontSize="33" align="center" autoSize="none" singleLine="true" text="" input="true"/>
     <text id="n8_tsyq" name="inputPassword" xy="363,284" size="550,50" fontSize="33" align="center" ubb="true" autoSize="none" text="" input="true" password="true"/>
+    <text id="n11_lveb" name="txtTips" xy="612,383" pivot="0.5,0.5" size="56,36" fontSize="26" color="#ffffff" align="center" ubb="true" vars="true" singleLine="true" text="提示"/>
   </displayList>
 </component>

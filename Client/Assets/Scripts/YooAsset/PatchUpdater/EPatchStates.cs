@@ -23,7 +23,6 @@ public enum EPatchStates
 	/// 下载远端文件
 	/// </summary>
 	DownloadWebFiles,
-
 	/// <summary>
 	/// 补丁流程完毕
 	/// </summary>

@@ -10,9 +10,10 @@ using TouchSocket.Sockets;
 
 namespace PostMainland
 {
-    public class TcpClientService
+    public class TcpClientService : IDisposable
     {
         public TcpClient TcpClient { get; private set; }
+        public bool IsConnected { get; private set; }
         private ObjectPool<RequestAwaiter> _awaiterPool = new ObjectPool<RequestAwaiter>();
         private List<RequestAwaiter> _awatingRequests = new List<RequestAwaiter>();
         private IProtocalManagerService _protocalManager;
@@ -25,8 +26,15 @@ namespace PostMainland
                 .SetRemoteIPHost(remote)
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter()));
             TcpClient.Received += OnReceived;
-            TcpClient.Connect();
+            TcpClient.Connected += (_, _) => IsConnected = true;
+            TcpClient.Disconnected += (_, _) => IsConnected = false;
         }
+
+        public async UniTask ConnectAsync()
+        {
+            await TcpClient.ConnectAsync().AsUniTask();
+        }
+
         private void OnReceived(TcpClient client, ByteBlock byteBlock, IRequestInfo requestInfo)
         {
             if (requestInfo is ProtocalRequest pr)
@@ -75,6 +83,11 @@ namespace PostMainland
             }
             _awaiterPool.DestroyObject(awaiter);
             return (TRes)result;
+        }
+
+        public void Dispose()
+        {
+            TcpClient.Dispose();
         }
     }
 }

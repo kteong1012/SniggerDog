@@ -51,11 +51,14 @@ public static class PatchUpdater
             _eventGroup.AddListener<PatchEventMessageDefine.WebFileDownloadFailed>(OnHandleEvent);
 
             // 注意：按照先后顺序添加流程节点
-            FsmManager.AddNode(new FsmPatchInit());
-            FsmManager.AddNode(new FsmUpdateStaticVersion());
-            FsmManager.AddNode(new FsmUpdateManifest());
-            FsmManager.AddNode(new FsmCreateDownloader());
-            FsmManager.AddNode(new FsmDownloadWebFiles());
+            if(Main.Instance.playMode == YooAssets.EPlayMode.HostPlayMode)
+            {
+                FsmManager.AddNode(new FsmPatchInit());
+                FsmManager.AddNode(new FsmUpdateStaticVersion());
+                FsmManager.AddNode(new FsmUpdateManifest());
+                FsmManager.AddNode(new FsmCreateDownloader());
+                FsmManager.AddNode(new FsmDownloadWebFiles());
+            }
             FsmManager.AddNode(new FsmPatchDone());
 
             FsmManager.Run(nameof(FsmPatchInit));

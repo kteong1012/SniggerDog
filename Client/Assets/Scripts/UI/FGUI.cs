@@ -126,6 +126,14 @@ namespace PostMainland
             view.Show();
             return view;
         }
+        public bool IsOpen<T>() where T : UIWrapper
+        {
+            return IsOpen(typeof(T));
+        }
+        public bool IsOpen(Type type)
+        {
+            return _uiWrappers.ContainsKey(type);
+        }
         public void Close<T>() where T : UIWrapper
         {
             Close(typeof(T));
