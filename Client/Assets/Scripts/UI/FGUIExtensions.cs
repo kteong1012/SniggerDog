@@ -11,7 +11,7 @@ namespace PostMainland
             button.onClick.Set(() => callback?.Invoke());
         }
         public delegate UniTask ButtonOnClickAsyncDelegate();
-        public static void SetOnClickAsync(this AsyncGButton button, ButtonOnClickAsyncDelegate onClickAsync, int timeoutMilli = 2000)
+        public static void SetOnClickAsync(this AsyncGButton button, ButtonOnClickAsyncDelegate onClickAsync, int timeoutMilli = 0)
         {
             async UniTask OnClick()
             {
@@ -25,10 +25,17 @@ namespace PostMainland
                     button.isLocking = true;
                     try
                     {
-                        int index = await UniTask.WhenAny(UniTask.Delay(timeoutMilli), onClickAsync());
-                        if (index == 0)
+                        if(timeoutMilli > 0)
                         {
-                            Log.Error("超时");
+                            int index = await UniTask.WhenAny(UniTask.Delay(timeoutMilli), onClickAsync());
+                            if (index == 0)
+                            {
+                                Log.Error("超时");
+                            }
+                        }
+                        else
+                        {
+                            await onClickAsync();
                         }
                     }
                     finally

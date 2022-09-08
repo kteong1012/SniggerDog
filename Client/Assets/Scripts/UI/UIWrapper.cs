@@ -117,6 +117,10 @@ namespace PostMainland
         {
 
         }
+        protected void CloseSelf()
+        {
+            FGUI.Instance.Close(GetType());
+        }
         #endregion
 
         #region Private Methods
@@ -135,7 +139,6 @@ namespace PostMainland
             }
             _children.Clear();
             Root?.Dispose();
-            FGUI.Instance.ReleaseAssest(GetType());
         }
         private void SetActiveWithScale(bool active)
         {

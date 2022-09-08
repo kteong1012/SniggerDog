@@ -13,11 +13,13 @@ namespace PostMainland
             base.OnCreate();
             btnLoginAsync.SetOnClickAsync(OnClickBtnLoginAsync);
         }
-
         private async UniTask OnClickBtnLoginAsync()
         {
-            await Login.StartLogin(inputAccount.text, inputPassword.text);
-            Log.Message("µÇÂ½³É¹¦£¡£¡");
+            var result = await MessageBox.ShowConfirm("²âÊÔÄÚÈÝ", "²âÊÔ");
+            Log.Message(result);
+
+           //await Login.StartLogin(inputAccount.text, inputPassword.text);
+           // Log.Message("µÇÂ½³É¹¦£¡£¡");
         }
     }
 }

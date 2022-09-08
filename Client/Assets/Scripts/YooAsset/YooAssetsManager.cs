@@ -15,7 +15,7 @@ namespace PostMainland
         public bool IsInitialized => YooAssets.IsInitialized;
         public async UniTask Initialize(YooAssets.EPlayMode playMode)
         {
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
             playMode = YooAssets.EPlayMode.HostPlayMode;
 #endif
             UniTaskCompletionSource uniTaskCompletionSource = new UniTaskCompletionSource();

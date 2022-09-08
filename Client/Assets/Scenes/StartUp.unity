@@ -169,8 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotfixResUrl: http://127.0.0.1:8088
   version: 1
-  playMode: 2
-  loadDllMode: 1
+  playMode: 0
+  loadDllMode: 0
 --- !u!1 &1317180096
 GameObject:
   m_ObjectHideFlags: 0

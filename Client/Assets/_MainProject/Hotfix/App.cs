@@ -28,9 +28,10 @@ public class App
 {
     public static int Main()
     {
-#if !UNITY_EDITOR
-        LoadMetadataForAOTAssembly();
-#endif
+        if(PostMainland.Main.Instance.loadDllMode == LoadDllMode.FromYooAssets)
+        {
+            LoadMetadataForAOTAssembly();
+        }
         Debug.Log("hello, HybridCLR");
 
         Game.Start();

@@ -126,14 +126,20 @@ namespace PostMainland
             view.Show();
             return view;
         }
-        public void Close<T>()
+        public void Close<T>() where T : UIWrapper
         {
-            if(_uiWrappers.TryGetValue(typeof(T), out var wrapper))
+            Close(typeof(T));
+        }
+        public void Close(Type type)
+        {
+            if (_uiWrappers.TryGetValue(type, out var wrapper))
             {
                 wrapper.Close();
             }
+            _uiWrappers.Remove(type);
+            ReleaseAssest(type);
         }
-        public void ReleaseAssest(Type type)
+        private void ReleaseAssest(Type type)
         {
             if (GetNameInfo(type, out var nameInfo))
             {
@@ -147,7 +153,6 @@ namespace PostMainland
                         counter.handle.Release();
                         counter.handle = null;
                     }
-
                 }
             }
         }
