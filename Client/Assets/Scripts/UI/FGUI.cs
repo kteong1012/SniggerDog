@@ -81,16 +81,20 @@ namespace PostMainland
                 return UIPackage.AddPackage(bytes, packageName, OnLoadResourceFinished);
             }
         }
-        public async UniTask<T> OpenAsync<T>(FGUILayer layer = FGUILayer.Panel, string name = null, bool createNew = false) where T : UIWrapper
+        public async UniTask<T> OpenAsyncWithParams<T>(FGUILayer layer = FGUILayer.Panel, string name = null, bool createNew = false, IWrapperParams args = null) where T : UIWrapper
         {
-            T wrapper = null;
-            if (_uiWrappers.TryGetValue(typeof(T), out var ui))
+            return await OpenAsyncWithParams(typeof(T), layer, name, createNew, args) as T;
+        }
+        public async UniTask<UIWrapper> OpenAsyncWithParams(Type type, FGUILayer layer = FGUILayer.Panel, string name = null, bool createNew = false, IWrapperParams args = null)
+        {
+            UIWrapper wrapper = null;
+            if (_uiWrappers.TryGetValue(type, out var ui))
             {
-                wrapper = ui as T;
+                wrapper = ui;
             }
             else
             {
-                if (!GetNameInfo<T>(out var nameInfo))
+                if (!GetNameInfo(type, out var nameInfo))
                 {
                     return null;
                 }
@@ -98,15 +102,19 @@ namespace PostMainland
                 {
                     name = nameInfo.resName;
                 }
-                bool localLoad = typeof(T).IsDefined(typeof(FGUILocalLoadAttribute), false);
+                bool localLoad = type.IsDefined(typeof(FGUILocalLoadAttribute), false);
                 GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, localLoad, GRoot.inst, createNew);
-                wrapper = GetWrapper<T>(com, name, 10 * (int)layer);
-                _uiWrappers.SavelyAdd(typeof(T), wrapper);
+                wrapper = GetWrapper(type, com, name, 10 * (int)layer, args);
+                _uiWrappers.SavelyAdd(type, wrapper);
             }
             wrapper.Show();
             return wrapper;
         }
-        public async UniTask<T> CreateAsync<T>(string name = null, GComponent parent = null, bool createNew = true) where T : UIWrapper
+        public async UniTask<T> OpenAsync<T>(FGUILayer layer = FGUILayer.Panel, string name = null, bool createNew = false) where T : UIWrapper
+        {
+            return await OpenAsyncWithParams<T>(layer, name, createNew);
+        }
+        public async UniTask<T> CreateAsync<T>(string name = null, GComponent parent = null, bool createNew = true, IWrapperParams args = null) where T : UIWrapper
         {
             if (!GetNameInfo<T>(out var nameInfo))
             {
@@ -122,7 +130,7 @@ namespace PostMainland
             }
             bool localLoad = typeof(T).IsDefined(typeof(FGUILocalLoadAttribute), false);
             GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, localLoad, parent, createNew);
-            T view = GetWrapper<T>(com, name, parent.sortingOrder);
+            T view = GetWrapper<T>(com, name, parent.sortingOrder, args);
             view.Show();
             return view;
         }
@@ -167,9 +175,14 @@ namespace PostMainland
         #endregion
 
         #region Logics
-        private T GetWrapper<T>(GComponent root, string name, int sortingOrder) where T : UIWrapper
+        private T GetWrapper<T>(GComponent root, string name, int sortingOrder, IWrapperParams args = null) where T : UIWrapper
         {
-            T view = root.displayObject.gameObject.GetOrAddComponent<T>();
+            return GetWrapper(typeof(T), root, name, sortingOrder, args) as T;
+        }
+        private UIWrapper GetWrapper(Type type, GComponent root, string name, int sortingOrder, IWrapperParams args = null)
+        {
+            UIWrapper view = root.displayObject.gameObject.GetOrAddComponent(type) as UIWrapper;
+            view.SetParams(args);
             view.Bind(root, sortingOrder);
             view.Name = name;
             view.Show();

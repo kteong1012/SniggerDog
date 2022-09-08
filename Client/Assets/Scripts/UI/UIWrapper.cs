@@ -25,6 +25,7 @@ namespace PostMainland
             Button = button;
         }
     }
+    public interface IWrapperParams { }
     public abstract class UIWrapper : MonoBehaviour
     {
         #region Fields
@@ -48,6 +49,9 @@ namespace PostMainland
         private List<UIWrapper> _children = new List<UIWrapper>();
         public List<UIWrapper> Children => _children;
         public UIWrapper Parent { get; private set; }
+        public IWrapperParams Params { get; private set; }
+
+        private UniTaskCompletionSource _tcsClose;
         #endregion
 
         #region Apis
@@ -80,6 +84,15 @@ namespace PostMainland
                 _children.SavelyRemove(ui);
                 ui.Dispose();
             }
+        }
+        public async UniTask WaitClose()
+        {
+            _tcsClose = new UniTaskCompletionSource();
+            await _tcsClose.Task;
+        }
+        public void SetParams(IWrapperParams args)
+        {
+            Params = args;
         }
         #endregion
 
@@ -137,6 +150,7 @@ namespace PostMainland
             {
                 child.Dispose(false);
             }
+            _tcsClose.TrySetResult();
             _children.Clear();
             Root?.Dispose();
         }

@@ -61,5 +61,13 @@ namespace PostMainland
                 list.Remove(element);
             }
         }
+        public static T SavelyDequeue<T>(this Queue<T> queue)
+        {
+            if(queue.Count > 0)
+            {
+                return queue.Dequeue();
+            }
+            return default(T);
+        }
     }
 }

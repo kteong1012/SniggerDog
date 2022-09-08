@@ -16,29 +16,34 @@ namespace PostMainland
         }
         private async UniTask OnClickBtnLoginAsync()
         {
-            var result = await MessageBox.ShowConfirm("测试内容", "测试");
-            Log.Message(result);
-            using (var loginProcess = new LoginProcess())
+            //var result = await MessageBox.ShowConfirm("测试内容", "测试");
+            //Log.Message(result);
+            //using (var loginProcess = new LoginProcess())
+            //{
+            //    txtTips.text = "正在连接登陆服务器...";
+            //    await UniTask.Yield();
+            //    var (connected,resultStr) = await loginProcess.ConnectLoginServer();
+            //    if (connected)
+            //    {
+            //        txtTips.text = "连接登陆服务器成功,正在请求登陆...";
+            //        await UniTask.Yield();
+            //        var errorCode = await loginProcess.StartLogin(inputAccount.text, inputPassword.text);
+            //        if (errorCode != Cfg.ErrorCode.Success)
+            //        {
+            //            txtTips.text = errorCode.ToString();
+            //        }
+            //        Log.Assert("登陆成功！！");
+            //    }
+            //    else
+            //    {
+            //        txtTips.text = resultStr;
+            //    }
+            //}
+            for (int i = 0; i < 5; i++)
             {
-                txtTips.text = "正在连接登陆服务器...";
-                await UniTask.Yield();
-                var (connected,resultStr) = await loginProcess.ConnectLoginServer();
-                if (connected)
-                {
-                    txtTips.text = "连接登陆服务器成功,正在请求登陆...";
-                    await UniTask.Yield();
-                    var errorCode = await loginProcess.StartLogin(inputAccount.text, inputPassword.text);
-                    if (errorCode != Cfg.ErrorCode.Success)
-                    {
-                        txtTips.text = errorCode.ToString();
-                    }
-                    Log.Assert("登陆成功！！");
-                }
-                else
-                {
-                    txtTips.text = resultStr;
-                }
+                MessageBox.ShowConfirm("测试内容", $"测试{i}").Forget();
             }
+            await UniTask.CompletedTask;
         }
     }
 }
