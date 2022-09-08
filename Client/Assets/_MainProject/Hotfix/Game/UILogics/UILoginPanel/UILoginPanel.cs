@@ -14,10 +14,6 @@ namespace PostMainland
             base.OnCreate();
             btnLoginAsync.SetOnClickAsync(OnClickBtnLoginAsync);
         }
-        private void Update()
-        {
-            Debug.Log($"UILoginPanel {Time.time}");
-        }
         private async UniTask OnClickBtnLoginAsync()
         {
             var result = await MessageBox.ShowConfirm("≤‚ ‘ƒ⁄»›", "≤‚ ‘");
