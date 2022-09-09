@@ -22,8 +22,11 @@ namespace PostMainland
         private static UIQueueManager _ins = new UIQueueManager();
         public static UIQueueManager Instance => _ins;
         private Dictionary<UIQueuePriority, Queue<UIQueueInfo>> _queues = new Dictionary<UIQueuePriority, Queue<UIQueueInfo>>();
+        IEnumerable<UIQueuePriority> _enums;
         private UIQueueManager()
         {
+            UIQueuePriority[] temp = (UIQueuePriority[])Enum.GetValues(typeof(UIQueuePriority));
+            _enums = temp.OrderByDescending(x => x);
             StartUpdate().Forget();
         }
 
@@ -33,7 +36,7 @@ namespace PostMainland
             {
                 try
                 {
-                    foreach (UIQueuePriority priority in Enum.GetValues(typeof(UIQueuePriority)))
+                    foreach (var priority in _enums)
                     {
                         if (_queues.TryGetValue(priority, out var queue))
                         {
