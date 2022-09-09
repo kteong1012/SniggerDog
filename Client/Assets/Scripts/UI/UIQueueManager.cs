@@ -15,6 +15,7 @@ namespace PostMainland
         P0 = 0,
         P1 = 1,
         P2 = 2,
+        P3 = 3,
     }
     public class UIQueueManager
     {
@@ -41,6 +42,7 @@ namespace PostMainland
                             {
                                 var ui = await FGUI.Instance.OpenAsyncWithParams(info.type, info.layer, null, false, info.args);
                                 await ui.WaitClose();
+                                break;
                             }
                         }
                     }

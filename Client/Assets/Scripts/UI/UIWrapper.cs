@@ -1,9 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using FairyGUI;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
 
 namespace PostMainland
@@ -52,6 +49,8 @@ namespace PostMainland
         public IWrapperParams Params { get; private set; }
 
         private UniTaskCompletionSource _tcsClose;
+        protected IFGUIShowOnHandler showOnHandler = new FadeInShowOnHandler();
+        protected IFGUIShowOffHandler showOffHandler = new FadeOutShowOnHandler();
         #endregion
 
         #region Apis
@@ -64,9 +63,11 @@ namespace PostMainland
             }
             SetActiveWithScale(true);
             OnShow();
+            showOnHandler.ShowOn(Root).Forget();
         }
-        public void Hide()
+        public async UniTask Hide()
         {
+            await showOffHandler.ShowOff(Root);
             OnHide();
             SetActiveWithScale(false);
         }
@@ -100,9 +101,9 @@ namespace PostMainland
         /// <summary>
         /// 不要使用此接口，用FGUI.Instance.Close
         /// </summary>
-        public void Close()
+        public async UniTask Close()
         {
-            Hide();
+            await Hide();
             Dispose();
         }
         protected void Initialize()
@@ -130,9 +131,9 @@ namespace PostMainland
         {
 
         }
-        protected void CloseSelf()
+        protected async UniTask CloseSelf()
         {
-            FGUI.Instance.Close(GetType());
+            await FGUI.Instance.Close(GetType());
         }
         #endregion
 

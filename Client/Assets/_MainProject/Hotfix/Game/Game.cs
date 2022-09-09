@@ -8,7 +8,7 @@ namespace PostMainland
         public static void Start()
         {
             Log.AppendExtendLogs(new MessageBoxLogger());
-            FGUI.Instance.Close<UIResUpdatePanel>();
+            FGUI.Instance.Close<UIResUpdatePanel>().Forget();
             Global.Container
                 .RegisterSingleton<IProtocalManagerService, ProtocalManager>()
                 .RegisterSingleton<IConfigLoader, Luban>();

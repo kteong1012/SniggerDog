@@ -142,15 +142,15 @@ namespace PostMainland
         {
             return _uiWrappers.ContainsKey(type);
         }
-        public void Close<T>() where T : UIWrapper
+        public async UniTask Close<T>() where T : UIWrapper
         {
-            Close(typeof(T));
+            await Close(typeof(T));
         }
-        public void Close(Type type)
+        public async UniTask Close(Type type)
         {
             if (_uiWrappers.TryGetValue(type, out var wrapper))
             {
-                wrapper.Close();
+                await wrapper.Close();
             }
             _uiWrappers.Remove(type);
             ReleaseAssest(type);

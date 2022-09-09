@@ -43,6 +43,7 @@ namespace PostMainland
             {
                 MessageBox.ShowConfirm("≤‚ ‘ƒ⁄»›", $"≤‚ ‘{i}").Forget();
             }
+            UIQueueManager.Instance.DequeueUI<UIMessageBoxPopup>( FGUILayer.Popup, UIQueuePriority.P3);
             await UniTask.CompletedTask;
         }
     }

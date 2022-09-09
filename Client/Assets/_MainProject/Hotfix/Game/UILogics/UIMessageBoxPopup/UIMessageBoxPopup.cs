@@ -64,12 +64,12 @@ namespace PostMainland
         partial void OnClickBtnConfirm()
         {
             _tcs?.TrySetResult(MessageBoxResult.OK);
-            CloseSelf();
+            CloseSelf().Forget();
         }
         partial void OnClickBtnCancel()
         {
             _tcs.TrySetResult(MessageBoxResult.Cancel);
-            CloseSelf();
+            CloseSelf().Forget();
         }
         public class MessageBoxParams : IWrapperParams
         {
