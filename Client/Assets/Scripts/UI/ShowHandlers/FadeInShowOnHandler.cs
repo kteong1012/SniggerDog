@@ -17,14 +17,7 @@ namespace PostMainland
         public async UniTask ShowOn(GComponent component)
         {
             component.alpha = 0f;
-            var tcs = new UniTaskCompletionSource();
-            var t = DOTween.To(() => component.alpha, (a) => component.alpha = a, _target, _duration)
-                .OnComplete(() =>
-                {
-                    tcs.TrySetResult();
-                });
-            t.SetTarget(component);
-            await tcs.Task;
+            await component.DoFade(_target, _duration);
         }
     }
 }
