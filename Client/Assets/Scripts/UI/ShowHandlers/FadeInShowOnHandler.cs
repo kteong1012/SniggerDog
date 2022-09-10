@@ -17,7 +17,7 @@ namespace PostMainland
         public async UniTask ShowOn(GComponent component)
         {
             component.alpha = 0f;
-            await component.DoFade(_target, _duration);
+            await component.DoFade(_target, _duration).Task;
         }
     }
 }
