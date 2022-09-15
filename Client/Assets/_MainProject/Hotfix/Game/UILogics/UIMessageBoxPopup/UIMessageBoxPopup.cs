@@ -48,6 +48,11 @@ namespace PostMainland
     public partial class UIMessageBoxPopup : UIWrapper
     {
         private UniTaskCompletionSource<MessageBoxResult> _tcs;
+        protected override void OnCreate()
+        {
+            base.OnCreate();
+            showOnHandler = new NormalShowOnHandler();
+        }
         protected override void OnShow()
         {
             base.OnShow();
