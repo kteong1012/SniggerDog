@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using FairyGUI;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ namespace PostMainland
         }
     }
     public interface IWrapperParams { }
-    public abstract class UIWrapper : MonoBehaviour
+    public abstract class UIWrapper : IDisposable
     {
         #region Fields
         private bool _initialize = false;
@@ -32,7 +33,7 @@ namespace PostMainland
         {
             get
             {
-                return Root?.name ?? name;
+                return Root?.name;
             }
             set
             {
@@ -40,7 +41,6 @@ namespace PostMainland
                 {
                     Root.name = value;
                 }
-                name = value;
             }
         }
         private List<UIWrapper> _children = new List<UIWrapper>();
@@ -138,26 +138,24 @@ namespace PostMainland
         #endregion
 
         #region Private Methods
-        private void Dispose(bool removeFromParent = true)
+        private void SetActiveWithScale(bool active)
         {
-            if (removeFromParent)
+            Root.scale = active ? Vector2.one : Vector2.zero;
+        }
+
+        public void Dispose()
+        {
+            if (Parent != null)
             {
-                if (Parent != null)
-                {
-                    Parent.Children.Remove(this);
-                }
+                Parent.Children.Remove(this);
             }
-            foreach (var child in _children)
+            foreach (var child in _children.ToArray())
             {
-                child.Dispose(false);
+                child.Dispose();
             }
             _tcsClose.TrySetResult();
             _children.Clear();
             Root?.Dispose();
-        }
-        private void SetActiveWithScale(bool active)
-        {
-            Root.scale = active ? Vector2.one : Vector2.zero;
         }
         #endregion
 

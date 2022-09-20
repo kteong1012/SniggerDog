@@ -181,11 +181,15 @@ namespace PostMainland
         }
         private UIWrapper GetWrapper(Type type, GComponent root, string name, int sortingOrder, IWrapperParams args = null)
         {
-            UIWrapper view = root.displayObject.gameObject.GetOrAddComponent(type) as UIWrapper;
+            UIWrapper view = Activator.CreateInstance(type) as UIWrapper;
             view.SetParams(args);
             view.Bind(root, sortingOrder);
             view.Name = name;
             view.Show();
+#if UNITY_EDITOR
+            var debugger = root.displayObject.gameObject.GetOrAddComponent<UIWrapperEditorDebugger>();
+            debugger.uIWrapper = view;
+#endif
             return view;
         }
 
