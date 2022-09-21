@@ -23,7 +23,7 @@ namespace PostMainland
         {
             if (_callbacks.TryGetValue(typeof(T), out var callbacks))
             {
-                callbacks.SavelyRemove(callback);
+                callbacks.SafelyRemove(callback);
             }
         }
         public static async UniTask PublishAsync<T>(T e) where T : IEvent

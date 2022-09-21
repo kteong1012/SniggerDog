@@ -55,7 +55,7 @@ namespace PostMainland
             foreach (var type in types)
             {
                 FGUIWrapperAttribute attr = type.GetCustomAttribute<FGUIWrapperAttribute>();
-                _uiInfos.SavelyAdd(type, (attr.packageName, attr.resName, attr.url));
+                _uiInfos.SafelyAdd(type, (attr.packageName, attr.resName, attr.url));
             }
         }
         #region Api
@@ -105,7 +105,7 @@ namespace PostMainland
                 bool localLoad = type.IsDefined(typeof(FGUILocalLoadAttribute), false);
                 GComponent com = await GetOrCreateAsync(name, nameInfo.packageName, nameInfo.resName, localLoad, GRoot.inst, createNew);
                 wrapper = GetWrapper(type, com, name, 10 * (int)layer, args);
-                _uiWrappers.SavelyAdd(type, wrapper);
+                _uiWrappers.SafelyAdd(type, wrapper);
             }
             wrapper.Show();
             return wrapper;

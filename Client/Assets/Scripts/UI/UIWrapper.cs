@@ -74,7 +74,7 @@ namespace PostMainland
         public async UniTask<T> AddChild<T>() where T : UIWrapper
         {
             T ui = await FGUI.Instance.CreateAsync<T>(null, Root);
-            _children.SavelyAdd(ui);
+            _children.SafelyAdd(ui);
             ui.Parent = this;
             return ui;
         }
@@ -82,7 +82,7 @@ namespace PostMainland
         {
             if (ui != null)
             {
-                _children.SavelyRemove(ui);
+                _children.SafelyRemove(ui);
                 ui.Dispose();
             }
         }

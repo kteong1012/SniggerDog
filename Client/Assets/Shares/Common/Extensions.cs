@@ -18,7 +18,7 @@ namespace PostMainland
         {
             return !string.IsNullOrEmpty(str);
         }
-        public static bool SavelyAdd<K, V>(this Dictionary<K, V> dic, K key, V value, bool replace = true)
+        public static bool SafelyAdd<K, V>(this Dictionary<K, V> dic, K key, V value, bool replace = true)
         {
             if (replace)
             {
@@ -35,7 +35,7 @@ namespace PostMainland
                 return true;
             }
         }
-        public static bool SavelyRemove<K, V>(this Dictionary<K, V> dic, K key)
+        public static bool SafelyRemove<K, V>(this Dictionary<K, V> dic, K key)
         {
             if (dic.ContainsKey(key))
             {
@@ -47,21 +47,21 @@ namespace PostMainland
                 return false;
             }
         }
-        public static void SavelyAdd<T>(this List<T> list, T element)
+        public static void SafelyAdd<T>(this List<T> list, T element)
         {
             if (!list.Contains(element))
             {
                 list.Add(element);
             }
         }
-        public static void SavelyRemove<T>(this List<T> list, T element)
+        public static void SafelyRemove<T>(this List<T> list, T element)
         {
             if (list.Contains(element))
             {
                 list.Remove(element);
             }
         }
-        public static T SavelyDequeue<T>(this Queue<T> queue)
+        public static T SafelyDequeue<T>(this Queue<T> queue)
         {
             if(queue.Count > 0)
             {

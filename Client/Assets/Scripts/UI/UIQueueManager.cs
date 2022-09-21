@@ -40,7 +40,7 @@ namespace PostMainland
                     {
                         if (_queues.TryGetValue(priority, out var queue))
                         {
-                            var info = queue.SavelyDequeue();
+                            var info = queue.SafelyDequeue();
                             if (info != null)
                             {
                                 var ui = await FGUI.Instance.OpenAsyncWithParams(info.type, info.layer, null, false, info.args);
