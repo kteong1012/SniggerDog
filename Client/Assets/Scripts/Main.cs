@@ -79,6 +79,7 @@ namespace PostMainland
             _threadSynchronizationContext?.Update();
             _timeInfo?.Update();
             update?.Invoke();
+            AsyncLockManager.Instance.Update();
         }
         private void FixedUpdate()
         {

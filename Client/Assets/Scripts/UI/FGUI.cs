@@ -60,25 +60,33 @@ namespace PostMainland
         }
         #region Api
 
-        public UIPackage AddPackage(string packageName, bool localLoad, bool checkAACommon = true)
+        public async UniTask<UIPackage> AddPackage(string packageName, bool localLoad, bool checkAACommon = true)
         {
             var package = UIPackage.GetByName(packageName);
             if (package != null)
             {
                 return package;
             }
-            if (localLoad)
+            using (await AsyncLockManager.Instance.Wait(AsyncLockType.AddUIPackage, packageName.GetHashCode()))
             {
-                return UIPackage.AddPackage($"FGUI/{packageName}");
-            }
-            else
-            {
-                if (checkAACommon)
+                package = UIPackage.GetByName(packageName);
+                if (package != null)
                 {
-                    AddPackage("AACommon", false, false);
+                    return package;
                 }
-                var bytes = YooAssetsManager.Instance.Load<TextAsset>($"Fgui_{packageName}_fui").bytes;
-                return UIPackage.AddPackage(bytes, packageName, OnLoadResourceFinished);
+                if (localLoad)
+                {
+                    return UIPackage.AddPackage($"FGUI/{packageName}");
+                }
+                else
+                {
+                    if (checkAACommon)
+                    {
+                        await AddPackage("AACommon", false, false);
+                    }
+                    var ta = await YooAssetsManager.Instance.LoadAsync<TextAsset>($"Fgui_{packageName}_fui");
+                    return UIPackage.AddPackage(ta.bytes, packageName, OnLoadResourceFinished);
+                }
             }
         }
         public async UniTask<T> OpenAsyncWithParams<T>(FGUILayer layer = FGUILayer.Panel, string name = null, bool createNew = false, IWrapperParams args = null) where T : UIWrapper
@@ -186,10 +194,6 @@ namespace PostMainland
             view.Bind(root, sortingOrder);
             view.Name = name;
             view.Show();
-#if UNITY_EDITOR
-            var debugger = root.displayObject.gameObject.GetOrAddComponent<UIWrapperEditorDebugger>();
-            debugger.uIWrapper = view;
-#endif
             return view;
         }
 
@@ -208,7 +212,7 @@ namespace PostMainland
             if (createNew || obj == null)
             {
                 UniTaskCompletionSource<GObject> tcs = new UniTaskCompletionSource<GObject>();
-                AddPackage(packageName, localLoad);
+                await AddPackage(packageName, localLoad);
                 UIPackage.CreateObjectAsync(packageName, resName, (o) =>
                 {
                     tcs.TrySetResult(o);

@@ -81,31 +81,41 @@ namespace PostMainland
         }
         public async UniTask<T> LoadAsync<T>(string location) where T : UnityEngine.Object
         {
-            var handle = YooAssets.LoadAssetAsync<T>(location);
-            await handle.ToUniTask();
-            T result = handle.AssetObject as T;
-            handle.Release();
-            return result;
+            using (await AsyncLockManager.Instance.Wait(AsyncLockType.LoadResource, location.GetHashCode()))
+            {
+                var handle = YooAssets.LoadAssetAsync<T>(location);
+                await handle.ToUniTask();
+                T result = handle.AssetObject as T;
+                handle.Release();
+                return result;
+            }
         }
         public async UniTask<UnityEngine.Object> LoadAsync(Type type, string location)
         {
-            var handle = YooAssets.LoadAssetAsync(location, type);
-            await handle.ToUniTask();
-            var result = handle.AssetObject;
-            handle.Release();
-            return result;
+            using (await AsyncLockManager.Instance.Wait(AsyncLockType.LoadResource, location.GetHashCode()))
+            {
+                var handle = YooAssets.LoadAssetAsync(location, type);
+                await handle.ToUniTask();
+                var result = handle.AssetObject;
+                handle.Release();
+                return result; 
+            }
         }
         public T Load<T>(string location) where T : UnityEngine.Object
         {
             var handle = YooAssets.LoadAssetSync<T>(location);
-            return handle.AssetObject as T;
-
+            var result = handle.AssetObject as T;
+            handle.Release();
+            return result;
         }
         public async UniTask<byte[]> LoadRawFileBytesAsync(string location)
         {
-            var handle = YooAssets.GetRawFileAsync(location);
-            await handle.ToUniTask();
-            return handle.LoadFileData();
+            using (await AsyncLockManager.Instance.Wait(AsyncLockType.LoadResource, location.GetHashCode()))
+            {
+                var handle = YooAssets.GetRawFileAsync(location);
+                await handle.ToUniTask();
+                return handle.LoadFileData(); 
+            }
         }
         public async UniTask LoadSceneAsync(string location, LoadSceneMode sceneMode = LoadSceneMode.Single, bool activateOnLoad = true, int priority = 100)
         {
