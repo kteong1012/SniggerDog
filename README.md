@@ -2,19 +2,7 @@
 ## 特点
   - 包含Unity客户端与服务端代码，服务端支持单机分布式多进程运行。
   - 网络协议用的是TouchSocket的适配器模式，可以低成本自定义协议结构，包括加密、校验之类的。
-  - 无回调网络请求，使用async/await即可接收response。
-     ```csharp
-    public static async UniTask<ErrorCode> StartLogin(string accountName, string password)
-    {
-        TcpC2SSession session = new TcpC2SSession(_loginIpHost);
-        var response = await session.Request<L2C_Login, C2L_Login>(new C2L_Login() { Account = accountName, Password = password });
-        if(!response.Success(out var errorCode))
-        {
-            return errorCode;
-        }
-        return ErrorCode.Success;
-    }
-     ```
+  - 先进的异步编程方式，接入UniTask使用async/await，少用甚至不用协程。
   - 自动化生成UI界面代码、协议代码、配置代码，解放大部分的繁杂工作量。
   - 使用IOC容器、依赖注入管理运行时的各种服务和实例。
 ## 使用的开源库
