@@ -76,4 +76,4 @@ Client/[Aa]ssets/[Ss]treamingAssets/aa.meta
 Client/[Aa]ssets/[Ss]treamingAssets/aa/*
 
 # Luban chage
-.cache.meta
+Config/.cache.meta
