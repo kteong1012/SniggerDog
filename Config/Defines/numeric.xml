@@ -1,0 +1,8 @@
+<module>
+    <enum name = "TypeOfValue">
+        <var name = "Absolute" alias="绝对值" comment="绝对值"/>
+        <var name = "Percentage" alias="百分比" comment="百分比"/>
+        <var name = "Permillage" alias="千分比" comment="千分比"/>
+        <var name = "Pertenthousandage" alias="万分比" comment="万分比，这个是自己创的词，字典没有"/>
+    </enum>
+</module>
