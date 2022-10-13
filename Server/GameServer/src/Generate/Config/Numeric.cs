@@ -13,6 +13,7 @@ namespace Cfg
     /// </summary>
     public enum Numeric
     {
+        None = 0,
         /// <summary>
         /// 速度
         /// </summary>

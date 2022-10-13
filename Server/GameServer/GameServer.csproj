@@ -38,6 +38,9 @@
     <Compile Include="../../Client/Assets/Shares/**/*.cs">
       <Link>src/Shares\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
+    <Compile Include="../../Client/Assets/_MainProject/Hotfix/HotfixShares/**/*.cs">
+      <Link>src/HotfixShares\%(RecursiveDir)%(FileName)%(Extension)</Link>
+    </Compile>
     <Compile Include="../../Client/Assets/Scripts/ThirdParty/Nino/**/*.cs">
       <Link>src/ThirrdParty\Nino\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
