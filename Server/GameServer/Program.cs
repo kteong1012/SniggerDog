@@ -14,7 +14,6 @@ namespace PostMainland
 {
     public class Program
     {
-        private const string _pidLogFile = "../.record.gameserver_pid";
         static void Main(string[] args)
         {
             Parser.Default.ParseArguments<ProcessLauncherOptions>(args).WithParsed(StartUp);
@@ -33,7 +32,6 @@ namespace PostMainland
 
             new Luban();
             Global.Container = new Container();
-
 
             var pid = Process.GetCurrentProcess().Id;
             Log.Message($"{serverType}启动,pid:{pid}");
