@@ -1,6 +1,6 @@
 ﻿namespace PostMainland
 {
-    public class Unit
+    public struct Unit
     {
 
     }
