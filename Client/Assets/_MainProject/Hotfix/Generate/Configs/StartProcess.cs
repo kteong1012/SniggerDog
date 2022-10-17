@@ -9,10 +9,8 @@ using Bright.Serialization;
 using System.Collections.Generic;
 
 
-
 namespace Cfg
 {
-
 public sealed partial class StartProcess :  Bright.Config.BeanBase 
 {
     public StartProcess(ByteBuf _buf) 
