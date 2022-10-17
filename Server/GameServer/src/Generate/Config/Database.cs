@@ -9,10 +9,8 @@ using Bright.Serialization;
 using System.Collections.Generic;
 
 
-
 namespace Cfg
 {
-
 public sealed partial class Database :  Bright.Config.BeanBase 
 {
     public Database(ByteBuf _buf) 
