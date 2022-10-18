@@ -41,5 +41,6 @@ namespace PostMainland
         {
             return TimeInfo.Instance.ServerFrameTime();
         }
+        public static long DeltaTimeMS => TimeInfo.Instance.DeltaTimeMS;
     }
 }

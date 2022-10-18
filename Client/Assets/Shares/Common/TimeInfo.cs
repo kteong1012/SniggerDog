@@ -8,7 +8,7 @@ namespace PostMainland
         public static TimeInfo Instance => _instance;
 
         private int _timeZone;
-
+        
         public int TimeZone
         {
             get
@@ -28,14 +28,18 @@ namespace PostMainland
         public long ServerMinusClientTime { private get; set; }
 
         public long frameTime;
+        public long lastFrameTime;
+        public long DeltaTimeMS => frameTime - lastFrameTime;
 
         private TimeInfo()
         {
             this.frameTime = this.ClientNow();
+            this.lastFrameTime = frameTime;
         }
 
         public void Update()
         {
+            this.lastFrameTime = frameTime;
             this.frameTime = this.ClientNow();
         }
 

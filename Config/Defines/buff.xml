@@ -1,0 +1,26 @@
+<module>
+    <enum name="BuffEvent">
+        <var name="None" value="0"/>
+        <var name="OnAttach" alias="附加" comment="附加" value="1"/>
+        <var name="OnDettach" alias="移除" comment="移除" value="2"/>
+    </enum>
+
+    <enum name="BuffAddType">
+        <var name="Replace" alias="覆盖" comment="覆盖" value="0"/>
+        <var name="AddTime" alias="延长" comment="延长" value="1"/>
+        <var name="AddLayer1" alias="叠加1" comment="叠加层数并且重置时间" value="2"/>
+        <var name="AddLayer2" alias="叠加2" comment="叠加层数并且延长时间" value="3"/>
+    </enum>
+
+    <enum name="DispelLevel">
+        <var name="Basic" alias="弱驱散" comment="弱驱散" value="0"/>
+        <var name="Strong" alias="强驱散" comment="强驱散" value="1"/>
+        <var name="Death" alias="死亡驱散" comment="死亡驱散" value="2"/>
+    </enum>
+
+    <enum name="DamageType">
+        <var name="Pure" alias="纯粹伤害" comment="纯粹伤害"/>
+        <var name="Physical" alias="物理伤害" comment="物理伤害"/>
+        <var name="Magical" alias="魔法伤害" comment="物理伤害"/>
+    </enum>
+</module>

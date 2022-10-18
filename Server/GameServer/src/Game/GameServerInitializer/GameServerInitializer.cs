@@ -1,8 +1,39 @@
 ﻿using Cfg;
+using Leopotam.EcsLite;
 using TouchSocket.Core.Dependency;
 
 namespace PostMainland
 {
+    public class WorldServerInitializer : GameServerInitializer
+    {
+        public override void Initialize(ServerType serverType, IContainer container)
+        {
+            base.Initialize(serverType, container);
+            StartWorld();
+        }
+
+        private void StartWorld()
+        {
+            EcsWorld world = new EcsWorld();
+            var gameEvent = new GameEvent();
+            EcsSystems systems = new EcsSystems(world, gameEvent);
+            systems.Add(new BuffComponentSystem())
+                .Init();
+            Program.UpdateEvent += () => systems.Run();
+            int caster = world.NewEntity();
+            int target = world.NewEntity();
+            var unitPool = world.GetPool<Unit>();
+            var buffsPool = world.GetPool<BuffComponent>();
+            var numericPool = world.GetPool<NumericComponent>();
+            var ap = world.GetPool<BuffAttachEvent>();
+            ref var numeric = ref numericPool.Add(target);
+            ref var unit = ref unitPool.Add(target);
+            ref var uni2t = ref unitPool.Add(caster);
+            ref var buff = ref buffsPool.Add(target);
+            gameEvent.Publish(new BuffAttachEvent() { CfgId = 1001, CasterEntity = caster, TargetEntity = target });
+            gameEvent.Publish(new BuffAttachEvent() { CfgId = 1002, CasterEntity = caster, TargetEntity = target });
+        }
+    }
     public class GameServerInitializer : IGameServerInitializer
     {
         protected IContainer container;

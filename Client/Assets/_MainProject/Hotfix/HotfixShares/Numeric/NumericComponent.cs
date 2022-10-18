@@ -17,30 +17,10 @@ namespace PostMainland
             c.Dict.Clear();
         }
     }
-    public struct SetNumericDataCommand : IEcsAutoReset<SetNumericDataCommand>
+    public struct SetNumericDataEvent : IEvent
     {
-        public Queue<(Numeric NumericId, NumericData Data)> Commands { get; set; }
-
-        public void AutoReset(ref SetNumericDataCommand c)
-        {
-            if (Commands == null)
-            {
-                Commands = new Queue<(Numeric, NumericData)>();
-            }
-            Commands.Clear();
-        }
-    }
-    public struct DelNumericDataCommand : IEcsAutoReset<DelNumericDataCommand>
-    {
-        public Queue<Numeric> Commands { get; set; }
-
-        public void AutoReset(ref DelNumericDataCommand c)
-        {
-            if (Commands == null)
-            {
-                Commands = new Queue<Numeric>();
-            }
-            Commands.Clear();
-        }
+        public int Entity { get; set; }
+        public Numeric NumericId { get; set; }
+        public NumericData Data { get; set; }
     }
 }

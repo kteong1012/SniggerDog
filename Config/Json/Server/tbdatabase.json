@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Login",
+    "connect_string": "mongodb://127.0.0.1:27017"
+  },
+  {
+    "name": "World",
+    "connect_string": "mongodb://127.0.0.1:27017"
+  }
+]

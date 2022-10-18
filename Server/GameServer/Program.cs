@@ -1,11 +1,8 @@
 ﻿using Cfg;
 using CommandLine;
-using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Threading;
 using TouchSocket.Core.Dependency;
 using TouchSocket.Core.Log;
@@ -14,6 +11,7 @@ namespace PostMainland
 {
     public class Program
     {
+        public static event Action UpdateEvent;
         static void Main(string[] args)
         {
             Parser.Default.ParseArguments<ProcessLauncherOptions>(args).WithParsed(StartUp);
@@ -58,6 +56,7 @@ namespace PostMainland
             {
                 Thread.Sleep(1);
                 Update();
+                UpdateEvent?.Invoke();
                 LateUpdate();
             }
         }

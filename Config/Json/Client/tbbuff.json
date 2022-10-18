@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1001,
+    "name": "普通攻击",
+    "desc": "普通攻击",
+    "dispel_level": 0,
+    "duration_ms": 0,
+    "add_type": 0,
+    "add_layer": 1,
+    "trigger": {
+      "$type": "Event",
+      "buff_event": 1
+    },
+    "effect": {
+      "$type": "Damage",
+      "type": 1,
+      "numeric_formula": "[CAttack]"
+    }
+  },
+  {
+    "id": 1002,
+    "name": "火球术",
+    "desc": "火球术",
+    "dispel_level": 0,
+    "duration_ms": 0,
+    "add_type": 0,
+    "add_layer": 1,
+    "trigger": {
+      "$type": "Event",
+      "buff_event": 1
+    },
+    "effect": {
+      "$type": "Damage",
+      "type": 2,
+      "numeric_formula": "100*(1+[CMagicEnhance])"
+    }
+  }
+]

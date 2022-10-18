@@ -1,19 +1,13 @@
-﻿using Cfg;
-using Cysharp.Threading.Tasks;
-using Leopotam.EcsLite;
-using System;
+﻿using Leopotam.EcsLite;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PostMainland
 {
-    public struct SkillComponent : IEcsAutoReset<SkillComponent>
+    public struct SkillsComponent : IEcsAutoReset<SkillsComponent>
     {
         public int ConfigId { get; set; }
 
-        public void AutoReset(ref SkillComponent c)
+        public void AutoReset(ref SkillsComponent c)
         {
             //TODO
         }

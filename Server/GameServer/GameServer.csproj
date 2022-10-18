@@ -14,13 +14,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>$(DefineConstants)TRACE;NOT_UNITY;LEOECSLITE_FILTER_EVENTS</DefineConstants>
+    <DefineConstants>$(DefineConstants)TRACE;NOT_UNITY</DefineConstants>
     <OutputPath>..\Bin\</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>$(DefineConstants)TRACE;NOT_UNITY;LEOECSLITE_FILTER_EVENTS</DefineConstants>
+    <DefineConstants>$(DefineConstants)TRACE;NOT_UNITY</DefineConstants>
     <OutputPath>..\Bin\</OutputPath>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>

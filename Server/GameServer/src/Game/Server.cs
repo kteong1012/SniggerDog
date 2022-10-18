@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Leopotam.EcsLite;
+using System.Collections.Generic;
 using System.Threading;
 using TouchSocket.Core.Dependency;
 
@@ -54,7 +55,7 @@ namespace PostMainland
                     initializer = new GameServerInitializer();
                     break;
                 case ServerType.World:
-                    initializer = new GameServerInitializer();
+                    initializer = new WorldServerInitializer();
                     break;
                 case ServerType.Solcial:
                     initializer = new GameServerInitializer();

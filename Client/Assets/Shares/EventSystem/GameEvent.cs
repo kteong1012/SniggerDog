@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace PostMainland
 {
-    public static class GameEvent
+    public class GameEvent
     {
-        public delegate UniTask Callback<T>(T e) where T : IEvent;
+        public delegate void Callback<T>(T e) where T : IEvent;
 
-        private static Dictionary<Type, List<Delegate>> _callbacks = new Dictionary<Type, List<Delegate>>();
-        public static void AddEvent<T>(Callback<T> callback) where T : IEvent
+        private Dictionary<Type, List<Delegate>> _callbacks = new Dictionary<Type, List<Delegate>>();
+        public void AddEvent<T>(Callback<T> callback) where T : IEvent
         {
             if (!_callbacks.TryGetValue(typeof(T), out var callbacks))
             {
@@ -19,32 +19,28 @@ namespace PostMainland
             }
             callbacks.Add(callback);
         }
-        public static void RemoveEvent<T>(Callback<T> callback) where T : IEvent
+        public void RemoveEvent<T>(Callback<T> callback) where T : IEvent
         {
             if (_callbacks.TryGetValue(typeof(T), out var callbacks))
             {
                 callbacks.SafelyRemove(callback);
             }
         }
-        public static async UniTask PublishAsync<T>(T e) where T : IEvent
-        {
-            if (_callbacks.TryGetValue(typeof(T), out var callbacks))
-            {
-                var allTasks = callbacks.Cast<Callback<T>>().Select(cb => cb.Invoke(e));
-                if (allTasks.Any())
-                {
-                    await UniTask.WhenAll(allTasks);
-                }
-            }
-        }
-        public static void Publish<T>(T e) where T : IEvent
+        public void Publish<T>(T e) where T : IEvent
         {
             if (_callbacks.TryGetValue(typeof(T), out var callbacks))
             {
                 var allTasks = callbacks.Cast<Callback<T>>();
                 foreach (var task in allTasks)
                 {
-                    ThreadSynchronizationContext.Instance.PostNext(() => task.Invoke(e).Forget());
+                    try
+                    {
+                        task.Invoke(e);
+                    }
+                    catch (Exception exception)
+                    {
+                        Log.Error("", exception);
+                    }
                 }
             }
         }
