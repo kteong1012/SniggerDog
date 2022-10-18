@@ -43,7 +43,7 @@ namespace PostMainland
                 buffComponent.Buff = new Buff(e.CfgId);
             }
             var buff = buffComponent.Buff;
-            var addTimerMs = buff.AddUp();
+            var (replaceTime, addTimerMs) = buff.AddUp();
             if (buff.Config.Trigger is Cfg.MetaBuffTrigger.Event eventTrigger)
             {
                 if (eventTrigger.BuffEvent == BuffEvent.OnAttach)
@@ -51,7 +51,12 @@ namespace PostMainland
                     buff.Config.Effect.Activate(_world, buffComponent.CasterEntity, buffComponent.TargetEntity);
                 }
             }
-            if (addTimerMs > 0)
+            if (replaceTime)
+            {
+                ref var tick = ref _world.GetOrAdd<BuffTickComponent>(buffEntity);
+                tick.TimerMS = addTimerMs;
+            }
+            else if (addTimerMs > 0)
             {
                 ref var tick = ref _world.GetOrAdd<BuffTickComponent>(buffEntity);
                 tick.TimerMS += addTimerMs;
