@@ -26,15 +26,15 @@ namespace PostMainland
                 Log.Error($"参数{options.ServerType}错误，没有这个服务器类型");
                 return;
             }
-
-            Log.SetLogs(new FileLogger(), new ConsoleLogger(LogType.Warning, LogType.Error));
+            Log.SetLogs(new FileLogger() { LogType = (LogType)63 }
+            , new ConsoleLogger() { LogType = (LogType)63 });
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
 
             new Luban();
             Global.Container = new Container();
 
             var pid = Process.GetCurrentProcess().Id;
-            Log.Message($"{serverType}启动,pid:{pid}");
+            Log.Info($"{serverType}启动,pid:{pid}");
             try
             {
                 if (serverType == ServerType.Main)

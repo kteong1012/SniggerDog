@@ -41,7 +41,7 @@ namespace PostMainland
         public void Start()
         {
             IGameServerInitializer initializer = null;
-            Log.Message($"初始化{_serverType}");
+            Log.Info($"初始化{_serverType}");
             switch (_serverType)
             {
                 case ServerType.Login:

@@ -4,46 +4,41 @@ using TouchSocket.Core.Log;
 
 namespace PostMainland
 {
-    public class ConsoleLogger : ILog
+    public class ConsoleLogger : LoggerBase
     {
-        private readonly ConsoleColor m_consoleForegroundColor;
-        private readonly ConsoleColor m_consoleBackgroundColor;
-
-        private readonly LogType[] logTypes;
-
-        public ConsoleLogger(params LogType[] logTypes)
+        private readonly ConsoleColor _consoleForegroundColor;
+        private readonly ConsoleColor _consoleBackgroundColor;
+        public ConsoleLogger()
         {
-            this.logTypes = logTypes;
-            this.m_consoleForegroundColor = Console.ForegroundColor;
-            this.m_consoleBackgroundColor = Console.BackgroundColor;
+            this._consoleForegroundColor = Console.ForegroundColor;
+            this._consoleBackgroundColor = Console.BackgroundColor;
         }
-        public void Debug(LogType logType, object source, string message, Exception exception)
+        protected override void WriteLog(LogType logType, object source, string message, Exception exception)
         {
-            if (!logTypes.Contains(logType))
-            {
-                return;
-            }
             lock (typeof(ConsoleLogger))
             {
                 Console.Write(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ffff"));
                 Console.Write(" | ");
                 switch (logType)
                 {
+                    case LogType.Debug:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        break;
                     case LogType.Warning:
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         break;
-
                     case LogType.Error:
+                    case LogType.Critical:
                         Console.ForegroundColor = ConsoleColor.Red;
                         break;
 
-                    case LogType.Message:
+                    case LogType.Information:
                     default:
-                        Console.ForegroundColor = this.m_consoleForegroundColor;
+                        Console.ForegroundColor = this._consoleForegroundColor;
                         break;
                 }
                 Console.Write(logType.ToString());
-                Console.ForegroundColor = this.m_consoleForegroundColor;
+                Console.ForegroundColor = this._consoleForegroundColor;
                 Console.Write(" | ");
                 Console.Write(message);
 
@@ -54,14 +49,9 @@ namespace PostMainland
                 }
                 Console.WriteLine();
 
-                Console.ForegroundColor = this.m_consoleForegroundColor;
-                Console.BackgroundColor = this.m_consoleBackgroundColor;
+                Console.ForegroundColor = this._consoleForegroundColor;
+                Console.BackgroundColor = this._consoleBackgroundColor;
             }
-        }
-
-        public void Debug(LogType logType, object source, string message)
-        {
-            Debug(logType, source, message, null);
         }
     }
 }

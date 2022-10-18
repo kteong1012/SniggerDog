@@ -3,19 +3,22 @@ using TouchSocket.Core.Log;
 
 namespace PostMainland
 {
-    public class UnityLogger : ILog
+    public class UnityLogger : LoggerBase
     {
-        public void Debug(LogType logType, object source, string message, Exception exception)
+        protected override void WriteLog(LogType logType, object source, string message, Exception exception)
         {
             switch (logType)
             {
-                case LogType.Message:
+                case LogType.Information:
+                case LogType.Debug:
+                case LogType.Trace:
                     UnityEngine.Debug.Log(message);
                     break;
                 case LogType.Warning:
                     UnityEngine.Debug.LogWarning(message);
                     break;
                 case LogType.Error:
+                case LogType.Critical:
                     UnityEngine.Debug.LogError(message);
                     break;
                 default:
@@ -25,11 +28,6 @@ namespace PostMainland
             {
                 UnityEngine.Debug.LogException(exception);
             }
-        }
-
-        public void Debug(LogType logType, object source, string message)
-        {
-            Debug(logType, source, message, null);
         }
     }
 }
