@@ -17,8 +17,6 @@ namespace PostMainland
         {
             lock (typeof(ConsoleLogger))
             {
-                Console.Write(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ffff"));
-                Console.Write(" | ");
                 switch (logType)
                 {
                     case LogType.Debug:
@@ -37,8 +35,9 @@ namespace PostMainland
                         Console.ForegroundColor = this._consoleForegroundColor;
                         break;
                 }
+                Console.Write(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss ffff"));
+                Console.Write(" | ");
                 Console.Write(logType.ToString());
-                Console.ForegroundColor = this._consoleForegroundColor;
                 Console.Write(" | ");
                 Console.Write(message);
 

@@ -48,7 +48,7 @@ namespace PostMainland
         public async UniTask Init()
         {
             SynchronizationContext.SetSynchronizationContext(ThreadSynchronizationContext.Instance);
-            Log.SetLogs(new UnityLogger());
+            Log.SetLogs(new UnityLogger() { LogType = (TouchSocket.Core.Log.LogType)63 });
             Global.Container = new Container()
                 .RegisterSingleton<IAssemblyManager, AssemblyManager>();
             var assMgr = Global.Container.Resolve<IAssemblyManager>();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using TouchSocket.Core.Log;
 
@@ -25,11 +26,11 @@ namespace PostMainland
         }
         public static void Trace(object obj, Exception e = null)
         {
-            _loggerGroup.Log(LogType.Trace, null, ObjectToString(obj), e);
+            _loggerGroup.Log(LogType.Trace, null, ObjectToString(obj, true), e);
         }
         public static void Debug(object obj, Exception e = null)
         {
-            _loggerGroup.Log(LogType.Debug, null, ObjectToString(obj), e);
+            _loggerGroup.Log(LogType.Debug, null, ObjectToString(obj, true), e);
         }
         public static void Info(object obj, Exception e = null)
         {
@@ -41,11 +42,11 @@ namespace PostMainland
         }
         public static void Error(object obj, Exception e = null)
         {
-            _loggerGroup.Log(LogType.Error, null, ObjectToString(obj), e);
+            _loggerGroup.Log(LogType.Error, null, ObjectToString(obj, true), e);
         }
         public static void Critical(object obj, Exception e = null)
         {
-            _loggerGroup.Log(LogType.Critical, null, ObjectToString(obj), e);
+            _loggerGroup.Log(LogType.Critical, null, ObjectToString(obj, true), e);
         }
         public static void Assert(object obj, Exception e = null)
         {
@@ -55,9 +56,16 @@ namespace PostMainland
                 x.Assert(null, ObjectToString(obj), e);
             });
         }
-        private static string ObjectToString(object obj)
+        private static string ObjectToString(object obj, bool trace = false)
         {
-            return obj?.ToString();
+            if (trace)
+            {
+                return $"{obj?.ToString()}{new StackTrace()}";
+            }
+            else
+            {
+                return $"{obj?.ToString()}";
+            }
         }
     }
 }
