@@ -14,7 +14,7 @@ namespace PostMainland
         public LoginProcess()
         {
             var loginServerCfg = TbStartProcess.Instance.DataList.FirstOrDefault(x => x.ServerType == "Login");
-            Log.Message(loginServerCfg);
+            Log.Info(loginServerCfg);
             _loginIpHost = new IPHost(StringUtils.ToIPAddress(loginServerCfg.Host, loginServerCfg.Port));
         }
         public async UniTask<(bool, string)> ConnectLoginServer()

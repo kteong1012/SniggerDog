@@ -30,7 +30,7 @@ namespace PostMainland
         {
             TouchSocketConfig config = new TouchSocketConfig();
             string hostString = StringUtils.ToIPAddress(host, port);
-            Log.Message($"{_serverType}  {host}  {port}");
+            Log.Info($"{_serverType}  {host}  {port}");
             config.SetListenIPHosts(new IPHost[] { new IPHost(hostString) })
                 .SetDataHandlingAdapter(() => new ProtocalRequestHeaderHandlingAdapter())
                 .SetMaxCount(10000)
@@ -46,7 +46,7 @@ namespace PostMainland
             _service.Setup(config);
             _service.Start();
             HasStarted = true;
-            Log.Message($"{_serverType}服务器开始监听{hostString}");
+            Log.Info($"{_serverType}服务器开始监听{hostString}");
         }
 
         private void OnReceived(SocketClient client, ByteBlock byteBlock, IRequestInfo requestInfo)
@@ -55,7 +55,7 @@ namespace PostMainland
             {
                 Type type = _protocalManager.GetProtocalType(pr.Id);
                 IProtocal protocal = ProtocalHelper.DeserializeProtocal(type, pr.Body);
-                Log.Message($"ServTcpRecv: [{_serverType}] {protocal}");
+                Log.Info($"ServTcpRecv: [{_serverType}] {protocal}");
                 switch (pr.Type)
                 {
                     case ProtocalType.Request:
@@ -86,17 +86,17 @@ namespace PostMainland
         }
         private void OnDisconnected(SocketClient client, ClientDisconnectedEventArgs e)
         {
-            Log.Message($"{client.ID} 断开连接");
+            Log.Info($"{client.ID} 断开连接");
         }
 
         private void OnConnected(SocketClient client, TouchSocketEventArgs e)
         {
-            Log.Message($"{client.ID} 连接成功");
+            Log.Info($"{client.ID} 连接成功");
         }
 
         private void OnConnecting(SocketClient client, ClientOperationEventArgs e)
         {
-            Log.Message($"{client.ID} 正在连接");
+            Log.Info($"{client.ID} 正在连接");
         }
     }
 }

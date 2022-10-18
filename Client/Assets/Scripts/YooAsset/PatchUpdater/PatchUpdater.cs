@@ -104,17 +104,17 @@ public static class PatchUpdater
         if (msg is PatchEventMessageDefine.PatchStatesChange patchStatesChange)
         {
             if (patchStatesChange.CurrentStates == EPatchStates.UpdateStaticVersion)
-                Log.Message("Update static version.");
+                Log.Info("Update static version.");
             else if (patchStatesChange.CurrentStates == EPatchStates.UpdateManifest)
-                Log.Message("Update patch manifest.");
+                Log.Info("Update patch manifest.");
             else if (patchStatesChange.CurrentStates == EPatchStates.CreateDownloader)
-                Log.Message("Check download contents.");
+                Log.Info("Check download contents.");
             else if (patchStatesChange.CurrentStates == EPatchStates.DownloadWebFiles)
-                Log.Message("Downloading patch files.");
+                Log.Info("Downloading patch files.");
             else if (patchStatesChange.CurrentStates == EPatchStates.PatchDone)
             {
                 s_UniTaskCompletionSource?.TrySetResult();
-                Log.Message("PatchDone. ");
+                Log.Info("PatchDone. ");
             }
             else
                 throw new NotImplementedException(patchStatesChange.CurrentStates.ToString());
@@ -128,7 +128,7 @@ public static class PatchUpdater
             float sizeMB = message.TotalSizeBytes / 1048576f;
             sizeMB = Mathf.Clamp(sizeMB, 0.1f, float.MaxValue);
             string totalSizeMB = sizeMB.ToString("f1");
-            Log.Message($"Found update patch files, Total count {message.TotalCount} Total szie {totalSizeMB}MB");
+            Log.Info($"Found update patch files, Total count {message.TotalCount} Total szie {totalSizeMB}MB");
 
             PatchUpdater.HandleOperation(EPatchOperation.BeginDownloadWebFiles);
         }
@@ -139,18 +139,18 @@ public static class PatchUpdater
         else if (msg is PatchEventMessageDefine.StaticVersionUpdateFailed)
         {
             System.Action callback = () => { PatchUpdater.HandleOperation(EPatchOperation.TryUpdateStaticVersion); };
-            Log.Message($"Failed to update static version, please check the network status.  {callback}");
+            Log.Info($"Failed to update static version, please check the network status.  {callback}");
         }
         else if (msg is PatchEventMessageDefine.PatchManifestUpdateFailed)
         {
             System.Action callback = () => { PatchUpdater.HandleOperation(EPatchOperation.TryUpdatePatchManifest); };
-            Log.Message($"Failed to update patch manifest, please check the network status.  {callback}");
+            Log.Info($"Failed to update patch manifest, please check the network status.  {callback}");
         }
         else if (msg is PatchEventMessageDefine.WebFileDownloadFailed)
         {
             var message = msg as PatchEventMessageDefine.WebFileDownloadFailed;
             System.Action callback = () => { PatchUpdater.HandleOperation(EPatchOperation.TryDownloadWebFiles); };
-            Log.Message($"Failed to download file : {message.FileName}  {callback}");
+            Log.Info($"Failed to download file : {message.FileName}  {callback}");
         }
         else
         {
