@@ -1,6 +1,6 @@
 [
   {
-    "id": 1001,
+    "id": 10000001,
     "name": "普通攻击",
     "desc": "普通攻击",
     "dispel_level": 0,
@@ -18,7 +18,7 @@
     }
   },
   {
-    "id": 1002,
+    "id": 10000101,
     "name": "火球术",
     "desc": "火球术",
     "dispel_level": 0,
@@ -33,6 +33,24 @@
       "$type": "Damage",
       "type": 2,
       "numeric_formula": "100*(1+[CMagicEnhance])"
+    }
+  },
+  {
+    "id": 10000102,
+    "name": "火球术",
+    "desc": "火球术",
+    "dispel_level": 0,
+    "duration_ms": 0,
+    "add_type": 0,
+    "add_layer": 1,
+    "trigger": {
+      "$type": "Event",
+      "buff_event": 1
+    },
+    "effect": {
+      "$type": "Damage",
+      "type": 2,
+      "numeric_formula": "120*(1+[CMagicEnhance])"
     }
   }
 ]

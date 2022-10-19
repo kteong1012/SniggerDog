@@ -16,4 +16,12 @@ namespace PostMainland
     {
         public List<Unit> Targets { get; set; }
     }
+    public class Skill
+    {
+        public int CfgId { get; set; }
+        public Skill(int cfgId)
+        {
+            CfgId = cfgId;
+        }
+    }
 }

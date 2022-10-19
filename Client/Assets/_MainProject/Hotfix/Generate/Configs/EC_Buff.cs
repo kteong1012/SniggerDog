@@ -33,7 +33,7 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
     }
 
     /// <summary>
-    /// id
+    /// id，5+2位
     /// </summary>
     public int Id { get; private set; }
     /// <summary>

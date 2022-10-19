@@ -7,29 +7,46 @@
 //------------------------------------------------------------------------------
 using Bright.Serialization;
 using System.Collections.Generic;
+using SimpleJSON;
+
 
 
 namespace Cfg
-{
+{ 
+
 public sealed partial class EC_Buff :  Bright.Config.BeanBase 
 {
-    public EC_Buff(ByteBuf _buf) 
+    public EC_Buff(JSONNode _json) 
     {
-        Id = _buf.ReadInt();
-        Name = _buf.ReadString();
-        Desc = _buf.ReadString();
-        DispelLevel = (DispelLevel)_buf.ReadInt();
-        DurationMs = _buf.ReadInt();
-        AddType = (BuffAddType)_buf.ReadInt();
-        AddLayer = _buf.ReadInt();
-        Trigger = MetaBuffTrigger.Base.DeserializeBase(_buf);
-        Effect = MetaBuffEffect.Base.DeserializeBase(_buf);
+        { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
+        { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
+        { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
+        { if(!_json["dispel_level"].IsNumber) { throw new SerializationException(); }  DispelLevel = (DispelLevel)_json["dispel_level"].AsInt; }
+        { if(!_json["duration_ms"].IsNumber) { throw new SerializationException(); }  DurationMs = _json["duration_ms"]; }
+        { if(!_json["add_type"].IsNumber) { throw new SerializationException(); }  AddType = (BuffAddType)_json["add_type"].AsInt; }
+        { if(!_json["add_layer"].IsNumber) { throw new SerializationException(); }  AddLayer = _json["add_layer"]; }
+        { if(!_json["trigger"].IsObject) { throw new SerializationException(); }  Trigger = MetaBuffTrigger.Base.DeserializeBase(_json["trigger"]);  }
+        { if(!_json["effect"].IsObject) { throw new SerializationException(); }  Effect = MetaBuffEffect.Base.DeserializeBase(_json["effect"]);  }
         PostInit();
     }
 
-    public static EC_Buff DeserializeEC_Buff(ByteBuf _buf)
+    public EC_Buff(int id, string name, string desc, DispelLevel dispel_level, int duration_ms, BuffAddType add_type, int add_layer, MetaBuffTrigger.Base trigger, MetaBuffEffect.Base effect ) 
     {
-        return new EC_Buff(_buf);
+        this.Id = id;
+        this.Name = name;
+        this.Desc = desc;
+        this.DispelLevel = dispel_level;
+        this.DurationMs = duration_ms;
+        this.AddType = add_type;
+        this.AddLayer = add_layer;
+        this.Trigger = trigger;
+        this.Effect = effect;
+        PostInit();
+    }
+
+    public static EC_Buff DeserializeEC_Buff(JSONNode _json)
+    {
+        return new EC_Buff(_json);
     }
 
     /// <summary>
@@ -103,5 +120,4 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
     partial void PostInit();
     partial void PostResolve();
 }
-
 }

@@ -6,12 +6,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using Bright.Serialization;
+using SimpleJSON;
 
 
 namespace Cfg
-{
+{ 
    
-public partial class Tables
+public sealed partial class Tables
 {
     public TbGlobal TbGlobal {get; }
     public TbStartProcess TbStartProcess {get; }
@@ -19,29 +20,40 @@ public partial class Tables
     public TbBuff TbBuff {get; }
     public TbSkill TbSkill {get; }
 
-    public Tables(System.Func<string, ByteBuf> idxLoader,System.Func<string, ByteBuf> dataLoader)
+    public Tables(System.Func<string, JSONNode> loader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
-        TbGlobal = new TbGlobal(idxLoader("tbglobal"),"tbglobal",dataLoader); 
+        TbGlobal = new TbGlobal(loader("tbglobal")); 
         tables.Add("TbGlobal", TbGlobal);
-        TbStartProcess = new TbStartProcess(idxLoader("tbstartprocess"),"tbstartprocess",dataLoader); 
+        TbStartProcess = new TbStartProcess(loader("tbstartprocess")); 
         tables.Add("TbStartProcess", TbStartProcess);
-        TbDatabase = new TbDatabase(idxLoader("tbdatabase"),"tbdatabase",dataLoader); 
+        TbDatabase = new TbDatabase(loader("tbdatabase")); 
         tables.Add("TbDatabase", TbDatabase);
-        TbBuff = new TbBuff(idxLoader("tbbuff"),"tbbuff",dataLoader); 
+        TbBuff = new TbBuff(loader("tbbuff")); 
         tables.Add("TbBuff", TbBuff);
-        TbSkill = new TbSkill(idxLoader("tbskill"),"tbskill",dataLoader); 
+        TbSkill = new TbSkill(loader("tbskill")); 
         tables.Add("TbSkill", TbSkill);
-
         PostInit();
-        TbGlobal.CacheTables(tables); 
-        TbStartProcess.CacheTables(tables); 
-        TbDatabase.CacheTables(tables); 
-        TbBuff.CacheTables(tables); 
-        TbSkill.CacheTables(tables); 
+
+        TbGlobal.Resolve(tables); 
+        TbStartProcess.Resolve(tables); 
+        TbDatabase.Resolve(tables); 
+        TbBuff.Resolve(tables); 
+        TbSkill.Resolve(tables); 
+        PostResolve();
+    }
+
+    public void TranslateText(System.Func<string, string, string> translator)
+    {
+        TbGlobal.TranslateText(translator); 
+        TbStartProcess.TranslateText(translator); 
+        TbDatabase.TranslateText(translator); 
+        TbBuff.TranslateText(translator); 
+        TbSkill.TranslateText(translator); 
     }
     
     partial void PostInit();
+    partial void PostResolve();
 }
 
 }

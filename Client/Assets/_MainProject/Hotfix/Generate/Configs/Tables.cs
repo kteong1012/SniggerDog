@@ -16,6 +16,7 @@ public partial class Tables
     public TbGlobal TbGlobal {get; }
     public TbStartProcess TbStartProcess {get; }
     public TbBuff TbBuff {get; }
+    public TbSkill TbSkill {get; }
 
     public Tables(System.Func<string, ByteBuf> idxLoader,System.Func<string, ByteBuf> dataLoader)
     {
@@ -26,11 +27,14 @@ public partial class Tables
         tables.Add("TbStartProcess", TbStartProcess);
         TbBuff = new TbBuff(idxLoader("tbbuff"),"tbbuff",dataLoader); 
         tables.Add("TbBuff", TbBuff);
+        TbSkill = new TbSkill(idxLoader("tbskill"),"tbskill",dataLoader); 
+        tables.Add("TbSkill", TbSkill);
 
         PostInit();
         TbGlobal.CacheTables(tables); 
         TbStartProcess.CacheTables(tables); 
         TbBuff.CacheTables(tables); 
+        TbSkill.CacheTables(tables); 
     }
     
     partial void PostInit();

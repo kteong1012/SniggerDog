@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "server_type": "Login",
+    "host": "127.0.0.1",
+    "port": 20001,
+    "is_game_server": true,
+    "database_name": "Login"
+  },
+  {
+    "id": 2,
+    "server_type": "Realm",
+    "host": "127.0.0.1",
+    "port": 20002,
+    "is_game_server": true,
+    "database_name": ""
+  },
+  {
+    "id": 3,
+    "server_type": "Gate",
+    "host": "127.0.0.1",
+    "port": 20003,
+    "is_game_server": true,
+    "database_name": ""
+  },
+  {
+    "id": 4,
+    "server_type": "World",
+    "host": "127.0.0.1",
+    "port": 20004,
+    "is_game_server": true,
+    "database_name": "World"
+  }
+]
