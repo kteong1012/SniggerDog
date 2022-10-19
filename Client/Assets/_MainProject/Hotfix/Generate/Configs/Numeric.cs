@@ -42,7 +42,7 @@ namespace Cfg
         /// <summary>
         /// 最大魔法值
         /// </summary>
-        MAxMP = 1007,
+        MaxMP = 1007,
     }
 
 } 

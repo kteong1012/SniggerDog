@@ -18,6 +18,7 @@ public sealed partial class EC_Skill :  Bright.Config.BeanBase
         Id = _buf.ReadInt();
         Name = _buf.ReadString();
         Desc = _buf.ReadString();
+        CostMana = _buf.ReadInt();
         {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);Buffs = new System.Collections.Generic.List<int>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { int _e0;  _e0 = _buf.ReadInt(); Buffs.Add(_e0);}}
         PostInit();
     }
@@ -39,6 +40,7 @@ public sealed partial class EC_Skill :  Bright.Config.BeanBase
     /// 描述
     /// </summary>
     public string Desc { get; private set; }
+    public int CostMana { get; private set; }
     /// <summary>
     /// buff引用
     /// </summary>
@@ -64,6 +66,7 @@ public sealed partial class EC_Skill :  Bright.Config.BeanBase
         + "Id:" + Id + ","
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
+        + "CostMana:" + CostMana + ","
         + "Buffs:" + Bright.Common.StringUtil.CollectionToString(Buffs) + ","
         + "}";
     }

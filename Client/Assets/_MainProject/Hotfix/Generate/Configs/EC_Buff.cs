@@ -22,8 +22,7 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
         DurationMs = _buf.ReadInt();
         AddType = (BuffAddType)_buf.ReadInt();
         AddLayer = _buf.ReadInt();
-        Trigger = MetaBuffTrigger.Base.DeserializeBase(_buf);
-        Effect = MetaBuffEffect.Base.DeserializeBase(_buf);
+        {int n0 = System.Math.Min(_buf.ReadSize(), _buf.Size);MetaBuffs = new System.Collections.Generic.List<MetaBuff>(n0);for(var i0 = 0 ; i0 < n0 ; i0++) { MetaBuff _e0;  _e0 = MetaBuff.DeserializeMetaBuff(_buf); MetaBuffs.Add(_e0);}}
         PostInit();
     }
 
@@ -60,29 +59,20 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
     /// 叠加层数
     /// </summary>
     public int AddLayer { get; private set; }
-    /// <summary>
-    /// 触发器
-    /// </summary>
-    public MetaBuffTrigger.Base Trigger { get; private set; }
-    /// <summary>
-    /// 效果
-    /// </summary>
-    public MetaBuffEffect.Base Effect { get; private set; }
+    public System.Collections.Generic.List<MetaBuff> MetaBuffs { get; private set; }
 
     public const int __ID__ = -1178785932;
     public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        Trigger?.Resolve(_tables);
-        Effect?.Resolve(_tables);
+        foreach(var _e in MetaBuffs) { _e?.Resolve(_tables); }
         PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
     {
-        Trigger?.TranslateText(translator);
-        Effect?.TranslateText(translator);
+        foreach(var _e in MetaBuffs) { _e?.TranslateText(translator); }
     }
 
     public override string ToString()
@@ -95,8 +85,7 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
         + "DurationMs:" + DurationMs + ","
         + "AddType:" + AddType + ","
         + "AddLayer:" + AddLayer + ","
-        + "Trigger:" + Trigger + ","
-        + "Effect:" + Effect + ","
+        + "MetaBuffs:" + Bright.Common.StringUtil.CollectionToString(MetaBuffs) + ","
         + "}";
     }
     

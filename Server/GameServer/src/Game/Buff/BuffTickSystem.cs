@@ -14,15 +14,19 @@ namespace PostMainland
         public void Run(IEcsSystems systems)
         {
             var tickPool = _world.GetPool<BuffTickComponent>();
+
             foreach (var entity in _tickFilter)
             {
-                ref var tick = ref tickPool.Get(entity);
-
-                tick.TimerMS -= TimeHelper.DeltaTimeMS;
-                if (tick.TimerMS < 0)
+                if (tickPool.Has(entity))
                 {
-                    ref var buffComponent = ref _world.Get<BuffComponent>(entity);
-                    _gameEvent.Publish(new BuffDettachEvent() { CfgId = buffComponent.Buff.CfgId, TargetEntity = buffComponent.TargetEntity });
+                    ref var tick = ref tickPool.Get(entity);
+
+                    tick.TimerMS -= TimeHelper.DeltaTimeMS;
+                    if (tick.TimerMS <= 0)
+                    {
+                        ref var buffComponent = ref _world.Get<BuffComponent>(entity);
+                        _gameEvent.Publish(new BuffDettachEvent() { CfgId = buffComponent.Buff.CfgId, TargetEntity = buffComponent.TargetEntity });
+                    }
                 }
             }
         }

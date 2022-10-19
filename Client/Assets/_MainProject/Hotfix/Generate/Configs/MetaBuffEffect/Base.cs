@@ -26,6 +26,8 @@ public abstract partial class Base :  Bright.Config.BeanBase
         switch (_buf.ReadInt())
         {
             case MetaBuffEffect.Damage.__ID__: return new MetaBuffEffect.Damage(_buf);
+            case MetaBuffEffect.AttachState.__ID__: return new MetaBuffEffect.AttachState(_buf);
+            case MetaBuffEffect.DetachState.__ID__: return new MetaBuffEffect.DetachState(_buf);
             default: throw new SerializationException();
         }
     }

@@ -1,4 +1,9 @@
 <module>
+    <bean name="MetaBuff">
+        <var name="trigger" type="MetaBuffTrigger.Base"/>
+        <var name="effect" type="MetaBuffEffect.Base"/>
+    </bean>
+
     <enum name="BuffEvent">
         <var name="None" value="0"/>
         <var name="OnAttach" alias="附加" comment="附加" value="1"/>

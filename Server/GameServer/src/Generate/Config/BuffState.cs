@@ -10,39 +10,31 @@
 namespace Cfg
 { 
     /// <summary>
-    /// 数值
+    /// Buff状态
     /// </summary>
-    public enum Numeric
+    public enum BuffState
     {
         None = 0,
         /// <summary>
-        /// 速度
+        /// 眩晕
         /// </summary>
-        Speed = 1001,
+        Stun = 1,
         /// <summary>
-        /// 攻击
+        /// 缠绕
         /// </summary>
-        Attack = 1002,
+        Root = 2,
         /// <summary>
-        /// 防御
+        /// 沉默
         /// </summary>
-        Defence = 1003,
+        Silence = 3,
         /// <summary>
-        /// 生命值
+        /// 无敌
         /// </summary>
-        HP = 1004,
+        Invincible = 4,
         /// <summary>
-        /// 最大生命值
+        /// 隐身
         /// </summary>
-        MaxHP = 1005,
-        /// <summary>
-        /// 魔法值
-        /// </summary>
-        MP = 1006,
-        /// <summary>
-        /// 最大魔法值
-        /// </summary>
-        MaxMP = 1007,
+        Invisible = 5,
     }
 
 } 

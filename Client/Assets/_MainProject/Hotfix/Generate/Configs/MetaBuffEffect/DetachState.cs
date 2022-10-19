@@ -12,40 +12,41 @@ using System.Collections.Generic;
 namespace Cfg.MetaBuffEffect
 {
 /// <summary>
-/// Buff效果基类
+/// 移除状态
 /// </summary>
-public abstract partial class Base :  Bright.Config.BeanBase 
+public sealed partial class DetachState :  Base 
 {
-    public Base(ByteBuf _buf) 
+    public DetachState(ByteBuf _buf)  : base(_buf) 
     {
+        State = (BuffState)_buf.ReadInt();
         PostInit();
     }
 
-    public static Base DeserializeBase(ByteBuf _buf)
+    public static DetachState DeserializeDetachState(ByteBuf _buf)
     {
-        switch (_buf.ReadInt())
-        {
-            case MetaBuffEffect.Damage.__ID__: return new MetaBuffEffect.Damage(_buf);
-            case MetaBuffEffect.AttachState.__ID__: return new MetaBuffEffect.AttachState(_buf);
-            case MetaBuffEffect.DetachState.__ID__: return new MetaBuffEffect.DetachState(_buf);
-            default: throw new SerializationException();
-        }
+        return new MetaBuffEffect.DetachState(_buf);
     }
 
+    public BuffState State { get; private set; }
 
+    public const int __ID__ = -1799200263;
+    public override int GetTypeId() => __ID__;
 
-    public virtual void Resolve(Dictionary<string, object> _tables)
+    public override void Resolve(Dictionary<string, object> _tables)
     {
+        base.Resolve(_tables);
         PostResolve();
     }
 
-    public virtual void TranslateText(System.Func<string, string, string> translator)
+    public override void TranslateText(System.Func<string, string, string> translator)
     {
+        base.TranslateText(translator);
     }
 
     public override string ToString()
     {
         return "{ "
+        + "State:" + State + ","
         + "}";
     }
     

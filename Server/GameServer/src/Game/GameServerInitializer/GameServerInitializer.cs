@@ -18,6 +18,8 @@ namespace PostMainland
             var gameEvent = new GameEvent();
             EcsSystems systems = new EcsSystems(world, gameEvent);
             systems.Add(new BuffComponentSystem())
+                .Add(new BuffTickSystem())
+                .Add(new BuffStatesComponentSystem())
                 .Init();
             Program.UpdateEvent += () => systems.Run();
             int caster = world.NewEntity();
@@ -29,9 +31,13 @@ namespace PostMainland
             ref var numeric = ref numericPool.Add(target);
             ref var unit = ref unitPool.Add(target);
             ref var uni2t = ref unitPool.Add(caster);
-            ref var buff = ref buffsPool.Add(target);
-            gameEvent.Publish(new BuffAttachEvent() { CfgId = 1001, CasterEntity = caster, TargetEntity = target });
-            gameEvent.Publish(new BuffAttachEvent() { CfgId = 1002, CasterEntity = caster, TargetEntity = target });
+            world.Add<BuffStatesComponent>(target);
+            gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000101, CasterEntity = caster, TargetEntity = target });
+            gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target });
+            UniTaskHelper.Wait(500, () =>
+            {
+                gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target });
+            }).Forget();
         }
     }
     public class GameServerInitializer : IGameServerInitializer

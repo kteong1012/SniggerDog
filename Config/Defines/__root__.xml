@@ -21,7 +21,8 @@
 	<importexcel name="Game/ErrorCode.xlsx" type="enum"/>错误码枚举
 	<importexcel name="Game/Numeric.xlsx" type="enum"/>数值枚举
 	
-	<importexcel name="MetaBuff@Game/Buff.xlsx" type="bean"/>MetaBuff类的配置
+	<importexcel name="MetaBuff@Game/Buff.xlsx" type="bean"/>配置Trigger和Effect
+	<importexcel name="BuffState@Game/Buff.xlsx" type="enum"/>配置BuffState枚举
 
 	<externalselector name="unity_cs"/>
 	<externalselector name="ue_cpp"/>

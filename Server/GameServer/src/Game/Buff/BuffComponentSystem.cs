@@ -31,30 +31,31 @@ namespace PostMainland
                     break;
                 }
             }
-            BuffComponent buffComponent = default;
             if (buffEntity == -1)
             {
                 buffEntity = _world.NewEntity();
             }
-            if (!_world.GetOrAdd(buffEntity, ref buffComponent))
-            {
-                buffComponent.TargetEntity = e.TargetEntity;
-                buffComponent.CasterEntity = e.CasterEntity;
-                buffComponent.Buff = new Buff(e.CfgId);
-            }
+            ref var buffComponent = ref _world.GetOrAdd<BuffComponent>(buffEntity);
+            buffComponent.TargetEntity = e.TargetEntity;
+            buffComponent.CasterEntity = e.CasterEntity;
+            buffComponent.Buff = new Buff(e.CfgId);
             var buff = buffComponent.Buff;
-            var (replaceTime, addTimerMs) = buff.AddUp();
-            if (buff.Config.Trigger is Cfg.MetaBuffTrigger.Event eventTrigger)
+            foreach (var metaBuff in buff.Config.MetaBuffs)
             {
-                if (eventTrigger.BuffEvent == BuffEvent.OnAttach)
+                if (metaBuff.Trigger is Cfg.MetaBuffTrigger.Event eventTrigger)
                 {
-                    buff.Config.Effect.Activate(_world, buffComponent.CasterEntity, buffComponent.TargetEntity);
+                    if (eventTrigger.BuffEvent == BuffEvent.OnAttach)
+                    {
+                        metaBuff.Effect.Activate(_world, buffComponent.CasterEntity, buffComponent.TargetEntity);
+                    }
                 }
             }
+            var (replaceTime, addTimerMs) = buff.AddUp();
             if (replaceTime)
             {
                 ref var tick = ref _world.GetOrAdd<BuffTickComponent>(buffEntity);
                 tick.TimerMS = addTimerMs;
+                Log.Info($"{buffEntity} 更新时间 {tick.TimerMS}");
             }
             else if (addTimerMs > 0)
             {
@@ -73,14 +74,18 @@ namespace PostMainland
                 if (buffComponent.TargetEntity == e.TargetEntity && buffComponent.Buff.CfgId == e.CfgId)
                 {
                     var buff = buffComponent.Buff;
-                    if (buff.Config.Trigger is Cfg.MetaBuffTrigger.Event eventTrigger)
+                    foreach (var metaBuff in buff.Config.MetaBuffs)
                     {
-                        if (eventTrigger.BuffEvent == BuffEvent.OnDettach)
+                        if (metaBuff.Trigger is Cfg.MetaBuffTrigger.Event eventTrigger)
                         {
-                            buff.Config.Effect.Activate(_world, buffComponent.CasterEntity, buffComponent.TargetEntity);
+                            if (eventTrigger.BuffEvent == BuffEvent.OnDettach)
+                            {
+                                metaBuff.Effect.Activate(_world, buffComponent.CasterEntity, buffComponent.TargetEntity);
+                            }
                         }
                     }
-                    _world.DelEntity(entity);
+                    _world.Del<BuffComponent>(entity);
+                    _world.Del<BuffTickComponent>(entity);
                     break;
                 }
             }
