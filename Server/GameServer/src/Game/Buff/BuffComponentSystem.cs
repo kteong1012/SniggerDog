@@ -19,13 +19,11 @@ namespace PostMainland
             foreach (var attachEntity in attachFilter)
             {
                 ref var attach = ref _world.Get<AT_AttachBuff>(attachEntity);
-                var copy = attach;
-                _world.DelEntity(attachEntity);
                 var buffEntity = _world.NewEntity();
                 ref var buffComponent = ref _world.Add<BuffComponent>(buffEntity);
-                buffComponent.TargetEntity = copy.TargetEntity;
-                buffComponent.CasterEntity = copy.CasterEntity;
-                buffComponent.Buff = new Buff(copy.CfgId);
+                buffComponent.TargetEntity = attach.TargetEntity;
+                buffComponent.CasterEntity = attach.CasterEntity;
+                buffComponent.Buff = new Buff(attach.CfgId);
                 var buff = buffComponent.Buff;
                 HandleOnAttach(buffComponent);
                 var addTimerMs = buff.GetDurationMs();
@@ -35,6 +33,7 @@ namespace PostMainland
                     tick.TimerMS = addTimerMs;
                     Log.Info($"{buffEntity} 更新时间 {tick.TimerMS}");
                 }
+                _world.DelEntity(attachEntity);
             }
         }
 

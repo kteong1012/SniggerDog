@@ -18,6 +18,7 @@ namespace PostMainland
             EcsWorld world = new EcsWorld();
             EcsSystems systems = new EcsSystems(world);
             systems.Add(new BuffComponentSystem())
+                .Add(new SkillSystem())
                 .Add(new BuffTickSystem())
                 .Init();
             Program.UpdateEvent += () => systems.Run();
@@ -30,10 +31,7 @@ namespace PostMainland
             ref var unit = ref world.Add<Unit>(target);
             ref var uni2t = ref world.Add<Unit>(caster);
             world.Add<BuffStatesComponent>(target);
-            world.NewEntityWith<AT_SetNumericData>(out _) = new AT_SetNumericData() { Entity = target, NumericId = Numeric.HP, AddValue = 1000};
-            world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000001, CasterEntity = caster, TargetEntity = target };
-            world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000101, CasterEntity = caster, TargetEntity = target };
-            world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target };
+            world.NewEntityWith<AT_CastSkill>(out _) = new AT_CastSkill() { Caster = caster, SkillId = 10000201, Targets = new System.Collections.Generic.List<int>() { target } };
             UniTaskHelper.Wait(800, () =>
             {
                 world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target };
