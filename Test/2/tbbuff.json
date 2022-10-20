@@ -6,16 +6,21 @@
     "dispel_level": 0,
     "duration_ms": 0,
     "add_type": 0,
-    "add_layer": 1,
-    "trigger": {
-      "$type": "Event",
-      "buff_event": 1
-    },
-    "effect": {
-      "$type": "Damage",
-      "type": 1,
-      "numeric_formula": "[CAttack]"
-    }
+    "add_layer": 0,
+    "meta_buffs": [
+      {
+        "trigger": {
+          "$type": "Event",
+          "buff_event": 1
+        },
+        "effect": {
+          "$type": "Damage",
+          "temp": 1,
+          "type": 1,
+          "numeric_formula": "[CAttack]"
+        }
+      }
+    ]
   },
   {
     "id": 10000101,
@@ -24,16 +29,21 @@
     "dispel_level": 0,
     "duration_ms": 0,
     "add_type": 0,
-    "add_layer": 1,
-    "trigger": {
-      "$type": "Event",
-      "buff_event": 1
-    },
-    "effect": {
-      "$type": "Damage",
-      "type": 2,
-      "numeric_formula": "100*(1+[CMagicEnhance])"
-    }
+    "add_layer": 0,
+    "meta_buffs": [
+      {
+        "trigger": {
+          "$type": "Event",
+          "buff_event": 1
+        },
+        "effect": {
+          "$type": "Damage",
+          "temp": 1,
+          "type": 2,
+          "numeric_formula": "100*(1+[CMagicEnhance])"
+        }
+      }
+    ]
   },
   {
     "id": 10000102,
@@ -42,15 +52,65 @@
     "dispel_level": 0,
     "duration_ms": 0,
     "add_type": 0,
-    "add_layer": 1,
-    "trigger": {
-      "$type": "Event",
-      "buff_event": 1
-    },
-    "effect": {
-      "$type": "Damage",
-      "type": 2,
-      "numeric_formula": "120*(1+[CMagicEnhance])"
-    }
+    "add_layer": 0,
+    "meta_buffs": [
+      {
+        "trigger": {
+          "$type": "Event",
+          "buff_event": 1
+        },
+        "effect": {
+          "$type": "Damage",
+          "temp": 1,
+          "type": 2,
+          "numeric_formula": "120*(1+[CMagicEnhance])"
+        }
+      }
+    ]
+  },
+  {
+    "id": 10000201,
+    "name": "猛击",
+    "desc": "猛击",
+    "dispel_level": 1,
+    "duration_ms": 1000,
+    "add_type": 0,
+    "add_layer": 0,
+    "meta_buffs": [
+      {
+        "trigger": {
+          "$type": "Event",
+          "buff_event": 1
+        },
+        "effect": {
+          "$type": "AttachState",
+          "temp": 1,
+          "state": 1
+        }
+      },
+      {
+        "trigger": {
+          "$type": "Event",
+          "buff_event": 1
+        },
+        "effect": {
+          "$type": "Damage",
+          "temp": 1,
+          "type": 1,
+          "numeric_formula": "200"
+        }
+      },
+      {
+        "trigger": {
+          "$type": "Event",
+          "buff_event": 2
+        },
+        "effect": {
+          "$type": "DetachState",
+          "temp": 1,
+          "state": 1
+        }
+      }
+    ]
   }
 ]

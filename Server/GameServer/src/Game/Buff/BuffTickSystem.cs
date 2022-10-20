@@ -9,7 +9,7 @@ namespace PostMainland
         private EcsFilter _tickFilter;
         protected override void OnInit(IEcsSystems systems)
         {
-            _tickFilter = _world.Filter<BuffTickComponent>().End();
+            _tickFilter = _world.Filter<BuffTickComponent>().Inc<BuffComponent>().End();
         }
         public void Run(IEcsSystems systems)
         {

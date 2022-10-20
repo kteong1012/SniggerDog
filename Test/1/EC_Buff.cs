@@ -25,12 +25,11 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
         { if(!_json["duration_ms"].IsNumber) { throw new SerializationException(); }  DurationMs = _json["duration_ms"]; }
         { if(!_json["add_type"].IsNumber) { throw new SerializationException(); }  AddType = (BuffAddType)_json["add_type"].AsInt; }
         { if(!_json["add_layer"].IsNumber) { throw new SerializationException(); }  AddLayer = _json["add_layer"]; }
-        { if(!_json["trigger"].IsObject) { throw new SerializationException(); }  Trigger = MetaBuffTrigger.Base.DeserializeBase(_json["trigger"]);  }
-        { if(!_json["effect"].IsObject) { throw new SerializationException(); }  Effect = MetaBuffEffect.Base.DeserializeBase(_json["effect"]);  }
+        { var __json0 = _json["meta_buffs"]; if(!__json0.IsArray) { throw new SerializationException(); } MetaBuffs = new System.Collections.Generic.List<MetaBuff>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { MetaBuff __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = MetaBuff.DeserializeMetaBuff(__e0);  }  MetaBuffs.Add(__v0); }   }
         PostInit();
     }
 
-    public EC_Buff(int id, string name, string desc, DispelLevel dispel_level, int duration_ms, BuffAddType add_type, int add_layer, MetaBuffTrigger.Base trigger, MetaBuffEffect.Base effect ) 
+    public EC_Buff(int id, string name, string desc, DispelLevel dispel_level, int duration_ms, BuffAddType add_type, int add_layer, System.Collections.Generic.List<MetaBuff> meta_buffs ) 
     {
         this.Id = id;
         this.Name = name;
@@ -39,8 +38,7 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
         this.DurationMs = duration_ms;
         this.AddType = add_type;
         this.AddLayer = add_layer;
-        this.Trigger = trigger;
-        this.Effect = effect;
+        this.MetaBuffs = meta_buffs;
         PostInit();
     }
 
@@ -77,29 +75,20 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
     /// 叠加层数
     /// </summary>
     public int AddLayer { get; private set; }
-    /// <summary>
-    /// 触发器
-    /// </summary>
-    public MetaBuffTrigger.Base Trigger { get; private set; }
-    /// <summary>
-    /// 效果
-    /// </summary>
-    public MetaBuffEffect.Base Effect { get; private set; }
+    public System.Collections.Generic.List<MetaBuff> MetaBuffs { get; private set; }
 
     public const int __ID__ = -1178785932;
     public override int GetTypeId() => __ID__;
 
     public  void Resolve(Dictionary<string, object> _tables)
     {
-        Trigger?.Resolve(_tables);
-        Effect?.Resolve(_tables);
+        foreach(var _e in MetaBuffs) { _e?.Resolve(_tables); }
         PostResolve();
     }
 
     public  void TranslateText(System.Func<string, string, string> translator)
     {
-        Trigger?.TranslateText(translator);
-        Effect?.TranslateText(translator);
+        foreach(var _e in MetaBuffs) { _e?.TranslateText(translator); }
     }
 
     public override string ToString()
@@ -112,8 +101,7 @@ public sealed partial class EC_Buff :  Bright.Config.BeanBase
         + "DurationMs:" + DurationMs + ","
         + "AddType:" + AddType + ","
         + "AddLayer:" + AddLayer + ","
-        + "Trigger:" + Trigger + ","
-        + "Effect:" + Effect + ","
+        + "MetaBuffs:" + Bright.Common.StringUtil.CollectionToString(MetaBuffs) + ","
         + "}";
     }
     

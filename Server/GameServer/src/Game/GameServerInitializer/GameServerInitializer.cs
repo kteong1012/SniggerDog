@@ -19,7 +19,6 @@ namespace PostMainland
             EcsSystems systems = new EcsSystems(world, gameEvent);
             systems.Add(new BuffComponentSystem())
                 .Add(new BuffTickSystem())
-                .Add(new BuffStatesComponentSystem())
                 .Init();
             Program.UpdateEvent += () => systems.Run();
             int caster = world.NewEntity();
@@ -34,7 +33,7 @@ namespace PostMainland
             world.Add<BuffStatesComponent>(target);
             gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000101, CasterEntity = caster, TargetEntity = target });
             gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target });
-            UniTaskHelper.Wait(500, () =>
+            UniTaskHelper.Wait(800, () =>
             {
                 gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target });
             }).Forget();

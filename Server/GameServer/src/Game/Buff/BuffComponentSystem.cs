@@ -84,8 +84,7 @@ namespace PostMainland
                             }
                         }
                     }
-                    _world.Del<BuffComponent>(entity);
-                    _world.Del<BuffTickComponent>(entity);
+                    _world.DelEntity(entity);
                     break;
                 }
             }

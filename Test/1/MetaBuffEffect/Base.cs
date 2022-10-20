@@ -21,11 +21,13 @@ public abstract partial class Base :  Bright.Config.BeanBase
 {
     public Base(JSONNode _json) 
     {
+        { if(!_json["temp"].IsNumber) { throw new SerializationException(); }  Temp = _json["temp"]; }
         PostInit();
     }
 
-    public Base() 
+    public Base(int temp ) 
     {
+        this.Temp = temp;
         PostInit();
     }
 
@@ -35,10 +37,13 @@ public abstract partial class Base :  Bright.Config.BeanBase
         switch (type)
         {
             case "Damage": return new MetaBuffEffect.Damage(_json);
+            case "AttachState": return new MetaBuffEffect.AttachState(_json);
+            case "DetachState": return new MetaBuffEffect.DetachState(_json);
             default: throw new SerializationException();
         }
     }
 
+    public int Temp { get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
@@ -53,6 +58,7 @@ public abstract partial class Base :  Bright.Config.BeanBase
     public override string ToString()
     {
         return "{ "
+        + "Temp:" + Temp + ","
         + "}";
     }
     

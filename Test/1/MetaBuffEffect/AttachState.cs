@@ -15,39 +15,30 @@ namespace Cfg.MetaBuffEffect
 { 
 
 /// <summary>
-/// 伤害效果
+/// 附加状态
 /// </summary>
-public sealed partial class Damage :  Base 
+public sealed partial class AttachState :  Base 
 {
-    public Damage(JSONNode _json)  : base(_json) 
+    public AttachState(JSONNode _json)  : base(_json) 
     {
-        { if(!_json["type"].IsNumber) { throw new SerializationException(); }  Type = (DamageType)_json["type"].AsInt; }
-        { if(!_json["numeric_formula"].IsString) { throw new SerializationException(); }  NumericFormula = _json["numeric_formula"]; }
+        { if(!_json["state"].IsNumber) { throw new SerializationException(); }  State = (BuffState)_json["state"].AsInt; }
         PostInit();
     }
 
-    public Damage(int temp, DamageType type, string numeric_formula )  : base(temp) 
+    public AttachState(int temp, BuffState state )  : base(temp) 
     {
-        this.Type = type;
-        this.NumericFormula = numeric_formula;
+        this.State = state;
         PostInit();
     }
 
-    public static Damage DeserializeDamage(JSONNode _json)
+    public static AttachState DeserializeAttachState(JSONNode _json)
     {
-        return new MetaBuffEffect.Damage(_json);
+        return new MetaBuffEffect.AttachState(_json);
     }
 
-    /// <summary>
-    /// 伤害类型枚举
-    /// </summary>
-    public DamageType Type { get; private set; }
-    /// <summary>
-    /// 数值公式
-    /// </summary>
-    public string NumericFormula { get; private set; }
+    public BuffState State { get; private set; }
 
-    public const int __ID__ = -96890540;
+    public const int __ID__ = 643951239;
     public override int GetTypeId() => __ID__;
 
     public override void Resolve(Dictionary<string, object> _tables)
@@ -65,8 +56,7 @@ public sealed partial class Damage :  Base
     {
         return "{ "
         + "Temp:" + Temp + ","
-        + "Type:" + Type + ","
-        + "NumericFormula:" + NumericFormula + ","
+        + "State:" + State + ","
         + "}";
     }
     

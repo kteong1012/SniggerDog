@@ -21,15 +21,17 @@ public sealed partial class EC_Skill :  Bright.Config.BeanBase
         { if(!_json["id"].IsNumber) { throw new SerializationException(); }  Id = _json["id"]; }
         { if(!_json["name"].IsString) { throw new SerializationException(); }  Name = _json["name"]; }
         { if(!_json["desc"].IsString) { throw new SerializationException(); }  Desc = _json["desc"]; }
+        { if(!_json["cost_mana"].IsNumber) { throw new SerializationException(); }  CostMana = _json["cost_mana"]; }
         { var __json0 = _json["buffs"]; if(!__json0.IsArray) { throw new SerializationException(); } Buffs = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  Buffs.Add(__v0); }   }
         PostInit();
     }
 
-    public EC_Skill(int id, string name, string desc, System.Collections.Generic.List<int> buffs ) 
+    public EC_Skill(int id, string name, string desc, int cost_mana, System.Collections.Generic.List<int> buffs ) 
     {
         this.Id = id;
         this.Name = name;
         this.Desc = desc;
+        this.CostMana = cost_mana;
         this.Buffs = buffs;
         PostInit();
     }
@@ -51,6 +53,7 @@ public sealed partial class EC_Skill :  Bright.Config.BeanBase
     /// 描述
     /// </summary>
     public string Desc { get; private set; }
+    public int CostMana { get; private set; }
     /// <summary>
     /// buff引用
     /// </summary>
@@ -76,6 +79,7 @@ public sealed partial class EC_Skill :  Bright.Config.BeanBase
         + "Id:" + Id + ","
         + "Name:" + Name + ","
         + "Desc:" + Desc + ","
+        + "CostMana:" + CostMana + ","
         + "Buffs:" + Bright.Common.StringUtil.CollectionToString(Buffs) + ","
         + "}";
     }
