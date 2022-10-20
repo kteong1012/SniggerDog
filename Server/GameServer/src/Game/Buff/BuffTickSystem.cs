@@ -24,8 +24,7 @@ namespace PostMainland
                     tick.TimerMS -= TimeHelper.DeltaTimeMS;
                     if (tick.TimerMS <= 0)
                     {
-                        ref var buffComponent = ref _world.Get<BuffComponent>(entity);
-                        _gameEvent.Publish(new BuffDettachEvent() { CfgId = buffComponent.Buff.CfgId, TargetEntity = buffComponent.TargetEntity });
+                        ref var detach = ref _world.Add<AT_DetachBuff>(entity);
                     }
                 }
             }

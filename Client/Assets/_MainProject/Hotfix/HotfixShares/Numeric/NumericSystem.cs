@@ -3,29 +3,30 @@ using Leopotam.EcsLite;
 
 namespace PostMainland
 {
-    public class NumericSystem : EcsSystem,IEcsDestroySystem
+    public class NumericSystem : EcsSystem, IEcsRunSystem
     {
-
-        protected override void OnInit(IEcsSystems systems)
+        public void Run(IEcsSystems systems)
         {
-            var setCommandFilter = _world.Filter<Numeric>().Inc<SetNumericDataEvent>().End();
-            _gameEvent.AddEvent<SetNumericDataEvent>(SetNumeric);
+            RunSetNumeric();
         }
-        public void Destroy(IEcsSystems systems)
+        private void RunSetNumeric()
         {
-            _gameEvent.RemoveEvent<SetNumericDataEvent>(SetNumeric);
-        }
-        private void SetNumeric(SetNumericDataEvent e)
-        {
-            var pool = _world.GetPool<NumericComponent>();
-            var numericId = e.NumericId;
-            if (numericId == Numeric.None)
+            var setNumericFilter = _world.Filter<AT_SetNumericData>().End();
+            foreach (var setEntity in setNumericFilter)
             {
-                Log.Error($"添加numeric失败,data的NumericId为None，{numericId}");
-                return;
+                ref var set = ref _world.Get<AT_SetNumericData>(setEntity);
+                var copy = set;
+                _world.DelEntity(setEntity);
+                var pool = _world.GetPool<NumericComponent>();
+                var numericId = copy.NumericId;
+                if (numericId == Numeric.None)
+                {
+                    Log.Error($"添加numeric失败,data的NumericId为None，{numericId}");
+                    return;
+                }
+                ref var numericComponent = ref pool.Get(copy.Entity);
+                numericComponent.Dict[numericId] = copy.Data;
             }
-            ref var numericComponent = ref pool.Get(e.Entity);
-            numericComponent.Dict[numericId] = e.Data;
         }
     }
 }

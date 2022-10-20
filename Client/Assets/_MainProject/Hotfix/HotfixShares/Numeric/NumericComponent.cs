@@ -17,7 +17,7 @@ namespace PostMainland
             c.Dict.Clear();
         }
     }
-    public struct SetNumericDataEvent : IEvent
+    public struct AT_SetNumericData
     {
         public int Entity { get; set; }
         public Numeric NumericId { get; set; }

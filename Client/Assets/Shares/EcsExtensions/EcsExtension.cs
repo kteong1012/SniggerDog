@@ -1,5 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
 using Leopotam.EcsLite;
+using SharpCompress.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PostMainland
 {
@@ -59,6 +63,26 @@ namespace PostMainland
         {
             var pool = world.GetPool<T>();
             pool.Del(entity);
+        }
+        public static ref T NewEntityWith<T>(this EcsWorld world, out int entity) where T : struct
+        {
+            entity = world.NewEntity();
+            return ref world.Add<T>(entity);
+        }
+
+        public static ref T FromFilterOrNew<T>(this EcsFilter filter, out (bool isNew, int entity) result, Func<T, bool> predicate) where T : struct
+        {
+            foreach (var e in filter)
+            {
+                ref T component = ref filter.GetWorld().Get<T>(e);
+                if (predicate(component))
+                {
+                    result = (false, e);
+                    return ref component;
+                }
+            }
+            result = (true, filter.GetWorld().NewEntity());
+            return ref filter.GetWorld().Add<T>(result.entity);
         }
     }
 }

@@ -14,16 +14,14 @@ namespace PostMainland
             c.Buff = null;
         }
     }
-    public struct BuffAttachEvent : IEvent
+    public struct AT_AttachBuff
     {
         public int CfgId { get; set; }
         public int CasterEntity { get; set; }
         public int TargetEntity { get; set; }
     }
-    public struct BuffDettachEvent : IEvent
+    public struct AT_DetachBuff 
     {
-        public int CfgId { get; set; }
-        public int TargetEntity { get; set; }
     }
     public struct BuffTickComponent
     {

@@ -1,5 +1,6 @@
 ﻿using Cfg;
 using Leopotam.EcsLite;
+using System;
 using TouchSocket.Core.Dependency;
 
 namespace PostMainland
@@ -15,8 +16,7 @@ namespace PostMainland
         private void StartWorld()
         {
             EcsWorld world = new EcsWorld();
-            var gameEvent = new GameEvent();
-            EcsSystems systems = new EcsSystems(world, gameEvent);
+            EcsSystems systems = new EcsSystems(world);
             systems.Add(new BuffComponentSystem())
                 .Add(new BuffTickSystem())
                 .Init();
@@ -26,16 +26,16 @@ namespace PostMainland
             var unitPool = world.GetPool<Unit>();
             var buffsPool = world.GetPool<BuffComponent>();
             var numericPool = world.GetPool<NumericComponent>();
-            var ap = world.GetPool<BuffAttachEvent>();
+            var ap = world.GetPool<AT_AttachBuff>();
             ref var numeric = ref numericPool.Add(target);
             ref var unit = ref unitPool.Add(target);
             ref var uni2t = ref unitPool.Add(caster);
             world.Add<BuffStatesComponent>(target);
-            gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000101, CasterEntity = caster, TargetEntity = target });
-            gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target });
+            world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000101, CasterEntity = caster, TargetEntity = target };
+            world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target };
             UniTaskHelper.Wait(800, () =>
             {
-                gameEvent.Publish(new BuffAttachEvent() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target });
+                world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target };
             }).Forget();
         }
     }
