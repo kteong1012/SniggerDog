@@ -6,7 +6,7 @@
     "dispel_level": 0,
     "duration_ms": 0,
     "add_type": 0,
-    "add_layer": 0,
+    "add_layer": 1,
     "meta_buffs": [
       {
         "trigger": {
@@ -15,8 +15,9 @@
         },
         "effect": {
           "$type": "Damage",
+          "temp": 1,
           "type": 1,
-          "numeric_formula": "[CAttack]"
+          "numeric_formula": "【C_Attack】*2 + 15"
         }
       }
     ]
@@ -28,7 +29,7 @@
     "dispel_level": 0,
     "duration_ms": 0,
     "add_type": 0,
-    "add_layer": 0,
+    "add_layer": 1,
     "meta_buffs": [
       {
         "trigger": {
@@ -37,8 +38,9 @@
         },
         "effect": {
           "$type": "Damage",
+          "temp": 1,
           "type": 2,
-          "numeric_formula": "100*(1+[CMagicEnhance])"
+          "numeric_formula": "100*(1+【C_MagicEnhance】)"
         }
       }
     ]
@@ -50,7 +52,7 @@
     "dispel_level": 0,
     "duration_ms": 0,
     "add_type": 0,
-    "add_layer": 0,
+    "add_layer": 1,
     "meta_buffs": [
       {
         "trigger": {
@@ -59,8 +61,9 @@
         },
         "effect": {
           "$type": "Damage",
+          "temp": 1,
           "type": 2,
-          "numeric_formula": "120*(1+[CMagicEnhance])"
+          "numeric_formula": "120*(1+【C_MagicEnhance】)"
         }
       }
     ]
@@ -72,7 +75,7 @@
     "dispel_level": 1,
     "duration_ms": 1000,
     "add_type": 0,
-    "add_layer": 0,
+    "add_layer": 1,
     "meta_buffs": [
       {
         "trigger": {
@@ -81,6 +84,7 @@
         },
         "effect": {
           "$type": "AttachState",
+          "temp": 1,
           "state": 1
         }
       },
@@ -91,8 +95,9 @@
         },
         "effect": {
           "$type": "Damage",
+          "temp": 1,
           "type": 1,
-          "numeric_formula": "200"
+          "numeric_formula": "【C_Attack】+50"
         }
       },
       {
@@ -102,6 +107,7 @@
         },
         "effect": {
           "$type": "DetachState",
+          "temp": 1,
           "state": 1
         }
       }

@@ -46,6 +46,7 @@ public sealed partial class AttachState :  Base
     public override string ToString()
     {
         return "{ "
+        + "Temp:" + Temp + ","
         + "State:" + State + ","
         + "}";
     }

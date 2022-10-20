@@ -18,6 +18,7 @@ public abstract partial class Base :  Bright.Config.BeanBase
 {
     public Base(ByteBuf _buf) 
     {
+        Temp = _buf.ReadInt();
         PostInit();
     }
 
@@ -32,6 +33,7 @@ public abstract partial class Base :  Bright.Config.BeanBase
         }
     }
 
+    public int Temp { get; private set; }
 
 
     public virtual void Resolve(Dictionary<string, object> _tables)
@@ -46,6 +48,7 @@ public abstract partial class Base :  Bright.Config.BeanBase
     public override string ToString()
     {
         return "{ "
+        + "Temp:" + Temp + ","
         + "}";
     }
     

@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     public enum DispelLevel
     {
         /// <summary>
@@ -24,5 +23,4 @@ namespace Cfg
         /// </summary>
         Death = 2,
     }
-
-} 
+}

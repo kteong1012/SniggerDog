@@ -7,6 +7,22 @@ namespace PostMainland
     public struct NumericComponent : IEcsAutoReset<NumericComponent>
     {
         public Dictionary<Numeric, NumericData> Dict { get; set; }
+        public NumericData this[Numeric id]
+        {
+            get
+            {
+                if (!Dict.TryGetValue(id, out var numericData))
+                {
+                    numericData = new NumericData(id);
+                    Dict[id] = numericData;
+                }
+                return numericData;
+            }
+            set
+            {
+                Dict[id] = value;
+            }
+        }
 
         public void AutoReset(ref NumericComponent c)
         {
@@ -21,6 +37,6 @@ namespace PostMainland
     {
         public int Entity { get; set; }
         public Numeric NumericId { get; set; }
-        public NumericData Data { get; set; }
+        public long AddValue { get; set; }
     }
 }

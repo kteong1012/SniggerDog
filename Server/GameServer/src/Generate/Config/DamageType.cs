@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     public enum DamageType
     {
         /// <summary>
@@ -24,5 +23,4 @@ namespace Cfg
         /// </summary>
         Magical = 2,
     }
-
-} 
+}

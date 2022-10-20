@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     /// <summary>
     /// 错误码
     /// </summary>
@@ -28,5 +27,4 @@ namespace Cfg
         /// </summary>
         PasswordError = 1002,
     }
-
-} 
+}

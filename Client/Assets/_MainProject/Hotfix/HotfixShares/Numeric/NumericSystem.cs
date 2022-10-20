@@ -25,7 +25,7 @@ namespace PostMainland
                     return;
                 }
                 ref var numericComponent = ref pool.Get(copy.Entity);
-                numericComponent.Dict[numericId] = copy.Data;
+                numericComponent[numericId] += copy.AddValue;
             }
         }
     }

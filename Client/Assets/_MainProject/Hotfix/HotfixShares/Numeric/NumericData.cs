@@ -13,20 +13,6 @@ namespace PostMainland
         public TypeOfValue TypeOfValue { get; }
         public bool IsCoefficient { get; }
         private long RawValue { get; set; }
-        public int BalanceNumber => TypeOfValue switch
-        {
-            TypeOfValue.Percentage => 100,
-            TypeOfValue.Permillage => 1000,
-            TypeOfValue.Pertenthousandage => 10000,
-            _ => 1
-        };
-        public long BalanceNumberL => TypeOfValue switch
-        {
-            TypeOfValue.Percentage => 100L,
-            TypeOfValue.Permillage => 1000L,
-            TypeOfValue.Pertenthousandage => 10000L,
-            _ => 1L
-        };
         public float BalanceNumberF => TypeOfValue switch
         {
             TypeOfValue.Percentage => 100f,
@@ -34,8 +20,8 @@ namespace PostMainland
             TypeOfValue.Pertenthousandage => 10000f,
             _ => 1f
         };
-        public float FloatValue => RawValue / BalanceNumberF;
-        public long Value
+        public long BalanceNumber => (long)BalanceNumberF;
+        public float Value
         {
             get
             {
@@ -44,7 +30,7 @@ namespace PostMainland
                     case TypeOfValue.Percentage:
                     case TypeOfValue.Permillage:
                     case TypeOfValue.Pertenthousandage:
-                        return (long)FloatValue;
+                        return RawValue / BalanceNumberF;
                     default:
                         return RawValue;
                 }
@@ -101,7 +87,7 @@ namespace PostMainland
             }
             else
             {
-                return new NumericData(b) { RawValue = (long)(b.RawValue * a.BalanceNumberF / a.RawValue) };
+                return new NumericData(b) { RawValue = (long)(a.RawValue * b.RawValue / a.BalanceNumberF) };
             }
         }
         public static NumericData operator /(NumericData a, NumericData b)
@@ -123,14 +109,10 @@ namespace PostMainland
             }
             else
             {
-                return new NumericData(b) { RawValue = (long)(b.RawValue * a.BalanceNumberF / a.RawValue) };
+                return new NumericData(b) { RawValue = (long)(a.RawValue * a.BalanceNumberF / (b.RawValue )) };
             }
         }
         public static explicit operator float(NumericData ob)
-        {
-            return ob.FloatValue;
-        }
-        public static explicit operator long(NumericData ob)
         {
             return ob.Value;
         }
@@ -140,19 +122,19 @@ namespace PostMainland
         }
         public static NumericData operator +(NumericData a, long b)
         {
-            return new NumericData(a) { RawValue = a.RawValue + b };
+            return new NumericData(a) { RawValue = a.RawValue + b * a.BalanceNumber };
         }
         public static NumericData operator -(NumericData a, long b)
         {
-            return new NumericData(a) { RawValue = a.RawValue - b };
+            return new NumericData(a) { RawValue = a.RawValue - b * a.BalanceNumber };
         }
         public static NumericData operator *(NumericData a, float b)
         {
-            return new NumericData(a) { RawValue = (long)(a.RawValue * b) };
+            return new NumericData(a) { RawValue = (long)(a.RawValue * b * a.BalanceNumber) };
         }
         public static NumericData operator /(NumericData a, float b)
         {
-            return new NumericData(a) { RawValue = (long)(a.RawValue / b) };
+            return new NumericData(a) { RawValue = (long)(a.RawValue / (b * a.BalanceNumber)) };
         }
         public override string ToString()
         {

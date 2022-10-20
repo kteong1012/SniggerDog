@@ -23,14 +23,15 @@ namespace PostMainland
             Program.UpdateEvent += () => systems.Run();
             int caster = world.NewEntity();
             int target = world.NewEntity();
-            var unitPool = world.GetPool<Unit>();
-            var buffsPool = world.GetPool<BuffComponent>();
-            var numericPool = world.GetPool<NumericComponent>();
-            var ap = world.GetPool<AT_AttachBuff>();
-            ref var numeric = ref numericPool.Add(target);
-            ref var unit = ref unitPool.Add(target);
-            ref var uni2t = ref unitPool.Add(caster);
+
+            ref var numeric = ref world.Add<NumericComponent>(target);
+            ref var numeric2 = ref world.Add<NumericComponent>(caster);
+            numeric2[Numeric.Attack] += 100;
+            ref var unit = ref world.Add<Unit>(target);
+            ref var uni2t = ref world.Add<Unit>(caster);
             world.Add<BuffStatesComponent>(target);
+            world.NewEntityWith<AT_SetNumericData>(out _) = new AT_SetNumericData() { Entity = target, NumericId = Numeric.HP, AddValue = 1000};
+            world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000001, CasterEntity = caster, TargetEntity = target };
             world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000101, CasterEntity = caster, TargetEntity = target };
             world.NewEntityWith<AT_AttachBuff>(out _) = new AT_AttachBuff() { CfgId = 10000201, CasterEntity = caster, TargetEntity = target };
             UniTaskHelper.Wait(800, () =>

@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     /// <summary>
     /// Buff状态
     /// </summary>
@@ -36,5 +35,4 @@ namespace Cfg
         /// </summary>
         Invisible = 5,
     }
-
-} 
+}

@@ -8,7 +8,8 @@ namespace Cfg.MetaBuffEffect
     {
         public override void Activate(EcsWorld world, int casterEntity, int targetEntity)
         {
-            Log.Info($"{DateTime.Now:mm:ss.fff} {casterEntity} 对 {targetEntity} 造成了{Type}伤害 {NumericFormula}");
+            float value = GetFormulaValue(world, casterEntity, targetEntity, NumericFormula);
+            Log.Info($"{casterEntity} 对 {targetEntity} 造成了{Type}伤害{value}");
         }
     }
     public partial class AttachState
@@ -16,6 +17,7 @@ namespace Cfg.MetaBuffEffect
         public override void Activate(EcsWorld world, int casterEntity, int targetEntity)
         {
             BuffStateHelper.AttachBuffState(world, State, casterEntity, targetEntity);
+            world.NewEntityWith<AT_SetNumericData>(out _) = new AT_SetNumericData() { Entity = targetEntity, NumericId = Numeric.HP, AddValue = 1000 };
         }
     }
     public partial class DetachState

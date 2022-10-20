@@ -46,6 +46,7 @@ public sealed partial class DetachState :  Base
     public override string ToString()
     {
         return "{ "
+        + "Temp:" + Temp + ","
         + "State:" + State + ","
         + "}";
     }

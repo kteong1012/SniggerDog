@@ -54,6 +54,7 @@ public sealed partial class Damage :  Base
     public override string ToString()
     {
         return "{ "
+        + "Temp:" + Temp + ","
         + "Type:" + Type + ","
         + "NumericFormula:" + NumericFormula + ","
         + "}";

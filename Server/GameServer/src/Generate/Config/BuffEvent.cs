@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     public enum BuffEvent
     {
         None = 0,
@@ -21,5 +20,4 @@ namespace Cfg
         /// </summary>
         OnDettach = 2,
     }
-
-} 
+}

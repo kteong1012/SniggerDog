@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     public enum TypeOfValue
     {
         /// <summary>
@@ -28,5 +27,4 @@ namespace Cfg
         /// </summary>
         Pertenthousandage = 3,
     }
-
-} 
+}

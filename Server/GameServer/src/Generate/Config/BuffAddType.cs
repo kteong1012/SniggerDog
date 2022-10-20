@@ -6,9 +6,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace Cfg
-{ 
+{
     public enum BuffAddType
     {
         /// <summary>
@@ -28,5 +27,4 @@ namespace Cfg
         /// </summary>
         AddLayer2 = 3,
     }
-
-} 
+}
