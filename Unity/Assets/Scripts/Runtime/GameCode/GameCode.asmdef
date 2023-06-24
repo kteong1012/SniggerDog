@@ -1,0 +1,16 @@
+{
+    "name": "GameCode",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d0199bb966117534aa78cb9765402d03"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
