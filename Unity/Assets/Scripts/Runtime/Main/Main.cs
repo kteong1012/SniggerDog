@@ -14,23 +14,45 @@ namespace SniggerDog
     {
         void Start()
         {
-            // Editor»·¾³ÏÂ£¬GameCode.dll.bytesÒÑ¾­±»×Ô¶¯¼ÓÔØ£¬²»ĞèÒª¼ÓÔØ£¬ÖØ¸´¼ÓÔØ·´¶ø»á³öÎÊÌâ¡£
+            InitServiceCollection();
+
+            LoadGameCode();
+        }
+
+        private static void InitServiceCollection()
+        {
+            var assemblies = System.AppDomain.CurrentDomain.GetAssemblies();
+
+            foreach (var assembly in assemblies)
+            {
+                ServiceCollection.Instance.LoadAssembly(assembly);
+            }
+
+            ServiceCollection.Instance.ResolveAllServices();
+        }
+
+        private static void LoadGameCode()
+        {
+            // Editorç¯å¢ƒä¸‹ï¼ŒGameCode.dll.byteså·²ç»è¢«è‡ªåŠ¨åŠ è½½ï¼Œä¸éœ€è¦åŠ è½½ï¼Œé‡å¤åŠ è½½åè€Œä¼šå‡ºé—®é¢˜ã€‚
 #if !UNITY_EDITOR
-            // ÏÈ²¹³äÔªÊı¾İ
+            // å…ˆè¡¥å……å…ƒæ•°æ®
             LoadMetadataForAOTAssemblies();
             Assembly hotUpdateAss = Assembly.Load(File.ReadAllBytes(AppConst.GameCodeDllPath));
 #else
-            // EditorÏÂÎŞĞè¼ÓÔØ£¬Ö±½Ó²éÕÒ»ñµÃHotUpdate³ÌĞò¼¯
+            // Editorä¸‹æ— éœ€åŠ è½½ï¼Œç›´æ¥æŸ¥æ‰¾è·å¾—HotUpdateç¨‹åºé›†
             Assembly hotUpdateAss = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "GameCode");
 #endif
 
             Type type = hotUpdateAss.GetType("SniggerDog.GameEntry");
             type.GetMethod("StartGame").Invoke(null, null);
+
+            ServiceCollection.Instance.LoadAssembly(hotUpdateAss);
+            ServiceCollection.Instance.ResolveAllServices();
         }
 
         private static void LoadMetadataForAOTAssemblies()
         {
-            //½âÎö¹æÔò£ºdllÊıÁ¿(4)+£¨³¤¶È+dll±¾Ìå(Ñ¹Ëõ)£©
+            //è§£æè§„åˆ™ï¼šdllæ•°é‡(4)+ï¼ˆé•¿åº¦+dllæœ¬ä½“(å‹ç¼©)ï¼‰
             var bytes = File.ReadAllBytes(AppConst.AotDllsPackagePath);
             if (bytes == null || bytes.Length == 0)
             {
@@ -44,7 +66,7 @@ namespace SniggerDog
                 var length = reader.ReadLength();
                 var dllBytes = reader.ReadBytes(length);
                 var err = RuntimeApi.LoadMetadataForAOTAssembly(dllBytes, HomologousImageMode.SuperSet);
-                Debug.Log($"LoadMetadataForAOTAssembly:µÚ{i}¸ö. ret:{err}");
+                Debug.Log($"LoadMetadataForAOTAssembly:ç¬¬{i}ä¸ª. ret:{err}");
             }
         }
     }
